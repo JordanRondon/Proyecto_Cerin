@@ -19,8 +19,14 @@ namespace Cerin_Ingenieros
 
         private void btn_empleado_Click(object sender, EventArgs e)
         {
-            preCliente preCliente = new preCliente();
+            preEmpleado preCliente = new preEmpleado();
             preCliente.Show();
+        }
+
+        private void btn_equipo_Click(object sender, EventArgs e)
+        {
+            preEquipo preEquipo = new preEquipo();
+            preEquipo.Show();
         }
     }
 }

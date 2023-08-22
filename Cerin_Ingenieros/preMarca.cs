@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cerin_Ingenieros
 {
-    public partial class preCliente : Form
+    public partial class preMarca : Form
     {
-        public preCliente()
+        public preMarca()
         {
             InitializeComponent();
         }
