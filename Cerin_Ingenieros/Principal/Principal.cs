@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cerin_Ingenieros.Servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,12 @@ namespace Cerin_Ingenieros
         {
             preEquipo preEquipo = new preEquipo();
             preEquipo.Show();
+        }
+
+        private void btn_alquiler_Click(object sender, EventArgs e)
+        {
+            preAlquiler preAlquiler = new preAlquiler();
+            preAlquiler.Show();
         }
     }
 }

@@ -46,42 +46,66 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="preEmpleado.cs">
+    <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="preEmpleado.Designer.cs">
+    <Compile Include="Mantenedor\preEmpleado.Designer.cs">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="preEquipo.cs">
+    <Compile Include="Mantenedor\preEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="preEquipo.Designer.cs">
+    <Compile Include="Mantenedor\preEquipo.Designer.cs">
       <DependentUpon>preEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="preMarca.cs">
+    <Compile Include="Mantenedor\preMarca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="preMarca.Designer.cs">
+    <Compile Include="Mantenedor\preMarca.Designer.cs">
       <DependentUpon>preMarca.cs</DependentUpon>
     </Compile>
-    <Compile Include="Principal.cs">
+    <Compile Include="Principal\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Principal.Designer.cs">
+    <Compile Include="Principal\Principal.Designer.cs">
       <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="preEmpleado.resx">
+    <Compile Include="Servicios\Mantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mantenimiento.Designer.cs">
+      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\preAgregarEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\preAgregarEquipo.Designer.cs">
+      <DependentUpon>preAgregarEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\preAlquiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\preAlquiler.Designer.cs">
+      <DependentUpon>preAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\preSelectCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\preSelectCliente.Designer.cs">
+      <DependentUpon>preSelectCliente.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="preEquipo.resx">
+    <EmbeddedResource Include="Mantenedor\preEquipo.resx">
       <DependentUpon>preEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="preMarca.resx">
+    <EmbeddedResource Include="Mantenedor\preMarca.resx">
       <DependentUpon>preMarca.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Principal.resx">
+    <EmbeddedResource Include="Principal\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -93,6 +117,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Servicios\Mantenimiento.resx">
+      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\preAlquiler.resx">
+      <DependentUpon>preAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\preSelectCliente.resx">
+      <DependentUpon>preSelectCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,8 +153,6 @@
       <Name>CapaLogica</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mantenedor\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
