@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_marcas = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txb_apellidos_empleado = new System.Windows.Forms.TextBox();
-            this.txb_dniEmpleado = new System.Windows.Forms.TextBox();
+            this.txb_nombre_marca = new System.Windows.Forms.TextBox();
+            this.txb_codigo_marca = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_nuevo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_marcas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView_marcas
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 277);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1156, 264);
-            this.dataGridView1.TabIndex = 19;
+            this.dataGridView_marcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_marcas.Location = new System.Drawing.Point(12, 277);
+            this.dataGridView_marcas.Name = "dataGridView_marcas";
+            this.dataGridView_marcas.Size = new System.Drawing.Size(1156, 264);
+            this.dataGridView_marcas.TabIndex = 19;
             // 
             // label7
             // 
@@ -66,8 +66,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txb_apellidos_empleado);
-            this.groupBox1.Controls.Add(this.txb_dniEmpleado);
+            this.groupBox1.Controls.Add(this.txb_nombre_marca);
+            this.groupBox1.Controls.Add(this.txb_codigo_marca);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -78,21 +78,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA MARCA";
             // 
-            // txb_apellidos_empleado
+            // txb_nombre_marca
             // 
-            this.txb_apellidos_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_apellidos_empleado.Location = new System.Drawing.Point(674, 51);
-            this.txb_apellidos_empleado.Name = "txb_apellidos_empleado";
-            this.txb_apellidos_empleado.Size = new System.Drawing.Size(241, 23);
-            this.txb_apellidos_empleado.TabIndex = 10;
+            this.txb_nombre_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_nombre_marca.Location = new System.Drawing.Point(674, 51);
+            this.txb_nombre_marca.Name = "txb_nombre_marca";
+            this.txb_nombre_marca.Size = new System.Drawing.Size(241, 23);
+            this.txb_nombre_marca.TabIndex = 10;
             // 
-            // txb_dniEmpleado
+            // txb_codigo_marca
             // 
-            this.txb_dniEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_dniEmpleado.Location = new System.Drawing.Point(268, 51);
-            this.txb_dniEmpleado.Name = "txb_dniEmpleado";
-            this.txb_dniEmpleado.Size = new System.Drawing.Size(241, 23);
-            this.txb_dniEmpleado.TabIndex = 6;
+            this.txb_codigo_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_codigo_marca.Location = new System.Drawing.Point(268, 51);
+            this.txb_codigo_marca.Name = "txb_codigo_marca";
+            this.txb_codigo_marca.Size = new System.Drawing.Size(241, 23);
+            this.txb_codigo_marca.TabIndex = 6;
             // 
             // label3
             // 
@@ -116,65 +116,65 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btn_eliminar);
+            this.panel1.Controls.Add(this.btn_editar);
+            this.panel1.Controls.Add(this.btn_cancelar);
+            this.panel1.Controls.Add(this.btn_guardar);
+            this.panel1.Controls.Add(this.btn_nuevo);
             this.panel1.Location = new System.Drawing.Point(12, 198);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1156, 48);
             this.panel1.TabIndex = 20;
             // 
-            // button4
+            // btn_eliminar
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(685, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 40);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(90, 40);
+            this.btn_eliminar.TabIndex = 5;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btn_editar
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(573, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.Location = new System.Drawing.Point(573, 3);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(90, 40);
+            this.btn_editar.TabIndex = 4;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_cancelar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(805, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(90, 40);
+            this.btn_cancelar.TabIndex = 2;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_guardar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(462, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.Location = new System.Drawing.Point(462, 3);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(90, 40);
+            this.btn_guardar.TabIndex = 1;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_nuevo
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(336, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.Location = new System.Drawing.Point(336, 3);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(90, 40);
+            this.btn_nuevo.TabIndex = 0;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
             // 
             // preMarca
             // 
@@ -182,12 +182,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 553);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_marcas);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preMarca";
             this.Text = "preMarca";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_marcas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -198,18 +199,18 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_marcas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txb_apellidos_empleado;
-        private System.Windows.Forms.TextBox txb_dniEmpleado;
+        private System.Windows.Forms.TextBox txb_nombre_marca;
+        private System.Windows.Forms.TextBox txb_codigo_marca;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Button btn_nuevo;
     }
 }

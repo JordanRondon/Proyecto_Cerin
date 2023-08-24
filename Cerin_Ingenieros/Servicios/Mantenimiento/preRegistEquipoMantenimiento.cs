@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cerin_Ingenieros.Servicios
+namespace Cerin_Ingenieros.Servicios.Mantenimiento
 {
-    public partial class preMantenimiento : Form
+    public partial class preRegistEquipoMantenimiento : Form
     {
-        public preMantenimiento()
+        public preRegistEquipoMantenimiento()
         {
             InitializeComponent();
         }

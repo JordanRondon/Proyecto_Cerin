@@ -17,35 +17,43 @@ namespace Cerin_Ingenieros
         {
             InitializeComponent();
         }
+        //funcion para el acceso a los formulario
+        private void AbrirFormHijo(object formhijo)
+        {
+            if (this.panel_principal.Controls.Count > 0)
+                this.panel_principal.Controls.RemoveAt(0);
+            Form fh = formhijo as Form;
+            fh.TopLevel = false;
+            fh.Dock = DockStyle.Fill;
+            this.panel_principal.Controls.Add(fh);
+            this.panel_principal.Tag = fh;
+            fh.Show();
+        }
+
 
         private void btn_empleado_Click(object sender, EventArgs e)
         {
-            preEmpleado preCliente = new preEmpleado();
-            preCliente.Show();
+            AbrirFormHijo(new preEmpleado());
         }
 
         private void btn_equipo_Click(object sender, EventArgs e)
         {
-            preEquipo preEquipo = new preEquipo();
-            preEquipo.Show();
+            AbrirFormHijo(new preEquipo());
         }
 
         private void btn_alquiler_Click(object sender, EventArgs e)
         {
-            preAlquiler preAlquiler = new preAlquiler();
-            preAlquiler.Show();
+            AbrirFormHijo(new preAlquiler());
         }
 
         private void btn_mantenimiento_Click(object sender, EventArgs e)
         {
-            preMantenimiento preMantenimiento = new preMantenimiento();
-            preMantenimiento.Show();
+            AbrirFormHijo(new preMantenimiento());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_marca_Click(object sender, EventArgs e)
         {
-            preMarca preMarca = new preMarca();
-            preMarca.Show();
+            AbrirFormHijo(new preMarca());
         }
     }
 }

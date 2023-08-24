@@ -30,23 +30,21 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txb_apellidos_empleado = new System.Windows.Forms.TextBox();
-            this.txb_dniEmpleado = new System.Windows.Forms.TextBox();
+            this.txb_modelo_equipo = new System.Windows.Forms.TextBox();
+            this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,37 +60,35 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.comboBox_marca);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txb_apellidos_empleado);
-            this.groupBox1.Controls.Add(this.txb_dniEmpleado);
+            this.groupBox1.Controls.Add(this.txb_modelo_equipo);
+            this.groupBox1.Controls.Add(this.txb_serie_equipo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 135);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 97);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CARACTERISTICAS DE EQUIPO";
             // 
-            // comboBox1
+            // comboBox_marca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBox_marca.FormattingEnabled = true;
+            this.comboBox_marca.Items.AddRange(new object[] {
             "Trimble",
             "Riegl",
             "Pentax",
             "Geoslam",
             "DJI Enterprise",
             "Spectra Precision"});
-            this.comboBox1.Location = new System.Drawing.Point(898, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 26);
-            this.comboBox1.TabIndex = 13;
-            this.comboBox1.Text = "(seleciones una opcion)";
+            this.comboBox_marca.Location = new System.Drawing.Point(898, 37);
+            this.comboBox_marca.Name = "comboBox_marca";
+            this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
+            this.comboBox_marca.TabIndex = 13;
+            this.comboBox_marca.Text = "(seleciones una opcion)";
             // 
             // label8
             // 
@@ -104,21 +100,21 @@
             this.label8.TabIndex = 12;
             this.label8.Text = "Marca";
             // 
-            // txb_apellidos_empleado
+            // txb_modelo_equipo
             // 
-            this.txb_apellidos_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_apellidos_empleado.Location = new System.Drawing.Point(496, 40);
-            this.txb_apellidos_empleado.Name = "txb_apellidos_empleado";
-            this.txb_apellidos_empleado.Size = new System.Drawing.Size(241, 23);
-            this.txb_apellidos_empleado.TabIndex = 10;
+            this.txb_modelo_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_modelo_equipo.Location = new System.Drawing.Point(496, 40);
+            this.txb_modelo_equipo.Name = "txb_modelo_equipo";
+            this.txb_modelo_equipo.Size = new System.Drawing.Size(241, 23);
+            this.txb_modelo_equipo.TabIndex = 10;
             // 
-            // txb_dniEmpleado
+            // txb_serie_equipo
             // 
-            this.txb_dniEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_dniEmpleado.Location = new System.Drawing.Point(90, 40);
-            this.txb_dniEmpleado.Name = "txb_dniEmpleado";
-            this.txb_dniEmpleado.Size = new System.Drawing.Size(241, 23);
-            this.txb_dniEmpleado.TabIndex = 6;
+            this.txb_serie_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_serie_equipo.Location = new System.Drawing.Point(90, 40);
+            this.txb_serie_equipo.Name = "txb_serie_equipo";
+            this.txb_serie_equipo.Size = new System.Drawing.Size(241, 23);
+            this.txb_serie_equipo.TabIndex = 6;
             // 
             // label3
             // 
@@ -140,112 +136,91 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Serie";
             // 
-            // dataGridView1
+            // dataGridView_equipos
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 297);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1139, 244);
-            this.dataGridView1.TabIndex = 15;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "Alquiler",
-            "Mantenimiento"});
-            this.comboBox2.Location = new System.Drawing.Point(90, 95);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(241, 26);
-            this.comboBox2.TabIndex = 15;
-            this.comboBox2.Text = "(seleciones una opcion)";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 100);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 17);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Tipo";
+            this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_equipos.Location = new System.Drawing.Point(12, 260);
+            this.dataGridView_equipos.Name = "dataGridView_equipos";
+            this.dataGridView_equipos.Size = new System.Drawing.Size(1139, 244);
+            this.dataGridView_equipos.TabIndex = 15;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(12, 216);
+            this.panel1.Controls.Add(this.btn_eliminar);
+            this.panel1.Controls.Add(this.btn_editar);
+            this.panel1.Controls.Add(this.btn_cancelar);
+            this.panel1.Controls.Add(this.btn_guardar);
+            this.panel1.Controls.Add(this.btn_nuevo);
+            this.panel1.Location = new System.Drawing.Point(12, 179);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1139, 48);
             this.panel1.TabIndex = 16;
             // 
-            // button4
+            // btn_eliminar
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(685, 4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 40);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Eliminar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(90, 40);
+            this.btn_eliminar.TabIndex = 5;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btn_editar
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(573, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 40);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.Location = new System.Drawing.Point(573, 3);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(90, 40);
+            this.btn_editar.TabIndex = 4;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_cancelar
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(805, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 40);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(90, 40);
+            this.btn_cancelar.TabIndex = 2;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btn_guardar
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(462, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Guardar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.Location = new System.Drawing.Point(462, 3);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(90, 40);
+            this.btn_guardar.TabIndex = 1;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_nuevo
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(336, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.Location = new System.Drawing.Point(336, 3);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(90, 40);
+            this.btn_nuevo.TabIndex = 0;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
             // 
             // preEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 553);
+            this.ClientSize = new System.Drawing.Size(1180, 560);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridView_equipos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preEquipo";
             this.Text = "preEquipo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,20 +231,18 @@
 
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox_marca;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txb_apellidos_empleado;
-        private System.Windows.Forms.TextBox txb_dniEmpleado;
+        private System.Windows.Forms.TextBox txb_modelo_equipo;
+        private System.Windows.Forms.TextBox txb_serie_equipo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridView dataGridView_equipos;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_editar;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.Button btn_guardar;
+        private System.Windows.Forms.Button btn_nuevo;
     }
 }

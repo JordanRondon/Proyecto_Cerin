@@ -72,22 +72,28 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\preMantenimiento.cs">
+    <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\preMantenimiento.Designer.cs">
+    <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.Designer.cs">
+      <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Servicios\Mantenimiento\preMantenimiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\Mantenimiento\preMantenimiento.Designer.cs">
       <DependentUpon>preMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\preAgregarEquipo.cs">
+    <Compile Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\preAgregarEquipo.Designer.cs">
-      <DependentUpon>preAgregarEquipo.cs</DependentUpon>
+    <Compile Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.Designer.cs">
+      <DependentUpon>preRegistEquipoMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\preAlquiler.cs">
+    <Compile Include="Servicios\Alquiler\preAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\preAlquiler.Designer.cs">
+    <Compile Include="Servicios\Alquiler\preAlquiler.Designer.cs">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\preSelectCliente.cs">
@@ -117,13 +123,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Servicios\preAgregarEquipo.resx">
-      <DependentUpon>preAgregarEquipo.cs</DependentUpon>
+    <EmbeddedResource Include="Servicios\Alquiler\preSelectEquipoAlquiler.resx">
+      <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\preMantenimiento.resx">
+    <EmbeddedResource Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.resx">
+      <DependentUpon>preRegistEquipoMantenimiento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\Mantenimiento\preMantenimiento.resx">
       <DependentUpon>preMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\preAlquiler.resx">
+    <EmbeddedResource Include="Servicios\Alquiler\preAlquiler.resx">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\preSelectCliente.resx">
