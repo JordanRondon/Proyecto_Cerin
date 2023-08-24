@@ -72,11 +72,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Servicios\Mantenimiento.cs">
+    <Compile Include="Servicios\preMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\Mantenimiento.Designer.cs">
-      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    <Compile Include="Servicios\preMantenimiento.Designer.cs">
+      <DependentUpon>preMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\preAgregarEquipo.cs">
       <SubType>Form</SubType>
@@ -117,8 +117,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Servicios\Mantenimiento.resx">
-      <DependentUpon>Mantenimiento.cs</DependentUpon>
+    <EmbeddedResource Include="Servicios\preAgregarEquipo.resx">
+      <DependentUpon>preAgregarEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\preMantenimiento.resx">
+      <DependentUpon>preMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\preAlquiler.resx">
       <DependentUpon>preAlquiler.cs</DependentUpon>

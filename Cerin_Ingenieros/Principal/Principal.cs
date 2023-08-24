@@ -35,5 +35,17 @@ namespace Cerin_Ingenieros
             preAlquiler preAlquiler = new preAlquiler();
             preAlquiler.Show();
         }
+
+        private void btn_mantenimiento_Click(object sender, EventArgs e)
+        {
+            preMantenimiento preMantenimiento = new preMantenimiento();
+            preMantenimiento.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            preMarca preMarca = new preMarca();
+            preMarca.Show();
+        }
     }
 }

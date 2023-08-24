@@ -60,6 +60,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "MARCAS";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btn_empleado
             // 
@@ -92,6 +93,7 @@
             this.btn_mantenimiento.TabIndex = 1;
             this.btn_mantenimiento.Text = "MANTENIMIENTO";
             this.btn_mantenimiento.UseVisualStyleBackColor = true;
+            this.btn_mantenimiento.Click += new System.EventHandler(this.btn_mantenimiento_Click);
             // 
             // btn_alquiler
             // 

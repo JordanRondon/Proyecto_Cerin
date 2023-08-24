@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Servicios
 {
-    public partial class Mantenimiento : Form
+    public partial class preMantenimiento : Form
     {
-        public Mantenimiento()
+        public preMantenimiento()
         {
             InitializeComponent();
         }
