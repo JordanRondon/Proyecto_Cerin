@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Cerin_Ingenieros.Servicios
+namespace Cerin_Ingenieros.Servicios.Alquiler
 {
-    public partial class preAgregarEquipo : Form
+    public partial class preSelectEquipoAlquiler : Form
     {
-        public preAgregarEquipo()
+        public preSelectEquipoAlquiler()
         {
             InitializeComponent();
         }
