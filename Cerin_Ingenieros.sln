@@ -5,7 +5,7 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cerin_Ingenieros", "Cerin_Ingenieros\Cerin_Ingenieros.csproj", "{7215F521-A455-4814-AFFF-7F746395979D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDato", "CapaDato\CapaDato.csproj", "{F263D4B1-D426-4030-A681-B414CDD6B98C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "CapaDato\CapaDatos.csproj", "{F263D4B1-D426-4030-A681-B414CDD6B98C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidad", "CapaEntidad\CapaEntidad.csproj", "{C4EA12DD-76DD-4824-8FCD-0EA5CF95D520}"
 EndProject

@@ -1,4 +1,5 @@
 ﻿using Cerin_Ingenieros.Servicios;
+using Cerin_Ingenieros.Servicios.ActualizarServicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,6 +55,11 @@ namespace Cerin_Ingenieros
         private void btn_marca_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preMarca());
+        }
+
+        private void btn_actualizar_servicio_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preActualizarServicios());
         }
     }
 }

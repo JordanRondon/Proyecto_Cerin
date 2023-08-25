@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelOpPrincipal = new System.Windows.Forms.Panel();
+            this.btn_actualizar_servicio = new System.Windows.Forms.Button();
             this.btn_marca = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
             this.btn_equipo = new System.Windows.Forms.Button();
@@ -41,6 +42,7 @@
             // panelOpPrincipal
             // 
             this.panelOpPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.panelOpPrincipal.Controls.Add(this.btn_actualizar_servicio);
             this.panelOpPrincipal.Controls.Add(this.btn_marca);
             this.panelOpPrincipal.Controls.Add(this.btn_empleado);
             this.panelOpPrincipal.Controls.Add(this.btn_equipo);
@@ -50,6 +52,17 @@
             this.panelOpPrincipal.Name = "panelOpPrincipal";
             this.panelOpPrincipal.Size = new System.Drawing.Size(150, 584);
             this.panelOpPrincipal.TabIndex = 0;
+            // 
+            // btn_actualizar_servicio
+            // 
+            this.btn_actualizar_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_actualizar_servicio.Location = new System.Drawing.Point(0, 378);
+            this.btn_actualizar_servicio.Name = "btn_actualizar_servicio";
+            this.btn_actualizar_servicio.Size = new System.Drawing.Size(150, 50);
+            this.btn_actualizar_servicio.TabIndex = 5;
+            this.btn_actualizar_servicio.Text = "ACTUALIZAR SERVICIO";
+            this.btn_actualizar_servicio.UseVisualStyleBackColor = true;
+            this.btn_actualizar_servicio.Click += new System.EventHandler(this.btn_actualizar_servicio_Click);
             // 
             // btn_marca
             // 
@@ -137,5 +150,6 @@
         private System.Windows.Forms.Button btn_equipo;
         private System.Windows.Forms.Button btn_mantenimiento;
         private System.Windows.Forms.Button btn_marca;
+        private System.Windows.Forms.Button btn_actualizar_servicio;
     }
 }

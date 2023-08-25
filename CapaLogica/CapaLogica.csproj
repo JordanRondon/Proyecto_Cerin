@@ -45,9 +45,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaDato\CapaDato.csproj">
+    <ProjectReference Include="..\CapaDato\CapaDatos.csproj">
       <Project>{f263d4b1-d426-4030-a681-b414cdd6b98c}</Project>
-      <Name>CapaDato</Name>
+      <Name>CapaDatos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{c4ea12dd-76dd-4824-8fcd-0ea5cf95d520}</Project>
