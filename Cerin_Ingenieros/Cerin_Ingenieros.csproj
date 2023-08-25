@@ -72,6 +72,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.Designer.cs">
+      <DependentUpon>preActualizarServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Servicios\ActualizarServicios\preActualizarServicios.resx">
+      <DependentUpon>preActualizarServicios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Alquiler\preSelectEquipoAlquiler.resx">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,9 +161,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CapaDato\CapaDato.csproj">
+    <ProjectReference Include="..\CapaDato\CapaDatos.csproj">
       <Project>{f263d4b1-d426-4030-a681-b414cdd6b98c}</Project>
-      <Name>CapaDato</Name>
+      <Name>CapaDatos</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaEntidad\CapaEntidad.csproj">
       <Project>{c4ea12dd-76dd-4824-8fcd-0ea5cf95d520}</Project>
