@@ -1,0 +1,25 @@
+﻿using CapaDato;
+using CapaEntidad;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CapaLogica
+{
+    public class logMarca
+    {
+        #region Singleton
+        private static readonly logMarca instancia = new logMarca();
+        public static logMarca GetInstancia => instancia;
+        #endregion
+
+        #region Metodos
+        public List<entMarca> listarProducto() => datMarca.GetInstancia.listarMarcas();
+
+        public bool insertaMarca(entMarca marca) => datMarca.GetInstancia.insertarMarca(marca);
+        #endregion
+
+    }
+}

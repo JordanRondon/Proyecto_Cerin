@@ -61,7 +61,7 @@ namespace CapaDato
 
             try
             {
-                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
 
                 cmd = new SqlCommand("sp_insertarMarca", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
