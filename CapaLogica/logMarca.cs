@@ -19,7 +19,10 @@ namespace CapaLogica
         public List<entMarca> listarProducto() => datMarca.GetInstancia.listarMarcas();
 
         public bool insertaMarca(entMarca marca) => datMarca.GetInstancia.insertarMarca(marca);
-        #endregion
 
+        public bool editarMarca(entMarca marca) => datMarca.GetInstancia.editarMarca(marca);
+
+        public bool eliminarMarca(entMarca marca) => datMarca.GetInstancia.eliminarMarca(marca);
+        #endregion
     }
 }

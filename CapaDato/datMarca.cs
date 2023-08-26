@@ -86,6 +86,68 @@ namespace CapaDato
 
             return inserta;
         }
+
+        public bool editarMarca(entMarca marca)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+            
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("sp_modificartarMarca", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_Marca", marca.IdMarca);
+                cmd.Parameters.AddWithValue("@nombre", marca.Nombre);
+                
+                cn.Open();
+                
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
+        public bool eliminarMarca(entMarca marca)
+        {
+            SqlCommand cmd = null;
+            bool seElimino = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("sp_eliminarMarca", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_marca", marca.IdMarca);
+                
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    seElimino = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return seElimino;
+        }
         #endregion
     }
 }

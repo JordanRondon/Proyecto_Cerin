@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidad;
+using CapaLogica;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +88,81 @@ namespace Cerin_Ingenieros
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txb_nombre_marca.Text != "")
+                {
+                    entMarca marca = new entMarca();
 
+                    marca.Nombre = txb_nombre_marca.Text.Trim();
+
+                    logMarca.GetInstancia.insertaMarca(marca);
+                }
+                else
+                    MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+
+            limpiar_entradas();
+            listarMarcas();
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txb_codigo_marca.Text != "" && txb_nombre_marca.Text != "")
+                {
+                    entMarca marca = new entMarca();
+
+                    marca.IdMarca = int.Parse(txb_codigo_marca.Text);
+                    marca.Nombre = txb_nombre_marca.Text.Trim();
+
+                    logMarca.GetInstancia.editarMarca(marca);
+                }
+                else
+                {
+                    MessageBox.Show("Casilla vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            limpiar_entradas();
+            listarMarcas();
+            deshablitar_btn();
+            deshablitar_entradas();
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txb_codigo_marca.Text != "" && txb_nombre_marca.Text != "")
+                {
+                    entMarca marca = new entMarca();
+
+                    marca.IdMarca = int.Parse(txb_codigo_marca.Text);
+
+                    logMarca.GetInstancia.eliminarMarca(marca);
+                }
+                else
+                {
+                    MessageBox.Show("Casilla vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            limpiar_entradas();
+            listarMarcas();
+            deshablitar_btn();
+            deshablitar_entradas();
         }
     }
 }
