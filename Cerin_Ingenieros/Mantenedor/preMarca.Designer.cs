@@ -53,6 +53,7 @@
             this.dataGridView_marcas.Name = "dataGridView_marcas";
             this.dataGridView_marcas.Size = new System.Drawing.Size(1156, 264);
             this.dataGridView_marcas.TabIndex = 19;
+            this.dataGridView_marcas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_marcas_CellDoubleClick);
             // 
             // label7
             // 
@@ -135,6 +136,7 @@
             this.btn_eliminar.TabIndex = 5;
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_editar
             // 
@@ -145,6 +147,7 @@
             this.btn_editar.TabIndex = 4;
             this.btn_editar.Text = "Editar";
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_cancelar
             // 
@@ -155,6 +158,7 @@
             this.btn_cancelar.TabIndex = 2;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_guardar
             // 
@@ -165,6 +169,7 @@
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_nuevo
             // 
@@ -175,6 +180,7 @@
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // preMarca
             // 
