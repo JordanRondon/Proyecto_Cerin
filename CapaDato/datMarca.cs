@@ -53,6 +53,39 @@ namespace CapaDato
 
             return lista;
         }
+
+        public bool insertarMarca(entMarca marca)
+        {
+            SqlCommand cmd = null;
+            bool inserta = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("sp_insertarMarca", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre", marca.Nombre);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { 
+                cmd.Connection.Close(); 
+            }
+
+            return inserta;
+        }
         #endregion
     }
 }
