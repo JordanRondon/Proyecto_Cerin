@@ -96,7 +96,7 @@ namespace CapaDato
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
 
-                cmd = new SqlCommand("sp_modificartarMarca", cn);
+                cmd = new SqlCommand("sp_modificarMarca", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id_Marca", marca.IdMarca);
