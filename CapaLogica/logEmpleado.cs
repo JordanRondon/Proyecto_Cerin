@@ -16,7 +16,7 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entEmpleado> listarProducto() => datEmpleado.GetInstancia.listarEmpleado();
+        public List<entEmpleado> listarEmpleado() => datEmpleado.GetInstancia.listarEmpleado();
 
         public bool insertaEmpleado(entEmpleado empleado) => datEmpleado.GetInstancia.insertarEmpleado(empleado);
 

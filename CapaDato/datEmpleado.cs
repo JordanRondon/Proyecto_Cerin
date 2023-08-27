@@ -36,7 +36,7 @@ namespace CapaDato
                 {
                     entEmpleado empleado = new entEmpleado();
 
-                    empleado.IdEmpleado = Convert.ToInt32(dr["id_Marca"]);
+                    empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
                     empleado.Nombre = Convert.ToString(dr["nombre"]);
                     empleado.Apellido = Convert.ToString(dr["apellido"]);
                     empleado.Dni = Convert.ToInt32(dr["dni"]);
@@ -140,7 +140,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_eliminarEmpleado", cn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@@id_empleado", empleado.IdEmpleado);
+                cmd.Parameters.AddWithValue("@id_empleado", empleado.IdEmpleado);
 
                 cn.Open();
 
