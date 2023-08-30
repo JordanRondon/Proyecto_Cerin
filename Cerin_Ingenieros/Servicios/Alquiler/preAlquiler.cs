@@ -30,5 +30,11 @@ namespace Cerin_Ingenieros.Servicios
             preSelectEquipoAlquiler preSelectEquipo = new preSelectEquipoAlquiler();
             preSelectEquipo.ShowDialog();
         }
+
+        private void horaFecha_Tick(object sender, EventArgs e)
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
+        }
     }
 }
