@@ -28,41 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView_lista_quipos = new System.Windows.Forms.DataGridView();
-            this.btn_agregar_equipo = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lb_dni_ruc = new System.Windows.Forms.Label();
-            this.lb_apellidos = new System.Windows.Forms.Label();
-            this.lb_telefono = new System.Windows.Forms.Label();
-            this.lb_nombres = new System.Windows.Forms.Label();
-            this.comboBox_cliente = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btn_select_cliente = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.lbHora = new System.Windows.Forms.Label();
+            this.horaFecha = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
+            this.lb_apellidos_cliente = new System.Windows.Forms.Label();
+            this.lb_telefono_cliente = new System.Windows.Forms.Label();
+            this.lb_nombres_cliente = new System.Windows.Forms.Label();
+            this.comboBox_empleado = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView_lista_quipos);
             this.groupBox3.Controls.Add(this.btn_agregar_equipo);
+            this.groupBox3.Controls.Add(this.dataGridView_lista_quipos);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(396, 70);
+            this.groupBox3.Location = new System.Drawing.Point(396, 117);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(766, 386);
+            this.groupBox3.Size = new System.Drawing.Size(766, 421);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
@@ -72,158 +72,25 @@
             this.dataGridView_lista_quipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_lista_quipos.Location = new System.Drawing.Point(33, 89);
             this.dataGridView_lista_quipos.Name = "dataGridView_lista_quipos";
-            this.dataGridView_lista_quipos.Size = new System.Drawing.Size(717, 273);
+            this.dataGridView_lista_quipos.Size = new System.Drawing.Size(717, 310);
             this.dataGridView_lista_quipos.TabIndex = 2;
-            // 
-            // btn_agregar_equipo
-            // 
-            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 32);
-            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
-            this.btn_agregar_equipo.Size = new System.Drawing.Size(201, 37);
-            this.btn_agregar_equipo.TabIndex = 1;
-            this.btn_agregar_equipo.Text = "Agregar equipo";
-            this.btn_agregar_equipo.UseVisualStyleBackColor = true;
-            this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.lb_dni_ruc);
-            this.groupBox2.Controls.Add(this.lb_apellidos);
-            this.groupBox2.Controls.Add(this.lb_telefono);
-            this.groupBox2.Controls.Add(this.lb_nombres);
-            this.groupBox2.Controls.Add(this.comboBox_cliente);
+            this.groupBox2.Controls.Add(this.btn_slect_cliente);
+            this.groupBox2.Controls.Add(this.lb_dni_ruc_cliente);
+            this.groupBox2.Controls.Add(this.lb_apellidos_cliente);
+            this.groupBox2.Controls.Add(this.lb_telefono_cliente);
+            this.groupBox2.Controls.Add(this.lb_nombres_cliente);
+            this.groupBox2.Controls.Add(this.comboBox_empleado);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.btn_select_cliente);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 70);
+            this.groupBox2.Location = new System.Drawing.Point(12, 117);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 386);
+            this.groupBox2.Size = new System.Drawing.Size(347, 421);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
-            // 
-            // lb_dni_ruc
-            // 
-            this.lb_dni_ruc.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_dni_ruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dni_ruc.Location = new System.Drawing.Point(35, 113);
-            this.lb_dni_ruc.Name = "lb_dni_ruc";
-            this.lb_dni_ruc.Size = new System.Drawing.Size(280, 20);
-            this.lb_dni_ruc.TabIndex = 19;
-            this.lb_dni_ruc.Text = "DNI / RUC";
-            this.lb_dni_ruc.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_apellidos
-            // 
-            this.lb_apellidos.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_apellidos.Location = new System.Drawing.Point(35, 169);
-            this.lb_apellidos.Name = "lb_apellidos";
-            this.lb_apellidos.Size = new System.Drawing.Size(280, 20);
-            this.lb_apellidos.TabIndex = 18;
-            this.lb_apellidos.Text = "Apellidos";
-            this.lb_apellidos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_telefono
-            // 
-            this.lb_telefono.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_telefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_telefono.Location = new System.Drawing.Point(35, 282);
-            this.lb_telefono.Name = "lb_telefono";
-            this.lb_telefono.Size = new System.Drawing.Size(280, 20);
-            this.lb_telefono.TabIndex = 17;
-            this.lb_telefono.Text = "Telefono";
-            this.lb_telefono.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lb_nombres
-            // 
-            this.lb_nombres.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_nombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nombres.Location = new System.Drawing.Point(35, 226);
-            this.lb_nombres.Name = "lb_nombres";
-            this.lb_nombres.Size = new System.Drawing.Size(280, 20);
-            this.lb_nombres.TabIndex = 16;
-            this.lb_nombres.Text = "Nombres";
-            this.lb_nombres.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // comboBox_cliente
-            // 
-            this.comboBox_cliente.FormattingEnabled = true;
-            this.comboBox_cliente.Items.AddRange(new object[] {
-            "Trimble",
-            "Riegl",
-            "Pentax",
-            "Geoslam",
-            "DJI Enterprise",
-            "Spectra Precision"});
-            this.comboBox_cliente.Location = new System.Drawing.Point(117, 336);
-            this.comboBox_cliente.Name = "comboBox_cliente";
-            this.comboBox_cliente.Size = new System.Drawing.Size(180, 26);
-            this.comboBox_cliente.TabIndex = 15;
-            this.comboBox_cliente.Text = "(seleciones una opcion)";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 342);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(97, 17);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "Recepcionista";
-            // 
-            // btn_select_cliente
-            // 
-            this.btn_select_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_select_cliente.Location = new System.Drawing.Point(58, 37);
-            this.btn_select_cliente.Name = "btn_select_cliente";
-            this.btn_select_cliente.Size = new System.Drawing.Size(201, 37);
-            this.btn_select_cliente.TabIndex = 1;
-            this.btn_select_cliente.Text = "Selecionar cliente";
-            this.btn_select_cliente.UseVisualStyleBackColor = true;
-            this.btn_select_cliente.Click += new System.EventHandler(this.btn_select_cliente_Click);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(321, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(448, 31);
-            this.label7.TabIndex = 23;
-            this.label7.Text = "MANTENIMIENTO DE UN EQUIPO";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Location = new System.Drawing.Point(936, 8);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 62);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Fecha y hora";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(122, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(91, 23);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(16, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(91, 23);
-            this.dateTimePicker1.TabIndex = 0;
             // 
             // panel1
             // 
@@ -231,9 +98,9 @@
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(12, 479);
+            this.panel1.Location = new System.Drawing.Point(0, 562);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1080, 54);
+            this.panel1.Size = new System.Drawing.Size(1181, 54);
             this.panel1.TabIndex = 26;
             // 
             // btn_editar
@@ -276,17 +143,158 @@
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
             // 
+            // lbFecha
+            // 
+            this.lbFecha.BackColor = System.Drawing.Color.Transparent;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFecha.ForeColor = System.Drawing.Color.Gray;
+            this.lbFecha.Location = new System.Drawing.Point(763, 48);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(401, 29);
+            this.lbFecha.TabIndex = 28;
+            this.lbFecha.Text = "martes, 29 de agosto del 2023";
+            this.lbFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbHora
+            // 
+            this.lbHora.AutoSize = true;
+            this.lbHora.BackColor = System.Drawing.Color.Transparent;
+            this.lbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHora.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbHora.Location = new System.Drawing.Point(1013, 9);
+            this.lbHora.Name = "lbHora";
+            this.lbHora.Size = new System.Drawing.Size(149, 39);
+            this.lbHora.TabIndex = 27;
+            this.lbHora.Text = "12:12:12";
+            // 
+            // horaFecha
+            // 
+            this.horaFecha.Enabled = true;
+            this.horaFecha.Tick += new System.EventHandler(this.horaFecha_Tick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(189, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(592, 46);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "CALIBRACION DE UN EQUIPO";
+            // 
+            // btn_slect_cliente
+            // 
+            this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_slect_cliente.BorderRadius = 0;
+            this.btn_slect_cliente.BorderSize = 0;
+            this.btn_slect_cliente.FlatAppearance.BorderSize = 0;
+            this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.Location = new System.Drawing.Point(81, 34);
+            this.btn_slect_cliente.Name = "btn_slect_cliente";
+            this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
+            this.btn_slect_cliente.TabIndex = 27;
+            this.btn_slect_cliente.Text = "Selecionar cliente";
+            this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.UseVisualStyleBackColor = false;
+            // 
+            // lb_dni_ruc_cliente
+            // 
+            this.lb_dni_ruc_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_dni_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dni_ruc_cliente.Location = new System.Drawing.Point(35, 122);
+            this.lb_dni_ruc_cliente.Name = "lb_dni_ruc_cliente";
+            this.lb_dni_ruc_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_dni_ruc_cliente.TabIndex = 26;
+            this.lb_dni_ruc_cliente.Text = "DNI / RUC";
+            this.lb_dni_ruc_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_apellidos_cliente
+            // 
+            this.lb_apellidos_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_apellidos_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_apellidos_cliente.Location = new System.Drawing.Point(35, 178);
+            this.lb_apellidos_cliente.Name = "lb_apellidos_cliente";
+            this.lb_apellidos_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_apellidos_cliente.TabIndex = 25;
+            this.lb_apellidos_cliente.Text = "Apellidos";
+            this.lb_apellidos_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_telefono_cliente
+            // 
+            this.lb_telefono_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_telefono_cliente.Location = new System.Drawing.Point(35, 295);
+            this.lb_telefono_cliente.Name = "lb_telefono_cliente";
+            this.lb_telefono_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_telefono_cliente.TabIndex = 24;
+            this.lb_telefono_cliente.Text = "Telefono";
+            this.lb_telefono_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_nombres_cliente
+            // 
+            this.lb_nombres_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_nombres_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_nombres_cliente.Location = new System.Drawing.Point(35, 238);
+            this.lb_nombres_cliente.Name = "lb_nombres_cliente";
+            this.lb_nombres_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_nombres_cliente.TabIndex = 23;
+            this.lb_nombres_cliente.Text = "Nombres";
+            this.lb_nombres_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox_empleado
+            // 
+            this.comboBox_empleado.FormattingEnabled = true;
+            this.comboBox_empleado.Location = new System.Drawing.Point(117, 363);
+            this.comboBox_empleado.Name = "comboBox_empleado";
+            this.comboBox_empleado.Size = new System.Drawing.Size(180, 26);
+            this.comboBox_empleado.TabIndex = 22;
+            this.comboBox_empleado.Text = "(seleciones una opcion)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(14, 369);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(97, 17);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Recepcionista";
+            // 
+            // btn_agregar_equipo
+            // 
+            this.btn_agregar_equipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregar_equipo.BorderRadius = 0;
+            this.btn_agregar_equipo.BorderSize = 0;
+            this.btn_agregar_equipo.FlatAppearance.BorderSize = 0;
+            this.btn_agregar_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar_equipo.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 34);
+            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
+            this.btn_agregar_equipo.Size = new System.Drawing.Size(200, 40);
+            this.btn_agregar_equipo.TabIndex = 5;
+            this.btn_agregar_equipo.Text = "Agregar equipo";
+            this.btn_agregar_equipo.TextColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.UseVisualStyleBackColor = false;
+            // 
             // preMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 642);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbFecha);
+            this.Controls.Add(this.lbHora);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preMantenimiento";
             this.Text = "Mantenimiento";
@@ -294,7 +302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -304,23 +311,23 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView_lista_quipos;
-        private System.Windows.Forms.Button btn_agregar_equipo;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lb_dni_ruc;
-        private System.Windows.Forms.Label lb_apellidos;
-        private System.Windows.Forms.Label lb_telefono;
-        private System.Windows.Forms.Label lb_nombres;
-        private System.Windows.Forms.ComboBox comboBox_cliente;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button btn_select_cliente;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.Label lbHora;
+        private System.Windows.Forms.Timer horaFecha;
+        private System.Windows.Forms.Label label7;
+        private RecursosAdicionales.BotonesModernos.BTNModernos btn_slect_cliente;
+        private System.Windows.Forms.Label lb_dni_ruc_cliente;
+        private System.Windows.Forms.Label lb_apellidos_cliente;
+        private System.Windows.Forms.Label lb_telefono_cliente;
+        private System.Windows.Forms.Label lb_nombres_cliente;
+        private System.Windows.Forms.ComboBox comboBox_empleado;
+        private System.Windows.Forms.Label label8;
+        private RecursosAdicionales.BotonesModernos.BTNModernos btn_agregar_equipo;
     }
 }

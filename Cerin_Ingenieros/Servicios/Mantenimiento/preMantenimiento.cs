@@ -16,6 +16,12 @@ namespace Cerin_Ingenieros.Servicios
         public preMantenimiento()
         {
             InitializeComponent();
+            inicializarVariablesAux();
+        }
+        private void inicializarVariablesAux()
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
 
         private void btn_select_cliente_Click(object sender, EventArgs e)
@@ -28,6 +34,12 @@ namespace Cerin_Ingenieros.Servicios
         {
             preRegistEquipoMantenimiento preRegistEquipoMantenimiento = new preRegistEquipoMantenimiento();
             preRegistEquipoMantenimiento.ShowDialog();
+        }
+
+        private void horaFecha_Tick(object sender, EventArgs e)
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

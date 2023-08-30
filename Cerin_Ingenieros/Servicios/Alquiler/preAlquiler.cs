@@ -16,6 +16,12 @@ namespace Cerin_Ingenieros.Servicios
         public preAlquiler()
         {
             InitializeComponent();
+            inicializarVariablesAux();
+        }
+        private void inicializarVariablesAux()
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
 
         //Botones
