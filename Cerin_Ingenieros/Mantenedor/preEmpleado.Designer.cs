@@ -49,6 +49,7 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.dataGridView_empleados = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_empleados)).BeginInit();
@@ -188,6 +189,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_buscar);
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_cancelar);
@@ -201,7 +203,7 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
+            this.btn_eliminar.Location = new System.Drawing.Point(728, 5);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(90, 40);
             this.btn_eliminar.TabIndex = 5;
@@ -212,7 +214,7 @@
             // btn_editar
             // 
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.Location = new System.Drawing.Point(573, 3);
+            this.btn_editar.Location = new System.Drawing.Point(606, 5);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(90, 40);
             this.btn_editar.TabIndex = 4;
@@ -223,7 +225,7 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
+            this.btn_cancelar.Location = new System.Drawing.Point(845, 5);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(90, 40);
             this.btn_cancelar.TabIndex = 2;
@@ -234,7 +236,7 @@
             // btn_guardar
             // 
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(462, 3);
+            this.btn_guardar.Location = new System.Drawing.Point(485, 5);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(90, 40);
             this.btn_guardar.TabIndex = 1;
@@ -245,7 +247,7 @@
             // btn_nuevo
             // 
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nuevo.Location = new System.Drawing.Point(336, 3);
+            this.btn_nuevo.Location = new System.Drawing.Point(237, 5);
             this.btn_nuevo.Name = "btn_nuevo";
             this.btn_nuevo.Size = new System.Drawing.Size(90, 40);
             this.btn_nuevo.TabIndex = 0;
@@ -271,6 +273,17 @@
             this.label7.Size = new System.Drawing.Size(365, 31);
             this.label7.TabIndex = 3;
             this.label7.Text = "REGISTRAR TRABAJADOR";
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.Location = new System.Drawing.Point(362, 5);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(90, 40);
+            this.btn_buscar.TabIndex = 6;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // preEmpleado
             // 
@@ -317,5 +330,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_buscar;
     }
 }
