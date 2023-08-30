@@ -60,6 +60,7 @@ namespace Cerin_Ingenieros
         {
             btn_nuevo.Enabled = true;
             btn_guardar.Enabled = false;
+            btn_buscar.Enabled = false;
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = false;
@@ -70,6 +71,7 @@ namespace Cerin_Ingenieros
             hablitar_entradas();
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = false;
+            btn_buscar.Enabled = true;
             btn_editar.Enabled = true;
             btn_eliminar.Enabled = true;
             btn_cancelar.Enabled = true;
@@ -80,6 +82,7 @@ namespace Cerin_Ingenieros
             hablitar_entradas();
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
+            btn_buscar.Enabled = true;
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = true;
@@ -221,6 +224,14 @@ namespace Cerin_Ingenieros
             {
                 e.Handled = true;
             }
+        }
+
+        private void btn_buscar_Click(object sender, EventArgs e)
+        {
+            entApi empleado = logApi.GetInstancia.consultarDatosApi(txb_dniEmpleado.Text);
+
+            txb_nombres_empleado.Text = empleado.Nombre;
+            txb_apellidos_empleado.Text = empleado.Apellido;
         }
     }
 }
