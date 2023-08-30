@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursosAdicionales\BotonesModernos\BTNModernos.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +131,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Servicios\ActualizarServicios\preActualizarServicios.resx">
       <DependentUpon>preActualizarServicios.cs</DependentUpon>
@@ -174,6 +178,26 @@
       <Name>CapaLogica</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Icono cerrar FN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono Minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO blanco %28sin fondo %29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO celeste %28 sin fondo%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGOS plomo %28 sin fondo%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGOS PRIORITARIO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
