@@ -16,7 +16,7 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entMarca> listarProducto() => datMarca.GetInstancia.listarMarcas();
+        public List<entMarca> listarMarcas() => datMarca.GetInstancia.listarMarcas();
 
         public bool insertaMarca(entMarca marca) => datMarca.GetInstancia.insertarMarca(marca);
 

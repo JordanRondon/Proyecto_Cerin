@@ -19,7 +19,7 @@ namespace CapaEntidad
 
         public string Recomendaciones { get; set; }
 
-        public string Estado { get; set; }
+        public char Estado { get; set; }
 
         public int IdTipo { get; set; }
 
