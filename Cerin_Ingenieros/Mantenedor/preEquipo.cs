@@ -32,7 +32,7 @@ namespace Cerin_Ingenieros
         {
             txb_serie_equipo.Text = "";
             txb_modelo_equipo.Text = "";
-            comboBox_marca.SelectedIndex = 1;
+            comboBox_marca.SelectedIndex = -1;
             registroSeleccionado = -1;
         }
 

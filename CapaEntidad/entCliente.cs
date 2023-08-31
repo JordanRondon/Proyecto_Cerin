@@ -14,9 +14,9 @@ namespace CapaEntidad
 
         public string Apellido { get; set; }
 
-        public int? Dni { get; set; }
+        public string Dni { get; set; }
 
-        public int? Ruc { get; set; }
+        public string Ruc { get; set; }
 
         public string Telefono { get; set; }
     }
