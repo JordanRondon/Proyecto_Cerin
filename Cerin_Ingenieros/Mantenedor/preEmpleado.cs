@@ -113,6 +113,13 @@ namespace Cerin_Ingenieros
             txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
 
             habilitar_btn_modificacion();
+
+            txb_dniEmpleado.Enabled = false;
+            txb_apellidos_empleado.Enabled = false;
+            txb_nombres_empleado.Enabled = false;
+            btn_buscar.Enabled = false;
+
+
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -121,16 +128,17 @@ namespace Cerin_Ingenieros
 
             try
             {
+
                 if (datosIngresados == true)
                 {
                     entEmpleado empleado = new entEmpleado();
 
                     empleado.Nombre = txb_nombres_empleado.Text.Trim();
                     empleado.Apellido = txb_apellidos_empleado.Text.Trim();
-                    empleado.Dni = int.Parse(txb_dniEmpleado.Text);
+                    empleado.Dni = txb_dniEmpleado.Text.Trim();
                     empleado.Direccion = txb_direccion_empleado.Text.Trim();
                     empleado.Correo = txb_correo_empleado.Text.Trim();
-                    empleado.Telefono = int.Parse(txb_telefono_empleado.Text);
+                    empleado.Telefono = txb_telefono_empleado.Text.Trim();
 
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
                 }
@@ -144,6 +152,9 @@ namespace Cerin_Ingenieros
 
             limpiar_entradas();
             listarEmpleado();
+            txb_dniEmpleado.Enabled = true;
+            txb_apellidos_empleado.Enabled = true;
+            txb_nombres_empleado.Enabled = true;
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -159,10 +170,10 @@ namespace Cerin_Ingenieros
                     empleado.IdEmpleado = registroSeleccionado;
                     empleado.Nombre = txb_nombres_empleado.Text.Trim();
                     empleado.Apellido = txb_apellidos_empleado.Text.Trim();
-                    empleado.Dni = int.Parse(txb_dniEmpleado.Text);
+                    empleado.Dni = txb_dniEmpleado.Text.Trim();
                     empleado.Direccion = txb_direccion_empleado.Text.Trim();
                     empleado.Correo = txb_correo_empleado.Text.Trim();
-                    empleado.Telefono = int.Parse(txb_telefono_empleado.Text);
+                    empleado.Telefono = txb_telefono_empleado.Text.Trim();
 
                     logEmpleado.GetInstancia.editarEmpleado(empleado);
                 }

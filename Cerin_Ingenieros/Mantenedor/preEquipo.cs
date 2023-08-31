@@ -32,7 +32,7 @@ namespace Cerin_Ingenieros
         {
             txb_serie_equipo.Text = "";
             txb_modelo_equipo.Text = "";
-            comboBox_marca.SelectedIndex = -1;
+            comboBox_marca.SelectedIndex = 1;
             registroSeleccionado = -1;
         }
 
@@ -77,6 +77,7 @@ namespace Cerin_Ingenieros
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = true;
+            comboBox_marca.SelectedIndex = 0;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)

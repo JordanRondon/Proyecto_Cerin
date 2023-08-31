@@ -39,10 +39,10 @@ namespace CapaDato
                     empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
                     empleado.Nombre = Convert.ToString(dr["nombre"]);
                     empleado.Apellido = Convert.ToString(dr["apellido"]);
-                    empleado.Dni = Convert.ToInt32(dr["dni"]);
+                    empleado.Dni = Convert.ToString(dr["dni"]);
                     empleado.Direccion = Convert.ToString(dr["direccion"]);
                     empleado.Correo = Convert.ToString(dr["correo"]);
-                    empleado.Telefono = Convert.ToInt32(dr["telefono"]);
+                    empleado.Telefono = Convert.ToString(dr["telefono"]);
 
                     lista.Add(empleado);
                 }
