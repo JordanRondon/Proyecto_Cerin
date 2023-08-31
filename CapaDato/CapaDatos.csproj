@@ -80,6 +80,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="datApi.cs" />
     <Compile Include="datEmpleado.cs" />
+    <Compile Include="datEquipo.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
