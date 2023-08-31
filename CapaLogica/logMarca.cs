@@ -10,6 +10,9 @@ namespace CapaLogica
 {
     public class logMarca
     {
+        /// <summary>
+        /// ///////////
+        /// </summary>
         #region Singleton
         private static readonly logMarca instancia = new logMarca();
         public static logMarca GetInstancia => instancia;
