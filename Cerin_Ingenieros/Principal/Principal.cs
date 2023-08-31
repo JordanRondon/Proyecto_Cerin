@@ -22,7 +22,7 @@ namespace Cerin_Ingenieros
         {
             InitializeComponent();
         }
-        //funcion para el acceso a los formulario
+        //funcion para el acceso a los formularios
         private void AbrirFormHijo(object formhijo)
         {
             if (this.panel_principal.Controls.Count > 0)

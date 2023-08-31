@@ -81,6 +81,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Login\preLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\preLogin.Designer.cs">
+      <DependentUpon>preLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     <Compile Include="Servicios\preSelectCliente.Designer.cs">
       <DependentUpon>preSelectCliente.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Login\preLogin.resx">
+      <DependentUpon>preLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,5 +244,6 @@
   <ItemGroup>
     <None Include="Resources\agregar.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
