@@ -15,6 +15,19 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         public preActualizarServicios()
         {
             InitializeComponent();
+            inicializarVariablesAux();
+        }
+
+        private void inicializarVariablesAux()
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void horaFecha_Tick(object sender, EventArgs e)
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

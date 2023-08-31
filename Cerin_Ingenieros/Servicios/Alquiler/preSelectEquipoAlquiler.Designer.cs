@@ -174,6 +174,7 @@
             this.btn_cancelar.TabIndex = 36;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // label7
             // 
@@ -196,7 +197,9 @@
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.dgv_clientes);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preSelectEquipoAlquiler";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "preSelectEquipoAlquiler";
             ((System.ComponentModel.ISupportInitialize)(this.dgv_clientes)).EndInit();
             this.groupBox1.ResumeLayout(false);

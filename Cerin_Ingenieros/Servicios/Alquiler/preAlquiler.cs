@@ -42,5 +42,6 @@ namespace Cerin_Ingenieros.Servicios
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
         }
+
     }
 }

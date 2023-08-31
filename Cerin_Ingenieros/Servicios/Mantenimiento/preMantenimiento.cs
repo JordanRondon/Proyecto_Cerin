@@ -46,5 +46,17 @@ namespace Cerin_Ingenieros.Servicios
 
 
         }
+
+        private void btn_slect_cliente_Click(object sender, EventArgs e)
+        {
+            preSelectCliente preSelectCliente = new preSelectCliente();
+            preSelectCliente.ShowDialog();
+        }
+
+        private void btn_agregar_equipo_Click_1(object sender, EventArgs e)
+        {
+            preRegistEquipoMantenimiento rem = new preRegistEquipoMantenimiento();
+            rem.ShowDialog();
+        }
     }
 }

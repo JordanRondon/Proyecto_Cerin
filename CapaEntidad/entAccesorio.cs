@@ -14,9 +14,9 @@ namespace CapaEntidad
 
         public string Otro { get; set; }
 
-        //public int cantidad {get; set; }
+        public int cantidad {get; set; }
 
-        public int IdEquipo { get; set; }
+        //public int IdEquipo { get; set; }
 
     }
 }
