@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="logAccesorio.cs" />
     <Compile Include="logApi.cs" />
     <Compile Include="logEmpleado.cs" />
     <Compile Include="logEquipo.cs" />
