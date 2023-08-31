@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="ApiDniRuc.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="datAccesorio.cs" />
     <Compile Include="datApi.cs" />
     <Compile Include="datEmpleado.cs" />
     <Compile Include="datMarca.cs" />
