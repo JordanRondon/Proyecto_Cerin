@@ -17,23 +17,35 @@ namespace CapaDato
         #region Metodos
         public entApi consultarDatosApi(string dniRuc)
         {
-            entApi datos = new entApi();
+            entApi datos = null;
 
             try
             {
                 if (dniRuc.Length == 11)
                 {
                     dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvcmRhbmFuZ2Vscm9uZG9ucG96b0BnbWFpbC5jb20ifQ._sY7Mt0qrxCqH2uZH745-57025MYCXrnIZeg-whqgFs");
-                    datos.razonSocial = respuesta.razonSocial.ToString();
-                    datos.Direccion = respuesta.direccion.ToString();
+
+                    if (respuesta!=null)
+                    {
+                        datos = new entApi();
+                        datos.razonSocial = respuesta.razonSocial.ToString();
+                        datos.Direccion = respuesta.direccion.ToString();
+                    }
 
                 }
 
                 if (dniRuc.Length == 8)
                 {
                     dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvcmRhbmFuZ2Vscm9uZG9ucG96b0BnbWFpbC5jb20ifQ._sY7Mt0qrxCqH2uZH745-57025MYCXrnIZeg-whqgFs");
-                    datos.Nombre = respuesta.nombres.ToString();
-                    datos.Apellido = respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
+
+                    if (respuesta.success == true)
+                    {
+                        datos = new entApi();
+                        datos.Nombre = respuesta.nombres.ToString();
+                        datos.Apellido = respuesta.apellidoPaterno.ToString() + " " + respuesta.apellidoMaterno.ToString();
+
+                    }
+
                 }
             } catch (Exception)
             {

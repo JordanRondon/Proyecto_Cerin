@@ -228,10 +228,25 @@ namespace Cerin_Ingenieros
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            entApi empleado = logApi.GetInstancia.consultarDatosApi(txb_dniEmpleado.Text);
+            if (txb_dniEmpleado.Text!="")
+            {
+                entApi empleado = logApi.GetInstancia.consultarDatosApi(txb_dniEmpleado.Text);
 
-            txb_nombres_empleado.Text = empleado.Nombre;
-            txb_apellidos_empleado.Text = empleado.Apellido;
+                if (empleado != null)
+                {
+                    txb_nombres_empleado.Text = empleado.Nombre;
+                    txb_apellidos_empleado.Text = empleado.Apellido;
+                    txb_dniEmpleado.Enabled = false;
+                    txb_apellidos_empleado.Enabled = false;
+                    txb_nombres_empleado.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("DNI no valida");
+                }
+            }
+
+            
         }
     }
 }

@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.dataGridView_empleados = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_empleados)).BeginInit();
@@ -200,6 +200,17 @@
             this.panel1.Size = new System.Drawing.Size(1156, 48);
             this.panel1.TabIndex = 1;
             // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.Location = new System.Drawing.Point(362, 5);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(90, 40);
+            this.btn_buscar.TabIndex = 6;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            // 
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -257,9 +268,15 @@
             // 
             // dataGridView_empleados
             // 
+            this.dataGridView_empleados.AllowUserToAddRows = false;
+            this.dataGridView_empleados.AllowUserToDeleteRows = false;
+            this.dataGridView_empleados.AllowUserToResizeColumns = false;
+            this.dataGridView_empleados.AllowUserToResizeRows = false;
+            this.dataGridView_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_empleados.Location = new System.Drawing.Point(12, 266);
             this.dataGridView_empleados.Name = "dataGridView_empleados";
+            this.dataGridView_empleados.RowHeadersVisible = false;
             this.dataGridView_empleados.Size = new System.Drawing.Size(1156, 275);
             this.dataGridView_empleados.TabIndex = 2;
             this.dataGridView_empleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_empleados_CellDoubleClick);
@@ -273,17 +290,6 @@
             this.label7.Size = new System.Drawing.Size(365, 31);
             this.label7.TabIndex = 3;
             this.label7.Text = "REGISTRAR TRABAJADOR";
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(362, 5);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(90, 40);
-            this.btn_buscar.TabIndex = 6;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // preEmpleado
             // 
