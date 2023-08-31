@@ -16,7 +16,7 @@ namespace CapaEntidad
 
         //public int cantidad {get; set; }
 
-        public int IdEquipo { get; set; }
+        //public int IdEquipo { get; set; }
 
     }
 }
