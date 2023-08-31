@@ -16,5 +16,18 @@ namespace Cerin_Ingenieros.Servicios
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// Manejador de eventos que valida que soo se ingrese numeros 
+        /// </summary>
+        /// <param name="sender">De donde se desencadeno el evento</param>
+        /// <param name="e">Informacion del evento</param>
+
+        private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

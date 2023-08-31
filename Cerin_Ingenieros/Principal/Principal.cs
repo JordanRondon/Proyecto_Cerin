@@ -78,6 +78,11 @@ namespace Cerin_Ingenieros
             my = e.Y;
         }
 
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (m==1)

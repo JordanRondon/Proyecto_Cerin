@@ -379,6 +379,7 @@
             this.txb_telefono_cliente.Name = "txb_telefono_cliente";
             this.txb_telefono_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_telefono_cliente.TabIndex = 16;
+            this.txb_telefono_cliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarNumero_KeyPress);
             // 
             // label5
             // 
@@ -441,6 +442,7 @@
             this.txb_dni_cliente.Name = "txb_dni_cliente";
             this.txb_dni_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_dni_cliente.TabIndex = 6;
+            this.txb_dni_cliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarNumero_KeyPress);
             // 
             // label3
             // 
