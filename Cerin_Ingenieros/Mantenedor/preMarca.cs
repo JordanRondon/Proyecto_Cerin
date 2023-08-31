@@ -73,7 +73,7 @@ namespace Cerin_Ingenieros
 
         private void listarMarcas()
         {
-            dataGridView_marcas.DataSource = logMarca.GetInstancia.listarProducto();
+            dataGridView_marcas.DataSource = logMarca.GetInstancia.listarMarcas();
         }
 
         private void dataGridView_marcas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

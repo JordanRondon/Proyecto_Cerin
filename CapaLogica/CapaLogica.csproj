@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="logApi.cs" />
     <Compile Include="logEmpleado.cs" />
+    <Compile Include="logEquipo.cs" />
     <Compile Include="logMarca.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
