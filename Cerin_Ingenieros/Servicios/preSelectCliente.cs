@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDato;
+using CapaEntidad;
 using CapaLogica;
 using System;
 using System.Collections.Generic;
@@ -26,15 +27,14 @@ namespace Cerin_Ingenieros.Servicios
             InitializeComponent();
             ListarClientes();
             ConfiguracionInicial();
+            ListarClientes2();
         }
 
         
         #region RegistrarCliente
         private void ListarClientes()
         {
-            List<entCliente> lista = logCliente.GetInstancia.listarClientes();
-            dgvClientes.DataSource = lista;
-            dgvClientes2.DataSource = lista;
+            dgvClientes2.DataSource = logCliente.GetInstancia.listarClientes();
         }
 
         private void ConfiguracionInicial()
@@ -212,7 +212,8 @@ namespace Cerin_Ingenieros.Servicios
 
         private void ListarClientes2()
         {
-            throw new NotImplementedException();
+            List<entCliente> lisClientes = datCliente.GetInstancia.listarCliente();
+            dgvClientes.DataSource = lisClientes;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -221,5 +222,29 @@ namespace Cerin_Ingenieros.Servicios
         }
 
         #endregion BuscarCliente
+
+        private void txb_buscar_cliente_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txb_buscar_cliente.Text))
+            {
+                if (rb_dni.Checked)
+                {
+                    lisClienteselect = logCliente.GetInstancia.listarClienteDni(txb_buscar_cliente.Text);
+                }
+                else if (rb_nombre.Checked)
+                {
+                    lisClienteselect = logCliente.GetInstancia.listarClienteNombre(Convert.ToString(txb_buscar_cliente.Text));
+                }
+                else if (rb_RUC.Checked)
+                {
+                    lisClienteselect = logCliente.GetInstancia.listarClienteRuc(Convert.ToString(txb_buscar_cliente.Text));
+                }
+            }
+            else
+            {
+                lisClienteselect = logCliente.GetInstancia.listarClientes();
+            }
+            ListarClientes2();
+        }
     }
 }

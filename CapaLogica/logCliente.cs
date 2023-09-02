@@ -23,7 +23,13 @@ namespace CapaLogica
 
         public bool editarCliente(entCliente cliente) => datCliente.GetInstancia.editarCliente(cliente);
 
-        
+        public List<entCliente> listarClienteDni(string dni) => datCliente.GetInstancia.listarClienteDni(dni);
+
+        public List<entCliente> listarClienteNombre(string nombre) => datCliente.GetInstancia.listarClienteNombre(nombre);
+
+        public List<entCliente> listarClienteRuc(string ruc) => datCliente.GetInstancia.listarClienteRuc(ruc);
+
+
 
         #endregion
     }

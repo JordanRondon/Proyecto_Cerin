@@ -127,6 +127,21 @@ namespace CapaDato
             return edita;
         }
 
+        public List<entCliente> listarClienteDni( string dni)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<entCliente> listarClienteNombre(string nombre)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<entCliente> listarClienteRuc(string ruc)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion Metodos
     }
 }

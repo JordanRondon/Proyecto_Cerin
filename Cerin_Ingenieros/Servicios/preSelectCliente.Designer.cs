@@ -186,6 +186,7 @@
             this.txb_buscar_cliente.Name = "txb_buscar_cliente";
             this.txb_buscar_cliente.Size = new System.Drawing.Size(307, 26);
             this.txb_buscar_cliente.TabIndex = 0;
+            this.txb_buscar_cliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txb_buscar_cliente_KeyUp);
             // 
             // tabPage2
             // 
