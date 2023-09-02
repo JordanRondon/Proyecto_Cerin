@@ -96,7 +96,7 @@ namespace CapaDato
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
 
-                cmd = new SqlCommand("sp_modificartarMarca", cn);
+                cmd = new SqlCommand("sp_modificarMarca", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@id_Marca", marca.IdMarca);
@@ -119,7 +119,7 @@ namespace CapaDato
             return edita;
         }
 
-        public bool eliminarMarca(entMarca marca)
+        public bool deshabilitarMarca(entMarca marca)
         {
             SqlCommand cmd = null;
             bool seElimino = false;
@@ -127,7 +127,7 @@ namespace CapaDato
             try
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
-                cmd = new SqlCommand("sp_eliminarMarca", cn);
+                cmd = new SqlCommand("sp_desHabilitarMarca", cn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_marca", marca.IdMarca);

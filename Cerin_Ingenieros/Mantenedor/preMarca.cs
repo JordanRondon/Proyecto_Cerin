@@ -97,11 +97,7 @@ namespace Cerin_Ingenieros
                     logMarca.GetInstancia.insertaMarca(marca);
 
                     //Actualizar botones
-                    btn_nuevo.Enabled = true;
-                    btn_guardar.Enabled = false;
-                    btn_eliminar.Enabled = false;
-                    btn_editar.Enabled = false;
-                    btn_cancelar.Enabled = false;
+                    deshablitar_btn();
                     txb_nombre_marca.Enabled = false;
                 }
                 else
@@ -155,7 +151,7 @@ namespace Cerin_Ingenieros
 
                     marca.IdMarca = int.Parse(txb_codigo_marca.Text);
 
-                    logMarca.GetInstancia.eliminarMarca(marca);
+                    logMarca.GetInstancia.deshabilitarMarca(marca);
                 }
                 else
                 {

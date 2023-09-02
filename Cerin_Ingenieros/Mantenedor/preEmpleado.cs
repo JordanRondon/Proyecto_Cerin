@@ -205,7 +205,7 @@ namespace Cerin_Ingenieros
 
                     empleado.IdEmpleado = registroSeleccionado;
 
-                    logEmpleado.GetInstancia.eliminarEmpleado(empleado);
+                    logEmpleado.GetInstancia.deshabilitarEmpleado(empleado);
                 }
                 else
                 {
