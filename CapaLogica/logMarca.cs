@@ -22,7 +22,7 @@ namespace CapaLogica
 
         public bool editarMarca(entMarca marca) => datMarca.GetInstancia.editarMarca(marca);
 
-        public bool eliminarMarca(entMarca marca) => datMarca.GetInstancia.eliminarMarca(marca);
+        public bool deshabilitarMarca(entMarca marca) => datMarca.GetInstancia.deshabilitarMarca(marca);
 
         public entMarca BuscarMarcaPorId(int idMarca) => datMarca.GetInstancia.BuscarMarcaPorId(idMarca);
 
