@@ -16,11 +16,14 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entCliente> listarCliente => datCliente.GetInstancia.listarCliente();
+
+        public List<entCliente> listarClientes() => datCliente.GetInstancia.listarCliente();
 
         public bool insertarCliente(entCliente cliente) => datCliente.GetInstancia.insertarCliente(cliente);
 
         public bool editarCliente(entCliente cliente) => datCliente.GetInstancia.editarCliente(cliente);
+
+        
 
         #endregion
     }
