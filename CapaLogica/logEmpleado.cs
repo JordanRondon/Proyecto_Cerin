@@ -22,7 +22,7 @@ namespace CapaLogica
 
         public bool editarEmpleado(entEmpleado empleado) => datEmpleado.GetInstancia.editarEmpleado(empleado);
 
-        public bool eliminarEmpleado(entEmpleado empleado) => datEmpleado.GetInstancia.eliminarEmpleado(empleado);
+        public bool deshabilitarEmpleado(entEmpleado empleado) => datEmpleado.GetInstancia.deshabilitarEmpleado(empleado);
         #endregion
     }
 }

@@ -129,7 +129,7 @@ namespace CapaDato
             return edita;
         }
 
-        public bool eliminarEmpleado(entEmpleado empleado)
+        public bool deshabilitarEmpleado(entEmpleado empleado)
         {
             SqlCommand cmd = null;
             bool seElimino = false;
@@ -137,7 +137,7 @@ namespace CapaDato
             try
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
-                cmd = new SqlCommand("sp_eliminarEmpleado", cn);
+                cmd = new SqlCommand("sp_desHabilitarEmpleado", cn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_empleado", empleado.IdEmpleado);
