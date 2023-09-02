@@ -89,7 +89,36 @@ namespace Cerin_Ingenieros
 
         private void listarEquipo()
         {
-            dataGridView_equipos.DataSource = logEquipo.GetInstancia.listarEquipo();
+            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
+
+            dataGridView_equipos.Columns.AddRange(
+                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+            );
+            dataGridView_equipos.Columns[0].Width = 80;
+
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            //insertar los datos 
+            foreach (var item in listaEquipos)
+            {
+                string estado;
+                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+
+                if (item.Estado == 'D') estado = "Disponible";
+                else estado = "Ocupado";
+                dataGridView_equipos.Rows.Add(
+                    item.IdEquipo,
+                    item.SerieEquipo,
+                    item.Modelo,
+                    estado,
+                    marca.Nombre
+                );
+            }
         }
 
         private void listarDatosComboBoxMarca()
@@ -167,6 +196,10 @@ namespace Cerin_Ingenieros
 
             limpiar_entradas();
             listarEquipo();
+
+            //reiniciar el combobox al primer elemento 
+            if(comboBox_marca.Items.Count>=0)
+                comboBox_marca.SelectedIndex = 0;
         }
 
         private void btn_editar_Click(object sender, EventArgs e)

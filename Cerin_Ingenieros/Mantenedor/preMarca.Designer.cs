@@ -48,10 +48,16 @@
             // 
             // dataGridView_marcas
             // 
+            this.dataGridView_marcas.AllowUserToAddRows = false;
+            this.dataGridView_marcas.AllowUserToDeleteRows = false;
+            this.dataGridView_marcas.AllowUserToResizeColumns = false;
+            this.dataGridView_marcas.AllowUserToResizeRows = false;
+            this.dataGridView_marcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_marcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_marcas.Location = new System.Drawing.Point(12, 277);
+            this.dataGridView_marcas.Location = new System.Drawing.Point(196, 288);
             this.dataGridView_marcas.Name = "dataGridView_marcas";
-            this.dataGridView_marcas.Size = new System.Drawing.Size(1156, 264);
+            this.dataGridView_marcas.RowHeadersVisible = false;
+            this.dataGridView_marcas.Size = new System.Drawing.Size(792, 264);
             this.dataGridView_marcas.TabIndex = 19;
             this.dataGridView_marcas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_marcas_CellDoubleClick);
             // 
@@ -59,7 +65,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(371, 10);
+            this.label7.Location = new System.Drawing.Point(371, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(380, 31);
             this.label7.TabIndex = 17;
@@ -72,9 +78,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 71);
+            this.groupBox1.Location = new System.Drawing.Point(50, 71);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 108);
+            this.groupBox1.Size = new System.Drawing.Size(1084, 108);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS DE LA MARCA";
@@ -82,7 +88,7 @@
             // txb_nombre_marca
             // 
             this.txb_nombre_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_marca.Location = new System.Drawing.Point(674, 51);
+            this.txb_nombre_marca.Location = new System.Drawing.Point(655, 51);
             this.txb_nombre_marca.Name = "txb_nombre_marca";
             this.txb_nombre_marca.Size = new System.Drawing.Size(241, 23);
             this.txb_nombre_marca.TabIndex = 10;
@@ -90,7 +96,7 @@
             // txb_codigo_marca
             // 
             this.txb_codigo_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_codigo_marca.Location = new System.Drawing.Point(268, 51);
+            this.txb_codigo_marca.Location = new System.Drawing.Point(249, 51);
             this.txb_codigo_marca.Name = "txb_codigo_marca";
             this.txb_codigo_marca.Size = new System.Drawing.Size(241, 23);
             this.txb_codigo_marca.TabIndex = 6;
@@ -99,7 +105,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(596, 54);
+            this.label3.Location = new System.Drawing.Point(577, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 17);
             this.label3.TabIndex = 2;
@@ -109,7 +115,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(187, 57);
+            this.label1.Location = new System.Drawing.Point(168, 57);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 17);
             this.label1.TabIndex = 0;
@@ -122,9 +128,9 @@
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(12, 198);
+            this.panel1.Location = new System.Drawing.Point(0, 207);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1156, 48);
+            this.panel1.Size = new System.Drawing.Size(1181, 48);
             this.panel1.TabIndex = 20;
             // 
             // btn_eliminar

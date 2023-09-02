@@ -148,6 +148,32 @@ namespace CapaDato
 
             return seElimino;
         }
+
+        public entMarca BuscarMarcaPorId(int idMarca)
+        {
+            SqlCommand cmd = null;
+            entMarca ma = new entMarca();
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("spbuscarMarcaPorId", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_Marca", idMarca);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ma.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    ma.Nombre = Convert.ToString(dr["nombre"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ma;
+        }
         #endregion
     }
 }

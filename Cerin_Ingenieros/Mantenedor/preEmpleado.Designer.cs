@@ -70,9 +70,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 43);
+            this.groupBox1.Location = new System.Drawing.Point(40, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 143);
+            this.groupBox1.Size = new System.Drawing.Size(1110, 143);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS EMPLEADO";
@@ -80,7 +80,7 @@
             // txb_direccion_empleado
             // 
             this.txb_direccion_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_direccion_empleado.Location = new System.Drawing.Point(898, 93);
+            this.txb_direccion_empleado.Location = new System.Drawing.Point(847, 93);
             this.txb_direccion_empleado.Name = "txb_direccion_empleado";
             this.txb_direccion_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_direccion_empleado.TabIndex = 11;
@@ -88,7 +88,7 @@
             // txb_apellidos_empleado
             // 
             this.txb_apellidos_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_apellidos_empleado.Location = new System.Drawing.Point(496, 37);
+            this.txb_apellidos_empleado.Location = new System.Drawing.Point(460, 37);
             this.txb_apellidos_empleado.Name = "txb_apellidos_empleado";
             this.txb_apellidos_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_apellidos_empleado.TabIndex = 10;
@@ -96,7 +96,7 @@
             // txb_nombres_empleado
             // 
             this.txb_nombres_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombres_empleado.Location = new System.Drawing.Point(898, 37);
+            this.txb_nombres_empleado.Location = new System.Drawing.Point(847, 37);
             this.txb_nombres_empleado.Name = "txb_nombres_empleado";
             this.txb_nombres_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_nombres_empleado.TabIndex = 9;
@@ -104,7 +104,7 @@
             // txb_correo_empleado
             // 
             this.txb_correo_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_correo_empleado.Location = new System.Drawing.Point(496, 90);
+            this.txb_correo_empleado.Location = new System.Drawing.Point(460, 90);
             this.txb_correo_empleado.Name = "txb_correo_empleado";
             this.txb_correo_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_correo_empleado.TabIndex = 8;
@@ -131,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(812, 96);
+            this.label4.Location = new System.Drawing.Point(761, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
             this.label4.TabIndex = 5;
@@ -151,7 +151,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(418, 90);
+            this.label6.Location = new System.Drawing.Point(382, 90);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 17);
             this.label6.TabIndex = 3;
@@ -161,7 +161,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(418, 40);
+            this.label3.Location = new System.Drawing.Point(382, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 2;
@@ -171,7 +171,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(812, 40);
+            this.label2.Location = new System.Drawing.Point(761, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -195,9 +195,9 @@
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(12, 201);
+            this.panel1.Location = new System.Drawing.Point(0, 201);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1156, 48);
+            this.panel1.Size = new System.Drawing.Size(1181, 48);
             this.panel1.TabIndex = 1;
             // 
             // btn_buscar
@@ -274,10 +274,10 @@
             this.dataGridView_empleados.AllowUserToResizeRows = false;
             this.dataGridView_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_empleados.Location = new System.Drawing.Point(12, 266);
+            this.dataGridView_empleados.Location = new System.Drawing.Point(52, 295);
             this.dataGridView_empleados.Name = "dataGridView_empleados";
             this.dataGridView_empleados.RowHeadersVisible = false;
-            this.dataGridView_empleados.Size = new System.Drawing.Size(1156, 275);
+            this.dataGridView_empleados.Size = new System.Drawing.Size(1083, 304);
             this.dataGridView_empleados.TabIndex = 2;
             this.dataGridView_empleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_empleados_CellDoubleClick);
             // 
