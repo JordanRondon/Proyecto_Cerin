@@ -42,7 +42,6 @@
             this.dgvClientes2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_editar = new System.Windows.Forms.Button();
-            this.btn_cancelar_registro = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.groupBoxRegistrar = new System.Windows.Forms.GroupBox();
@@ -58,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_cancelar_registro = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -130,6 +130,7 @@
             this.btn_cancelar.TabIndex = 32;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // groupBox1
             // 
@@ -212,13 +213,14 @@
             this.dgvClientes2.RowHeadersVisible = false;
             this.dgvClientes2.Size = new System.Drawing.Size(1047, 232);
             this.dgvClientes2.TabIndex = 36;
+            this.dgvClientes2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes2_CellDoubleClick);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_cancelar_registro);
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_buscar);
             this.panel1.Controls.Add(this.btn_editar);
-            this.panel1.Controls.Add(this.btn_cancelar_registro);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
             this.panel1.Location = new System.Drawing.Point(0, 199);
@@ -236,17 +238,6 @@
             this.btn_editar.Text = "Editar";
             this.btn_editar.UseVisualStyleBackColor = true;
             this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
-            // 
-            // btn_cancelar_registro
-            // 
-            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar_registro.Location = new System.Drawing.Point(866, 10);
-            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
-            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
-            this.btn_cancelar_registro.TabIndex = 2;
-            this.btn_cancelar_registro.Text = "Cancelar";
-            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
-            this.btn_cancelar_registro.Click += new System.EventHandler(this.btn_cancelar_registro_Click);
             // 
             // btn_guardar
             // 
@@ -404,6 +395,17 @@
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
+            // btn_cancelar_registro
+            // 
+            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar_registro.Location = new System.Drawing.Point(890, 9);
+            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
+            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
+            this.btn_cancelar_registro.TabIndex = 9;
+            this.btn_cancelar_registro.Text = "Cancelar";
+            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
+            this.btn_cancelar_registro.Click += new System.EventHandler(this.btn_cancelar_registro_Click);
+            // 
             // preSelectCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,7 +442,6 @@
         private System.Windows.Forms.TextBox txb_buscar_cliente;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_editar;
-        private System.Windows.Forms.Button btn_cancelar_registro;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.GroupBox groupBoxRegistrar;
@@ -458,5 +459,6 @@
         private System.Windows.Forms.DataGridView dgvClientes2;
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_eliminar;
+        private System.Windows.Forms.Button btn_cancelar_registro;
     }
 }
