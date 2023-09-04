@@ -229,7 +229,7 @@ namespace Cerin_Ingenieros.Servicios
             this.Close();
         }
 
-        #endregion BuscarCliente
+        
 
         private void txb_buscar_cliente_KeyUp(object sender, KeyEventArgs e)
         {
@@ -285,5 +285,6 @@ namespace Cerin_Ingenieros.Servicios
         {
             SlecionarCliente();
         }
+        #endregion BuscarCliente
     }
 }

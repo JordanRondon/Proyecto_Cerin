@@ -162,6 +162,132 @@ namespace CapaDato
 
             return seElimino;
         }
+
+        public List<entEquipo> listarEquipoModelo(string modelo)
+        {
+            SqlCommand cmd = null;
+            List<entEquipo> lista = new List<entEquipo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listEquipAlquModelo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@modelo", modelo);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo equipo = new entEquipo();
+
+                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
+                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+
+                    lista.Add(equipo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        public List<entEquipo> listarEquipoSerie(string serie)
+        {
+            SqlCommand cmd = null;
+            List<entEquipo> lista = new List<entEquipo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listEquipAlquSerie", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serie", serie);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo equipo = new entEquipo();
+
+                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
+                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+
+                    lista.Add(equipo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        public List<entEquipo> listarEquipoMarca( string marca)
+        {
+            SqlCommand cmd = null;
+            List<entEquipo> lista = new List<entEquipo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listEquipAlquMarca", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@marca", marca);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo equipo = new entEquipo();
+
+                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
+                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+
+                    lista.Add(equipo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
         #endregion
     }
 }

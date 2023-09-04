@@ -23,6 +23,12 @@ namespace CapaLogica
         public bool editarEquipo(entEquipo equipo) => datEquipo.GetInstancia.editarEquipo(equipo);
 
         public bool deshabilitarEquipo(entEquipo equipo) => datEquipo.GetInstancia.deshabilitarEquipo(equipo);
+
+        public List<entEquipo> listarEquipoModelo(string modelo) => datEquipo.GetInstancia.listarEquipoModelo(modelo);
+
+        public List<entEquipo> listarEquipoSerie(string serie) => datEquipo.GetInstancia.listarEquipoSerie(serie);
+
+        public List<entEquipo> listarEquipoMarca(string marca) => datEquipo.GetInstancia.listarEquipoMarca(marca);
         #endregion
     }
 }

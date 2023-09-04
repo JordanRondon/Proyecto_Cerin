@@ -1,4 +1,5 @@
 ﻿using CapaEntidad;
+using CapaLogica;
 using Cerin_Ingenieros.Servicios.Alquiler;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,53 @@ namespace Cerin_Ingenieros.Servicios
     public partial class preAlquiler : Form
     {
         entCliente clienteSelecionado;
+        List<entEquipo> equiposSelecionados = new List<entEquipo>();
         public preAlquiler()
         {
             InitializeComponent();
             inicializarVariablesAux();
+            ConfigCabecera();
+            listarEquipos();
         }
+
+        private void ConfigCabecera()
+        {
+            dataGridView_list_equipos.Columns.AddRange(
+                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+            );
+            dataGridView_list_equipos.Columns[0].Width = 80;
+
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            equiposSelecionados = logEquipo.GetInstancia.listarEquipo();
+        }
+
+        private void listarEquipos()
+        {
+            dataGridView_list_equipos.Rows.Clear();
+
+            //insertar los datos 
+            foreach (var item in equiposSelecionados)
+            {
+                string estado;
+                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+
+                if (item.Estado == 'D') estado = "Disponible";
+                else estado = "Ocupado";
+                dataGridView_list_equipos.Rows.Add(
+                    item.IdEquipo,
+                    item.SerieEquipo,
+                    item.Modelo,
+                    estado,
+                    marca.Nombre
+                );
+            }
+        }
+
         private void inicializarVariablesAux()
         {
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -51,6 +94,10 @@ namespace Cerin_Ingenieros.Servicios
         {
             preSelectEquipoAlquiler preSelectEquipo = new preSelectEquipoAlquiler();
             preSelectEquipo.ShowDialog();
+
+            equiposSelecionados.AddRange(preSelectEquipo.getEquipos());
+
+            listarEquipos();
         }
 
         private void horaFecha_Tick(object sender, EventArgs e)
