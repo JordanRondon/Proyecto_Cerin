@@ -21,6 +21,7 @@ namespace Cerin_Ingenieros
             InitializeComponent();
             deshablitar_entradas();
             deshablitar_btn();
+            ConfigCabecera();
             listarEquipo();
             listarDatosComboBoxMarca();
             dataGridView_equipos.ReadOnly = true;
@@ -86,11 +87,8 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
             deshablitar_btn();
         }
-
-        private void listarEquipo()
+        private void ConfigCabecera()
         {
-            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
-
             dataGridView_equipos.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
@@ -102,6 +100,15 @@ namespace Cerin_Ingenieros
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+        }
+
+        private void listarEquipo()
+        {
+
+            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
+
+            dataGridView_equipos.Rows.Clear();
 
             //insertar los datos 
             foreach (var item in listaEquipos)
@@ -122,7 +129,7 @@ namespace Cerin_Ingenieros
         }
 
         private void listarDatosComboBoxMarca()
-        {   
+        {
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
             comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
@@ -148,8 +155,8 @@ namespace Cerin_Ingenieros
             //obtenemos la poscion dentro del comboBox mediande el nombreMarca
             int index = comboBox_marca.FindString(marcaSeleccionada.Nombre);
 
-            if(index != -1)
-                    return index;
+            if (index != -1)
+                return index;
             else
                 return -1;
         }
@@ -198,7 +205,7 @@ namespace Cerin_Ingenieros
             listarEquipo();
 
             //reiniciar el combobox al primer elemento 
-            if(comboBox_marca.Items.Count>=0)
+            if (comboBox_marca.Items.Count >= 0)
                 comboBox_marca.SelectedIndex = 0;
         }
 
@@ -270,3 +277,4 @@ namespace Cerin_Ingenieros
         }
     }
 }
+

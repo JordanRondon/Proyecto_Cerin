@@ -16,7 +16,7 @@ namespace Cerin_Ingenieros.Servicios
     public partial class preSelectCliente : Form
     {
         //Variables registrar cliente
-        private int id_Temporal=-1;
+        private int id_Temporal = -1;
 
         //variables buscar cliente
         private List<entCliente> lisClienteselect;
@@ -27,14 +27,15 @@ namespace Cerin_Ingenieros.Servicios
             InitializeComponent();
             ListarClientes();
             ConfiguracionInicial();
-            ListarClientes2();
         }
 
-        
+
         #region RegistrarCliente
         private void ListarClientes()
         {
-            dgvClientes2.DataSource = logCliente.GetInstancia.listarClientes();
+            List<entCliente> ls = logCliente.GetInstancia.listarClientes();
+            dgvClientes2.DataSource = ls;
+            dgvClientes.DataSource = ls;
         }
 
         private void ConfiguracionInicial()
@@ -56,6 +57,10 @@ namespace Cerin_Ingenieros.Servicios
             groupBoxRegistrar.Enabled = true;
             btn_buscar.Enabled = true;
             btn_eliminar.Enabled = false;
+            txb_dni_cliente.Enabled = true;
+            txb_apellidos_cliente.Enabled = true;
+            txb_nombre_cliente.Enabled = true;
+            txb_ruc_cliente.Enabled = true;
         }
 
 
@@ -125,7 +130,7 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             // verificar que la cadena tenga 8 caracteres, no esta vacia
-            if (txb_dni_cliente.Text.Length==8)
+            if (txb_dni_cliente.Text.Length == 8)
             {
                 entApi clienteApi = logApi.GetInstancia.consultarDatosApi(txb_dni_cliente.Text);
 
@@ -148,18 +153,22 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
-
+            bool band2 = false;
             try
             {
+                if ((txb_dni_cliente.Text != "" && txb_dni_cliente.Text.Length == 8))
+                    band2 = logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim());
+                if ((txb_ruc_cliente.Text != "" && txb_ruc_cliente.Text.Length >= 10))
+                    band2 = logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim());
 
-                if (band1)
+                if (band1 && band2)
                 {
                     entCliente cliente = new entCliente();
 
                     cliente.Nombre = txb_nombre_cliente.Text.Trim();
                     cliente.Apellido = txb_apellidos_cliente.Text.Trim();
                     cliente.Dni = txb_dni_cliente.Text.Trim();
-                    cliente.Ruc = txb_ruc_cliente.Text.Trim() ;
+                    cliente.Ruc = txb_ruc_cliente.Text.Trim();
                     cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
                     logCliente.GetInstancia.insertarCliente(cliente);
@@ -172,8 +181,8 @@ namespace Cerin_Ingenieros.Servicios
                 MessageBox.Show("Error.." + ex);
             }
 
-            ConfigNuevo();
             ListarClientes();
+            ConfigNuevo();
         }
 
         private void dgvClientes2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -188,7 +197,7 @@ namespace Cerin_Ingenieros.Servicios
             txb_telefono_cliente.Text = filaActual.Cells[5].Value.ToString();
 
             configEditar();
-            
+
         }
 
         private void configEditar()
@@ -212,8 +221,7 @@ namespace Cerin_Ingenieros.Servicios
 
         private void ListarClientes2()
         {
-            List<entCliente> lisClientes = datCliente.GetInstancia.listarCliente();
-            dgvClientes.DataSource = lisClientes;
+            dgvClientes.DataSource = lisClienteselect;
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
