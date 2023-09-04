@@ -16,7 +16,7 @@ namespace Cerin_Ingenieros.Servicios
     public partial class preAlquiler : Form
     {
         entCliente clienteSelecionado;
-        List<entEquipo> equiposSelecionados = new List<entEquipo>();
+        List<entEquipo> equiposSelecionados;
         public preAlquiler()
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Cerin_Ingenieros.Servicios
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
             equiposSelecionados = logEquipo.GetInstancia.listarEquipo();
+            equiposSelecionados = new List<entEquipo>();
         }
 
         private void listarEquipos()
