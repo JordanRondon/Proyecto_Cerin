@@ -20,7 +20,7 @@ namespace Cerin_Ingenieros.Servicios
 
         //variables buscar cliente
         private List<entCliente> lisClienteselect;
-        private entCliente selecionado;
+        private entCliente selecionado = null;
 
         public preSelectCliente()
         {

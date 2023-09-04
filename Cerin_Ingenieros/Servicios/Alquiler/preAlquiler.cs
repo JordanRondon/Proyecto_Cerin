@@ -1,4 +1,5 @@
-﻿using Cerin_Ingenieros.Servicios.Alquiler;
+﻿using CapaEntidad;
+using Cerin_Ingenieros.Servicios.Alquiler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace Cerin_Ingenieros.Servicios
 {
     public partial class preAlquiler : Form
     {
+        entCliente clienteSelecionado;
         public preAlquiler()
         {
             InitializeComponent();
@@ -29,6 +31,20 @@ namespace Cerin_Ingenieros.Servicios
         {
             preSelectCliente preSelectCliente = new preSelectCliente();
             preSelectCliente.ShowDialog();
+
+            clienteSelecionado = preSelectCliente.getCliente();
+
+            if (clienteSelecionado!=null)
+            {
+                if (clienteSelecionado.Dni != "")
+                    lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                else
+                    lb_dni_ruc_cliente.Text = clienteSelecionado.Ruc;
+                lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
+                lb_nombres_cliente.Text = clienteSelecionado.Nombre;
+                lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+            }
+
         }
 
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
