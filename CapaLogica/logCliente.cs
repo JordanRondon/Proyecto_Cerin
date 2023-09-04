@@ -29,6 +29,10 @@ namespace CapaLogica
 
         public List<entCliente> listarClienteRuc(string ruc) => datCliente.GetInstancia.listarClienteRuc(ruc);
 
+        public bool ValidarDniUnica(string dni) => datCliente.GetInstancia.ValidarDniUnica(dni);
+
+        public bool ValidarRucUnica(string ruc) => datCliente.GetInstancia.ValidarRucUnica(ruc);
+
 
 
         #endregion

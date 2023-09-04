@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;
 
 namespace CapaDato
 {
@@ -129,18 +130,199 @@ namespace CapaDato
 
         public List<entCliente> listarClienteDni( string dni)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = null;
+            List<entCliente> lista = new List<entCliente>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_ListarClientesDni", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entCliente clie = new entCliente();
+
+
+                    clie.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    clie.Nombre = Convert.ToString(dr["nombre"]);
+                    clie.Apellido = Convert.ToString(dr["apellido"]);
+                    clie.Dni = Convert.ToString(dr["dni"]);
+                    clie.Ruc = Convert.ToString(dr["ruc"]);
+                    clie.Telefono = Convert.ToString(dr["telefono"]);
+
+                    lista.Add(clie);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
         }
 
         public List<entCliente> listarClienteNombre(string nombre)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = null;
+            List<entCliente> lista = new List<entCliente>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_ListarClientesNombre", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entCliente clie = new entCliente();
+
+
+                    clie.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    clie.Nombre = Convert.ToString(dr["nombre"]);
+                    clie.Apellido = Convert.ToString(dr["apellido"]);
+                    clie.Dni = Convert.ToString(dr["dni"]);
+                    clie.Ruc = Convert.ToString(dr["ruc"]);
+                    clie.Telefono = Convert.ToString(dr["telefono"]);
+
+                    lista.Add(clie);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
         }
 
         public List<entCliente> listarClienteRuc(string ruc)
         {
-            throw new NotImplementedException();
+            SqlCommand cmd = null;
+            List<entCliente> lista = new List<entCliente>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_ListarClientesRuc", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ruc", ruc);
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entCliente clie = new entCliente();
+
+
+                    clie.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    clie.Nombre = Convert.ToString(dr["nombre"]);
+                    clie.Apellido = Convert.ToString(dr["apellido"]);
+                    clie.Dni = Convert.ToString(dr["dni"]);
+                    clie.Ruc = Convert.ToString(dr["ruc"]);
+                    clie.Telefono = Convert.ToString(dr["telefono"]);
+
+                    lista.Add(clie);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
         }
+
+        public bool ValidarDniUnica(string dni)
+        {
+            SqlCommand cmd = null;
+            bool unica = false;
+            SqlConnection cn = null;
+
+            try
+            {
+                cn = Conexion.GetInstancia.Conectar; // Singleton
+                cn.Open();
+
+                cmd = new SqlCommand("ValidarDNIUnico", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                SqlParameter returnValue = cmd.Parameters.Add("@ReturnValue", SqlDbType.Int);
+                returnValue.Direction = ParameterDirection.ReturnValue;
+
+                cmd.ExecuteNonQuery();
+
+                int resultado = (int)returnValue.Value;
+                unica = (resultado == 1); // Si el resultado es 1, el DNI es único
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cn != null && cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+
+            return unica;
+        }
+
+        public bool ValidarRucUnica(string dni)
+        {
+            SqlCommand cmd = null;
+            bool unica = false;
+            SqlConnection cn = null;
+
+            try
+            {
+                cn = Conexion.GetInstancia.Conectar; // Singleton
+                cn.Open();
+
+                cmd = new SqlCommand("ValidarRUCUnico", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@dni", dni);
+                SqlParameter returnValue = cmd.Parameters.Add("@ReturnValue", SqlDbType.Int);
+                returnValue.Direction = ParameterDirection.ReturnValue;
+
+                cmd.ExecuteNonQuery();
+
+                int resultado = (int)returnValue.Value;
+                unica = (resultado == 1); // Si el resultado es 1, el DNI es único
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cn != null && cn.State == ConnectionState.Open)
+                {
+                    cn.Close();
+                }
+            }
+
+            return unica;
+        }
+
+
 
         #endregion Metodos
     }

@@ -21,6 +21,7 @@ namespace Cerin_Ingenieros
             InitializeComponent();
             deshablitar_entradas();
             deshablitar_btn();
+            ConfigCabecera();
             listarEquipo();
             listarDatosComboBoxMarca();
             dataGridView_equipos.ReadOnly = true;
@@ -86,11 +87,8 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
             deshablitar_btn();
         }
-
-        private void listarEquipo()
+        private void ConfigCabecera()
         {
-            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
-
             dataGridView_equipos.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
@@ -102,6 +100,15 @@ namespace Cerin_Ingenieros
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+        }
+
+        private void listarEquipo()
+        {
+
+            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
+
+            dataGridView_equipos.Rows.Clear();
 
             //insertar los datos 
             foreach (var item in listaEquipos)
