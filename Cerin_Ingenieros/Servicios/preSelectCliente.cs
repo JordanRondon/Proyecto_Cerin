@@ -254,5 +254,36 @@ namespace Cerin_Ingenieros.Servicios
             }
             ListarClientes2();
         }
+
+        private void SlecionarCliente()
+        {
+            if (dgvClientes.SelectedRows.Count>0)
+            {
+                DataGridViewRow selectedRow = dgvClientes.SelectedRows[0];
+                selecionado = new entCliente();
+                selecionado.IdCliente = Convert.ToInt32(selectedRow.Cells[0].Value);
+                selecionado.Nombre = Convert.ToString(selectedRow.Cells[1].Value);
+                selecionado.Apellido = Convert.ToString(selectedRow.Cells[2].Value);
+                selecionado.Dni = Convert.ToString(selectedRow.Cells[3].Value);
+                selecionado.Ruc = Convert.ToString(selectedRow.Cells[4].Value);
+                selecionado.Telefono = Convert.ToString(selectedRow.Cells[5].Value);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecione un cliente");
+            }
+        }
+        public entCliente getCliente() { return selecionado; }
+
+        private void btnSelecionarCliente_Click(object sender, EventArgs e)
+        {
+            SlecionarCliente();
+        }
+
+        private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SlecionarCliente();
+        }
     }
 }

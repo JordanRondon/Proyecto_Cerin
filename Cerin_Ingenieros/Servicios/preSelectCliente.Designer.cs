@@ -41,6 +41,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dgvClientes2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_cancelar_registro = new System.Windows.Forms.Button();
+            this.btn_eliminar = new System.Windows.Forms.Button();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -55,9 +58,6 @@
             this.txb_dni_cliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_cancelar_registro = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -107,9 +107,12 @@
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Location = new System.Drawing.Point(30, 168);
             this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(1047, 312);
             this.dgvClientes.TabIndex = 35;
+            this.dgvClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentDoubleClick);
             // 
             // btnSelecionarCliente
             // 
@@ -120,6 +123,7 @@
             this.btnSelecionarCliente.TabIndex = 34;
             this.btnSelecionarCliente.Text = "Selecionar cliente";
             this.btnSelecionarCliente.UseVisualStyleBackColor = true;
+            this.btnSelecionarCliente.Click += new System.EventHandler(this.btnSelecionarCliente_Click);
             // 
             // btn_cancelar
             // 
@@ -228,6 +232,39 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1121, 54);
             this.panel1.TabIndex = 21;
+            // 
+            // btn_cancelar_registro
+            // 
+            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar_registro.Location = new System.Drawing.Point(890, 9);
+            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
+            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
+            this.btn_cancelar_registro.TabIndex = 9;
+            this.btn_cancelar_registro.Text = "Cancelar";
+            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
+            this.btn_cancelar_registro.Click += new System.EventHandler(this.btn_cancelar_registro_Click);
+            // 
+            // btn_eliminar
+            // 
+            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.Location = new System.Drawing.Point(748, 10);
+            this.btn_eliminar.Name = "btn_eliminar";
+            this.btn_eliminar.Size = new System.Drawing.Size(90, 35);
+            this.btn_eliminar.TabIndex = 8;
+            this.btn_eliminar.Text = "Eliminar";
+            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.Location = new System.Drawing.Point(384, 10);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(90, 35);
+            this.btn_buscar.TabIndex = 7;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // btn_editar
             // 
@@ -373,39 +410,6 @@
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI";
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(384, 10);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(90, 35);
-            this.btn_buscar.TabIndex = 7;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(748, 10);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(90, 35);
-            this.btn_eliminar.TabIndex = 8;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
-            // 
-            // btn_cancelar_registro
-            // 
-            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar_registro.Location = new System.Drawing.Point(890, 9);
-            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
-            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
-            this.btn_cancelar_registro.TabIndex = 9;
-            this.btn_cancelar_registro.Text = "Cancelar";
-            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
-            this.btn_cancelar_registro.Click += new System.EventHandler(this.btn_cancelar_registro_Click);
             // 
             // preSelectCliente
             // 
