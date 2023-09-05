@@ -108,6 +108,10 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                         listarEquipos();
                     }
                 }
+                else
+                {
+                    MessageBox.Show("El equipo "+equipo.SerieEquipo+" no esta disponible");
+                }
             }
         }
 

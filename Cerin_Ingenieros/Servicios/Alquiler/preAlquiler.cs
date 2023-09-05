@@ -15,7 +15,7 @@ namespace Cerin_Ingenieros.Servicios
 {
     public partial class preAlquiler : Form
     {
-        entCliente clienteSelecionado;
+        entCliente clienteSelecionado = null;
         List<entEquipo> equiposSelecionados;
         bool prosesoCancelado = true;
         public preAlquiler()
@@ -86,6 +86,7 @@ namespace Cerin_Ingenieros.Servicios
             btn_guardar.Enabled = false;
             btn_editar.Enabled = false;
 
+            
 
         }
 
@@ -141,6 +142,7 @@ namespace Cerin_Ingenieros.Servicios
                 }
                 equiposSelecionados.Clear();
             }
+            listarEquipos();
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -165,33 +167,52 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            entServicio servicio = new entServicio();
 
-
-            //REGISTRAR EL SERVICIO
-            servicio.FechaRegistro = DateTime.Now;
-            servicio.IdTipo = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipo;
-            servicio.IdCliente = clienteSelecionado.IdCliente;
-            entEmpleado temp  = (entEmpleado)comboBox_empleado.SelectedItem;
-            servicio.IdEmpleado = temp.IdEmpleado;
-
-            int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
-
-            //REGISTRAR EQUIPO_SERVICIO
-            entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
-            equipo_Servicio.IdServicio = idServicio;            
-            foreach(var item in equiposSelecionados)
+            if (clienteSelecionado!=null && equiposSelecionados.Count>0)
             {
-                equipo_Servicio.IdEquipo = item.IdEquipo;
-                logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
+                    //REGISTRAR EL SERVICIO
+                entServicio servicio = new entServicio
+                {
+                    FechaRegistro = DateTime.Now,
+                    IdTipo = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipo,
+                    IdCliente = clienteSelecionado.IdCliente
+                };
+                entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
+                servicio.IdEmpleado = temp.IdEmpleado;
+                
+                int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 
-                //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
-                item.Estado = 'O';
-                logEquipo.GetInstancia.editarEquipo(item);
+                //REGISTRAR EQUIPO_SERVICIO
+                entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
+                equipo_Servicio.IdServicio = idServicio;
+                foreach (var item in equiposSelecionados)
+                {
+                    equipo_Servicio.IdEquipo = item.IdEquipo;
+                    logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
 
+                    //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
+                    item.Estado = 'O';
+                    logEquipo.GetInstancia.editarEquipo(item);
+
+                }
+
+                prosesoCancelado = true;
+                clienteSelecionado = null;
+                equiposSelecionados.Clear();
+
+                lb_dni_ruc_cliente.Text = "DNI / RUC";
+                lb_apellidos_cliente.Text = "Apellidos";
+                lb_nombres_cliente.Text = "Nombres";
+                lb_telefono_cliente.Text = "Telefono";
+
+                inicializarVariablesAux();
+
+                listarEquipos();
             }
-
-            prosesoCancelado = false;
+            else
+            {
+                MessageBox.Show("Faltan campos por completar");
+            }
         }
     }
 }

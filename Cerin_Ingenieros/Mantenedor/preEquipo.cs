@@ -146,9 +146,10 @@ namespace Cerin_Ingenieros
             foreach (var i in listaMarca)
             {
                 //obtenemos el registro mediante un ID especifico 
-                if (i.IdMarca == int.Parse(filaActual.Cells[7].Value.ToString()))
+                if (i.Nombre == filaActual.Cells[4].Value.ToString())
                 {
                     marcaSeleccionada = i;
+                    break;
                 }
             }
 

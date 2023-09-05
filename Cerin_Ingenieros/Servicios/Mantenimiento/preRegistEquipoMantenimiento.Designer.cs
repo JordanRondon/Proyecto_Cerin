@@ -47,12 +47,9 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.btn_cancelar_registro = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dgvListaDeEquipoClientes = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -60,8 +57,11 @@
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvListaDeEquipoClientes = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.btn_cancelar_registro = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -69,10 +69,10 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBoxAccesorios.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeEquipoClientes)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -285,57 +285,6 @@
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.btn_cancelar_registro);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button6);
-            this.panel2.Location = new System.Drawing.Point(18, 199);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1080, 54);
-            this.panel2.TabIndex = 21;
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(355, 9);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(90, 35);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Nuevo";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(618, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 35);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // btn_cancelar_registro
-            // 
-            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar_registro.Location = new System.Drawing.Point(749, 9);
-            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
-            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
-            this.btn_cancelar_registro.TabIndex = 2;
-            this.btn_cancelar_registro.Text = "Cancelar";
-            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(495, 10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 35);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Editar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dgvListaDeEquipoClientes);
@@ -349,6 +298,24 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Registrar equipo";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dgvListaDeEquipoClientes
+            // 
+            this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
+            this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";
+            this.dgvListaDeEquipoClientes.Size = new System.Drawing.Size(1052, 268);
+            this.dgvListaDeEquipoClientes.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(348, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(373, 31);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Registrar equipo de un cliente";
             // 
             // groupBox1
             // 
@@ -428,23 +395,56 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Serie";
             // 
-            // label5
+            // panel2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(348, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(373, 31);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Registrar equipo de un cliente";
+            this.panel2.Controls.Add(this.button4);
+            this.panel2.Controls.Add(this.btn_cancelar_registro);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Location = new System.Drawing.Point(18, 199);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1080, 54);
+            this.panel2.TabIndex = 21;
             // 
-            // dgvListaDeEquipoClientes
+            // button4
             // 
-            this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
-            this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";
-            this.dgvListaDeEquipoClientes.Size = new System.Drawing.Size(1052, 268);
-            this.dgvListaDeEquipoClientes.TabIndex = 24;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(495, 10);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(90, 35);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Editar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // btn_cancelar_registro
+            // 
+            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar_registro.Location = new System.Drawing.Point(749, 9);
+            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
+            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
+            this.btn_cancelar_registro.TabIndex = 2;
+            this.btn_cancelar_registro.Text = "Cancelar";
+            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(618, 9);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(90, 35);
+            this.button5.TabIndex = 1;
+            this.button5.Text = "Guardar";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(355, 9);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(90, 35);
+            this.button6.TabIndex = 0;
+            this.button6.Text = "Nuevo";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // preRegistEquipoMantenimiento
             // 
@@ -454,6 +454,7 @@
             this.ClientSize = new System.Drawing.Size(1164, 603);
             this.Controls.Add(this.tabControl1);
             this.Name = "preRegistEquipoMantenimiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "preRegistEquipoMantenimiento";
             this.panel1.ResumeLayout(false);
             this.groupBoxEquipo.ResumeLayout(false);
@@ -465,12 +466,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBoxAccesorios.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeEquipoClientes)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeEquipoClientes)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

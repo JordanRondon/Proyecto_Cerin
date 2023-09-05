@@ -156,6 +156,7 @@
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.groupBox1);
             this.Name = "preSelectEquipoAlquiler";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "preSelectEquipoAlquiler";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
