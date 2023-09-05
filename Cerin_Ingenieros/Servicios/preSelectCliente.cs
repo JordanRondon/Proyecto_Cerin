@@ -61,8 +61,17 @@ namespace Cerin_Ingenieros.Servicios
             txb_apellidos_cliente.Enabled = true;
             txb_nombre_cliente.Enabled = true;
             txb_ruc_cliente.Enabled = true;
-        }
 
+            LimpiarVariables();
+        }
+        private void LimpiarVariables()
+        {
+            txb_dni_cliente.Text = "";
+            txb_apellidos_cliente.Text = "";
+            txb_nombre_cliente.Text = "";
+            txb_ruc_cliente.Text = "";
+            txb_telefono_cliente.Text = "";
+        }
 
         /// <summary>
         /// Manejador de eventos que valida que soo se ingrese numeros 
@@ -86,12 +95,14 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_cancelar_registro_Click(object sender, EventArgs e)
         {
             ConfiguracionInicial();
+            LimpiarVariables();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
 
             ConfiguracionInicial();
+            LimpiarVariables();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -124,6 +135,7 @@ namespace Cerin_Ingenieros.Servicios
 
             ListarClientes();
             ConfiguracionInicial();
+            LimpiarVariables();
             id_Temporal = -1;
         }
 
