@@ -61,17 +61,22 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
 
                 // Verifica el estado del checkbox y habilita o deshabilita la edición de la tercera columna
-                if (!Convert.ToBoolean(checkBoxCell.Value))
-                {
-                    textBoxCell.ReadOnly = false;
-                    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
-                }
-                else
+                if (textBoxCell.Value.ToString() != "")
                 {
                     textBoxCell.ReadOnly = true;
                     textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
                 }
+                else
+                {
+                    textBoxCell.ReadOnly = false;
+                    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
+                }
             }
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

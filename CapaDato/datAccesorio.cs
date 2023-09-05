@@ -53,6 +53,31 @@ namespace CapaDato
 
             return lista;
         }
+        public entAccesorio BuscarAccesorioNombre(string nombre)
+        {
+            SqlCommand cmd = null;
+            entAccesorio ac = new entAccesorio();
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("sp_buscarAccesorioPorNombre", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    ac.IdAccesorio = Convert.ToInt32(dr["id_accesorio"]);
+                    ac.Nombre = Convert.ToString(dr["nombre"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return ac;
+        }
         #endregion  Metodos
 
     }

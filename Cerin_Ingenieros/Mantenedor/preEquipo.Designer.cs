@@ -43,16 +43,20 @@
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
+            this.dgvAcesorios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBoxAccesorios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(370, 16);
+            this.label7.Location = new System.Drawing.Point(370, 11);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(391, 31);
             this.label7.TabIndex = 5;
@@ -69,10 +73,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(37, 69);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1104, 97);
+            this.groupBox1.Size = new System.Drawing.Size(429, 247);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "CARACTERISTICAS DE EQUIPO";
+            this.groupBox1.Text = "Caracteristicas del equipo";
             // 
             // comboBox_marca
             // 
@@ -84,7 +88,7 @@
             "Geoslam",
             "DJI Enterprise",
             "Spectra Precision"});
-            this.comboBox_marca.Location = new System.Drawing.Point(835, 37);
+            this.comboBox_marca.Location = new System.Drawing.Point(90, 137);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
@@ -94,7 +98,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(749, 43);
+            this.label8.Location = new System.Drawing.Point(12, 142);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 12;
@@ -103,7 +107,7 @@
             // txb_modelo_equipo
             // 
             this.txb_modelo_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_modelo_equipo.Location = new System.Drawing.Point(458, 40);
+            this.txb_modelo_equipo.Location = new System.Drawing.Point(90, 86);
             this.txb_modelo_equipo.Name = "txb_modelo_equipo";
             this.txb_modelo_equipo.Size = new System.Drawing.Size(241, 23);
             this.txb_modelo_equipo.TabIndex = 10;
@@ -113,14 +117,14 @@
             this.txb_serie_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_serie_equipo.Location = new System.Drawing.Point(90, 40);
             this.txb_serie_equipo.Name = "txb_serie_equipo";
-            this.txb_serie_equipo.Size = new System.Drawing.Size(241, 23);
+            this.txb_serie_equipo.Size = new System.Drawing.Size(177, 23);
             this.txb_serie_equipo.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(380, 43);
+            this.label3.Location = new System.Drawing.Point(12, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 2;
@@ -130,7 +134,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 46);
+            this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 17);
             this.label1.TabIndex = 0;
@@ -144,10 +148,10 @@
             this.dataGridView_equipos.AllowUserToResizeRows = false;
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_equipos.Location = new System.Drawing.Point(61, 286);
+            this.dataGridView_equipos.Location = new System.Drawing.Point(61, 397);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
             this.dataGridView_equipos.RowHeadersVisible = false;
-            this.dataGridView_equipos.Size = new System.Drawing.Size(1057, 316);
+            this.dataGridView_equipos.Size = new System.Drawing.Size(1057, 205);
             this.dataGridView_equipos.TabIndex = 15;
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
@@ -158,7 +162,7 @@
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(-1, 196);
+            this.panel1.Location = new System.Drawing.Point(-1, 330);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 48);
             this.panel1.TabIndex = 16;
@@ -218,12 +222,39 @@
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
+            // groupBoxAccesorios
+            // 
+            this.groupBoxAccesorios.Controls.Add(this.dgvAcesorios);
+            this.groupBoxAccesorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxAccesorios.Location = new System.Drawing.Point(517, 63);
+            this.groupBoxAccesorios.Name = "groupBoxAccesorios";
+            this.groupBoxAccesorios.Size = new System.Drawing.Size(601, 253);
+            this.groupBoxAccesorios.TabIndex = 42;
+            this.groupBoxAccesorios.TabStop = false;
+            this.groupBoxAccesorios.Text = "Accesorios";
+            // 
+            // dgvAcesorios
+            // 
+            this.dgvAcesorios.AllowUserToAddRows = false;
+            this.dgvAcesorios.AllowUserToDeleteRows = false;
+            this.dgvAcesorios.AllowUserToResizeColumns = false;
+            this.dgvAcesorios.AllowUserToResizeRows = false;
+            this.dgvAcesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAcesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAcesorios.Location = new System.Drawing.Point(26, 19);
+            this.dgvAcesorios.Name = "dgvAcesorios";
+            this.dgvAcesorios.RowHeadersVisible = false;
+            this.dgvAcesorios.Size = new System.Drawing.Size(554, 211);
+            this.dgvAcesorios.TabIndex = 38;
+            this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
+            // 
             // preEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 642);
+            this.Controls.Add(this.groupBoxAccesorios);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView_equipos);
             this.Controls.Add(this.label7);
@@ -235,6 +266,8 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.groupBoxAccesorios.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +290,7 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_nuevo;
+        private System.Windows.Forms.GroupBox groupBoxAccesorios;
+        private System.Windows.Forms.DataGridView dgvAcesorios;
     }
 }

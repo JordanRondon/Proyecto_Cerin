@@ -58,10 +58,10 @@ namespace CapaDato
             return lista;
         }
 
-        public bool insertarEquipo(entEquipo equipo)
+        public int insertarEquipo(entEquipo equipo)
         {
             SqlCommand cmd = null;
-            bool inserta = false;
+            int nuevoID = 0;
 
             try
             {
@@ -78,12 +78,16 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
 
-                cn.Open();
+                SqlParameter outputParameter = new SqlParameter("@NuevoID", SqlDbType.Int);
+                outputParameter.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(outputParameter);
 
+                cn.Open();
                 int i = cmd.ExecuteNonQuery();
-                if (i > 0)
+
+                if (i > 0 && outputParameter.Value != DBNull.Value)
                 {
-                    inserta = true;
+                    nuevoID = Convert.ToInt32(outputParameter.Value);
                 }
             }
             catch (Exception ex)
@@ -92,7 +96,7 @@ namespace CapaDato
             }
             finally { cmd.Connection.Close(); }
 
-            return inserta;
+            return nuevoID;
         }
 
         public bool editarEquipo(entEquipo equipo)

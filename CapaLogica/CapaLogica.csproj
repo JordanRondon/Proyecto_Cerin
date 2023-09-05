@@ -81,6 +81,7 @@
     <Compile Include="logCliente.cs" />
     <Compile Include="logEmpleado.cs" />
     <Compile Include="logEquipo.cs" />
+    <Compile Include="logEquipoAccesorio.cs" />
     <Compile Include="logEquipo_Servicio.cs" />
     <Compile Include="logMarca.cs" />
     <Compile Include="logServicio.cs" />

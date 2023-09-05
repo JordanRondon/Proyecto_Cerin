@@ -18,7 +18,7 @@ namespace CapaLogica
         #region Metodos
         public List<entEquipo> listarEquipo() => datEquipo.GetInstancia.listarEquipo();
             
-        public bool insertaEquipo(entEquipo equipo) => datEquipo.GetInstancia.insertarEquipo(equipo);
+        public int insertaEquipo(entEquipo equipo) => datEquipo.GetInstancia.insertarEquipo(equipo);
 
         public bool editarEquipo(entEquipo equipo) => datEquipo.GetInstancia.editarEquipo(equipo);
 

@@ -15,6 +15,7 @@ namespace Cerin_Ingenieros
     public partial class preEquipo : Form
     {
         int registroSeleccionado = -1;
+        List<entAccesorio> listaaccesorios;
 
         public preEquipo()
         {
@@ -35,6 +36,9 @@ namespace Cerin_Ingenieros
             txb_modelo_equipo.Text = "";
             comboBox_marca.SelectedIndex = -1;
             registroSeleccionado = -1;
+            listaaccesorios.Clear();
+            CargarAccesorios();
+            dgvAcesorios.Enabled = false;
         }
 
         private void hablitar_entradas()
@@ -49,6 +53,7 @@ namespace Cerin_Ingenieros
             txb_serie_equipo.Enabled = false;
             txb_modelo_equipo.Enabled = false;
             comboBox_marca.Enabled = false;
+            dgvAcesorios.Enabled = false;
         }
 
         private void deshablitar_btn()
@@ -78,7 +83,13 @@ namespace Cerin_Ingenieros
             btn_editar.Enabled = false;
             btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = true;
+            dgvAcesorios.Enabled = true;
             comboBox_marca.SelectedIndex = 0;
+
+            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
+
+            CargarAccesorios();
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -86,6 +97,31 @@ namespace Cerin_Ingenieros
             limpiar_entradas();
             deshablitar_entradas();
             deshablitar_btn();
+        }
+        private void CargarAccesorios()
+        {
+            dgvAcesorios.Rows.Clear();
+            dgvAcesorios.Columns.Clear();
+
+            dgvAcesorios.Columns.AddRange(
+                new DataGridViewCheckBoxColumn { HeaderText = "Opcion" },
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre", ReadOnly = true },
+                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true }
+            );
+            dgvAcesorios.Columns[0].Width = 50;
+            dgvAcesorios.Columns[2].Width = 80;
+
+            foreach (DataGridViewColumn column in dgvAcesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
+            foreach (var item in listaaccesorios)
+            {
+                dgvAcesorios.Rows.Add(
+                    false,
+                    item.Nombre,
+                    ""
+                );
+            }
+
         }
         private void ConfigCabecera()
         {
@@ -192,7 +228,60 @@ namespace Cerin_Ingenieros
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
 
-                    logEquipo.GetInstancia.insertaEquipo(equipo);
+                    int id_equipo = logEquipo.GetInstancia.insertaEquipo(equipo);
+
+                    //insertar los accesorios del equipo
+                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
+                    det_equipo_Accesorio.id_equipo = id_equipo;
+
+
+                    for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
+                    {
+                        DataGridViewRow row = dgvAcesorios.Rows[i];
+                        if (!row.IsNewRow)
+                        {
+                            bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
+                            int cantidad = 0; //cantidad predeterminada 
+                            string name="";
+
+                            DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+
+                            if (!row.IsNewRow)
+                            {
+                                estadoacesorio = (bool)checkBoxCell.Value;
+                                if (estadoacesorio)
+                                {
+                                    DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+
+                                    cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+                                    name = Convert.ToString(textBoxCellName.Value);
+                                    det_equipo_Accesorio.id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+                                    det_equipo_Accesorio.cantidad = cantidad;
+                                    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+                                }
+                            }
+                        }
+                    }
+
+
+
+
+
+
+
+
+
+
+                    //    foreach (var item in listaaccesorios)
+                    //{
+                    //    det_equipo_Accesorio.id_accesorio = item.IdAccesorio;
+                    //    det_equipo_Accesorio.cantidad = 0;
+                    //    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+                    //}
+
+
+                    
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -204,6 +293,8 @@ namespace Cerin_Ingenieros
 
             limpiar_entradas();
             listarEquipo();
+
+            listaaccesorios.Clear();
 
             //reiniciar el combobox al primer elemento 
             if (comboBox_marca.Items.Count >= 0)
@@ -275,6 +366,41 @@ namespace Cerin_Ingenieros
             listarEquipo();
             deshablitar_btn();
             deshablitar_entradas();
+        }
+
+        private void dgvAcesorios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0) // Verifica que el evento ocurrió en la primera columna
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[0];
+                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
+
+                // Verifica el estado del checkbox y habilita o deshabilita la edición de la tercera columna
+
+                if (textBoxCell.Value.ToString() != "")
+                {
+                    textBoxCell.ReadOnly = true;
+                    textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
+                }
+                else
+                {
+                    textBoxCell.ReadOnly = false;
+                    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
+                }
+
+
+
+                //if (!Convert.ToBoolean(checkBoxCell.Value))
+                //{
+                //    textBoxCell.ReadOnly = false;
+                //    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
+                //}
+                //else
+                //{
+                //    textBoxCell.ReadOnly = true;
+                //    textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
+                //}
+            }
         }
     }
 }
