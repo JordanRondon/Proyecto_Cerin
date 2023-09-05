@@ -35,7 +35,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_actualizar_servicio = new System.Windows.Forms.Button();
             this.btn_marca = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
@@ -43,19 +42,23 @@
             this.btn_mantenimiento = new System.Windows.Forms.Button();
             this.btn_alquiler = new System.Windows.Forms.Button();
             this.panel_principal = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnPantallaCom = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelOpPrincipal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_principal.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelOpPrincipal
             // 
+            this.panelOpPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panelOpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelOpPrincipal.Controls.Add(this.panel7);
             this.panelOpPrincipal.Controls.Add(this.panel6);
@@ -122,16 +125,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 50);
             this.panel2.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_blanco__sin_fondo__;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 88);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
             // 
             // btn_actualizar_servicio
             // 
@@ -244,6 +237,9 @@
             // 
             // panel_principal
             // 
+            this.panel_principal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_principal.BackColor = System.Drawing.Color.Transparent;
             this.panel_principal.Controls.Add(this.pictureBox2);
             this.panel_principal.Location = new System.Drawing.Point(173, 39);
@@ -252,22 +248,14 @@
             this.panel_principal.Size = new System.Drawing.Size(1180, 642);
             this.panel_principal.TabIndex = 1;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_celeste___sin_fondo_;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 37);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1183, 563);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Controls.Add(this.BtnPantallaCom);
             this.panel1.Controls.Add(this.btnMinimizar);
             this.panel1.Controls.Add(this.btnCerrar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1355, 40);
@@ -276,14 +264,30 @@
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
+            // BtnPantallaCom
+            // 
+            this.BtnPantallaCom.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.BtnPantallaCom.FlatAppearance.BorderSize = 0;
+            this.BtnPantallaCom.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
+            this.BtnPantallaCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.BtnPantallaCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPantallaCom.Image = global::Cerin_Ingenieros.Properties.Resources.Icono_Maximizar;
+            this.BtnPantallaCom.Location = new System.Drawing.Point(1264, 0);
+            this.BtnPantallaCom.Name = "BtnPantallaCom";
+            this.BtnPantallaCom.Size = new System.Drawing.Size(40, 40);
+            this.BtnPantallaCom.TabIndex = 4;
+            this.BtnPantallaCom.UseVisualStyleBackColor = true;
+            this.BtnPantallaCom.Click += new System.EventHandler(this.BtnPantallaCom_Click);
+            // 
             // btnMinimizar
             // 
+            this.btnMinimizar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnMinimizar.FlatAppearance.BorderSize = 0;
             this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             this.btnMinimizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMinimizar.Image = global::Cerin_Ingenieros.Properties.Resources.Icono_Minimizar;
-            this.btnMinimizar.Location = new System.Drawing.Point(1264, 0);
+            this.btnMinimizar.Location = new System.Drawing.Point(1218, 0);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(40, 40);
             this.btnMinimizar.TabIndex = 3;
@@ -292,6 +296,7 @@
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnCerrar.FlatAppearance.BorderSize = 0;
             this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gray;
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
@@ -303,6 +308,29 @@
             this.btnCerrar.TabIndex = 2;
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_celeste___sin_fondo_;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 37);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1183, 563);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_blanco__sin_fondo__;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // Principal
             // 
@@ -318,10 +346,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CCI CONTROL DE SERVICIOS";
             this.panelOpPrincipal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_principal.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -347,5 +375,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button BtnPantallaCom;
     }
 }

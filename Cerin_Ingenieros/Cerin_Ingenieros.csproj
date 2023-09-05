@@ -235,5 +235,8 @@
   <ItemGroup>
     <None Include="Resources\agregar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icono Maximizar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

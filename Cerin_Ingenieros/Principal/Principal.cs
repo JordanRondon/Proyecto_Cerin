@@ -83,6 +83,18 @@ namespace Cerin_Ingenieros
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void BtnPantallaCom_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (m==1)
