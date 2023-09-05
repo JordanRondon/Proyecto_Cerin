@@ -16,23 +16,26 @@ namespace Cerin_Ingenieros
     {
         //FUNCION PARA MOVIMIENTO DEL FORMULARIO
         private int m, mx, my;
-
+        private Form FormActivo = null;
 
         public Principal()
         {
             InitializeComponent();
         }
         //funcion para el acceso a los formulario
-        private void AbrirFormHijo(object formhijo)
+        private void AbrirFormHijo(Form formhijo)
         {
-            if (this.panel_principal.Controls.Count > 0)
-                this.panel_principal.Controls.RemoveAt(0);
-            Form fh = formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panel_principal.Controls.Add(fh);
-            this.panel_principal.Tag = fh;
-            fh.Show();
+            if (FormActivo != null)
+                FormActivo.Close();
+            FormActivo = formhijo;
+            formhijo.TopLevel = false;
+            formhijo.FormBorderStyle = FormBorderStyle.None;
+            formhijo.Dock = DockStyle.Fill;
+            panel_principal.Controls.Add(formhijo);
+            panel_principal.Tag = formhijo;
+            formhijo.BringToFront();
+            formhijo.Show();
+
         }
 
 

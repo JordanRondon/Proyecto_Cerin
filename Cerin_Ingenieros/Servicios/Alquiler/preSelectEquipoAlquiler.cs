@@ -46,16 +46,17 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             //insertar los datos 
             foreach (var item in lisEquiposelect)
             {
-                string estado;
+                string estado2 = "";
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
-                if (item.Estado == 'D') estado = "Disponible";
-                else estado = "Ocupado";
+                if (item.Estado == 'D') estado2 = "Disponible";
+                if (item.Estado == 'U') estado2 = "Uso";
+                else estado2 = "Ocupado";
                 dataGridView_equipos.Rows.Add(
                     item.IdEquipo,
                     item.SerieEquipo,
                     item.Modelo,
-                    estado,
+                    estado2,
                     marca.Nombre
                 );
             }
@@ -95,7 +96,15 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             if (dataGridView_equipos.SelectedRows.Count>0)
             {
                 DataGridViewRow selectedRow = dataGridView_equipos.SelectedRows[0];
-                selecionado.Add(BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[1].Value)));
+                entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[1].Value));
+                equipo.Estado = 'U';
+                bool estadoE = logEquipo.GetInstancia.editarEquipo(equipo);
+
+                if (estadoE)
+                {
+                    selecionado.Add(equipo);
+                    listarEquipos();
+                }
             }
         }
 

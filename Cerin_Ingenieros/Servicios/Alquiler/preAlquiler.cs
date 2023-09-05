@@ -106,5 +106,16 @@ namespace Cerin_Ingenieros.Servicios
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
         }
+
+        private void preAlquiler_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Deseas salir de este formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
