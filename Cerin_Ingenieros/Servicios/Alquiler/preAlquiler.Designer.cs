@@ -228,6 +228,7 @@
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_nuevo
             // 
@@ -238,6 +239,7 @@
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // horaFecha
             // 

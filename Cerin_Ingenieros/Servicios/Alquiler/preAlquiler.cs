@@ -17,6 +17,7 @@ namespace Cerin_Ingenieros.Servicios
     {
         entCliente clienteSelecionado;
         List<entEquipo> equiposSelecionados;
+        bool prosesoCancelado = true;
         public preAlquiler()
         {
             InitializeComponent();
@@ -66,8 +67,20 @@ namespace Cerin_Ingenieros.Servicios
 
         private void inicializarVariablesAux()
         {
+            //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
+
+            //Configuracion inicial
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+
+            btn_nuevo.Enabled = true;
+            btn_cancelar.Enabled = false;
+            btn_guardar.Enabled = false;
+            btn_editar.Enabled = false;
+
+
         }
 
         //Botones
@@ -109,13 +122,54 @@ namespace Cerin_Ingenieros.Servicios
 
         private void preAlquiler_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult result = MessageBox.Show("¿Deseas salir de este formulario?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
+            ActualizarEstadosEquipos();
+        }
+        private void ActualizarEstadosEquipos()
+        {
+            if (equiposSelecionados.Count > 0 && prosesoCancelado)
+            {
+                foreach (var item in equiposSelecionados)
+                {
+                    item.Estado = 'D';
+                    logEquipo.GetInstancia.editarEquipo(item);
+                }
+                equiposSelecionados.Clear();
+            }
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            prosesoCancelado = true;
+            ActualizarEstadosEquipos();
+            listarEquipos();
+            inicializarVariablesAux();
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = true;
+            groupBox3.Enabled = true;
+
+            btn_nuevo.Enabled = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+            btn_editar.Enabled = true;
+
+
+
+
+
+
+
+
+
+            prosesoCancelado = true;
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+            prosesoCancelado = false;
         }
     }
 }
