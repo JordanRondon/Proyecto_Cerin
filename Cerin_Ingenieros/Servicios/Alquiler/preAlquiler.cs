@@ -21,11 +21,17 @@ namespace Cerin_Ingenieros.Servicios
         public preAlquiler()
         {
             InitializeComponent();
+            listarDatosComboBoxMarca();
             inicializarVariablesAux();
             ConfigCabecera();
             listarEquipos();
         }
-
+        private void listarDatosComboBoxMarca()
+        {
+            comboBox_empleado.ValueMember = "id_empleado";
+            comboBox_empleado.DisplayMember = "apellido";
+            comboBox_empleado.DataSource = logEmpleado.GetInstancia.listarEmpleado();
+        }
         private void ConfigCabecera()
         {
             dataGridView_list_equipos.Columns.AddRange(
@@ -154,41 +160,36 @@ namespace Cerin_Ingenieros.Servicios
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
             btn_editar.Enabled = true;
-
-
-
-
-
-
-
-
-
             prosesoCancelado = true;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            entServicio servicio = new entServicio();
 
 
+            //REGISTRAR EL SERVICIO
+            servicio.FechaRegistro = DateTime.Now;
+            servicio.IdTipo = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipo;
+            servicio.IdCliente = clienteSelecionado.IdCliente;
+            entEmpleado temp  = (entEmpleado)comboBox_empleado.SelectedItem;
+            servicio.IdEmpleado = temp.IdEmpleado;
 
+            int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 
+            //REGISTRAR EQUIPO_SERVICIO
+            entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
+            equipo_Servicio.IdServicio = idServicio;            
+            foreach(var item in equiposSelecionados)
+            {
+                equipo_Servicio.IdEquipo = item.IdEquipo;
+                logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
 
+                //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
+                item.Estado = 'O';
+                logEquipo.GetInstancia.editarEquipo(item);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
 
             prosesoCancelado = false;
         }

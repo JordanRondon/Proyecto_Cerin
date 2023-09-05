@@ -50,7 +50,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
                 if (item.Estado == 'D') estado2 = "Disponible";
-                if (item.Estado == 'U') estado2 = "Uso";
+                else if (item.Estado == 'U') estado2 = "Uso";
                 else estado2 = "Ocupado";
                 dataGridView_equipos.Rows.Add(
                     item.IdEquipo,
@@ -97,13 +97,16 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             {
                 DataGridViewRow selectedRow = dataGridView_equipos.SelectedRows[0];
                 entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[1].Value));
-                equipo.Estado = 'U';
-                bool estadoE = logEquipo.GetInstancia.editarEquipo(equipo);
-
-                if (estadoE)
+                if (equipo.Estado!='O')
                 {
-                    selecionado.Add(equipo);
-                    listarEquipos();
+                    equipo.Estado = 'U';
+                    bool estadoE = logEquipo.GetInstancia.editarEquipo(equipo);
+
+                    if (estadoE)
+                    {
+                        selecionado.Add(equipo);
+                        listarEquipos();
+                    }
                 }
             }
         }
