@@ -213,13 +213,23 @@ namespace Cerin_Ingenieros
             registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
             txb_serie_equipo.Text = filaActual.Cells[1].Value.ToString();
             txb_modelo_equipo.Text = filaActual.Cells[2].Value.ToString();
+            //FALTA ACUTALIZAR EL ESTADO
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
 
             habilitar_btn_modificacion();
 
             //cargar accesorios del equipo actual
 
+            List<entEquipo_Accesorio> listAccesoriosDeX = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(registroSeleccionado);
 
+            foreach(var item in listAccesoriosDeX)
+            {
+                entAccesorio acctemp = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+                //foreach ()
+                //{
+                //    //srecorrer el dtgview de accesorios
+                //}
+            }
 
 
         }
