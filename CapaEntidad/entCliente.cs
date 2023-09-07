@@ -18,6 +18,8 @@ namespace CapaEntidad
 
         public string Ruc { get; set; }
 
+        public string RazonSocial { get; set; }
+
         public string Telefono { get; set; }
     }
 }

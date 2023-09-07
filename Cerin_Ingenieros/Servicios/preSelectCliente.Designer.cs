@@ -58,6 +58,8 @@
             this.txb_dni_cliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txb_razonSocial_cliente = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -301,6 +303,8 @@
             // 
             // groupBoxRegistrar
             // 
+            this.groupBoxRegistrar.Controls.Add(this.txb_razonSocial_cliente);
+            this.groupBoxRegistrar.Controls.Add(this.label6);
             this.groupBoxRegistrar.Controls.Add(this.txb_telefono_cliente);
             this.groupBoxRegistrar.Controls.Add(this.label5);
             this.groupBoxRegistrar.Controls.Add(this.txb_nombre_cliente);
@@ -411,6 +415,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(538, 124);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(91, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Razon Social";
+            // 
+            // txb_razonSocial_cliente
+            // 
+            this.txb_razonSocial_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_razonSocial_cliente.Location = new System.Drawing.Point(629, 124);
+            this.txb_razonSocial_cliente.Name = "txb_razonSocial_cliente";
+            this.txb_razonSocial_cliente.Size = new System.Drawing.Size(241, 23);
+            this.txb_razonSocial_cliente.TabIndex = 18;
+            // 
             // preSelectCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,5 +488,7 @@
         private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_cancelar_registro;
+        private System.Windows.Forms.TextBox txb_razonSocial_cliente;
+        private System.Windows.Forms.Label label6;
     }
 }
