@@ -304,7 +304,8 @@ namespace Cerin_Ingenieros.Servicios
                 selecionado.Apellido = Convert.ToString(selectedRow.Cells[2].Value);
                 selecionado.Dni = Convert.ToString(selectedRow.Cells[3].Value);
                 selecionado.Ruc = Convert.ToString(selectedRow.Cells[4].Value);
-                selecionado.Telefono = Convert.ToString(selectedRow.Cells[5].Value);
+                selecionado.RazonSocial = Convert.ToString(selectedRow.Cells[5].Value);
+                selecionado.Telefono = Convert.ToString(selectedRow.Cells[6].Value);
                 this.Close();
             }
             else

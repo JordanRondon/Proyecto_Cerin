@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
             this.lb_telefono_cliente = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.comboBox_empleado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.dataGridView_list_equipos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_editar = new System.Windows.Forms.Button();
@@ -51,6 +49,10 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txb_ruc = new System.Windows.Forms.TextBox();
+            this.txb_razon_social = new System.Windows.Forms.TextBox();
+            this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_list_equipos)).BeginInit();
@@ -73,6 +75,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txb_razon_social);
+            this.groupBox2.Controls.Add(this.txb_ruc);
             this.groupBox2.Controls.Add(this.btn_slect_cliente);
             this.groupBox2.Controls.Add(this.lb_dni_ruc_cliente);
             this.groupBox2.Controls.Add(this.lb_apellidos_cliente);
@@ -88,42 +92,22 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
-            // btn_slect_cliente
-            // 
-            this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_slect_cliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_slect_cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_slect_cliente.BorderRadius = 0;
-            this.btn_slect_cliente.BorderSize = 0;
-            this.btn_slect_cliente.FlatAppearance.BorderSize = 0;
-            this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
-            this.btn_slect_cliente.Location = new System.Drawing.Point(81, 34);
-            this.btn_slect_cliente.Name = "btn_slect_cliente";
-            this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
-            this.btn_slect_cliente.TabIndex = 20;
-            this.btn_slect_cliente.Text = "Selecionar cliente";
-            this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
-            this.btn_slect_cliente.UseVisualStyleBackColor = false;
-            this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
-            // 
             // lb_dni_ruc_cliente
             // 
             this.lb_dni_ruc_cliente.BackColor = System.Drawing.SystemColors.Control;
             this.lb_dni_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dni_ruc_cliente.Location = new System.Drawing.Point(35, 122);
+            this.lb_dni_ruc_cliente.Location = new System.Drawing.Point(35, 95);
             this.lb_dni_ruc_cliente.Name = "lb_dni_ruc_cliente";
             this.lb_dni_ruc_cliente.Size = new System.Drawing.Size(280, 20);
             this.lb_dni_ruc_cliente.TabIndex = 19;
-            this.lb_dni_ruc_cliente.Text = "DNI / RUC";
+            this.lb_dni_ruc_cliente.Text = "DNI";
             this.lb_dni_ruc_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lb_apellidos_cliente
             // 
             this.lb_apellidos_cliente.BackColor = System.Drawing.SystemColors.Control;
             this.lb_apellidos_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_apellidos_cliente.Location = new System.Drawing.Point(35, 178);
+            this.lb_apellidos_cliente.Location = new System.Drawing.Point(35, 142);
             this.lb_apellidos_cliente.Name = "lb_apellidos_cliente";
             this.lb_apellidos_cliente.Size = new System.Drawing.Size(280, 20);
             this.lb_apellidos_cliente.TabIndex = 18;
@@ -134,7 +118,7 @@
             // 
             this.lb_telefono_cliente.BackColor = System.Drawing.SystemColors.Control;
             this.lb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_telefono_cliente.Location = new System.Drawing.Point(35, 295);
+            this.lb_telefono_cliente.Location = new System.Drawing.Point(35, 247);
             this.lb_telefono_cliente.Name = "lb_telefono_cliente";
             this.lb_telefono_cliente.Size = new System.Drawing.Size(280, 20);
             this.lb_telefono_cliente.TabIndex = 17;
@@ -145,7 +129,7 @@
             // 
             this.lb_nombres_cliente.BackColor = System.Drawing.SystemColors.Control;
             this.lb_nombres_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nombres_cliente.Location = new System.Drawing.Point(35, 238);
+            this.lb_nombres_cliente.Location = new System.Drawing.Point(35, 192);
             this.lb_nombres_cliente.Name = "lb_nombres_cliente";
             this.lb_nombres_cliente.Size = new System.Drawing.Size(280, 20);
             this.lb_nombres_cliente.TabIndex = 16;
@@ -155,7 +139,7 @@
             // comboBox_empleado
             // 
             this.comboBox_empleado.FormattingEnabled = true;
-            this.comboBox_empleado.Location = new System.Drawing.Point(117, 363);
+            this.comboBox_empleado.Location = new System.Drawing.Point(117, 385);
             this.comboBox_empleado.Name = "comboBox_empleado";
             this.comboBox_empleado.Size = new System.Drawing.Size(180, 26);
             this.comboBox_empleado.TabIndex = 15;
@@ -165,7 +149,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 369);
+            this.label8.Location = new System.Drawing.Point(14, 391);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 17);
             this.label8.TabIndex = 14;
@@ -182,26 +166,6 @@
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
-            // 
-            // btn_agregar_equipo
-            // 
-            this.btn_agregar_equipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_agregar_equipo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_agregar_equipo.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregar_equipo.BorderRadius = 0;
-            this.btn_agregar_equipo.BorderSize = 0;
-            this.btn_agregar_equipo.FlatAppearance.BorderSize = 0;
-            this.btn_agregar_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar_equipo.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 34);
-            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
-            this.btn_agregar_equipo.Size = new System.Drawing.Size(200, 40);
-            this.btn_agregar_equipo.TabIndex = 4;
-            this.btn_agregar_equipo.Text = "Agregar equipo";
-            this.btn_agregar_equipo.TextColor = System.Drawing.Color.White;
-            this.btn_agregar_equipo.UseVisualStyleBackColor = false;
-            this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
             // 
             // dataGridView_list_equipos
             // 
@@ -332,6 +296,70 @@
             this.panel3.Size = new System.Drawing.Size(1180, 540);
             this.panel3.TabIndex = 23;
             // 
+            // txb_ruc
+            // 
+            this.txb_ruc.Location = new System.Drawing.Point(39, 295);
+            this.txb_ruc.Name = "txb_ruc";
+            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
+            this.txb_ruc.TabIndex = 21;
+            this.txb_ruc.Tag = "RUC";
+            this.txb_ruc.Text = "RUC";
+            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txb_ruc.Enter += new System.EventHandler(this.txb_ruc_Enter);
+            this.txb_ruc.Leave += new System.EventHandler(this.txb_ruc_Leave);
+            // 
+            // txb_razon_social
+            // 
+            this.txb_razon_social.Location = new System.Drawing.Point(39, 342);
+            this.txb_razon_social.Name = "txb_razon_social";
+            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
+            this.txb_razon_social.TabIndex = 22;
+            this.txb_razon_social.Tag = "Razon social";
+            this.txb_razon_social.Text = "Razon social";
+            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txb_razon_social.Enter += new System.EventHandler(this.txb_razon_social_Enter);
+            this.txb_razon_social.Leave += new System.EventHandler(this.txb_razon_social_Leave);
+            // 
+            // btn_slect_cliente
+            // 
+            this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_slect_cliente.BorderRadius = 0;
+            this.btn_slect_cliente.BorderSize = 0;
+            this.btn_slect_cliente.FlatAppearance.BorderSize = 0;
+            this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.Location = new System.Drawing.Point(81, 34);
+            this.btn_slect_cliente.Name = "btn_slect_cliente";
+            this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
+            this.btn_slect_cliente.TabIndex = 20;
+            this.btn_slect_cliente.Text = "Selecionar cliente";
+            this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.UseVisualStyleBackColor = false;
+            this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
+            // 
+            // btn_agregar_equipo
+            // 
+            this.btn_agregar_equipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregar_equipo.BorderRadius = 0;
+            this.btn_agregar_equipo.BorderSize = 0;
+            this.btn_agregar_equipo.FlatAppearance.BorderSize = 0;
+            this.btn_agregar_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar_equipo.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 34);
+            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
+            this.btn_agregar_equipo.Size = new System.Drawing.Size(200, 40);
+            this.btn_agregar_equipo.TabIndex = 4;
+            this.btn_agregar_equipo.Text = "Agregar equipo";
+            this.btn_agregar_equipo.TextColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.UseVisualStyleBackColor = false;
+            this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
+            // 
             // preAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,5 +407,7 @@
         private RecursosAdicionales.BotonesModernos.BTNModernos btn_slect_cliente;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txb_razon_social;
+        private System.Windows.Forms.TextBox txb_ruc;
     }
 }

@@ -97,20 +97,28 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             {
                 DataGridViewRow selectedRow = dataGridView_equipos.SelectedRows[0];
                 entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[1].Value));
-                if (equipo.Estado!='O')
+                if (equipo.Estado=='D')
                 {
-                    equipo.Estado = 'U';
-                    bool estadoE = logEquipo.GetInstancia.editarEquipo(equipo);
-
-                    if (estadoE)
+                    if (equipo.Estado != 'O')
                     {
-                        selecionado.Add(equipo);
-                        listarEquipos();
+                        equipo.Estado = 'U';
+                        bool estadoE = logEquipo.GetInstancia.editarEquipo(equipo);
+
+                        if (estadoE)
+                        {
+                            selecionado.Add(equipo);
+                            listarEquipos();
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("El equipo " + equipo.SerieEquipo + " no esta disponible");
+                    }
+
                 }
                 else
                 {
-                    MessageBox.Show("El equipo "+equipo.SerieEquipo+" no esta disponible");
+                    MessageBox.Show("El equipo " + equipo.SerieEquipo + " ya esta en la lista");
                 }
             }
         }

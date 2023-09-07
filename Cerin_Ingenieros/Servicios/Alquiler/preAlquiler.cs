@@ -25,6 +25,7 @@ namespace Cerin_Ingenieros.Servicios
             inicializarVariablesAux();
             ConfigCabecera();
             listarEquipos();
+
         }
         private void listarDatosComboBoxMarca()
         {
@@ -60,6 +61,7 @@ namespace Cerin_Ingenieros.Servicios
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
                 if (item.Estado == 'D') estado = "Disponible";
+                else if (item.Estado == 'U') estado = "Usando ahora";
                 else estado = "Ocupado";
                 dataGridView_list_equipos.Rows.Add(
                     item.IdEquipo,
@@ -86,7 +88,12 @@ namespace Cerin_Ingenieros.Servicios
             btn_guardar.Enabled = false;
             btn_editar.Enabled = false;
 
-            
+            lb_dni_ruc_cliente.Text = "DNI";
+            lb_nombres_cliente.Text = "Nombres";
+            lb_apellidos_cliente.Text = "Apellidos";
+            lb_telefono_cliente.Text = "Telefono";
+
+
 
         }
 
@@ -100,13 +107,12 @@ namespace Cerin_Ingenieros.Servicios
 
             if (clienteSelecionado!=null)
             {
-                if (clienteSelecionado.Dni != "")
-                    lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
-                else
-                    lb_dni_ruc_cliente.Text = clienteSelecionado.Ruc;
+                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                txb_ruc.Text = clienteSelecionado.Ruc;
                 lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
                 lb_nombres_cliente.Text = clienteSelecionado.Nombre;
                 lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+                txb_razon_social.Text = clienteSelecionado.RazonSocial;
             }
 
         }
@@ -212,6 +218,50 @@ namespace Cerin_Ingenieros.Servicios
             else
             {
                 MessageBox.Show("Faltan campos por completar");
+            }
+        }
+
+        private void txb_ruc_Enter(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (textBox.Text == "RUC")
+            {
+                textBox.Text = "";
+                textBox.ForeColor = SystemColors.WindowText; // Cambia el color de texto al predeterminado
+            }
+        }
+
+        private void txb_ruc_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "RUC";
+                textBox.ForeColor = SystemColors.GrayText; // Cambia el color de texto a gris
+            }
+        }
+
+        private void txb_razon_social_Enter(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (textBox.Text == "Razon social")
+            {
+                textBox.Text = "";
+                textBox.ForeColor = SystemColors.WindowText; // Cambia el color de texto al predeterminado
+            }
+        }
+
+        private void txb_razon_social_Leave(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = "Razon social";
+                textBox.ForeColor = SystemColors.GrayText; // Cambia el color de texto a gris
             }
         }
     }
