@@ -291,6 +291,7 @@ namespace Cerin_Ingenieros
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
                                 }
+                                /////// alidar por idaccesorio y acesorio
                             }
                         }
                     }
@@ -337,7 +338,39 @@ namespace Cerin_Ingenieros
 
                     int id_equipo = equipo.IdEquipo;
 
+                    //EditarEquipoAccesorio
+                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
+                    det_equipo_Accesorio.id_equipo = id_equipo;
 
+
+                    for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
+                    {
+                        DataGridViewRow row = dgvAcesorios.Rows[i];
+                        if (!row.IsNewRow)
+                        {
+                            bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
+                            int cantidad = 0; //cantidad predeterminada 
+                            string name = "";
+
+                            DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+
+                            if (!row.IsNewRow)
+                            {
+                                estadoacesorio = (bool)checkBoxCell.Value;
+                                if (estadoacesorio)
+                                {
+                                    DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+
+                                    cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+                                    name = Convert.ToString(textBoxCellName.Value);
+                                    det_equipo_Accesorio.id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+                                    det_equipo_Accesorio.cantidad = cantidad;
+                                    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+                                }
+                            }
+                        }
+                    }
 
 
 
