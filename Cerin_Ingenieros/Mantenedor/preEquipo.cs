@@ -38,7 +38,7 @@ namespace Cerin_Ingenieros
             registroSeleccionado = -1;
             listaaccesorios.Clear();
             CargarAccesorios();
-            dgvAcesorios.Enabled = false;
+            //dgvAcesorios.Enabled = false;
         }
 
         private void hablitar_entradas()
@@ -77,6 +77,10 @@ namespace Cerin_Ingenieros
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
+            configNuevo();
+        }
+        private void configNuevo()
+        {
             hablitar_entradas();
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
@@ -85,11 +89,12 @@ namespace Cerin_Ingenieros
             btn_cancelar.Enabled = true;
             dgvAcesorios.Enabled = true;
             comboBox_marca.SelectedIndex = 0;
-
+            cargarAccesorios();
+        }
+        private void cargarAccesorios()
+        {
             listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
-
             CargarAccesorios();
-
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -200,6 +205,9 @@ namespace Cerin_Ingenieros
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //LIMPIAR EQUIPO ACESORIO
+            cargarAccesorios();
+
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
 
             registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
@@ -208,6 +216,12 @@ namespace Cerin_Ingenieros
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
 
             habilitar_btn_modificacion();
+
+            //cargar accesorios del equipo actual
+
+
+
+
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -293,8 +307,8 @@ namespace Cerin_Ingenieros
 
             limpiar_entradas();
             listarEquipo();
-
-            listaaccesorios.Clear();
+            configNuevo();
+            //listaaccesorios.Clear();
 
             //reiniciar el combobox al primer elemento 
             if (comboBox_marca.Items.Count >= 0)
