@@ -233,6 +233,7 @@ namespace Cerin_Ingenieros
                     {
                         dgvAcesorios.Rows[i].Cells[0].Value = true;
                         dgvAcesorios.Rows[i].Cells[2].Value = item.cantidad;
+                        dgvAcesorios.Rows[i].Cells[2].ReadOnly = false;
                         break;
                     }
                 }
