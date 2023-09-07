@@ -105,6 +105,7 @@ namespace Cerin_Ingenieros
         }
         private void CargarAccesorios()
         {
+            dgvAcesorios.Enabled=true;
             dgvAcesorios.Rows.Clear();
             dgvAcesorios.Columns.Clear();
 
@@ -225,10 +226,16 @@ namespace Cerin_Ingenieros
             foreach(var item in listAccesoriosDeX)
             {
                 entAccesorio acctemp = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
-                //foreach ()
-                //{
-                //    //srecorrer el dtgview de accesorios
-                //}
+                for(int i = 0;dgvAcesorios.Rows.Count > 0; i++)
+                {
+                    string nombreaccesorio = dgvAcesorios.Rows[i].Cells[1].Value.ToString(); 
+                    if (nombreaccesorio == acctemp.Nombre)
+                    {
+                        dgvAcesorios.Rows[i].Cells[0].Value = true;
+                        dgvAcesorios.Rows[i].Cells[2].Value = item.cantidad;
+                        break;
+                    }
+                }
             }
 
 
@@ -288,24 +295,6 @@ namespace Cerin_Ingenieros
                         }
                     }
 
-
-
-
-
-
-
-
-
-
-                    //    foreach (var item in listaaccesorios)
-                    //{
-                    //    det_equipo_Accesorio.id_accesorio = item.IdAccesorio;
-                    //    det_equipo_Accesorio.cantidad = 0;
-                    //    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
-                    //}
-
-
-                    
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -345,6 +334,14 @@ namespace Cerin_Ingenieros
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
+
+                    int id_equipo = equipo.IdEquipo;
+
+
+
+
+
+
                 }
                 else
                 {
