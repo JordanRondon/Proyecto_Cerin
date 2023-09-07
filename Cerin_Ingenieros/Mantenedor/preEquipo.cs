@@ -105,6 +105,7 @@ namespace Cerin_Ingenieros
         }
         private void CargarAccesorios()
         {
+            dgvAcesorios.Enabled=true;
             dgvAcesorios.Rows.Clear();
             dgvAcesorios.Columns.Clear();
 
@@ -213,13 +214,29 @@ namespace Cerin_Ingenieros
             registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
             txb_serie_equipo.Text = filaActual.Cells[1].Value.ToString();
             txb_modelo_equipo.Text = filaActual.Cells[2].Value.ToString();
+            //FALTA ACUTALIZAR EL ESTADO
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
 
             habilitar_btn_modificacion();
 
             //cargar accesorios del equipo actual
 
+            List<entEquipo_Accesorio> listAccesoriosDeX = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(registroSeleccionado);
 
+            foreach(var item in listAccesoriosDeX)
+            {
+                entAccesorio acctemp = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+                for(int i = 0;dgvAcesorios.Rows.Count > 0; i++)
+                {
+                    string nombreaccesorio = dgvAcesorios.Rows[i].Cells[1].Value.ToString(); 
+                    if (nombreaccesorio == acctemp.Nombre)
+                    {
+                        dgvAcesorios.Rows[i].Cells[0].Value = true;
+                        dgvAcesorios.Rows[i].Cells[2].Value = item.cantidad;
+                        break;
+                    }
+                }
+            }
 
 
         }
@@ -274,28 +291,11 @@ namespace Cerin_Ingenieros
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
                                 }
+                                /////// alidar por idaccesorio y acesorio
                             }
                         }
                     }
 
-
-
-
-
-
-
-
-
-
-                    //    foreach (var item in listaaccesorios)
-                    //{
-                    //    det_equipo_Accesorio.id_accesorio = item.IdAccesorio;
-                    //    det_equipo_Accesorio.cantidad = 0;
-                    //    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
-                    //}
-
-
-                    
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -335,6 +335,46 @@ namespace Cerin_Ingenieros
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
+
+                    int id_equipo = equipo.IdEquipo;
+
+                    //EditarEquipoAccesorio
+                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
+                    det_equipo_Accesorio.id_equipo = id_equipo;
+
+
+                    for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
+                    {
+                        DataGridViewRow row = dgvAcesorios.Rows[i];
+                        if (!row.IsNewRow)
+                        {
+                            bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
+                            int cantidad = 0; //cantidad predeterminada 
+                            string name = "";
+
+                            DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+
+                            if (!row.IsNewRow)
+                            {
+                                estadoacesorio = (bool)checkBoxCell.Value;
+                                if (estadoacesorio)
+                                {
+                                    DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+
+                                    cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+                                    name = Convert.ToString(textBoxCellName.Value);
+                                    det_equipo_Accesorio.id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+                                    det_equipo_Accesorio.cantidad = cantidad;
+                                    logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+                                }
+                            }
+                        }
+                    }
+
+
+
+
                 }
                 else
                 {

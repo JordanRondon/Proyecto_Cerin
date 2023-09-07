@@ -19,6 +19,8 @@ namespace CapaLogica
 
         public bool insertarEquipoAccesorio(entEquipo_Accesorio equipo_accesorio) => datEquipo_Accesorio.GetInstancia.insertarEquipoAccesorio(equipo_accesorio);
 
+        public List<entEquipo_Accesorio> ListAccsDeEquipo(int id_equipo) => datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(id_equipo);
+
         #endregion
     }
 }

@@ -18,6 +18,7 @@ namespace CapaLogica
         #region Metodos
         public List<entAccesorio> listarAccesorio() => datAccesorio.GetInstancia.listarAccesorio();
         public entAccesorio BuscarAccesorioNombre(string nombre) => datAccesorio.GetInstancia.BuscarAccesorioNombre(nombre);
+        public entAccesorio BuscarAccesorioId(int id) => datAccesorio.GetInstancia.BuscarAccesorioId(id);
         #endregion
     }
 }
