@@ -87,7 +87,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(25, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(347, 427);
+            this.groupBox2.Size = new System.Drawing.Size(347, 453);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
@@ -139,9 +139,9 @@
             // comboBox_empleado
             // 
             this.comboBox_empleado.FormattingEnabled = true;
-            this.comboBox_empleado.Location = new System.Drawing.Point(117, 385);
+            this.comboBox_empleado.Location = new System.Drawing.Point(39, 411);
             this.comboBox_empleado.Name = "comboBox_empleado";
-            this.comboBox_empleado.Size = new System.Drawing.Size(180, 26);
+            this.comboBox_empleado.Size = new System.Drawing.Size(276, 26);
             this.comboBox_empleado.TabIndex = 15;
             this.comboBox_empleado.Text = "(seleciones una opcion)";
             // 
@@ -149,7 +149,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(14, 391);
+            this.label8.Location = new System.Drawing.Point(122, 391);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(97, 17);
             this.label8.TabIndex = 14;
@@ -162,7 +162,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(404, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(766, 427);
+            this.groupBox3.Size = new System.Drawing.Size(766, 453);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
@@ -190,7 +190,7 @@
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(0, 469);
+            this.panel1.Location = new System.Drawing.Point(0, 483);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1177, 55);
             this.panel1.TabIndex = 22;
@@ -293,7 +293,7 @@
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Location = new System.Drawing.Point(0, 90);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1180, 540);
+            this.panel3.Size = new System.Drawing.Size(1180, 552);
             this.panel3.TabIndex = 23;
             // 
             // txb_ruc

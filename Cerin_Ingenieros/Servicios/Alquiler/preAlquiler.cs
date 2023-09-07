@@ -21,17 +21,23 @@ namespace Cerin_Ingenieros.Servicios
         public preAlquiler()
         {
             InitializeComponent();
-            listarDatosComboBoxMarca();
+            listarDatosComboBoxEmpleados();
             inicializarVariablesAux();
             ConfigCabecera();
             listarEquipos();
 
         }
-        private void listarDatosComboBoxMarca()
+        private void listarDatosComboBoxEmpleados()
         {
             comboBox_empleado.ValueMember = "id_empleado";
-            comboBox_empleado.DisplayMember = "apellido";
-            comboBox_empleado.DataSource = logEmpleado.GetInstancia.listarEmpleado();
+            comboBox_empleado.DisplayMember = "apellidoNombre";
+            comboBox_empleado.DataSource = logEmpleado.GetInstancia.listarEmpleado()
+                .Select(e => new
+                {
+                    id_empleado = e.IdEmpleado,
+                    apellidoNombre = $"{e.Apellido}, {e.Nombre}" // Combina apellido y nombre
+                })
+                .ToList();
         }
         private void ConfigCabecera()
         {

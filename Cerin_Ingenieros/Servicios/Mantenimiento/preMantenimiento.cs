@@ -24,6 +24,19 @@ namespace Cerin_Ingenieros.Servicios
             inicializarVariablesAux();
             ConfigCabecera();
             listarEquipos();
+            listarDatosComboBoxEmpleados();
+        }
+        private void listarDatosComboBoxEmpleados()
+        {
+            comboBox_empleado.ValueMember = "id_empleado";
+            comboBox_empleado.DisplayMember = "apellidoNombre";
+            comboBox_empleado.DataSource = logEmpleado.GetInstancia.listarEmpleado()
+                .Select(e => new
+                {
+                    id_empleado = e.IdEmpleado,
+                    apellidoNombre = $"{e.Apellido}, {e.Nombre}" // Combina apellido y nombre
+                })
+                .ToList();
         }
         private void ConfigCabecera()
         {
