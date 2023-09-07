@@ -339,9 +339,10 @@ namespace Cerin_Ingenieros
                     int id_equipo = equipo.IdEquipo;
 
                     //EditarEquipoAccesorio
-                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
-                    det_equipo_Accesorio.id_equipo = id_equipo;
+                    //entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
+                    //det_equipo_Accesorio.id_equipo = id_equipo;
 
+                    List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
                     {
@@ -353,22 +354,62 @@ namespace Cerin_Ingenieros
                             string name = "";
 
                             DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+                            estadoacesorio = (bool)checkBoxCell.Value;
 
-                            if (!row.IsNewRow)
+
+                            //nombre del accesorio
+                            DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+                            name = Convert.ToString(textBoxCellName.Value);
+
+                            //buscar el id del accesorio
+                            int id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+
+                            //verificar si el accesorio es del equipo
+                            if (estadoacesorio)
                             {
-                                estadoacesorio = (bool)checkBoxCell.Value;
-                                if (estadoacesorio)
-                                {
-                                    DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
-                                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
 
-                                    cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
-                                    name = Convert.ToString(textBoxCellName.Value);
-                                    det_equipo_Accesorio.id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+                                //cantidad del accesorio
+                                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                                cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+
+                                //bucar un equipoaccesorio
+                                entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipo.IdEquipo, id_accesorio);
+
+                                //verificar que si el equiop_accesorio esxiste en la base de datos
+                                if (det_equipo_Accesorio!=null)
+                                {
+                                    // el equipo_accesorio ya existe en la bd por lo tanto hay que editar la cantidad
+                                    det_equipo_Accesorio.cantidad = cantidad;
+                                    logEquipoAccesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
+                                }
+                                else
+                                {
+                                    //registrar un euipo accesorio nuevo que no se encuentra en la bd
+                                    det_equipo_Accesorio = new entEquipo_Accesorio();
+
+                                    det_equipo_Accesorio.id_equipo = id_equipo;
+                                    det_equipo_Accesorio.id_accesorio = id_accesorio;
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+
                                 }
                             }
+                            else
+                            {
+                                foreach (var item in list_det_equipo_accesorio_)
+                                {
+                                    if (item.id_equipo==id_equipo && item.id_accesorio==id_accesorio)
+                                    {
+                                        bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(id_equipo,id_accesorio);
+                                        break;
+                                    }
+                                }
+
+                            }
+
+                            
+
+                            
                         }
                     }
 

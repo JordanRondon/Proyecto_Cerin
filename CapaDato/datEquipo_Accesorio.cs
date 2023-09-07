@@ -14,6 +14,8 @@ namespace CapaDato
         #region Singleton
         private static readonly datEquipo_Accesorio instancia = new datEquipo_Accesorio();
         public static datEquipo_Accesorio GetInstancia => instancia;
+
+        
         #endregion
 
         #region Metodos
@@ -89,6 +91,139 @@ namespace CapaDato
 
             return lista;
 
+        }
+        public entEquipo_Accesorio BuscarEquipoAccesorio(int idEquipo, int id_accesorio)
+        {
+            SqlCommand cmd = null;
+            entEquipo_Accesorio detEquiAcc = null;
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("sp_buscarDetEquiAcc", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@idEquipo", idEquipo);
+                cmd.Parameters.AddWithValue("@id_accesorio", id_accesorio);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    detEquiAcc = new entEquipo_Accesorio();
+                    detEquiAcc.id_accesorio = id_accesorio;
+                    detEquiAcc.id_equipo = idEquipo;
+                    detEquiAcc.cantidad = Convert.ToInt16(dr["cantidad"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return detEquiAcc;
+        }
+
+        public bool EditarEquipoAccesorio(entEquipo_Accesorio det_equipo_Accesorio)
+        {
+            SqlCommand cmd = null;
+            bool inserta = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_EditarEquipoAccesorio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_equipo", det_equipo_Accesorio.id_equipo);
+                cmd.Parameters.AddWithValue("@id_accesorio", det_equipo_Accesorio.id_accesorio);
+                cmd.Parameters.AddWithValue("@cantidad", det_equipo_Accesorio.cantidad);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return inserta;
+        }
+
+        public List<entEquipo_Accesorio> Listar()
+        {
+            SqlCommand cmd = null;
+            List<entEquipo_Accesorio> lista = new List<entEquipo_Accesorio>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listarEquipoAccesorio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo_Accesorio det = new entEquipo_Accesorio();
+
+                    det.id_equipo = Convert.ToInt32(dr["id_equipo"]);
+                    det.id_accesorio = Convert.ToInt16(dr["id_accesorio"]);
+                    det.cantidad = Convert.ToInt16(dr["cantidad"]);
+
+                    lista.Add(det);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        public bool EliminarDetalle(int id_equipo, int id_accesorio)
+        {
+            SqlCommand cmd = null;
+            bool elimina = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+                cmd = new SqlCommand("sp_EliminarAccesorioDeEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@id_accesorio", id_accesorio);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    elimina = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return elimina;
         }
         #endregion Metodos
     }
