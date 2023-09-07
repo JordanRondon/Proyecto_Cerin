@@ -43,6 +43,7 @@ namespace CapaDato
                     clie.Apellido = Convert.ToString(dr["apellido"]);
                     clie.Dni = Convert.ToString(dr["dni"]);
                     clie.Ruc = Convert.ToString(dr["ruc"]);
+                    clie.RazonSocial = Convert.ToString(dr["razonSocial"]);
                     clie.Telefono = Convert.ToString(dr["telefono"]);
 
                     lista.Add(clie);
@@ -73,6 +74,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
                 cmd.Parameters.AddWithValue("@dni", cliente.Dni);
                 cmd.Parameters.AddWithValue("@ruc", cliente.Ruc);
+                cmd.Parameters.AddWithValue("@razonSocial", cliente.RazonSocial);
                 cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
 
                 cn.Open();
@@ -109,6 +111,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@apellido", cliente.Apellido);
                 cmd.Parameters.AddWithValue("@dni", cliente.Dni);
                 cmd.Parameters.AddWithValue("@ruc", cliente.Ruc);
+                cmd.Parameters.AddWithValue("@razonSocial", cliente.RazonSocial);
                 cmd.Parameters.AddWithValue("@telefono", cliente.Telefono);
 
                 cn.Open();

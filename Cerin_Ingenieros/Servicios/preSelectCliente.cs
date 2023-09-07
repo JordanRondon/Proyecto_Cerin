@@ -61,6 +61,7 @@ namespace Cerin_Ingenieros.Servicios
             txb_apellidos_cliente.Enabled = true;
             txb_nombre_cliente.Enabled = true;
             txb_ruc_cliente.Enabled = true;
+            txb_razonSocial_cliente.Enabled = true;
 
             LimpiarVariables();
         }
@@ -71,6 +72,7 @@ namespace Cerin_Ingenieros.Servicios
             txb_nombre_cliente.Text = "";
             txb_ruc_cliente.Text = "";
             txb_telefono_cliente.Text = "";
+            txb_razonSocial_cliente.Text = "";
         }
 
         /// <summary>
@@ -121,6 +123,7 @@ namespace Cerin_Ingenieros.Servicios
                     cliente.Apellido = txb_apellidos_cliente.Text.Trim();
                     cliente.Dni = txb_dni_cliente.Text.Trim();
                     cliente.Ruc = txb_ruc_cliente.Text.Trim();
+                    cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
                     cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
                     logCliente.GetInstancia.editarCliente(cliente);
@@ -139,25 +142,50 @@ namespace Cerin_Ingenieros.Servicios
             id_Temporal = -1;
         }
 
+        private void datosCliente(string DNI)
+        {
+            entApi clienteApi = logApi.GetInstancia.consultarDatosApi(DNI);
+            if (clienteApi != null)
+            {
+                txb_nombre_cliente.Text = clienteApi.Nombre;
+                txb_apellidos_cliente.Text = clienteApi.Apellido;
+
+                txb_dni_cliente.Enabled = false;
+                txb_apellidos_cliente.Enabled = false;
+                txb_nombre_cliente.Enabled = false;
+            }
+            else { MessageBox.Show("DNI no valida"); }
+        }
+
+        private void datosRuc(string RUC)
+        {
+            entApi clienteApi = logApi.GetInstancia.consultarDatosApi(txb_ruc_cliente.Text.Trim());
+            if (clienteApi != null)
+            {
+                txb_razonSocial_cliente.Text = clienteApi.razonSocial;
+
+                txb_ruc_cliente.Enabled = false;
+                txb_razonSocial_cliente.Enabled = false;
+            }
+            else { MessageBox.Show("RUC no valida"); }
+        }
+
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             // verificar que la cadena tenga 8 caracteres, no esta vacia
-            if (txb_dni_cliente.Text.Length == 8)
+            if (txb_dni_cliente.Text.Length == 8 && txb_ruc_cliente.Text.Length == 11)
             {
-                entApi clienteApi = logApi.GetInstancia.consultarDatosApi(txb_dni_cliente.Text);
-
-                if (clienteApi != null)
+                datosCliente(txb_dni_cliente.Text.Trim());
+                datosRuc(txb_ruc_cliente.Text.Trim());
+            } 
+            else if (txb_dni_cliente.Text.Length == 8 || txb_ruc_cliente.Text.Length == 11) {
+                if (txb_dni_cliente.Text != null)
                 {
-                    txb_nombre_cliente.Text = clienteApi.Nombre;
-                    txb_apellidos_cliente.Text = clienteApi.Apellido;
-
-                    txb_dni_cliente.Enabled = false;
-                    txb_apellidos_cliente.Enabled = false;
-                    txb_nombre_cliente.Enabled = false;
+                    datosCliente(txb_dni_cliente.Text.Trim());
                 }
-                else
+                if (txb_ruc_cliente.Text != null)
                 {
-                    MessageBox.Show("DNI no valida");
+                    datosRuc(txb_ruc_cliente.Text.Trim());
                 }
             }
         }
@@ -165,14 +193,9 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
-            bool band2 = false;
+            bool band2 = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
             try
             {
-                if ((txb_dni_cliente.Text != "" && txb_dni_cliente.Text.Length == 8))
-                    band2 = logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim());
-                if ((txb_ruc_cliente.Text != "" && txb_ruc_cliente.Text.Length >= 10))
-                    band2 = logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim());
-
                 if (band1 && band2)
                 {
                     entCliente cliente = new entCliente();
@@ -181,6 +204,7 @@ namespace Cerin_Ingenieros.Servicios
                     cliente.Apellido = txb_apellidos_cliente.Text.Trim();
                     cliente.Dni = txb_dni_cliente.Text.Trim();
                     cliente.Ruc = txb_ruc_cliente.Text.Trim();
+                    cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
                     cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
                     logCliente.GetInstancia.insertarCliente(cliente);
@@ -206,7 +230,8 @@ namespace Cerin_Ingenieros.Servicios
             txb_apellidos_cliente.Text = filaActual.Cells[2].Value.ToString();
             txb_dni_cliente.Text = filaActual.Cells[3].Value.ToString();
             txb_ruc_cliente.Text = filaActual.Cells[4].Value.ToString();
-            txb_telefono_cliente.Text = filaActual.Cells[5].Value.ToString();
+            txb_razonSocial_cliente.Text = filaActual.Cells[5].Value.ToString();
+            txb_telefono_cliente.Text = filaActual.Cells[6].Value.ToString();
 
             configEditar();
 
@@ -226,6 +251,7 @@ namespace Cerin_Ingenieros.Servicios
             txb_apellidos_cliente.Enabled = false;
             txb_nombre_cliente.Enabled = false;
             txb_ruc_cliente.Enabled = false;
+            txb_razonSocial_cliente.Enabled = false;
         }
         #endregion RegistrarCliente
 
