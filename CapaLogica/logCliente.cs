@@ -33,7 +33,7 @@ namespace CapaLogica
 
         public bool ValidarRucUnica(string ruc) => datCliente.GetInstancia.ValidarRucUnica(ruc);
 
-
+        public entCliente buscarClienteId(int id_cliente) => datCliente.GetInstancia.buscarClienteId(id_cliente);
 
         #endregion
     }

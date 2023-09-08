@@ -23,11 +23,18 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
             entServicio servicioActual = new entServicio();
+            entCliente cliente = new entCliente();
             if (logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString())) != null)
             {
                 servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
-                label_nombre_ruc_cliente.Text = servicioActual.IdCliente.ToString();
-                label_tipo_Servicio.Text = servicioActual.IdTipo.ToString();
+                cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
+                if(cliente.Nombre != null)
+                {
+                    label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
+                    label_tipo_Servicio.Text = servicioActual.IdTipo.ToString();
+                }
+
+                
             }
             else
                 MessageBox.Show("Código de Servicio inexistente");
