@@ -19,6 +19,7 @@ namespace CapaLogica
 
         public int insertarServicio(entServicio servicio) => datServicio.GetInstancia.insertarServicio(servicio);
 
+        public entServicio buscarServicio(int id_servicio) => datServicio.GetInstancia.buscarServicio(id_servicio);
         #endregion
     }
 }
