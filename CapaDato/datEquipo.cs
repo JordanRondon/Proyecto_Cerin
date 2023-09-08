@@ -58,6 +58,46 @@ namespace CapaDato
             return lista;
         }
 
+        public List<entEquipo> listarEquipoDisponible()
+        {
+            SqlCommand cmd = null;
+            List<entEquipo> lista = new List<entEquipo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listarEquipoAlquilerDisponibles", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo equipo = new entEquipo();
+
+                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
+                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+
+                    lista.Add(equipo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
         public int insertarEquipo(entEquipo equipo)
         {
             SqlCommand cmd = null;
