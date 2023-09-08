@@ -292,6 +292,56 @@ namespace CapaDato
 
             return lista;
         }
+
+        public entEquipo buscarEquipoID(int id_equipo)
+        {
+            SqlCommand cmd = null;
+            entEquipo equipo = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_BuscarEquipoID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@@id_equipo", id_equipo);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    equipo = new entEquipo();
+
+                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    if (dr["observaciones"] != DBNull.Value)
+                        equipo.Observaciones = Convert.ToString(dr["observaciones"]);
+                    if (dr["recomendaciones"] != DBNull.Value)
+                        equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return equipo;
+        }
         #endregion
     }
 }

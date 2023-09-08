@@ -62,6 +62,38 @@ namespace CapaDato
             return nuevoID;
         }
 
+        public bool ActualizarEntregaServicio(entServicio servicio)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("ps_ActualizarEntrega", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_servicio", servicio.IdServicio);
+                cmd.Parameters.AddWithValue("@fecha_entrega", servicio.FechaEntrega);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
         public entServicio buscarServicio(int id_servicio)
         {
             SqlCommand cmd = null;
@@ -108,6 +140,36 @@ namespace CapaDato
             }
 
             return servicio;
+        }
+
+        public bool ActualizarEstadoEquipo(entServicio servicio)
+        {
+            SqlCommand cmd = null;
+            bool seElimino = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("ps_CambiarEstadoEquiposServicio", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_servicio", servicio.IdServicio);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    seElimino = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return seElimino;
         }
 
         #endregion Metodos

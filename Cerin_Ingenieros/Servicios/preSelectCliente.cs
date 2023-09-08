@@ -192,11 +192,11 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
+            //bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
             bool band2 = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
             try
             {
-                if (band1 && band2)
+                if (/*band1 && */band2)
                 {
                     entCliente cliente = new entCliente();
 
