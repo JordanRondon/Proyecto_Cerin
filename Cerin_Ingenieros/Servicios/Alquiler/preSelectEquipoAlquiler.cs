@@ -36,7 +36,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            lisEquiposelect = logEquipo.GetInstancia.listarEquipo();
+            lisEquiposelect = logEquipo.GetInstancia.listarEquipoDisponible();
         }
 
         private void listarEquipos()
