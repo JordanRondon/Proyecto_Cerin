@@ -19,6 +19,8 @@ namespace CapaLogica
 
         public bool insertarEquipoServicio(entEquipo_Servicio servicio_detalle) => datEquipo_Servicio.GetInstancia.insertarEquipoServicio(servicio_detalle);
 
+        public List<entEquipo> listarEquiposDeUnServicio(int id_servicio) => datEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(id_servicio);
+
         #endregion Metodos
     }
 }
