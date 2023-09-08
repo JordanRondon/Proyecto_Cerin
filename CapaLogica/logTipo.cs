@@ -19,6 +19,8 @@ namespace CapaLogica
 
         public entTipo BuscarTipoPorNombre(string nombre) => datTipo.GetInstancia.BuscarTipoPorNombre(nombre);
 
+        public entTipo buscarTipoServicioId(int id_tipoServicio) => datTipo.GetInstancia.buscarTipoServicioId(id_tipoServicio);
+
         #endregion Metodos
     }
 }

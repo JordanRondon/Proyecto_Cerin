@@ -112,20 +112,22 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.dataGridView_equipos);
+            this.panel1.Controls.Add(this.label_nombre_ruc_cliente);
             this.panel1.Controls.Add(this.label_tipo_Servicio);
             this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Controls.Add(this.dataGridView_Accesorios);
-            this.panel1.Location = new System.Drawing.Point(27, 159);
+            this.panel1.Location = new System.Drawing.Point(27, 147);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 411);
+            this.panel1.Size = new System.Drawing.Size(1130, 423);
             this.panel1.TabIndex = 40;
             // 
             // label_tipo_Servicio
             // 
             this.label_tipo_Servicio.AutoSize = true;
             this.label_tipo_Servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_Servicio.Location = new System.Drawing.Point(563, 13);
+            this.label_tipo_Servicio.Location = new System.Drawing.Point(883, 13);
             this.label_tipo_Servicio.Name = "label_tipo_Servicio";
             this.label_tipo_Servicio.Size = new System.Drawing.Size(130, 20);
             this.label_tipo_Servicio.TabIndex = 45;
@@ -135,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(399, 13);
+            this.label3.Location = new System.Drawing.Point(719, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 44;
@@ -175,7 +177,7 @@
             // 
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(918, 51);
+            this.groupBox2.Location = new System.Drawing.Point(918, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(226, 62);
             this.groupBox2.TabIndex = 42;
@@ -232,7 +234,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(517, 121);
+            this.label5.Location = new System.Drawing.Point(112, 13);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 47;
@@ -242,7 +244,7 @@
             // 
             this.label_nombre_ruc_cliente.AutoSize = true;
             this.label_nombre_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(603, 121);
+            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(198, 13);
             this.label_nombre_ruc_cliente.Name = "label_nombre_ruc_cliente";
             this.label_nombre_ruc_cliente.Size = new System.Drawing.Size(214, 20);
             this.label_nombre_ruc_cliente.TabIndex = 48;
@@ -267,9 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 642);
-            this.Controls.Add(this.label_nombre_ruc_cliente);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);

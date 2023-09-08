@@ -24,17 +24,18 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             entServicio servicioActual = new entServicio();
             entCliente cliente = new entCliente();
+            entTipo tipoServicio = new entTipo();
             if (logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString())) != null)
             {
                 servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
                 cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
-                if(cliente.Nombre != null)
-                {
+                tipoServicio = logTipo.GetInstancia.buscarTipoServicioId(servicioActual.IdTipo);
+                if (cliente.Nombre != null)
                     label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
-                    label_tipo_Servicio.Text = servicioActual.IdTipo.ToString();
-                }
+                else
+                    label_nombre_ruc_cliente.Text = cliente.RazonSocial;
 
-                
+                label_tipo_Servicio.Text = tipoServicio.Nombre;
             }
             else
                 MessageBox.Show("Código de Servicio inexistente");
