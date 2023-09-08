@@ -325,7 +325,59 @@ namespace CapaDato
             return unica;
         }
 
+        public entCliente buscarClienteId(int id_cliente)
+        {
+            SqlCommand cmd = null;
+            entCliente cliente = null;
 
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_BuscarClientePorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_cliente", id_cliente);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    cliente = new entCliente();
+
+                    cliente.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    if (dr["dni"] != DBNull.Value)
+                    {
+                        cliente.Nombre = Convert.ToString(dr["nombre"]);
+                        cliente.Apellido = Convert.ToString(dr["apellido"]);
+                        cliente.Dni = Convert.ToString(dr["dni"]);
+                    }
+                    if (dr["ruc"] != DBNull.Value)
+                    {
+                        cliente.Ruc = Convert.ToString(dr["ruc"]);
+                        cliente.RazonSocial = Convert.ToString(dr["razonSocial"]);
+                    }
+                    if (dr["telefono"] != DBNull.Value)
+                        cliente.Telefono = Convert.ToString(dr["telefono"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return cliente;
+        }
 
         #endregion Metodos
     }

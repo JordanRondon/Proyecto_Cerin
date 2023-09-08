@@ -189,8 +189,8 @@ namespace Cerin_Ingenieros.Servicios
                     IdTipo = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipo,
                     IdCliente = clienteSelecionado.IdCliente
                 };
-                entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
-                servicio.IdEmpleado = temp.IdEmpleado;
+                //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
+                servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
                 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 

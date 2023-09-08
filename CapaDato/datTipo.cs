@@ -45,6 +45,46 @@ namespace CapaDato
             return t;
         }
 
+        public entTipo buscarTipoServicioId(int id_TipoServicio)
+        {
+            SqlCommand cmd = null;
+            entTipo tipoServicio = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("ps_BuscarTipoServicioId", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_tipo", id_TipoServicio);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    tipoServicio = new entTipo();
+                    tipoServicio.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    tipoServicio.Nombre = Convert.ToString(dr["nombre"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return tipoServicio;
+        }
         #endregion Metodos
     }
 }

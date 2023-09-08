@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CapaDato
 {
@@ -61,6 +62,115 @@ namespace CapaDato
             return nuevoID;
         }
 
+        public bool ActualizarEntregaServicio(entServicio servicio)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("ps_ActualizarEntrega", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_servicio", servicio.IdServicio);
+                cmd.Parameters.AddWithValue("@fecha_entrega", servicio.FechaEntrega);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
+        public entServicio buscarServicio(int id_servicio)
+        {
+            SqlCommand cmd = null;
+            entServicio servicio = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("ps_ObtenerServicio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_servicio", id_servicio);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    servicio = new entServicio();
+                    servicio.IdServicio = Convert.ToInt32(dr["id_servicio"]);
+                    servicio.FechaRegistro = Convert.ToDateTime(dr["fecha_registro"]);
+                    if (dr["fecha_entrega"] != DBNull.Value)
+                    {
+                        servicio.FechaEntrega = Convert.ToDateTime(dr["fecha_entrega"]);
+                    }
+                    servicio.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return servicio;
+        }
+
+        public bool ActualizarEstadoEquipo(entServicio servicio)
+        {
+            SqlCommand cmd = null;
+            bool seElimino = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("ps_CambiarEstadoEquiposServicio", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_servicio", servicio.IdServicio);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    seElimino = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return seElimino;
+        }
 
         #endregion Metodos
 
