@@ -35,6 +35,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             txb_id_Servicio.Text = "";
             label_nombre_ruc_cliente.Text = "NOMBRE O RAZONSOCIAL";
             label_tipo_Servicio.Text = "TIPO";
+            txb_Recomendaciones.Text = "";
             limpiarTablas();
             indexEquipo = -1;
             indexServicio = -1;
@@ -127,6 +128,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     item.cantidad
                 );
             }
+
+            entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
+            if (equipo.Recomendaciones != "")
+            {
+                txb_Recomendaciones.Text = equipo.Recomendaciones;
+            }
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -139,15 +146,15 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (indexEquipo != -1)
             {
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
-                /*if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
+                if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
-                    equipo.Recomendaciones = Convert.ToString(txb_Recomendaciones.Text.ToString());
+                    equipo.Recomendaciones = txb_Recomendaciones.Text;
                     logEquipo.GetInstancia.editarEquipo(equipo);
                 }
                 else
                 {
                     MessageBox.Show("Campo de Texto vacío");
-                }*/
+                }
             }
             else
             {

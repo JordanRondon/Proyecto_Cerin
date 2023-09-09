@@ -288,7 +288,7 @@ namespace CapaDato
             return unica;
         }
 
-        public bool ValidarRucUnica(string dni)
+        public bool ValidarRucUnica(string ruc)
         {
             SqlCommand cmd = null;
             bool unica = false;
@@ -301,7 +301,7 @@ namespace CapaDato
 
                 cmd = new SqlCommand("ValidarRUCUnico", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@dni", dni);
+                cmd.Parameters.AddWithValue("@ruc", ruc);
                 SqlParameter returnValue = cmd.Parameters.Add("@ReturnValue", SqlDbType.Int);
                 returnValue.Direction = ParameterDirection.ReturnValue;
 
