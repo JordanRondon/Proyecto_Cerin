@@ -66,9 +66,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(371, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(402, 31);
+            this.label7.Size = new System.Drawing.Size(380, 31);
             this.label7.TabIndex = 17;
-            this.label7.Text = "REGISTRAR NUEVO MODELO";
+            this.label7.Text = "REGISTRAR NUEVA MARCA";
             // 
             // groupBox1
             // 

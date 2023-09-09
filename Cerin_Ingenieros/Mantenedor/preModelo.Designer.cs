@@ -34,15 +34,15 @@
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
-            this.dataGridView_marcas = new System.Windows.Forms.DataGridView();
+            this.dataGridView_modelos = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txb_nombre_marca = new System.Windows.Forms.TextBox();
-            this.txb_codigo_marca = new System.Windows.Forms.TextBox();
+            this.txb_nombre = new System.Windows.Forms.TextBox();
+            this.txb_codigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_marcas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_modelos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -108,19 +108,19 @@
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
             // 
-            // dataGridView_marcas
+            // dataGridView_modelos
             // 
-            this.dataGridView_marcas.AllowUserToAddRows = false;
-            this.dataGridView_marcas.AllowUserToDeleteRows = false;
-            this.dataGridView_marcas.AllowUserToResizeColumns = false;
-            this.dataGridView_marcas.AllowUserToResizeRows = false;
-            this.dataGridView_marcas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_marcas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_marcas.Location = new System.Drawing.Point(196, 290);
-            this.dataGridView_marcas.Name = "dataGridView_marcas";
-            this.dataGridView_marcas.RowHeadersVisible = false;
-            this.dataGridView_marcas.Size = new System.Drawing.Size(792, 264);
-            this.dataGridView_marcas.TabIndex = 23;
+            this.dataGridView_modelos.AllowUserToAddRows = false;
+            this.dataGridView_modelos.AllowUserToDeleteRows = false;
+            this.dataGridView_modelos.AllowUserToResizeColumns = false;
+            this.dataGridView_modelos.AllowUserToResizeRows = false;
+            this.dataGridView_modelos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_modelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_modelos.Location = new System.Drawing.Point(196, 290);
+            this.dataGridView_modelos.Name = "dataGridView_modelos";
+            this.dataGridView_modelos.RowHeadersVisible = false;
+            this.dataGridView_modelos.Size = new System.Drawing.Size(792, 264);
+            this.dataGridView_modelos.TabIndex = 23;
             // 
             // label7
             // 
@@ -128,14 +128,14 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(371, 22);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(380, 31);
+            this.label7.Size = new System.Drawing.Size(402, 31);
             this.label7.TabIndex = 22;
-            this.label7.Text = "REGISTRAR NUEVA MARCA";
+            this.label7.Text = "REGISTRAR NUEVO MODELO";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txb_nombre_marca);
-            this.groupBox1.Controls.Add(this.txb_codigo_marca);
+            this.groupBox1.Controls.Add(this.txb_nombre);
+            this.groupBox1.Controls.Add(this.txb_codigo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,23 +144,23 @@
             this.groupBox1.Size = new System.Drawing.Size(1084, 108);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATOS DE LA MARCA";
+            this.groupBox1.Text = "DATOS DEL MODELO";
             // 
-            // txb_nombre_marca
+            // txb_nombre
             // 
-            this.txb_nombre_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_marca.Location = new System.Drawing.Point(655, 51);
-            this.txb_nombre_marca.Name = "txb_nombre_marca";
-            this.txb_nombre_marca.Size = new System.Drawing.Size(241, 23);
-            this.txb_nombre_marca.TabIndex = 10;
+            this.txb_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_nombre.Location = new System.Drawing.Point(655, 51);
+            this.txb_nombre.Name = "txb_nombre";
+            this.txb_nombre.Size = new System.Drawing.Size(241, 23);
+            this.txb_nombre.TabIndex = 10;
             // 
-            // txb_codigo_marca
+            // txb_codigo
             // 
-            this.txb_codigo_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_codigo_marca.Location = new System.Drawing.Point(249, 51);
-            this.txb_codigo_marca.Name = "txb_codigo_marca";
-            this.txb_codigo_marca.Size = new System.Drawing.Size(241, 23);
-            this.txb_codigo_marca.TabIndex = 6;
+            this.txb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_codigo.Location = new System.Drawing.Point(249, 51);
+            this.txb_codigo.Name = "txb_codigo";
+            this.txb_codigo.Size = new System.Drawing.Size(241, 23);
+            this.txb_codigo.TabIndex = 6;
             // 
             // label3
             // 
@@ -188,14 +188,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 642);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.dataGridView_marcas);
+            this.Controls.Add(this.dataGridView_modelos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preModelo";
             this.Text = "preModelo";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_marcas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_modelos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -211,11 +211,11 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.DataGridView dataGridView_marcas;
+        private System.Windows.Forms.DataGridView dataGridView_modelos;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txb_nombre_marca;
-        private System.Windows.Forms.TextBox txb_codigo_marca;
+        private System.Windows.Forms.TextBox txb_nombre;
+        private System.Windows.Forms.TextBox txb_codigo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
     }
