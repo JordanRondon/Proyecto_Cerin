@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -48,7 +49,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_FinalizarServicio = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -124,6 +124,8 @@
             // 
             // dataGridView_equipos
             // 
+            this.dataGridView_equipos.AllowUserToAddRows = false;
+            this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equipos.Location = new System.Drawing.Point(116, 36);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
@@ -183,6 +185,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "OBSERVACIONES / RECOMENDACIONES PRELIMINARES";
             // 
+            // txb_Recomendaciones
+            // 
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 37);
+            this.txb_Recomendaciones.Multiline = true;
+            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(583, 138);
+            this.txb_Recomendaciones.TabIndex = 41;
+            // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,6 +206,8 @@
             // 
             // dataGridView_Accesorios
             // 
+            this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Accesorios.Location = new System.Drawing.Point(52, 199);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
@@ -263,14 +275,6 @@
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
-            // 
-            // txb_Recomendaciones
-            // 
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 37);
-            this.txb_Recomendaciones.Multiline = true;
-            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(583, 138);
-            this.txb_Recomendaciones.TabIndex = 41;
             // 
             // preActualizarServicios
             // 
