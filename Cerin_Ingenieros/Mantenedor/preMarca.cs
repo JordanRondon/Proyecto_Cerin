@@ -25,14 +25,14 @@ namespace Cerin_Ingenieros
 
         private void limpiar_entradas()
         {
-            txb_codigo_marca.Text = "";
-            txb_nombre_marca.Text = "";
+            txb_codigo.Text = "";
+            txb_nombre.Text = "";
         }
 
         private void deshablitar_entradas()
         {
-            txb_codigo_marca.Enabled = false;
-            txb_nombre_marca.Enabled = false;
+            txb_codigo.Enabled = false;
+            txb_nombre.Enabled = false;
         }
 
         private void deshablitar_btn()
@@ -40,27 +40,27 @@ namespace Cerin_Ingenieros
             btn_nuevo.Enabled = true;
             btn_guardar.Enabled = false;
             btn_editar.Enabled = false;
-            btn_eliminar.Enabled = false;
+            //btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = false;
         }
 
         private void habilitar_btn_modificacion()
         {
-            txb_nombre_marca.Enabled = true;
+            txb_nombre.Enabled = true;
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = false;
             btn_editar.Enabled = true;
-            btn_eliminar.Enabled = true;
+            //btn_eliminar.Enabled = true;
             btn_cancelar.Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            txb_nombre_marca.Enabled = true;
+            txb_nombre.Enabled = true;
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_editar.Enabled = false;
-            btn_eliminar.Enabled = false;
+            //btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = true;
         }
 
@@ -80,8 +80,8 @@ namespace Cerin_Ingenieros
         {
             DataGridViewRow filaActual = dataGridView_marcas.Rows[e.RowIndex];
 
-            txb_codigo_marca.Text = filaActual.Cells[0].Value.ToString();
-            txb_nombre_marca.Text = filaActual.Cells[1].Value.ToString();
+            txb_codigo.Text = filaActual.Cells[0].Value.ToString();
+            txb_nombre.Text = filaActual.Cells[1].Value.ToString();
             
             habilitar_btn_modificacion();
         }
@@ -90,15 +90,15 @@ namespace Cerin_Ingenieros
         {
             try
             {
-                if (txb_nombre_marca.Text != "")
+                if (txb_nombre.Text != "")
                 {
                     entMarca marca = new entMarca();
-                    marca.Nombre = txb_nombre_marca.Text.Trim();
+                    marca.Nombre = txb_nombre.Text.Trim();
                     logMarca.GetInstancia.insertaMarca(marca);
 
                     //Actualizar botones
                     deshablitar_btn();
-                    txb_nombre_marca.Enabled = false;
+                    txb_nombre.Enabled = false;
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,12 +117,12 @@ namespace Cerin_Ingenieros
         {
             try
             {
-                if (txb_codigo_marca.Text != "" && txb_nombre_marca.Text != "")
+                if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
                     entMarca marca = new entMarca();
 
-                    marca.IdMarca = int.Parse(txb_codigo_marca.Text);
-                    marca.Nombre = txb_nombre_marca.Text.Trim();
+                    marca.IdMarca = int.Parse(txb_codigo.Text);
+                    marca.Nombre = txb_nombre.Text.Trim();
 
                     logMarca.GetInstancia.editarMarca(marca);
                 }
@@ -145,11 +145,11 @@ namespace Cerin_Ingenieros
         {
             try
             {
-                if (txb_codigo_marca.Text != "" && txb_nombre_marca.Text != "")
+                if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
                     entMarca marca = new entMarca();
 
-                    marca.IdMarca = int.Parse(txb_codigo_marca.Text);
+                    marca.IdMarca = int.Parse(txb_codigo.Text);
 
                     logMarca.GetInstancia.deshabilitarMarca(marca);
                 }

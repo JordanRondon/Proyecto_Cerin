@@ -31,12 +31,11 @@
             this.dataGridView_marcas = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txb_nombre_marca = new System.Windows.Forms.TextBox();
-            this.txb_codigo_marca = new System.Windows.Forms.TextBox();
+            this.txb_nombre = new System.Windows.Forms.TextBox();
+            this.txb_codigo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
@@ -67,14 +66,14 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(371, 20);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(380, 31);
+            this.label7.Size = new System.Drawing.Size(402, 31);
             this.label7.TabIndex = 17;
-            this.label7.Text = "REGISTRAR NUEVA MARCA";
+            this.label7.Text = "REGISTRAR NUEVO MODELO";
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txb_nombre_marca);
-            this.groupBox1.Controls.Add(this.txb_codigo_marca);
+            this.groupBox1.Controls.Add(this.txb_nombre);
+            this.groupBox1.Controls.Add(this.txb_codigo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -83,23 +82,23 @@
             this.groupBox1.Size = new System.Drawing.Size(1084, 108);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DATOS DE LA MARCA";
+            this.groupBox1.Text = "DATOS DEL MODELO";
             // 
-            // txb_nombre_marca
+            // txb_nombre
             // 
-            this.txb_nombre_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_marca.Location = new System.Drawing.Point(655, 51);
-            this.txb_nombre_marca.Name = "txb_nombre_marca";
-            this.txb_nombre_marca.Size = new System.Drawing.Size(241, 23);
-            this.txb_nombre_marca.TabIndex = 10;
+            this.txb_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_nombre.Location = new System.Drawing.Point(655, 51);
+            this.txb_nombre.Name = "txb_nombre";
+            this.txb_nombre.Size = new System.Drawing.Size(241, 23);
+            this.txb_nombre.TabIndex = 10;
             // 
-            // txb_codigo_marca
+            // txb_codigo
             // 
-            this.txb_codigo_marca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_codigo_marca.Location = new System.Drawing.Point(249, 51);
-            this.txb_codigo_marca.Name = "txb_codigo_marca";
-            this.txb_codigo_marca.Size = new System.Drawing.Size(241, 23);
-            this.txb_codigo_marca.TabIndex = 6;
+            this.txb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_codigo.Location = new System.Drawing.Point(249, 51);
+            this.txb_codigo.Name = "txb_codigo";
+            this.txb_codigo.Size = new System.Drawing.Size(241, 23);
+            this.txb_codigo.TabIndex = 6;
             // 
             // label3
             // 
@@ -123,7 +122,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
@@ -132,17 +130,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 48);
             this.panel1.TabIndex = 20;
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(90, 40);
-            this.btn_eliminar.TabIndex = 5;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_editar
             // 
@@ -158,7 +145,7 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
+            this.btn_cancelar.Location = new System.Drawing.Point(694, 3);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(90, 40);
             this.btn_cancelar.TabIndex = 2;
@@ -215,12 +202,11 @@
         private System.Windows.Forms.DataGridView dataGridView_marcas;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txb_nombre_marca;
-        private System.Windows.Forms.TextBox txb_codigo_marca;
+        private System.Windows.Forms.TextBox txb_nombre;
+        private System.Windows.Forms.TextBox txb_codigo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
