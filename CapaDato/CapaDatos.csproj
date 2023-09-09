@@ -86,6 +86,7 @@
     <Compile Include="datEquipo_Accesorio.cs" />
     <Compile Include="datEquipo_Servicio.cs" />
     <Compile Include="datMarca.cs" />
+    <Compile Include="datModelo.cs" />
     <Compile Include="datServicio.cs" />
     <Compile Include="datTipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

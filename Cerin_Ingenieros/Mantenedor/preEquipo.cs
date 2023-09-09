@@ -163,7 +163,7 @@ namespace Cerin_Ingenieros
                 dataGridView_equipos.Rows.Add(
                     item.IdEquipo,
                     item.SerieEquipo,
-                    item.Modelo,
+                    item.id_modelo,
                     estado,
                     marca.Nombre
                 );
@@ -253,7 +253,7 @@ namespace Cerin_Ingenieros
                     entEquipo equipo = new entEquipo();
 
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
-                    equipo.Modelo = txb_modelo_equipo.Text.Trim();
+                    equipo.id_modelo = Convert.ToInt16( txb_modelo_equipo.Text.Trim());
                     equipo.Observaciones = "";
                     equipo.Recomendaciones = "";
                     equipo.Estado = 'D';//estado disponible
@@ -328,7 +328,7 @@ namespace Cerin_Ingenieros
 
                     equipo.IdEquipo = registroSeleccionado;
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
-                    equipo.Modelo = txb_modelo_equipo.Text.Trim();
+                    equipo.id_modelo =Convert.ToInt16( txb_modelo_equipo.Text.Trim());
                     equipo.Observaciones = "";
                     equipo.Recomendaciones = "";
                     equipo.Estado = 'D';//estado disponible

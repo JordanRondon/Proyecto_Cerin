@@ -84,6 +84,7 @@
     <Compile Include="logEquipoAccesorio.cs" />
     <Compile Include="logEquipo_Servicio.cs" />
     <Compile Include="logMarca.cs" />
+    <Compile Include="logModelo.cs" />
     <Compile Include="logServicio.cs" />
     <Compile Include="logTipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

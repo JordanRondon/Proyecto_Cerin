@@ -55,7 +55,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                 dataGridView_equipos.Rows.Add(
                     item.IdEquipo,
                     item.SerieEquipo,
-                    item.Modelo,
+                    item.id_modelo,
                     estado2,
                     marca.Nombre
                 );

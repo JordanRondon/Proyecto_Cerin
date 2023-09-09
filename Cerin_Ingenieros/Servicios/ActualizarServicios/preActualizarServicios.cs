@@ -102,7 +102,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 dataGridView_equipos.Rows.Add(
                     item.IdEquipo,
                     item.SerieEquipo,
-                    item.Modelo,
+                    item.id_modelo,
                     estado,
                     marca.Nombre
                 );

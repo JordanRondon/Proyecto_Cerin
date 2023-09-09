@@ -13,7 +13,7 @@ namespace CapaEntidad
 
         public string SerieEquipo { get; set; }
 
-        public string Modelo { get; set; }
+        public int id_modelo { get; set; }
 
         public string Observaciones { get; set; }
 

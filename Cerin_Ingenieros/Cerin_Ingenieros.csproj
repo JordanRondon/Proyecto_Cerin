@@ -99,6 +99,12 @@
     <Compile Include="Mantenedor\preMarca.Designer.cs">
       <DependentUpon>preMarca.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenedor\preModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenedor\preModelo.Designer.cs">
+      <DependentUpon>preModelo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal\Principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preMarca.resx">
       <DependentUpon>preMarca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenedor\preModelo.resx">
+      <DependentUpon>preModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

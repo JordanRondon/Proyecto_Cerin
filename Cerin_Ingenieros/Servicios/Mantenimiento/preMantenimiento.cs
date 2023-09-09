@@ -70,7 +70,7 @@ namespace Cerin_Ingenieros.Servicios
                 dataGridView_lista_quipos.Rows.Add(
                     item.IdEquipo,
                     item.SerieEquipo,
-                    item.Modelo,
+                    item.id_modelo,
                     estado,
                     marca.Nombre
                 );
