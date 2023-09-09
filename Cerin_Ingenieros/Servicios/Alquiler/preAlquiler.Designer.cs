@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txb_razon_social = new System.Windows.Forms.TextBox();
+            this.txb_ruc = new System.Windows.Forms.TextBox();
             this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
             this.lb_telefono_cliente = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txb_ruc = new System.Windows.Forms.TextBox();
-            this.txb_razon_social = new System.Windows.Forms.TextBox();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox2.SuspendLayout();
@@ -91,6 +91,30 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
+            // 
+            // txb_razon_social
+            // 
+            this.txb_razon_social.Enabled = false;
+            this.txb_razon_social.Location = new System.Drawing.Point(39, 342);
+            this.txb_razon_social.Name = "txb_razon_social";
+            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
+            this.txb_razon_social.TabIndex = 22;
+            this.txb_razon_social.Tag = "Razon social";
+            this.txb_razon_social.Text = "Razon social";
+            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txb_razon_social.Enter += new System.EventHandler(this.txb_razon_social_Enter);
+            this.txb_razon_social.Leave += new System.EventHandler(this.txb_razon_social_Leave);
+            // 
+            // txb_ruc
+            // 
+            this.txb_ruc.Enabled = false;
+            this.txb_ruc.Location = new System.Drawing.Point(39, 295);
+            this.txb_ruc.Name = "txb_ruc";
+            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
+            this.txb_ruc.TabIndex = 21;
+            this.txb_ruc.Tag = "RUC";
+            this.txb_ruc.Text = "RUC";
+            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_dni_ruc_cliente
             // 
@@ -295,30 +319,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1180, 552);
             this.panel3.TabIndex = 23;
-            // 
-            // txb_ruc
-            // 
-            this.txb_ruc.Location = new System.Drawing.Point(39, 295);
-            this.txb_ruc.Name = "txb_ruc";
-            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
-            this.txb_ruc.TabIndex = 21;
-            this.txb_ruc.Tag = "RUC";
-            this.txb_ruc.Text = "RUC";
-            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_ruc.Enter += new System.EventHandler(this.txb_ruc_Enter);
-            this.txb_ruc.Leave += new System.EventHandler(this.txb_ruc_Leave);
-            // 
-            // txb_razon_social
-            // 
-            this.txb_razon_social.Location = new System.Drawing.Point(39, 342);
-            this.txb_razon_social.Name = "txb_razon_social";
-            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
-            this.txb_razon_social.TabIndex = 22;
-            this.txb_razon_social.Tag = "Razon social";
-            this.txb_razon_social.Text = "Razon social";
-            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txb_razon_social.Enter += new System.EventHandler(this.txb_razon_social_Enter);
-            this.txb_razon_social.Leave += new System.EventHandler(this.txb_razon_social_Leave);
             // 
             // btn_slect_cliente
             // 

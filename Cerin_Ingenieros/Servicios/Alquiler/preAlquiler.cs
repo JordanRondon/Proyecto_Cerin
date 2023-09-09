@@ -25,7 +25,7 @@ namespace Cerin_Ingenieros.Servicios
             inicializarVariablesAux();
             ConfigCabecera();
             listarEquipos();
-
+            comboBox_empleado.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
         }
         private void listarDatosComboBoxEmpleados()
         {

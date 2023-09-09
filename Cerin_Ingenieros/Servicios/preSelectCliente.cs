@@ -75,12 +75,6 @@ namespace Cerin_Ingenieros.Servicios
             txb_razonSocial_cliente.Text = "";
         }
 
-        /// <summary>
-        /// Manejador de eventos que valida que soo se ingrese numeros 
-        /// </summary>
-        /// <param name="sender">De donde se desencadeno el evento</param>
-        /// <param name="e">Informacion del evento</param>
-
         private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -109,27 +103,19 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
-
             try
             {
+                entCliente cliente = new entCliente();
 
-                if (band1)
-                {
-                    entCliente cliente = new entCliente();
+                cliente.IdCliente = id_Temporal;
+                cliente.Nombre = txb_nombre_cliente.Text.Trim();
+                cliente.Apellido = txb_apellidos_cliente.Text.Trim();
+                cliente.Dni = txb_dni_cliente.Text.Trim();
+                cliente.Ruc = txb_ruc_cliente.Text.Trim();
+                cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
+                cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
-                    cliente.IdCliente = id_Temporal;
-                    cliente.Nombre = txb_nombre_cliente.Text.Trim();
-                    cliente.Apellido = txb_apellidos_cliente.Text.Trim();
-                    cliente.Dni = txb_dni_cliente.Text.Trim();
-                    cliente.Ruc = txb_ruc_cliente.Text.Trim();
-                    cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
-                    cliente.Telefono = txb_telefono_cliente.Text.Trim();
-
-                    logCliente.GetInstancia.editarCliente(cliente);
-                }
-                else
-                    MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                logCliente.GetInstancia.editarCliente(cliente);
             }
             catch (Exception ex)
             {
@@ -192,11 +178,11 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            //bool band1 = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && (txb_dni_cliente.Text != "" || txb_ruc_cliente.Text != ""));
+            
             bool band2 = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
             try
             {
-                if (/*band1 && */band2)
+                if (band2)
                 {
                     entCliente cliente = new entCliente();
 
