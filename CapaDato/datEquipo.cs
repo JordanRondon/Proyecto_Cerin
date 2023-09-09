@@ -39,7 +39,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
@@ -79,7 +79,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
@@ -111,7 +111,7 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
-                cmd.Parameters.AddWithValue("@modelo", equipo.Modelo);
+                cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
                 cmd.Parameters.AddWithValue("@observaciones", equipo.Observaciones);
                 cmd.Parameters.AddWithValue("@recomendaciones", equipo.Recomendaciones);
                 cmd.Parameters.AddWithValue("@estado", equipo.Estado);
@@ -153,7 +153,7 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@id_equipo", equipo.IdEquipo);
                 cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
-                cmd.Parameters.AddWithValue("@modelo", equipo.Modelo);
+                cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
                 cmd.Parameters.AddWithValue("@observaciones", equipo.Observaciones);
                 cmd.Parameters.AddWithValue("@recomendaciones", equipo.Recomendaciones);
                 cmd.Parameters.AddWithValue("@estado", equipo.Estado);
@@ -230,7 +230,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
@@ -272,7 +272,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
@@ -314,7 +314,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
@@ -345,7 +345,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_BuscarEquipoID", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
 
                 cn.Open();
 
@@ -357,7 +357,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     if (dr["observaciones"] != DBNull.Value)
                         equipo.Observaciones = Convert.ToString(dr["observaciones"]);
                     if (dr["recomendaciones"] != DBNull.Value)

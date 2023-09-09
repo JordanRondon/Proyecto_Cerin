@@ -76,7 +76,7 @@ namespace CapaDato
 
                     equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
-                    equipo.Modelo = Convert.ToString(dr["modelo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
 
