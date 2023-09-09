@@ -345,7 +345,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_BuscarEquipoID", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
 
                 cn.Open();
 
