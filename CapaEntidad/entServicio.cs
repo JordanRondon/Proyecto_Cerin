@@ -14,9 +14,13 @@ namespace CapaEntidad
 
         public DateTime? FechaEntrega { get; set; }
 
-        public int IdTipo { get; set; }
+        public int IdTipoServicio { get; set; }
+
         public int IdCliente { get; set; }
+
         public int IdEmpleado { get; set; }
+
+        public char estado { get; set; }
 
     }
 }

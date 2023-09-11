@@ -86,7 +86,7 @@
     <Compile Include="entMarca.cs" />
     <Compile Include="entModelo.cs" />
     <Compile Include="entServicio.cs" />
-    <Compile Include="entTipo.cs" />
+    <Compile Include="entTipoServicio.cs" />
     <Compile Include="Equipo_servicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

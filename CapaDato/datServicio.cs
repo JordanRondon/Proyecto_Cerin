@@ -32,9 +32,10 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@fecha_registro", servicio.FechaRegistro);
-                cmd.Parameters.AddWithValue("@id_tipo", servicio.IdTipo);
+                cmd.Parameters.AddWithValue("@id_tipo", servicio.IdTipoServicio);
                 cmd.Parameters.AddWithValue("@id_cliente", servicio.IdCliente);
                 cmd.Parameters.AddWithValue("@id_empleado", servicio.IdEmpleado);
+                cmd.Parameters.AddWithValue("@id_empleado", servicio.estado);
 
                 SqlParameter outputParameter = new SqlParameter("@NuevoID", SqlDbType.Int);
                 outputParameter.Direction = ParameterDirection.Output;
@@ -121,9 +122,10 @@ namespace CapaDato
                     {
                         servicio.FechaEntrega = Convert.ToDateTime(dr["fecha_entrega"]);
                     }
-                    servicio.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    servicio.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
                     servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
                     servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    servicio.estado = Convert.ToChar(dr["estado"]);
                 }
             }
             catch (Exception ex)

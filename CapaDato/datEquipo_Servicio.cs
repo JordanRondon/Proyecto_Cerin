@@ -31,6 +31,8 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@id_equipo", servicio_detalle.IdEquipo);
                 cmd.Parameters.AddWithValue("@id_servicio", servicio_detalle.IdServicio);
+                cmd.Parameters.AddWithValue("@observaciones_preliminares", servicio_detalle.Observaciones_preliminares);
+                cmd.Parameters.AddWithValue("@observaciones_finales", servicio_detalle.observaciones_finales);
 
                 cn.Open();
 
@@ -74,11 +76,11 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }

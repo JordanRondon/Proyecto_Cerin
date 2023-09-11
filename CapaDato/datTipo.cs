@@ -18,10 +18,10 @@ namespace CapaDato
 
         #region Metodos
 
-        public entTipo BuscarTipoPorNombre(string nombre)
+        public entTipoServicio BuscarTipoPorNombre(string nombre)
         {
             SqlCommand cmd = null;
-            entTipo t = new entTipo();
+            entTipoServicio t = new entTipoServicio();
             try
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
@@ -32,7 +32,7 @@ namespace CapaDato
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    t.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    t.IdTipoServicio = Convert.ToInt32(dr["id_tipo"]);
                     t.Nombre = Convert.ToString(dr["nombre"]);
                     break;
                 }
@@ -45,10 +45,10 @@ namespace CapaDato
             return t;
         }
 
-        public entTipo buscarTipoServicioId(int id_TipoServicio)
+        public entTipoServicio buscarTipoServicioId(int id_TipoServicio)
         {
             SqlCommand cmd = null;
-            entTipo tipoServicio = null;
+            entTipoServicio tipoServicio = null;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CapaDato
                 cmd = new SqlCommand("ps_BuscarTipoServicioId", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_tipo", id_TipoServicio);
+                cmd.Parameters.AddWithValue("@id_tipo_servicio", id_TipoServicio);
 
                 cn.Open();
 
@@ -65,8 +65,8 @@ namespace CapaDato
 
                 if (dr.Read())
                 {
-                    tipoServicio = new entTipo();
-                    tipoServicio.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    tipoServicio = new entTipoServicio();
+                    tipoServicio.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
                     tipoServicio.Nombre = Convert.ToString(dr["nombre"]);
                 }
             }

@@ -10,5 +10,7 @@ namespace CapaEntidad
     {
         public int id_equipo { get; set; }
         public int id_servicio { get; set; }
+        public string Observaciones_preliminares { get; set; }
+        public string observaciones_finales { get; set; }
     }
 }

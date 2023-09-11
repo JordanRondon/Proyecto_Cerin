@@ -45,7 +45,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             entServicio servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
             entCliente cliente = new entCliente();
-            entTipo tipoServicio = new entTipo();
+            entTipoServicio tipoServicio = new entTipoServicio();
 
             limpiarTablas();
 

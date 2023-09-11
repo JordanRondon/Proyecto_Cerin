@@ -37,14 +37,12 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }
@@ -77,14 +75,12 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }
@@ -98,10 +94,10 @@ namespace CapaDato
             return lista;
         }
 
-        public int insertarEquipo(entEquipo equipo)
+        public string insertarEquipo(entEquipo equipo)
         {
             SqlCommand cmd = null;
-            int nuevoID = 0;
+            string serie = "";
 
             try
             {
@@ -111,23 +107,19 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
-                cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
-                cmd.Parameters.AddWithValue("@observaciones", equipo.Observaciones);
-                cmd.Parameters.AddWithValue("@recomendaciones", equipo.Recomendaciones);
                 cmd.Parameters.AddWithValue("@estado", equipo.Estado);
+                cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
                 cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
+                cmd.Parameters.AddWithValue("@otros_accesorios", equipo.otrosaccesorios);
 
-                SqlParameter outputParameter = new SqlParameter("@NuevoID", SqlDbType.Int);
-                outputParameter.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(outputParameter);
 
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
 
-                if (i > 0 && outputParameter.Value != DBNull.Value)
+                if (i > 0 )
                 {
-                    nuevoID = Convert.ToInt32(outputParameter.Value);
+                    serie = equipo.SerieEquipo;
                 }
             }
             catch (Exception ex)
@@ -136,7 +128,7 @@ namespace CapaDato
             }
             finally { cmd.Connection.Close(); }
 
-            return nuevoID;
+            return serie;
         }
 
         public bool editarEquipo(entEquipo equipo)
@@ -151,14 +143,12 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_modificarEquipo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", equipo.IdEquipo);
                 cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
                 cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
-                cmd.Parameters.AddWithValue("@observaciones", equipo.Observaciones);
-                cmd.Parameters.AddWithValue("@recomendaciones", equipo.Recomendaciones);
                 cmd.Parameters.AddWithValue("@estado", equipo.Estado);
                 cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
+                cmd.Parameters.AddWithValue("@otros_accesorios", equipo.otrosaccesorios);
 
                 cn.Open();
 
@@ -188,7 +178,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_deshabilitarEquipo", cn);
 
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_equipo", equipo.IdEquipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
 
                 cn.Open();
 
@@ -228,14 +218,12 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }
@@ -270,14 +258,12 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }
@@ -312,14 +298,12 @@ namespace CapaDato
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
                 }
@@ -333,7 +317,7 @@ namespace CapaDato
             return lista;
         }
 
-        public entEquipo buscarEquipoID(int id_equipo)
+        public entEquipo buscarEquipoID(int serie)
         {
             SqlCommand cmd = null;
             entEquipo equipo = null;
@@ -345,7 +329,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_BuscarEquipoID", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", serie);
 
                 cn.Open();
 
@@ -355,16 +339,12 @@ namespace CapaDato
                 {
                     equipo = new entEquipo();
 
-                    equipo.IdEquipo = Convert.ToInt32(dr["id_equipo"]);
                     equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
-                    if (dr["observaciones"] != DBNull.Value)
-                        equipo.Observaciones = Convert.ToString(dr["observaciones"]);
-                    if (dr["recomendaciones"] != DBNull.Value)
-                        equipo.Recomendaciones = Convert.ToString(dr["recomendaciones"]);
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
                 }
             }
             catch (Exception ex)

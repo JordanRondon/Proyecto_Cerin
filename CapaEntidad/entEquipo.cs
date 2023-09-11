@@ -11,16 +11,14 @@ namespace CapaEntidad
     {
         public string SerieEquipo { get; set; }
 
-        public int id_modelo { get; set; }
-
-        public string Observaciones { get; set; }
-
-        public string Recomendaciones { get; set; }
-
         public char Estado { get; set; }
+
+        public int id_modelo { get; set; }
 
         public int IdTipo { get; set; }
 
         public int IdMarca { get; set; }
+
+        public string otrosaccesorios { get; set; }
     }
 }
