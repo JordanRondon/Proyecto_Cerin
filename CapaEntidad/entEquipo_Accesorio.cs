@@ -8,7 +8,7 @@ namespace CapaEntidad
 {
     public class entEquipo_Accesorio
     {
-        public int id_equipo { get; set; }
+        public string SerieEquipo { get; set; }
         public int id_accesorio { get; set; }
         public int cantidad { get; set;}
     }

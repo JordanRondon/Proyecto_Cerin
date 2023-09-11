@@ -31,7 +31,7 @@ namespace CapaDato
                 cmd = new SqlCommand("InsertarEquipoAccesorio", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", equipo_accesosorio.id_equipo);
+                cmd.Parameters.AddWithValue("@SerieEquipo", equipo_accesosorio.SerieEquipo);
                 cmd.Parameters.AddWithValue("@id_accesorio", equipo_accesosorio.id_accesorio);
                 cmd.Parameters.AddWithValue("@cantidad", equipo_accesosorio.cantidad);
 
@@ -54,7 +54,7 @@ namespace CapaDato
 
             return inserta;
         }
-        public List<entEquipo_Accesorio> ListAccsDeEquipo(int id_equipo) 
+        public List<entEquipo_Accesorio> ListAccsDeEquipo(string serie) 
         {
             SqlCommand cmd = null;
             List<entEquipo_Accesorio> lista = new List<entEquipo_Accesorio>();
@@ -66,7 +66,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_ListarAccesorioDeUnEquipo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@SerieEquipo", serie);
 
                 cn.Open();
 
@@ -76,7 +76,6 @@ namespace CapaDato
                 {
                     entEquipo_Accesorio equipoac = new entEquipo_Accesorio();
 
-                    equipoac.id_equipo = id_equipo;
                     equipoac.id_accesorio = Convert.ToInt16(dr["id_accesorio"]);
                     equipoac.cantidad = Convert.ToInt16(dr["cantidad"]);
 
@@ -92,7 +91,7 @@ namespace CapaDato
             return lista;
 
         }
-        public entEquipo_Accesorio BuscarEquipoAccesorio(int idEquipo, int id_accesorio)
+        public entEquipo_Accesorio BuscarEquipoAccesorio(string serie, int id_accesorio)
         {
             SqlCommand cmd = null;
             entEquipo_Accesorio detEquiAcc = null;
@@ -101,7 +100,7 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
                 cmd = new SqlCommand("sp_buscarDetEquiAcc", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idEquipo", idEquipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", serie);
                 cmd.Parameters.AddWithValue("@id_accesorio", id_accesorio);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -109,7 +108,7 @@ namespace CapaDato
                 {
                     detEquiAcc = new entEquipo_Accesorio();
                     detEquiAcc.id_accesorio = id_accesorio;
-                    detEquiAcc.id_equipo = idEquipo;
+                    detEquiAcc.SerieEquipo = serie;
                     detEquiAcc.cantidad = Convert.ToInt16(dr["cantidad"]);
                 }
             }
@@ -133,7 +132,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_EditarEquipoAccesorio", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", det_equipo_Accesorio.id_equipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", det_equipo_Accesorio.SerieEquipo);
                 cmd.Parameters.AddWithValue("@id_accesorio", det_equipo_Accesorio.id_accesorio);
                 cmd.Parameters.AddWithValue("@cantidad", det_equipo_Accesorio.cantidad);
 
@@ -176,7 +175,7 @@ namespace CapaDato
                 {
                     entEquipo_Accesorio det = new entEquipo_Accesorio();
 
-                    det.id_equipo = Convert.ToInt32(dr["id_equipo"]);
+                    det.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
                     det.id_accesorio = Convert.ToInt16(dr["id_accesorio"]);
                     det.cantidad = Convert.ToInt16(dr["cantidad"]);
 
@@ -192,7 +191,7 @@ namespace CapaDato
             return lista;
         }
 
-        public bool EliminarDetalle(int id_equipo, int id_accesorio)
+        public bool EliminarDetalle(string serie, int id_accesorio)
         {
             SqlCommand cmd = null;
             bool elimina = false;
@@ -203,7 +202,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_EliminarAccesorioDeEquipo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", id_equipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", serie);
                 cmd.Parameters.AddWithValue("@id_accesorio", id_accesorio);
 
                 cn.Open();

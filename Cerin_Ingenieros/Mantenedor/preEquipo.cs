@@ -14,7 +14,7 @@ namespace Cerin_Ingenieros
 {
     public partial class preEquipo : Form
     {
-        int registroSeleccionado = -1;
+        string registroSeleccionado = "";
         List<entAccesorio> listaaccesorios;
 
         public preEquipo()
@@ -35,7 +35,7 @@ namespace Cerin_Ingenieros
             txb_serie_equipo.Text = "";
             txb_modelo_equipo.Text = "";
             comboBox_marca.SelectedIndex = -1;
-            registroSeleccionado = -1;
+            registroSeleccionado = "";
             listaaccesorios.Clear();
             CargarAccesorios();
             //dgvAcesorios.Enabled = false;
@@ -132,7 +132,6 @@ namespace Cerin_Ingenieros
         private void ConfigCabecera()
         {
             dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
@@ -161,7 +160,6 @@ namespace Cerin_Ingenieros
                 if (item.Estado == 'D') estado = "Disponible";
                 else estado = "Ocupado";
                 dataGridView_equipos.Rows.Add(
-                    item.IdEquipo,
                     item.SerieEquipo,
                     item.id_modelo,
                     estado,
@@ -211,9 +209,9 @@ namespace Cerin_Ingenieros
 
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
 
-            registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
-            txb_serie_equipo.Text = filaActual.Cells[1].Value.ToString();
-            txb_modelo_equipo.Text = filaActual.Cells[2].Value.ToString();
+            registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
+            txb_serie_equipo.Text = filaActual.Cells[0].Value.ToString();
+            txb_modelo_equipo.Text = filaActual.Cells[1].Value.ToString();
             //FALTA ACUTALIZAR EL ESTADO
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
 
@@ -254,17 +252,15 @@ namespace Cerin_Ingenieros
 
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
                     equipo.id_modelo = Convert.ToInt16( txb_modelo_equipo.Text.Trim());
-                    equipo.Observaciones = "";
-                    equipo.Recomendaciones = "";
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
 
-                    int id_equipo = logEquipo.GetInstancia.insertaEquipo(equipo);
+                    string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);
 
                     //insertar los accesorios del equipo
                     entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
-                    det_equipo_Accesorio.id_equipo = id_equipo;
+                    det_equipo_Accesorio.SerieEquipo = seri_selecionada;
 
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
@@ -322,22 +318,19 @@ namespace Cerin_Ingenieros
 
             try
             {
-                if (datosIngresados == true && registroSeleccionado > -1)
+                if (datosIngresados == true && registroSeleccionado !="")
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = registroSeleccionado;
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
                     equipo.id_modelo =Convert.ToInt16( txb_modelo_equipo.Text.Trim());
-                    equipo.Observaciones = "";
-                    equipo.Recomendaciones = "";
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
 
-                    int id_equipo = equipo.IdEquipo;
+                    string serie_equipo = equipo.SerieEquipo;
 
                     //EditarEquipoAccesorio
                     //entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
@@ -374,7 +367,7 @@ namespace Cerin_Ingenieros
                                 cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
 
                                 //bucar un equipoaccesorio
-                                entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipo.IdEquipo, id_accesorio);
+                                entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipo.SerieEquipo, id_accesorio);
 
                                 //verificar que si el equiop_accesorio esxiste en la base de datos
                                 if (det_equipo_Accesorio!=null)
@@ -388,7 +381,7 @@ namespace Cerin_Ingenieros
                                     //registrar un euipo accesorio nuevo que no se encuentra en la bd
                                     det_equipo_Accesorio = new entEquipo_Accesorio();
 
-                                    det_equipo_Accesorio.id_equipo = id_equipo;
+                                    det_equipo_Accesorio.SerieEquipo = serie_equipo;
                                     det_equipo_Accesorio.id_accesorio = id_accesorio;
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
@@ -399,9 +392,9 @@ namespace Cerin_Ingenieros
                             {
                                 foreach (var item in list_det_equipo_accesorio_)
                                 {
-                                    if (item.id_equipo==id_equipo && item.id_accesorio==id_accesorio)
+                                    if (item.SerieEquipo==serie_equipo && item.id_accesorio==id_accesorio)
                                     {
-                                        bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(id_equipo,id_accesorio);
+                                        bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(serie_equipo,id_accesorio);
                                         break;
                                     }
                                 }
@@ -431,11 +424,11 @@ namespace Cerin_Ingenieros
 
             try
             {
-                if (datosIngresados == true && registroSeleccionado > -1)
+                if (datosIngresados == true && registroSeleccionado !="")
                 {
                     entEquipo equipo = new entEquipo();
 
-                    equipo.IdEquipo = registroSeleccionado;
+                    equipo.SerieEquipo = registroSeleccionado;
 
                     logEquipo.GetInstancia.deshabilitarEquipo(equipo);
                 }

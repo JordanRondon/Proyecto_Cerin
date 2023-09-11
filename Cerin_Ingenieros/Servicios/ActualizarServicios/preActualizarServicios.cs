@@ -14,7 +14,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 {
     public partial class preActualizarServicios : Form
     {
-        private int indexEquipo = -1;
+        private string indexEquipo = "";
         private int indexServicio = -1;
         public preActualizarServicios()
         {
@@ -37,7 +37,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             label_tipo_Servicio.Text = "TIPO";
             txb_Recomendaciones.Text = "";
             limpiarTablas();
-            indexEquipo = -1;
+            indexEquipo = "";
             indexServicio = -1;
         }
 
@@ -55,7 +55,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 {
                     indexServicio = servicioActual.IdServicio;
                     cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
-                    tipoServicio = logTipo.GetInstancia.buscarTipoServicioId(servicioActual.IdTipo);
+                    tipoServicio = logTipo.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
                     if (cliente.Nombre != "")
                         label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
                     else
@@ -72,7 +72,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void ConfigCabecera()
         {
             dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
@@ -100,7 +99,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 if (item.Estado == 'D') estado = "Disponible";
                 else estado = "Ocupado";
                 dataGridView_equipos.Rows.Add(
-                    item.IdEquipo,
                     item.SerieEquipo,
                     item.id_modelo,
                     estado,
@@ -113,7 +111,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             //indice de la fila seccionada con doble click para
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-            indexEquipo = int.Parse(filaActual.Cells[0].Value.ToString());
+            indexEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
 
             List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(indexEquipo);
 
@@ -130,10 +128,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             }
 
             entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
-            if (equipo.Recomendaciones != "")
-            {
-                txb_Recomendaciones.Text = equipo.Recomendaciones;
-            }
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -143,12 +137,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void btn_agregarRecomendacion_Click(object sender, EventArgs e)
         {
-            if (indexEquipo != -1)
+            if (indexEquipo != "")
             {
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
                 if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
-                    equipo.Recomendaciones = txb_Recomendaciones.Text;
+                    //equipo.Recomendaciones = txb_Recomendaciones.Text;
                     logEquipo.GetInstancia.editarEquipo(equipo);
                 }
                 else

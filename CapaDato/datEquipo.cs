@@ -317,7 +317,7 @@ namespace CapaDato
             return lista;
         }
 
-        public entEquipo buscarEquipoID(int serie)
+        public entEquipo buscarEquipoID(string serie)
         {
             SqlCommand cmd = null;
             entEquipo equipo = null;

@@ -42,7 +42,6 @@ namespace Cerin_Ingenieros.Servicios
         private void ConfigCabecera()
         {
             dataGridView_list_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
@@ -70,7 +69,6 @@ namespace Cerin_Ingenieros.Servicios
                 else if (item.Estado == 'U') estado = "Usando ahora";
                 else estado = "Ocupado";
                 dataGridView_list_equipos.Rows.Add(
-                    item.IdEquipo,
                     item.SerieEquipo,
                     item.id_modelo,
                     estado,
@@ -186,7 +184,7 @@ namespace Cerin_Ingenieros.Servicios
                 entServicio servicio = new entServicio
                 {
                     FechaRegistro = DateTime.Now,
-                    IdTipo = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipo,
+                    IdTipoServicio = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
                     IdCliente = clienteSelecionado.IdCliente
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
@@ -199,7 +197,7 @@ namespace Cerin_Ingenieros.Servicios
                 equipo_Servicio.IdServicio = idServicio;
                 foreach (var item in equiposSelecionados)
                 {
-                    equipo_Servicio.IdEquipo = item.IdEquipo;
+                    equipo_Servicio.serie_equipo = item.SerieEquipo;
                     logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
 
                     //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)

@@ -29,7 +29,7 @@ namespace CapaDato
                 cmd = new SqlCommand("InsertarEquipoServicio", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_equipo", servicio_detalle.IdEquipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", servicio_detalle.serie_equipo);
                 cmd.Parameters.AddWithValue("@id_servicio", servicio_detalle.IdServicio);
                 cmd.Parameters.AddWithValue("@observaciones_preliminares", servicio_detalle.Observaciones_preliminares);
                 cmd.Parameters.AddWithValue("@observaciones_finales", servicio_detalle.observaciones_finales);

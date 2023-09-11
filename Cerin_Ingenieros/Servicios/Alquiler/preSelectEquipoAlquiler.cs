@@ -26,7 +26,6 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
         private void ConfigCabecera()
         {
             dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
@@ -53,7 +52,6 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                 else if (item.Estado == 'U') estado2 = "Uso";
                 else estado2 = "Ocupado";
                 dataGridView_equipos.Rows.Add(
-                    item.IdEquipo,
                     item.SerieEquipo,
                     item.id_modelo,
                     estado2,

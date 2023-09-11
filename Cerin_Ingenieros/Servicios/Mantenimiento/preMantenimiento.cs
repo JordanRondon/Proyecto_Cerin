@@ -41,7 +41,6 @@ namespace Cerin_Ingenieros.Servicios
         private void ConfigCabecera()
         {
             dataGridView_lista_quipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
@@ -68,7 +67,6 @@ namespace Cerin_Ingenieros.Servicios
                 if (item.Estado == 'D') estado = "Disponible";
                 else estado = "Ocupado";
                 dataGridView_lista_quipos.Rows.Add(
-                    item.IdEquipo,
                     item.SerieEquipo,
                     item.id_modelo,
                     estado,
