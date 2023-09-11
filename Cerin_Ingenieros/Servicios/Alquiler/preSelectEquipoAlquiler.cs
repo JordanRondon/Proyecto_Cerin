@@ -31,7 +31,6 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
-            dataGridView_equipos.Columns[0].Width = 80;
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -94,7 +93,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             if (dataGridView_equipos.SelectedRows.Count>0)
             {
                 DataGridViewRow selectedRow = dataGridView_equipos.SelectedRows[0];
-                entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[1].Value));
+                entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[0].Value));
                 if (equipo.Estado=='D')
                 {
                     if (equipo.Estado != 'O')

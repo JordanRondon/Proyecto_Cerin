@@ -32,7 +32,7 @@ namespace CapaDato
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    t.IdTipoServicio = Convert.ToInt32(dr["id_tipo"]);
+                    t.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
                     t.Nombre = Convert.ToString(dr["nombre"]);
                     break;
                 }

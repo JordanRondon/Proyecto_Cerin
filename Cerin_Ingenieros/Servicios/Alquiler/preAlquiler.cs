@@ -47,7 +47,6 @@ namespace Cerin_Ingenieros.Servicios
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
-            dataGridView_list_equipos.Columns[0].Width = 80;
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -195,6 +194,8 @@ namespace Cerin_Ingenieros.Servicios
                 //REGISTRAR EQUIPO_SERVICIO
                 entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
                 equipo_Servicio.IdServicio = idServicio;
+                equipo_Servicio.Observaciones_preliminares = "";
+                equipo_Servicio.observaciones_finales = "";
                 foreach (var item in equiposSelecionados)
                 {
                     equipo_Servicio.serie_equipo = item.SerieEquipo;
