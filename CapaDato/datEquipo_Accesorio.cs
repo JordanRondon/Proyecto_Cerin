@@ -31,7 +31,7 @@ namespace CapaDato
                 cmd = new SqlCommand("InsertarEquipoAccesorio", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@SerieEquipo", equipo_accesosorio.SerieEquipo);
+                cmd.Parameters.AddWithValue("@serie_equipo", equipo_accesosorio.SerieEquipo);
                 cmd.Parameters.AddWithValue("@id_accesorio", equipo_accesosorio.id_accesorio);
                 cmd.Parameters.AddWithValue("@cantidad", equipo_accesosorio.cantidad);
 
@@ -66,7 +66,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_ListarAccesorioDeUnEquipo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@SerieEquipo", serie);
+                cmd.Parameters.AddWithValue("@serie_equipo", serie);
 
                 cn.Open();
 

@@ -137,7 +137,6 @@ namespace Cerin_Ingenieros
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
-            dataGridView_equipos.Columns[0].Width = 80;
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -186,7 +185,7 @@ namespace Cerin_Ingenieros
             foreach (var i in listaMarca)
             {
                 //obtenemos el registro mediante un ID especifico 
-                if (i.Nombre == filaActual.Cells[4].Value.ToString())
+                if (i.Nombre == filaActual.Cells[3].Value.ToString())
                 {
                     marcaSeleccionada = i;
                     break;
@@ -210,7 +209,7 @@ namespace Cerin_Ingenieros
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
 
             registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
-            txb_serie_equipo.Text = filaActual.Cells[0].Value.ToString();
+            txb_serie_equipo.Text = registroSeleccionado;
             txb_modelo_equipo.Text = filaActual.Cells[1].Value.ToString();
             //FALTA ACUTALIZAR EL ESTADO
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
@@ -255,6 +254,8 @@ namespace Cerin_Ingenieros
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
+                    equipo.id_modelo = Convert.ToInt16(txb_modelo_equipo.Text);
+                    equipo.otrosaccesorios = "";
 
                     string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);
 
@@ -327,6 +328,7 @@ namespace Cerin_Ingenieros
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
+                    equipo.id_modelo = Convert.ToInt16(txb_modelo_equipo.Text);
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
 
@@ -469,17 +471,6 @@ namespace Cerin_Ingenieros
                 }
 
 
-
-                //if (!Convert.ToBoolean(checkBoxCell.Value))
-                //{
-                //    textBoxCell.ReadOnly = false;
-                //    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
-                //}
-                //else
-                //{
-                //    textBoxCell.ReadOnly = true;
-                //    textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
-                //}
             }
         }
     }
