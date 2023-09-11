@@ -20,7 +20,7 @@ namespace CapaLogica
 
         public List<entEquipo> listarEquipoDisponible() => datEquipo.GetInstancia.listarEquipoDisponible();
 
-        public int insertaEquipo(entEquipo equipo) => datEquipo.GetInstancia.insertarEquipo(equipo);
+        public string insertaEquipo(entEquipo equipo) => datEquipo.GetInstancia.insertarEquipo(equipo);
 
         public bool editarEquipo(entEquipo equipo) => datEquipo.GetInstancia.editarEquipo(equipo);
 
