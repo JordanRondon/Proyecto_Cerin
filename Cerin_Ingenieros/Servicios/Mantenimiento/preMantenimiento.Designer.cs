@@ -51,8 +51,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.comboBoxTipoServi = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,8 +59,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.comboBoxTipoServi);
             this.groupBox3.Controls.Add(this.btn_agregar_equipo);
             this.groupBox3.Controls.Add(this.dataGridView_lista_quipos);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -85,7 +81,7 @@
             this.dataGridView_lista_quipos.Name = "dataGridView_lista_quipos";
             this.dataGridView_lista_quipos.ReadOnly = true;
             this.dataGridView_lista_quipos.RowHeadersVisible = false;
-            this.dataGridView_lista_quipos.Size = new System.Drawing.Size(717, 272);
+            this.dataGridView_lista_quipos.Size = new System.Drawing.Size(717, 157);
             this.dataGridView_lista_quipos.TabIndex = 2;
             // 
             // groupBox2
@@ -323,26 +319,6 @@
             this.btn_slect_cliente.UseVisualStyleBackColor = false;
             this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
             // 
-            // comboBoxTipoServi
-            // 
-            this.comboBoxTipoServi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTipoServi.FormattingEnabled = true;
-            this.comboBoxTipoServi.Location = new System.Drawing.Point(188, 407);
-            this.comboBoxTipoServi.Name = "comboBoxTipoServi";
-            this.comboBoxTipoServi.Size = new System.Drawing.Size(284, 26);
-            this.comboBoxTipoServi.TabIndex = 23;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.SystemColors.Control;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 409);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 20);
-            this.label1.TabIndex = 25;
-            this.label1.Text = "Tipo de servicio";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // preMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,7 +368,5 @@
         private RecursosAdicionales.BotonesModernos.BTNModernos btn_agregar_equipo;
         private System.Windows.Forms.TextBox txb_razon_social;
         private System.Windows.Forms.TextBox txb_ruc;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBoxTipoServi;
     }
 }
