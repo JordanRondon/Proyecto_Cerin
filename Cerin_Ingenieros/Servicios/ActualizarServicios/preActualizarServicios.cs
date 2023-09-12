@@ -127,7 +127,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 );
             }
 
-            entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
+            entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo,1);//////////////el 1 es temporal actualizar
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             if (indexEquipo != "")
             {
-                entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo);
+                entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo, 1);//////////////el 1 es temporal actualizar
                 if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
                     //equipo.Recomendaciones = txb_Recomendaciones.Text;

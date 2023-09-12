@@ -146,7 +146,7 @@ namespace Cerin_Ingenieros
         private void listarEquipo()
         {
 
-            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipo();
+            List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipoAlquiler();
 
             dataGridView_equipos.Rows.Clear();
 
@@ -254,7 +254,6 @@ namespace Cerin_Ingenieros
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
-                    equipo.id_modelo = Convert.ToInt16(txb_modelo_equipo.Text);
                     equipo.otrosaccesorios = "";
 
                     string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);

@@ -33,6 +33,8 @@
             this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.dataGridView_lista_quipos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txb_razon_social = new System.Windows.Forms.TextBox();
+            this.txb_ruc = new System.Windows.Forms.TextBox();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.lbHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
-            this.txb_razon_social = new System.Windows.Forms.TextBox();
-            this.txb_ruc = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,6 +122,26 @@
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
+            // 
+            // txb_razon_social
+            // 
+            this.txb_razon_social.Location = new System.Drawing.Point(39, 363);
+            this.txb_razon_social.Name = "txb_razon_social";
+            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
+            this.txb_razon_social.TabIndex = 29;
+            this.txb_razon_social.Tag = "Razon social";
+            this.txb_razon_social.Text = "Razon social";
+            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txb_ruc
+            // 
+            this.txb_ruc.Location = new System.Drawing.Point(39, 316);
+            this.txb_ruc.Name = "txb_ruc";
+            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
+            this.txb_ruc.TabIndex = 28;
+            this.txb_ruc.Tag = "RUC";
+            this.txb_ruc.Text = "RUC";
+            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_slect_cliente
             // 
@@ -236,6 +256,7 @@
             this.btn_cancelar.TabIndex = 2;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_guardar
             // 
@@ -246,6 +267,7 @@
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_nuevo
             // 
@@ -256,6 +278,7 @@
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // lbFecha
             // 
@@ -296,26 +319,6 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "CALIBRACION DE UN EQUIPO";
             // 
-            // txb_razon_social
-            // 
-            this.txb_razon_social.Location = new System.Drawing.Point(39, 363);
-            this.txb_razon_social.Name = "txb_razon_social";
-            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
-            this.txb_razon_social.TabIndex = 29;
-            this.txb_razon_social.Tag = "Razon social";
-            this.txb_razon_social.Text = "Razon social";
-            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txb_ruc
-            // 
-            this.txb_ruc.Location = new System.Drawing.Point(39, 316);
-            this.txb_ruc.Name = "txb_ruc";
-            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
-            this.txb_ruc.TabIndex = 28;
-            this.txb_ruc.Tag = "RUC";
-            this.txb_ruc.Text = "RUC";
-            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // preMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +334,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preMantenimiento";
             this.Text = "Mantenimiento";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preMantenimiento_FormClosing);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
             this.groupBox2.ResumeLayout(false);

@@ -36,7 +36,7 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxEquipo = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnBuscarEquipo = new System.Windows.Forms.Button();
             this.txb_serie = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
@@ -58,10 +58,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btn_cancelar_registro = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.BtnEditarRegist = new System.Windows.Forms.Button();
+            this.btnCancelarRegist = new System.Windows.Forms.Button();
+            this.btnguardarRegist = new System.Windows.Forms.Button();
+            this.btnNuevoRegis = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -150,7 +150,7 @@
             // 
             // groupBoxEquipo
             // 
-            this.groupBoxEquipo.Controls.Add(this.button2);
+            this.groupBoxEquipo.Controls.Add(this.btnBuscarEquipo);
             this.groupBoxEquipo.Controls.Add(this.txb_serie);
             this.groupBoxEquipo.Controls.Add(this.label1);
             this.groupBoxEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,15 +161,16 @@
             this.groupBoxEquipo.TabStop = false;
             this.groupBoxEquipo.Text = "Buscar equipo";
             // 
-            // button2
+            // btnBuscarEquipo
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(404, 34);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 35);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBuscarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarEquipo.Location = new System.Drawing.Point(404, 34);
+            this.btnBuscarEquipo.Name = "btnBuscarEquipo";
+            this.btnBuscarEquipo.Size = new System.Drawing.Size(90, 35);
+            this.btnBuscarEquipo.TabIndex = 7;
+            this.btnBuscarEquipo.Text = "Buscar";
+            this.btnBuscarEquipo.UseVisualStyleBackColor = true;
+            this.btnBuscarEquipo.Click += new System.EventHandler(this.btnBuscarEquipo_Click);
             // 
             // txb_serie
             // 
@@ -337,13 +338,6 @@
             // comboBox_marca
             // 
             this.comboBox_marca.FormattingEnabled = true;
-            this.comboBox_marca.Items.AddRange(new object[] {
-            "Trimble",
-            "Riegl",
-            "Pentax",
-            "Geoslam",
-            "DJI Enterprise",
-            "Spectra Precision"});
             this.comboBox_marca.Location = new System.Drawing.Point(839, 37);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
@@ -398,55 +392,58 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.btn_cancelar_registro);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.BtnEditarRegist);
+            this.panel2.Controls.Add(this.btnCancelarRegist);
+            this.panel2.Controls.Add(this.btnguardarRegist);
+            this.panel2.Controls.Add(this.btnNuevoRegis);
             this.panel2.Location = new System.Drawing.Point(18, 199);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1080, 54);
             this.panel2.TabIndex = 21;
             // 
-            // button4
+            // BtnEditarRegist
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(495, 10);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(90, 35);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Editar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnEditarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditarRegist.Location = new System.Drawing.Point(495, 10);
+            this.BtnEditarRegist.Name = "BtnEditarRegist";
+            this.BtnEditarRegist.Size = new System.Drawing.Size(90, 35);
+            this.BtnEditarRegist.TabIndex = 3;
+            this.BtnEditarRegist.Text = "Editar";
+            this.BtnEditarRegist.UseVisualStyleBackColor = true;
+            this.BtnEditarRegist.Click += new System.EventHandler(this.BtnEditarRegist_Click);
             // 
-            // btn_cancelar_registro
+            // btnCancelarRegist
             // 
-            this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar_registro.Location = new System.Drawing.Point(749, 9);
-            this.btn_cancelar_registro.Name = "btn_cancelar_registro";
-            this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
-            this.btn_cancelar_registro.TabIndex = 2;
-            this.btn_cancelar_registro.Text = "Cancelar";
-            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
+            this.btnCancelarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarRegist.Location = new System.Drawing.Point(749, 9);
+            this.btnCancelarRegist.Name = "btnCancelarRegist";
+            this.btnCancelarRegist.Size = new System.Drawing.Size(90, 35);
+            this.btnCancelarRegist.TabIndex = 2;
+            this.btnCancelarRegist.Text = "Cancelar";
+            this.btnCancelarRegist.UseVisualStyleBackColor = true;
+            this.btnCancelarRegist.Click += new System.EventHandler(this.btnCancelarRegist_Click);
             // 
-            // button5
+            // btnguardarRegist
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(618, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(90, 35);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Guardar";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnguardarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardarRegist.Location = new System.Drawing.Point(618, 9);
+            this.btnguardarRegist.Name = "btnguardarRegist";
+            this.btnguardarRegist.Size = new System.Drawing.Size(90, 35);
+            this.btnguardarRegist.TabIndex = 1;
+            this.btnguardarRegist.Text = "Guardar";
+            this.btnguardarRegist.UseVisualStyleBackColor = true;
+            this.btnguardarRegist.Click += new System.EventHandler(this.btnguardarRegist_Click);
             // 
-            // button6
+            // btnNuevoRegis
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(355, 9);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(90, 35);
-            this.button6.TabIndex = 0;
-            this.button6.Text = "Nuevo";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnNuevoRegis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoRegis.Location = new System.Drawing.Point(355, 9);
+            this.btnNuevoRegis.Name = "btnNuevoRegis";
+            this.btnNuevoRegis.Size = new System.Drawing.Size(90, 35);
+            this.btnNuevoRegis.TabIndex = 0;
+            this.btnNuevoRegis.Text = "Nuevo";
+            this.btnNuevoRegis.UseVisualStyleBackColor = true;
+            this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
             // preRegistEquipoMantenimiento
             // 
@@ -496,14 +493,14 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnBuscarEquipo;
         private System.Windows.Forms.GroupBox groupBoxAccesorios;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btn_cancelar_registro;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button BtnEditarRegist;
+        private System.Windows.Forms.Button btnCancelarRegist;
+        private System.Windows.Forms.Button btnguardarRegist;
+        private System.Windows.Forms.Button btnNuevoRegis;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox_marca;
         private System.Windows.Forms.Label label8;

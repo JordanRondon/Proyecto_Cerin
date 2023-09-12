@@ -16,7 +16,9 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entEquipo> listarEquipo() => datEquipo.GetInstancia.listarEquipo();
+        public List<entEquipo> listarEquipoAlquiler() => datEquipo.GetInstancia.listarEquipoAlquiler();
+
+        public List<entEquipo> listarEquipoExternos() => datEquipo.GetInstancia.listarEquipoExternos();
 
         public List<entEquipo> listarEquipoDisponible() => datEquipo.GetInstancia.listarEquipoDisponible();
 
@@ -32,7 +34,7 @@ namespace CapaLogica
 
         public List<entEquipo> listarEquipoMarca(string marca) => datEquipo.GetInstancia.listarEquipoMarca(marca);
 
-        public entEquipo buscarEquipoID(string id_equipo) => datEquipo.GetInstancia.buscarEquipoID(id_equipo);
+        public entEquipo buscarEquipoID(string id_equipo,int idtipo) => datEquipo.GetInstancia.buscarEquipoID(id_equipo,idtipo);
         #endregion
     }
 }

@@ -78,7 +78,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             }
             else
             {
-                lisEquiposelect = logEquipo.GetInstancia.listarEquipo();
+                lisEquiposelect = logEquipo.GetInstancia.listarEquipoAlquiler();
             }
             listarEquipos();
         }

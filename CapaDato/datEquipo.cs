@@ -18,7 +18,7 @@ namespace CapaDato
         #endregion
 
         #region Metodos
-        public List<entEquipo> listarEquipo()
+        public List<entEquipo> listarEquipoAlquiler()
         {
             SqlCommand cmd = null;
             List<entEquipo> lista = new List<entEquipo>();
@@ -28,6 +28,43 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
 
                 cmd = new SqlCommand("sp_listarEquipoAlquiler", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entEquipo equipo = new entEquipo();
+
+                    equipo.SerieEquipo = Convert.ToString(dr["serie_equipo"]);
+                    equipo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
+                    equipo.Estado = Convert.ToChar(dr["estado"]);
+                    equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
+                    equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
+
+                    lista.Add(equipo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+        public List<entEquipo> listarEquipoExternos()
+        {
+            SqlCommand cmd = null;
+            List<entEquipo> lista = new List<entEquipo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listarEquipoExternosDisp", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
 
@@ -317,7 +354,7 @@ namespace CapaDato
             return lista;
         }
 
-        public entEquipo buscarEquipoID(string serie)
+        public entEquipo buscarEquipoID(string serie,int idtipo)
         {
             SqlCommand cmd = null;
             entEquipo equipo = null;
@@ -330,6 +367,7 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@serie_equipo", serie);
+                cmd.Parameters.AddWithValue("@id_tipo_equipo", idtipo);
 
                 cn.Open();
 

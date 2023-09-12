@@ -50,7 +50,7 @@ namespace Cerin_Ingenieros.Servicios
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            equiposSelecionados = logEquipo.GetInstancia.listarEquipo();
+            equiposSelecionados = logEquipo.GetInstancia.listarEquipoAlquiler();
             equiposSelecionados = new List<entEquipo>();
         }
 
@@ -95,9 +95,6 @@ namespace Cerin_Ingenieros.Servicios
             lb_nombres_cliente.Text = "Nombres";
             lb_apellidos_cliente.Text = "Apellidos";
             lb_telefono_cliente.Text = "Telefono";
-
-
-
         }
 
         //Botones

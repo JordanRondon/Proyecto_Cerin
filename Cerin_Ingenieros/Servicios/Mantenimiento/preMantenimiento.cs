@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.Servicios.Alquiler;
 using Cerin_Ingenieros.Servicios.Mantenimiento;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,9 @@ namespace Cerin_Ingenieros.Servicios
 {
     public partial class preMantenimiento : Form
     {
-        entCliente clienteSelecionado;
+        entCliente clienteSelecionado = null;
         List<entEquipo> equiposSelecionados;
+        bool prosesoCancelado = true;
 
         public preMantenimiento()
         {
@@ -25,6 +27,7 @@ namespace Cerin_Ingenieros.Servicios
             ConfigCabecera();
             listarEquipos();
             listarDatosComboBoxEmpleados();
+            comboBox_empleado.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
         }
         private void listarDatosComboBoxEmpleados()
         {
@@ -46,11 +49,10 @@ namespace Cerin_Ingenieros.Servicios
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
-            dataGridView_lista_quipos.Columns[0].Width = 80;
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_lista_quipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            equiposSelecionados = logEquipo.GetInstancia.listarEquipo();
+            equiposSelecionados = logEquipo.GetInstancia.listarEquipoAlquiler();
             equiposSelecionados = new List<entEquipo>();
         }
 
@@ -65,6 +67,7 @@ namespace Cerin_Ingenieros.Servicios
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
                 if (item.Estado == 'D') estado = "Disponible";
+                else if (item.Estado == 'U') estado = "Usando ahora";
                 else estado = "Ocupado";
                 dataGridView_lista_quipos.Rows.Add(
                     item.SerieEquipo,
@@ -76,20 +79,51 @@ namespace Cerin_Ingenieros.Servicios
         }
         private void inicializarVariablesAux()
         {
+            //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
+
+            //Configuracion inicial
+            groupBox2.Enabled = false;
+            groupBox3.Enabled = false;
+
+            btn_nuevo.Enabled = true;
+            btn_cancelar.Enabled = false;
+            btn_guardar.Enabled = false;
+            btn_editar.Enabled = false;
+
+            lb_dni_ruc_cliente.Text = "DNI";
+            lb_nombres_cliente.Text = "Nombres";
+            lb_apellidos_cliente.Text = "Apellidos";
+            lb_telefono_cliente.Text = "Telefono";
         }
 
         private void btn_select_cliente_Click(object sender, EventArgs e)
         {
             preSelectCliente preSelectCliente = new preSelectCliente();
             preSelectCliente.ShowDialog();
+
+            clienteSelecionado = preSelectCliente.getCliente();
+
+            if (clienteSelecionado != null)
+            {
+                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                txb_ruc.Text = clienteSelecionado.Ruc;
+                lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
+                lb_nombres_cliente.Text = clienteSelecionado.Nombre;
+                lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+                txb_razon_social.Text = clienteSelecionado.RazonSocial;
+            }
         }
 
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
         {
             preRegistEquipoMantenimiento preRegistEquipoMantenimiento = new preRegistEquipoMantenimiento();
             preRegistEquipoMantenimiento.ShowDialog();
+
+            equiposSelecionados.AddRange(preRegistEquipoMantenimiento.getEquipos());
+
+            listarEquipos();
         }
 
         private void horaFecha_Tick(object sender, EventArgs e)
@@ -114,6 +148,94 @@ namespace Cerin_Ingenieros.Servicios
                 lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
                 lb_nombres_cliente.Text = clienteSelecionado.Nombre;
                 lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+            }
+        }
+
+        private void preMantenimiento_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ActualizarEstadosEquipos();
+        }
+        private void ActualizarEstadosEquipos()
+        {
+            if (equiposSelecionados.Count > 0 && prosesoCancelado)
+            {
+                foreach (var item in equiposSelecionados)
+                {
+                    item.Estado = 'D';
+                    logEquipo.GetInstancia.editarEquipo(item);
+                }
+                equiposSelecionados.Clear();
+            }
+            listarEquipos();
+        }
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            prosesoCancelado = true;
+            ActualizarEstadosEquipos();
+            listarEquipos();
+            inicializarVariablesAux();
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            groupBox2.Enabled = true;
+            groupBox3.Enabled = true;
+
+            btn_nuevo.Enabled = false;
+            btn_guardar.Enabled = true;
+            btn_cancelar.Enabled = true;
+            btn_editar.Enabled = true;
+            prosesoCancelado = true;
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            if (clienteSelecionado != null && equiposSelecionados.Count > 0)
+            {
+                //REGISTRAR EL SERVICIO
+                entServicio servicio = new entServicio
+                {
+                    FechaRegistro = DateTime.Now,
+                    IdTipoServicio = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
+                    IdCliente = clienteSelecionado.IdCliente
+                };
+                //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
+                servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
+
+                int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
+
+                //REGISTRAR EQUIPO_SERVICIO
+                entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
+                equipo_Servicio.IdServicio = idServicio;
+                equipo_Servicio.Observaciones_preliminares = "";
+                equipo_Servicio.observaciones_finales = "";
+                foreach (var item in equiposSelecionados)
+                {
+                    equipo_Servicio.serie_equipo = item.SerieEquipo;
+                    logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
+
+                    //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
+                    item.Estado = 'O';
+                    logEquipo.GetInstancia.editarEquipo(item);
+
+                }
+
+                prosesoCancelado = true;
+                clienteSelecionado = null;
+                equiposSelecionados.Clear();
+
+                lb_dni_ruc_cliente.Text = "DNI / RUC";
+                lb_apellidos_cliente.Text = "Apellidos";
+                lb_nombres_cliente.Text = "Nombres";
+                lb_telefono_cliente.Text = "Telefono";
+
+                inicializarVariablesAux();
+
+                listarEquipos();
+            }
+            else
+            {
+                MessageBox.Show("Faltan campos por completar");
             }
         }
     }
