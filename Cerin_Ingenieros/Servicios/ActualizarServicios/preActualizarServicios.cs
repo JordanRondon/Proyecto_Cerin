@@ -55,7 +55,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 {
                     indexServicio = servicioActual.IdServicio;
                     cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
-                    tipoServicio = logTipo.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
+                    tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
                     if (cliente.Nombre != "")
                         label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
                     else

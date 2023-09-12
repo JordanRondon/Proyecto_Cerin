@@ -180,7 +180,7 @@ namespace Cerin_Ingenieros.Servicios
                 entServicio servicio = new entServicio
                 {
                     FechaRegistro = DateTime.Now,
-                    IdTipoServicio = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
+                    IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
                     IdCliente = clienteSelecionado.IdCliente
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;

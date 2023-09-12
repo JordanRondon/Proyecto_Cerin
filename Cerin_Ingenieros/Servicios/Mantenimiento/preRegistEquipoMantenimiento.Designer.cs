@@ -29,18 +29,14 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_nuevo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxEquipo = new System.Windows.Forms.GroupBox();
             this.btnBuscarEquipo = new System.Windows.Forms.Button();
             this.txb_serie = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txbObservaciones = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxObservaciones = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -62,6 +58,7 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
+            this.btnCancelarEquipo = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -77,66 +74,23 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.btn_editar);
-            this.panel1.Controls.Add(this.btn_cancelar);
+            this.panel1.Controls.Add(this.btnCancelarEquipo);
             this.panel1.Controls.Add(this.btn_guardar);
-            this.panel1.Controls.Add(this.btn_nuevo);
             this.panel1.Location = new System.Drawing.Point(3, 450);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1088, 54);
             this.panel1.TabIndex = 22;
             // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(987, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 35);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Salir";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.Location = new System.Drawing.Point(495, 10);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(90, 35);
-            this.btn_editar.TabIndex = 3;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(749, 9);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(90, 35);
-            this.btn_cancelar.TabIndex = 2;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
             // btn_guardar
             // 
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(618, 9);
+            this.btn_guardar.Location = new System.Drawing.Point(409, 12);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(90, 35);
+            this.btn_guardar.Size = new System.Drawing.Size(169, 35);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            // 
-            // btn_nuevo
-            // 
-            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nuevo.Location = new System.Drawing.Point(355, 9);
-            this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(90, 35);
-            this.btn_nuevo.TabIndex = 0;
-            this.btn_nuevo.Text = "Nuevo";
-            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // label7
             // 
@@ -205,14 +159,14 @@
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
             // 
-            // textBox1
+            // txbObservaciones
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(29, 66);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(459, 189);
-            this.textBox1.TabIndex = 14;
+            this.txbObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbObservaciones.Location = new System.Drawing.Point(29, 66);
+            this.txbObservaciones.Multiline = true;
+            this.txbObservaciones.Name = "txbObservaciones";
+            this.txbObservaciones.Size = new System.Drawing.Size(459, 189);
+            this.txbObservaciones.TabIndex = 14;
             // 
             // label2
             // 
@@ -226,7 +180,7 @@
             // 
             // groupBoxObservaciones
             // 
-            this.groupBoxObservaciones.Controls.Add(this.textBox1);
+            this.groupBoxObservaciones.Controls.Add(this.txbObservaciones);
             this.groupBoxObservaciones.Controls.Add(this.label2);
             this.groupBoxObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxObservaciones.Location = new System.Drawing.Point(566, 165);
@@ -445,6 +399,17 @@
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
+            // btnCancelarEquipo
+            // 
+            this.btnCancelarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarEquipo.Location = new System.Drawing.Point(654, 12);
+            this.btnCancelarEquipo.Name = "btnCancelarEquipo";
+            this.btnCancelarEquipo.Size = new System.Drawing.Size(111, 35);
+            this.btnCancelarEquipo.TabIndex = 2;
+            this.btnCancelarEquipo.Text = "Cancelar";
+            this.btnCancelarEquipo.UseVisualStyleBackColor = true;
+            this.btnCancelarEquipo.Click += new System.EventHandler(this.btnCancelarEquipo_Click);
+            // 
             // preRegistEquipoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -477,17 +442,13 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_editar;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_nuevo;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBoxEquipo;
         private System.Windows.Forms.TextBox txb_serie;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAcesorios;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txbObservaciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBoxObservaciones;
         private System.Windows.Forms.TabControl tabControl1;
@@ -510,5 +471,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvListaDeEquipoClientes;
+        private System.Windows.Forms.Button btnCancelarEquipo;
     }
 }

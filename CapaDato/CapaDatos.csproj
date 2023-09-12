@@ -88,7 +88,7 @@
     <Compile Include="datMarca.cs" />
     <Compile Include="datModelo.cs" />
     <Compile Include="datServicio.cs" />
-    <Compile Include="datTipo.cs" />
+    <Compile Include="datTipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

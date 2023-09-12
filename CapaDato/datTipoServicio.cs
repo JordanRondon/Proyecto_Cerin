@@ -9,15 +9,50 @@ using System.Threading.Tasks;
 
 namespace CapaDato
 {
-    public class datTipo
+    public class datTipoServicio
     {
         #region Singleton
-        private static readonly datTipo instancia = new datTipo();
-        public static datTipo GetInstancia => instancia;
+        private static readonly datTipoServicio instancia = new datTipoServicio();
+        public static datTipoServicio GetInstancia => instancia;
         #endregion
 
         #region Metodos
+        public List<entTipoServicio> listarTipoServicio()
+        {
+            SqlCommand cmd = null;
+            List<entTipoServicio> lista = new List<entTipoServicio>();
 
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listarTipoDeServicios", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entTipoServicio t = new entTipoServicio();
+
+                    t.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
+                    t.Nombre = Convert.ToString(dr["nombre"]);
+
+                    lista.Add(t);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return lista;
+        }
         public entTipoServicio BuscarTipoPorNombre(string nombre)
         {
             SqlCommand cmd = null;

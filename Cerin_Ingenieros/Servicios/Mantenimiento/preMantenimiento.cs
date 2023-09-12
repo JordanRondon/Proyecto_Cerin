@@ -18,6 +18,7 @@ namespace Cerin_Ingenieros.Servicios
     {
         entCliente clienteSelecionado = null;
         List<entEquipo> equiposSelecionados;
+        List<entEquipo_Servicio> list_det_equipo_servicio = new List<entEquipo_Servicio>();
         bool prosesoCancelado = true;
 
         public preMantenimiento()
@@ -25,9 +26,7 @@ namespace Cerin_Ingenieros.Servicios
             InitializeComponent();
             inicializarVariablesAux();
             ConfigCabecera();
-            listarEquipos();
             listarDatosComboBoxEmpleados();
-            comboBox_empleado.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
         }
         private void listarDatosComboBoxEmpleados()
         {
@@ -40,6 +39,11 @@ namespace Cerin_Ingenieros.Servicios
                     apellidoNombre = $"{e.Apellido}, {e.Nombre}" // Combina apellido y nombre
                 })
                 .ToList();
+
+
+            comboBoxTipoServi.ValueMember = "id_tipo_servicio";
+            comboBoxTipoServi.DisplayMember = "nombre";
+            comboBoxTipoServi.DataSource = logTipoServicio.GetInstancia.listarTipoServicios();
         }
         private void ConfigCabecera()
         {
@@ -52,8 +56,8 @@ namespace Cerin_Ingenieros.Servicios
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_lista_quipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            equiposSelecionados = logEquipo.GetInstancia.listarEquipoAlquiler();
             equiposSelecionados = new List<entEquipo>();
+            listarEquipos();
         }
 
         private void listarEquipos()
@@ -98,30 +102,13 @@ namespace Cerin_Ingenieros.Servicios
             lb_telefono_cliente.Text = "Telefono";
         }
 
-        private void btn_select_cliente_Click(object sender, EventArgs e)
-        {
-            preSelectCliente preSelectCliente = new preSelectCliente();
-            preSelectCliente.ShowDialog();
-
-            clienteSelecionado = preSelectCliente.getCliente();
-
-            if (clienteSelecionado != null)
-            {
-                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
-                txb_ruc.Text = clienteSelecionado.Ruc;
-                lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
-                lb_nombres_cliente.Text = clienteSelecionado.Nombre;
-                lb_telefono_cliente.Text = clienteSelecionado.Telefono;
-                txb_razon_social.Text = clienteSelecionado.RazonSocial;
-            }
-        }
-
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
         {
             preRegistEquipoMantenimiento preRegistEquipoMantenimiento = new preRegistEquipoMantenimiento();
             preRegistEquipoMantenimiento.ShowDialog();
 
             equiposSelecionados.AddRange(preRegistEquipoMantenimiento.getEquipos());
+            list_det_equipo_servicio.AddRange(preRegistEquipoMantenimiento.getServicios());
 
             listarEquipos();
         }
@@ -141,13 +128,12 @@ namespace Cerin_Ingenieros.Servicios
 
             if (clienteSelecionado != null)
             {
-                if (clienteSelecionado.Dni != "")
-                    lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
-                else
-                    lb_dni_ruc_cliente.Text = clienteSelecionado.Ruc;
+                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                txb_ruc.Text = clienteSelecionado.Ruc;
                 lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
                 lb_nombres_cliente.Text = clienteSelecionado.Nombre;
                 lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+                txb_razon_social.Text = clienteSelecionado.RazonSocial;
             }
         }
 
@@ -196,7 +182,7 @@ namespace Cerin_Ingenieros.Servicios
                 entServicio servicio = new entServicio
                 {
                     FechaRegistro = DateTime.Now,
-                    IdTipoServicio = logTipo.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
+                    IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre(comboBoxTipoServi.Text).IdTipoServicio,
                     IdCliente = clienteSelecionado.IdCliente
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
@@ -207,10 +193,11 @@ namespace Cerin_Ingenieros.Servicios
                 //REGISTRAR EQUIPO_SERVICIO
                 entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
                 equipo_Servicio.IdServicio = idServicio;
-                equipo_Servicio.Observaciones_preliminares = "";
                 equipo_Servicio.observaciones_finales = "";
                 foreach (var item in equiposSelecionados)
                 {
+
+                    equipo_Servicio.Observaciones_preliminares = "";
                     equipo_Servicio.serie_equipo = item.SerieEquipo;
                     logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
 

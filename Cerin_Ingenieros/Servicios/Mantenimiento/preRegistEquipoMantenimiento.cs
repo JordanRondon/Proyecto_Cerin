@@ -16,6 +16,11 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
     {
         private List<entEquipo> lisEquiposelect;
         private List<entEquipo> selecionado = new List<entEquipo>();
+        private entEquipo temp = new entEquipo();
+        List<entAccesorio> listaaccesorios;
+
+        //selecionar equipos
+        List<entEquipo_Servicio> list_equipo_servicio = new List<entEquipo_Servicio>();
 
         public preRegistEquipoMantenimiento()
         {
@@ -157,17 +162,29 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
 
         #endregion REGISTRAR
+
         public List<entEquipo> getEquipos() { return selecionado; }
+        public List<entEquipo_Servicio> getServicios() { return list_equipo_servicio; }
+
         private void ConfigInicial()
         {
             groupBoxAccesorios.Enabled = false;
             groupBoxObservaciones.Enabled = false;
+            btn_guardar.Enabled = false;
+            btnCancelarEquipo.Enabled = false;
         }
 
+        private void CargarTodosLosAccesorios()
+        {
+            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
+            CargarAccesorios();
+        }
 
         private void CargarAccesorios()
         {
-            List<entAccesorio> listaAccesorio = logAccesorio.GetInstancia.listarAccesorio();
+            dgvAcesorios.Enabled = true;
+            dgvAcesorios.Rows.Clear();
+            dgvAcesorios.Columns.Clear();
 
             dgvAcesorios.Columns.AddRange(
                 new DataGridViewCheckBoxColumn { HeaderText = "Opcion" },
@@ -179,7 +196,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
             foreach (DataGridViewColumn column in dgvAcesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            foreach (var item in listaAccesorio)
+            foreach (var item in listaaccesorios)
             {
                 dgvAcesorios.Rows.Add(
                     false,
@@ -228,7 +245,21 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(txb_serie.Text,2);
                 if (equipo != null)
                 {
+                    //Desactivamos las opciones de modificar el equipo selecionado
+                    txb_serie.Enabled = false;
+                    btnBuscarEquipo.Enabled = false;
 
+                    //activamos los accesorios y las observaciones
+                    groupBoxAccesorios.Enabled = true;
+                    groupBoxObservaciones.Enabled = true;
+                    btnCancelarEquipo.Enabled = true;
+                    btn_guardar.Enabled = true;
+
+                    //cargamos los accesorios y elejimos los accesorios del equipo
+                    //con los cuales entra al laboratorio
+                    CargarTodosLosAccesorios();
+
+                    temp = equipo;
                 }
                 else
                 {
@@ -236,6 +267,43 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 }
             }
 
+        }        
+
+        private void btnCancelarEquipo_Click(object sender, EventArgs e)
+        {
+
+            conficancel();
+        }
+        private void conficancel()
+        {
+            txb_serie.Enabled = true;
+            btnBuscarEquipo.Enabled = true;
+
+            txbObservaciones.Text = "";
+            txb_serie.Text = "";
+
+            //vaciamos la lista de accesorios
+            listaaccesorios.Clear();
+            CargarAccesorios();
+
+            groupBoxAccesorios.Enabled = false;
+            groupBoxObservaciones.Enabled = false;
+            btn_guardar.Enabled = false;
+            btnCancelarEquipo.Enabled = false;
+        }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+            entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
+
+            equipo_Servicio.serie_equipo = txb_serie.Text;
+            equipo_Servicio.Observaciones_preliminares = txbObservaciones.Text;
+
+            list_equipo_servicio.Add(equipo_Servicio);
+
+            selecionado.Add(temp);
+
+            conficancel();
         }
     }
 }
