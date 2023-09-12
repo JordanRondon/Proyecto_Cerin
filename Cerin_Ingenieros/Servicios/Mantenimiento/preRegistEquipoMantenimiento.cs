@@ -294,15 +294,89 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            //creamos un equipo_servicio
             entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
 
+            //damos los valores - recomendaciones finales se dara cuando se actualice el servicio
+            // y id_servicio cuando se registre
             equipo_Servicio.serie_equipo = txb_serie.Text;
             equipo_Servicio.Observaciones_preliminares = txbObservaciones.Text;
-
+            //agregamos a la lista
             list_equipo_servicio.Add(equipo_Servicio);
 
+            //agregamos el equipo selecionado a la lsita de equipos
             selecionado.Add(temp);
 
+            //Registramos los accesorios para el equipo
+
+            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
+
+            for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvAcesorios.Rows[i];
+                if (!row.IsNewRow)
+                {
+                    string serie_equipo = txb_serie.Text;
+                    bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
+                    int cantidad = 0; //cantidad predeterminada 
+                    string name = "";
+
+                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+                    estadoacesorio = (bool)checkBoxCell.Value;
+
+
+                    //nombre del accesorio
+                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+                    name = Convert.ToString(textBoxCellName.Value);
+
+                    //buscar el id del accesorio
+                    int id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+
+                    //verificar si el accesorio es del equipo
+                    if (estadoacesorio)
+                    {
+
+                        //cantidad del accesorio
+                        DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                        cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+
+                        //bucar un equipoaccesorio
+                        entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(serie_equipo, id_accesorio);
+
+                        //verificar que si el equiop_accesorio esxiste en la base de datos
+                        if (det_equipo_Accesorio != null)
+                        {
+                            // el equipo_accesorio ya existe en la bd por lo tanto hay que editar la cantidad
+                            det_equipo_Accesorio.cantidad = cantidad;
+                            logEquipoAccesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
+                        }
+                        else
+                        {
+                            //registrar un euipo accesorio nuevo que no se encuentra en la bd
+                            det_equipo_Accesorio = new entEquipo_Accesorio();
+
+                            det_equipo_Accesorio.SerieEquipo = serie_equipo;
+                            det_equipo_Accesorio.id_accesorio = id_accesorio;
+                            det_equipo_Accesorio.cantidad = cantidad;
+                            logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in list_det_equipo_accesorio_)
+                        {
+                            if (item.SerieEquipo == serie_equipo && item.id_accesorio == id_accesorio)
+                            {
+                                bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(serie_equipo, id_accesorio);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            //configuracion inicial
             conficancel();
         }
     }

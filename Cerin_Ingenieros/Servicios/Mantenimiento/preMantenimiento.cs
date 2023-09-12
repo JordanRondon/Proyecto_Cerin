@@ -39,11 +39,6 @@ namespace Cerin_Ingenieros.Servicios
                     apellidoNombre = $"{e.Apellido}, {e.Nombre}" // Combina apellido y nombre
                 })
                 .ToList();
-
-
-            comboBoxTipoServi.ValueMember = "id_tipo_servicio";
-            comboBoxTipoServi.DisplayMember = "nombre";
-            comboBoxTipoServi.DataSource = logTipoServicio.GetInstancia.listarTipoServicios();
         }
         private void ConfigCabecera()
         {
@@ -182,29 +177,28 @@ namespace Cerin_Ingenieros.Servicios
                 entServicio servicio = new entServicio
                 {
                     FechaRegistro = DateTime.Now,
-                    IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre(comboBoxTipoServi.Text).IdTipoServicio,
+                    IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre("CALIBRACION").IdTipoServicio,
                     IdCliente = clienteSelecionado.IdCliente
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
+                servicio.estado = 'P';
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 
                 //REGISTRAR EQUIPO_SERVICIO
-                entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
-                equipo_Servicio.IdServicio = idServicio;
-                equipo_Servicio.observaciones_finales = "";
+                foreach (var item in list_det_equipo_servicio)
+                {
+                    item.IdServicio = idServicio;
+                    item.observaciones_finales = "";
+
+                    logEquipo_Servicio.GetInstancia.insertarEquipoServicio(item);
+                }
+                //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
                 foreach (var item in equiposSelecionados)
                 {
-
-                    equipo_Servicio.Observaciones_preliminares = "";
-                    equipo_Servicio.serie_equipo = item.SerieEquipo;
-                    logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
-
-                    //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
-                    item.Estado = 'O';
+                    item.Estado = 'P';
                     logEquipo.GetInstancia.editarEquipo(item);
-
                 }
 
                 prosesoCancelado = true;
