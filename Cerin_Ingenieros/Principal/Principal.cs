@@ -1,4 +1,5 @@
-﻿using Cerin_Ingenieros.Servicios;
+﻿using CapaLogica;
+using Cerin_Ingenieros.Servicios;
 using Cerin_Ingenieros.Servicios.ActualizarServicios;
 using System;
 using System.Collections.Generic;
@@ -51,6 +52,7 @@ namespace Cerin_Ingenieros
 
         private void btn_alquiler_Click(object sender, EventArgs e)
         {
+            logComprobante.GetInstancia.generarComprobante(new CapaEntidad.entServicio());
             AbrirFormHijo(new preAlquiler());
         }
 

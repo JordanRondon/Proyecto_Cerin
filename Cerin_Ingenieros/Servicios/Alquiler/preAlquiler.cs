@@ -203,6 +203,7 @@ namespace Cerin_Ingenieros.Servicios
                     logEquipo.GetInstancia.editarEquipo(item);
 
                 }
+                logComprobante.GetInstancia.generarComprobante(servicio);
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;

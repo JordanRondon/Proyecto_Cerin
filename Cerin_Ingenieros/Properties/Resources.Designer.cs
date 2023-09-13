@@ -113,6 +113,16 @@ namespace Cerin_Ingenieros.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO_CCI_LABS {
+            get {
+                object obj = ResourceManager.GetObject("LOGO_CCI_LABS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LOGO_celeste___sin_fondo_ {
             get {
                 object obj = ResourceManager.GetObject("LOGO celeste ( sin fondo)", resourceCulture);

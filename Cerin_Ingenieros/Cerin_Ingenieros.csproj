@@ -247,5 +247,8 @@
   <ItemGroup>
     <None Include="Resources\Icono Maximizar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO_CCI_LABS.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
