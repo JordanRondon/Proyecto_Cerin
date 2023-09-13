@@ -38,6 +38,7 @@ namespace CapaDato
 
                     modelo.id_modelo = Convert.ToInt32(dr["id_modelo"]);
                     modelo.nombre = Convert.ToString(dr["nombre"]);
+                    modelo.estado = Convert.ToChar(dr["estado"]);
 
                     lista.Add(modelo);
                 }
@@ -102,6 +103,7 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@id_modelo", modelo.id_modelo);
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
+                cmd.Parameters.AddWithValue("@estado", modelo.estado);
 
                 cn.Open();
 
@@ -129,7 +131,7 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
                 cmd = new SqlCommand("spbuscarModeloPorId", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_modeloa", idModelo);
+                cmd.Parameters.AddWithValue("@id_modelo", idModelo);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

@@ -11,5 +11,7 @@ namespace CapaEntidad
         public int id_modelo { get; set; }
 
         public string nombre { get; set; }
+
+        public char estado { get; set; }
     }
 }
