@@ -131,7 +131,7 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
                 cmd = new SqlCommand("spbuscarModeloPorId", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@id_modeloa", idModelo);
+                cmd.Parameters.AddWithValue("@id_modelo", idModelo);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

@@ -32,7 +32,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txb_modelo_equipo = new System.Windows.Forms.TextBox();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
+            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -64,9 +64,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_modelo);
             this.groupBox1.Controls.Add(this.comboBox_marca);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txb_modelo_equipo);
             this.groupBox1.Controls.Add(this.txb_serie_equipo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label1);
@@ -103,14 +103,6 @@
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 12;
             this.label8.Text = "Marca";
-            // 
-            // txb_modelo_equipo
-            // 
-            this.txb_modelo_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_modelo_equipo.Location = new System.Drawing.Point(90, 86);
-            this.txb_modelo_equipo.Name = "txb_modelo_equipo";
-            this.txb_modelo_equipo.Size = new System.Drawing.Size(241, 23);
-            this.txb_modelo_equipo.TabIndex = 10;
             // 
             // txb_serie_equipo
             // 
@@ -248,6 +240,22 @@
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
             // 
+            // comboBox_modelo
+            // 
+            this.comboBox_modelo.FormattingEnabled = true;
+            this.comboBox_modelo.Items.AddRange(new object[] {
+            "Trimble",
+            "Riegl",
+            "Pentax",
+            "Geoslam",
+            "DJI Enterprise",
+            "Spectra Precision"});
+            this.comboBox_modelo.Location = new System.Drawing.Point(90, 84);
+            this.comboBox_modelo.Name = "comboBox_modelo";
+            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
+            this.comboBox_modelo.TabIndex = 14;
+            this.comboBox_modelo.Text = "(seleciones una opcion)";
+            // 
             // preEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,7 +287,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox_marca;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txb_modelo_equipo;
         private System.Windows.Forms.TextBox txb_serie_equipo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
@@ -292,5 +299,6 @@
         private System.Windows.Forms.Button btn_nuevo;
         private System.Windows.Forms.GroupBox groupBoxAccesorios;
         private System.Windows.Forms.DataGridView dgvAcesorios;
+        private System.Windows.Forms.ComboBox comboBox_modelo;
     }
 }
