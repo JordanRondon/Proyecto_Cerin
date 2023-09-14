@@ -80,6 +80,7 @@
             // 
             // comboBox_modelo
             // 
+            this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_modelo.FormattingEnabled = true;
             this.comboBox_modelo.Items.AddRange(new object[] {
             "Trimble",
@@ -92,10 +93,10 @@
             this.comboBox_modelo.Name = "comboBox_modelo";
             this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
             this.comboBox_modelo.TabIndex = 14;
-            this.comboBox_modelo.Text = "(seleciones una opcion)";
             // 
             // comboBox_marca
             // 
+            this.comboBox_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_marca.FormattingEnabled = true;
             this.comboBox_marca.Items.AddRange(new object[] {
             "Trimble",
@@ -108,7 +109,6 @@
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
-            this.comboBox_marca.Text = "(seleciones una opcion)";
             // 
             // label8
             // 
@@ -158,6 +158,7 @@
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equipos.Location = new System.Drawing.Point(61, 397);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
+            this.dataGridView_equipos.ReadOnly = true;
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.Size = new System.Drawing.Size(1057, 205);
             this.dataGridView_equipos.TabIndex = 15;

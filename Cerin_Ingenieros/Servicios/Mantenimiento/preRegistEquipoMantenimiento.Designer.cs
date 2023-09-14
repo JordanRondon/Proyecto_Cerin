@@ -268,9 +268,15 @@
             // 
             // dgvListaDeEquipoClientes
             // 
+            this.dgvListaDeEquipoClientes.AllowUserToAddRows = false;
+            this.dgvListaDeEquipoClientes.AllowUserToDeleteRows = false;
+            this.dgvListaDeEquipoClientes.AllowUserToResizeColumns = false;
+            this.dgvListaDeEquipoClientes.AllowUserToResizeRows = false;
+            this.dgvListaDeEquipoClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
             this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";
+            this.dgvListaDeEquipoClientes.RowHeadersVisible = false;
             this.dgvListaDeEquipoClientes.Size = new System.Drawing.Size(1052, 268);
             this.dgvListaDeEquipoClientes.TabIndex = 24;
             // 
@@ -302,12 +308,12 @@
             // 
             // comboBox_marca
             // 
+            this.comboBox_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_marca.FormattingEnabled = true;
             this.comboBox_marca.Location = new System.Drawing.Point(839, 37);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
-            this.comboBox_marca.Text = "(seleciones una opcion)";
             // 
             // label8
             // 
@@ -404,12 +410,12 @@
             // 
             // comboBox_modelo
             // 
+            this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_modelo.FormattingEnabled = true;
             this.comboBox_modelo.Location = new System.Drawing.Point(452, 37);
             this.comboBox_modelo.Name = "comboBox_modelo";
             this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
             this.comboBox_modelo.TabIndex = 15;
-            this.comboBox_modelo.Text = "(seleciones una opcion)";
             // 
             // preRegistEquipoMantenimiento
             // 

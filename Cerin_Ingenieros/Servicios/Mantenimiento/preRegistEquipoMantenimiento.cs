@@ -31,7 +31,6 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             ConfigCabecera();
             listarDatosComboBoxModelo();
             comboBox_modelo.SelectedIndex = -1;
-            comboBox_modelo.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
 
             //selecionar
             ConfigInicial();
@@ -102,7 +101,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     equipo.id_modelo = modeloSelec.id_modelo;
                     equipo.Estado = 'D';//POR DEFECTO DISPONIBLE
                     equipo.IdTipo = 2; //EQUIPO EXTERNO A LA EMPRESA
-                    equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
+                    entMarca marcaselect = (entMarca)comboBox_marca.SelectedItem;
+                    equipo.IdMarca = marcaselect.IdMarca;
                     equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.insertaEquipo(equipo);
