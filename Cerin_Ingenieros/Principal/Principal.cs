@@ -52,7 +52,7 @@ namespace Cerin_Ingenieros
 
         private void btn_alquiler_Click(object sender, EventArgs e)
         {
-            //logComprobante.GetInstancia.generarComprobante(new CapaEntidad.entServicio());
+            logComprobante.GetInstancia.generarComprobante(new CapaEntidad.entServicio());
             AbrirFormHijo(new preAlquiler());
         }
 

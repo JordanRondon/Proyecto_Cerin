@@ -174,9 +174,9 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_guardar_Click(object sender, EventArgs e)
         {
 
-            if (clienteSelecionado!=null && equiposSelecionados.Count>0)
+            if (clienteSelecionado != null && equiposSelecionados.Count > 0)
             {
-                    //REGISTRAR EL SERVICIO
+                //REGISTRAR EL SERVICIO
                 entServicio servicio = new entServicio
                 {
                     FechaRegistro = DateTime.Now,
@@ -185,7 +185,7 @@ namespace Cerin_Ingenieros.Servicios
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
-                
+
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 
                 //REGISTRAR EQUIPO_SERVICIO
