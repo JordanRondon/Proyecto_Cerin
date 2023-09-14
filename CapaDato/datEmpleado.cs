@@ -158,6 +158,49 @@ namespace CapaDato
 
             return seElimino;
         }
+        public entEmpleado BuscarEmpleadoId(int id)
+        {
+            SqlCommand cmd = null;
+            entEmpleado empleado = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_BuscarEmpleadoPorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_empleado", id);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    empleado = new entEmpleado();
+
+                    empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    empleado.Apellido = Convert.ToString(dr["nombre"]); ;
+                    empleado.Nombre = Convert.ToString(dr["apellido"]); ;
+                    empleado.Dni = Convert.ToString(dr["dni"]); ;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return empleado;
+        }
         #endregion
     }
 }

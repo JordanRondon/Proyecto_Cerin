@@ -188,6 +188,7 @@ namespace Cerin_Ingenieros.Servicios
                 servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
+                servicio.IdServicio = idServicio;
 
                 //REGISTRAR EQUIPO_SERVICIO
                 entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();

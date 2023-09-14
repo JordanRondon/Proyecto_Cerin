@@ -185,7 +185,7 @@ namespace Cerin_Ingenieros.Servicios
                 servicio.estado = 'P';//estado
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
-
+                servicio.IdServicio = idServicio;
                 //REGISTRAR EQUIPO_SERVICIO
                 foreach (var item in list_det_equipo_servicio)
                 {
