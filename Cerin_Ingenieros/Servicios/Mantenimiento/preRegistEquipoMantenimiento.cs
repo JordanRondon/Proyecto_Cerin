@@ -29,6 +29,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             listarDatosComboBoxMarca();
             configInitial();
             ConfigCabecera();
+            listarDatosComboBoxModelo();
+            comboBox_modelo.SelectedIndex = -1;
 
             //selecionar
             ConfigInicial();
@@ -38,7 +40,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void configInitial()
         {
             txb_serie_equipo.Enabled = false;
-            txb_modelo_equipo.Enabled = false;
+            comboBox_modelo.Enabled = false;
+            comboBox_modelo.SelectedIndex = -1;
             comboBox_marca.Enabled = false;
 
             btnNuevoRegis.Enabled = true;
@@ -49,10 +52,10 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void configNuevo()
         {
             txb_serie_equipo.Text = "";
-            txb_modelo_equipo.Text = "";
+            comboBox_modelo.SelectedIndex = 0;
 
             txb_serie_equipo.Enabled = true;
-            txb_modelo_equipo.Enabled = true;
+            comboBox_modelo.Enabled = true;
             comboBox_marca.Enabled = true;
 
             btnNuevoRegis.Enabled = false;
@@ -66,6 +69,12 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
             comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
+        }
+        private void listarDatosComboBoxModelo()
+        {
+            comboBox_modelo.ValueMember = "id_modelo";
+            comboBox_modelo.DisplayMember = "nombre";
+            comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
         }
 
         private void btnCancelarRegist_Click(object sender, EventArgs e)
@@ -82,16 +91,18 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             try
             {
-                bool campos = txb_serie_equipo.Text != "" && txb_modelo_equipo.Text != "" && comboBox_marca.SelectedIndex != -1;
+                bool campos = txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex!=-1 && comboBox_marca.SelectedIndex != -1;
                 if (campos)
                 {
                     entEquipo equipo = new entEquipo();
 
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
-                    equipo.id_modelo = Convert.ToInt16(txb_modelo_equipo.Text.Trim());
+                    entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
+                    equipo.id_modelo = modeloSelec.id_modelo;
                     equipo.Estado = 'D';//POR DEFECTO DISPONIBLE
                     equipo.IdTipo = 2; //EQUIPO EXTERNO A LA EMPRESA
-                    equipo.IdMarca = comboBox_marca.SelectedIndex + 1;
+                    entMarca marcaselect = (entMarca)comboBox_marca.SelectedItem;
+                    equipo.IdMarca = marcaselect.IdMarca;
                     equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.insertaEquipo(equipo);

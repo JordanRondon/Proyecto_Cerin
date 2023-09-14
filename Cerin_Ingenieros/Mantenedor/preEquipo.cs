@@ -27,11 +27,8 @@ namespace Cerin_Ingenieros
             listarEquipo();
             listarDatosComboBoxModelo();
             listarDatosComboBoxMarca();
-            dataGridView_equipos.ReadOnly = true;
             comboBox_modelo.SelectedIndex = -1;
-            comboBox_modelo.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
             comboBox_marca.SelectedIndex = -1;
-            comboBox_marca.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
         }
 
         private void limpiar_entradas()
@@ -379,7 +376,8 @@ namespace Cerin_Ingenieros
                     equipo.Estado = 'D';//estado disponible
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    equipo.IdMarca = marcaSelec.IdMarca;
+                    equipo.IdMarca = marcaSelec.IdMarca ;
+                    equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
 

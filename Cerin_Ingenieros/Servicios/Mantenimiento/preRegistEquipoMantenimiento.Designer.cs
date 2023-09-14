@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCancelarEquipo = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBoxEquipo = new System.Windows.Forms.GroupBox();
@@ -49,7 +50,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txb_modelo_equipo = new System.Windows.Forms.TextBox();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,7 +58,7 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
-            this.btnCancelarEquipo = new System.Windows.Forms.Button();
+            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -80,6 +80,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1088, 54);
             this.panel1.TabIndex = 22;
+            // 
+            // btnCancelarEquipo
+            // 
+            this.btnCancelarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarEquipo.Location = new System.Drawing.Point(654, 12);
+            this.btnCancelarEquipo.Name = "btnCancelarEquipo";
+            this.btnCancelarEquipo.Size = new System.Drawing.Size(111, 35);
+            this.btnCancelarEquipo.TabIndex = 2;
+            this.btnCancelarEquipo.Text = "Cancelar";
+            this.btnCancelarEquipo.UseVisualStyleBackColor = true;
+            this.btnCancelarEquipo.Click += new System.EventHandler(this.btnCancelarEquipo_Click);
             // 
             // btn_guardar
             // 
@@ -257,9 +268,15 @@
             // 
             // dgvListaDeEquipoClientes
             // 
+            this.dgvListaDeEquipoClientes.AllowUserToAddRows = false;
+            this.dgvListaDeEquipoClientes.AllowUserToDeleteRows = false;
+            this.dgvListaDeEquipoClientes.AllowUserToResizeColumns = false;
+            this.dgvListaDeEquipoClientes.AllowUserToResizeRows = false;
+            this.dgvListaDeEquipoClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
             this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";
+            this.dgvListaDeEquipoClientes.RowHeadersVisible = false;
             this.dgvListaDeEquipoClientes.Size = new System.Drawing.Size(1052, 268);
             this.dgvListaDeEquipoClientes.TabIndex = 24;
             // 
@@ -275,9 +292,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox_modelo);
             this.groupBox1.Controls.Add(this.comboBox_marca);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txb_modelo_equipo);
             this.groupBox1.Controls.Add(this.txb_serie_equipo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -291,12 +308,12 @@
             // 
             // comboBox_marca
             // 
+            this.comboBox_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_marca.FormattingEnabled = true;
             this.comboBox_marca.Location = new System.Drawing.Point(839, 37);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
-            this.comboBox_marca.Text = "(seleciones una opcion)";
             // 
             // label8
             // 
@@ -307,14 +324,6 @@
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 12;
             this.label8.Text = "Marca";
-            // 
-            // txb_modelo_equipo
-            // 
-            this.txb_modelo_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_modelo_equipo.Location = new System.Drawing.Point(447, 40);
-            this.txb_modelo_equipo.Name = "txb_modelo_equipo";
-            this.txb_modelo_equipo.Size = new System.Drawing.Size(241, 23);
-            this.txb_modelo_equipo.TabIndex = 10;
             // 
             // txb_serie_equipo
             // 
@@ -399,16 +408,14 @@
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
-            // btnCancelarEquipo
+            // comboBox_modelo
             // 
-            this.btnCancelarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarEquipo.Location = new System.Drawing.Point(654, 12);
-            this.btnCancelarEquipo.Name = "btnCancelarEquipo";
-            this.btnCancelarEquipo.Size = new System.Drawing.Size(111, 35);
-            this.btnCancelarEquipo.TabIndex = 2;
-            this.btnCancelarEquipo.Text = "Cancelar";
-            this.btnCancelarEquipo.UseVisualStyleBackColor = true;
-            this.btnCancelarEquipo.Click += new System.EventHandler(this.btnCancelarEquipo_Click);
+            this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_modelo.FormattingEnabled = true;
+            this.comboBox_modelo.Location = new System.Drawing.Point(452, 37);
+            this.comboBox_modelo.Name = "comboBox_modelo";
+            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
+            this.comboBox_modelo.TabIndex = 15;
             // 
             // preRegistEquipoMantenimiento
             // 
@@ -465,12 +472,12 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBox_marca;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txb_modelo_equipo;
         private System.Windows.Forms.TextBox txb_serie_equipo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvListaDeEquipoClientes;
         private System.Windows.Forms.Button btnCancelarEquipo;
+        private System.Windows.Forms.ComboBox comboBox_modelo;
     }
 }
