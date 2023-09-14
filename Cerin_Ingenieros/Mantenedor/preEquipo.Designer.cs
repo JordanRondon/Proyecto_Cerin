@@ -30,6 +30,7 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
-            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -77,6 +77,22 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Caracteristicas del equipo";
+            // 
+            // comboBox_modelo
+            // 
+            this.comboBox_modelo.FormattingEnabled = true;
+            this.comboBox_modelo.Items.AddRange(new object[] {
+            "Trimble",
+            "Riegl",
+            "Pentax",
+            "Geoslam",
+            "DJI Enterprise",
+            "Spectra Precision"});
+            this.comboBox_modelo.Location = new System.Drawing.Point(90, 84);
+            this.comboBox_modelo.Name = "comboBox_modelo";
+            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
+            this.comboBox_modelo.TabIndex = 14;
+            this.comboBox_modelo.Text = "(seleciones una opcion)";
             // 
             // comboBox_marca
             // 
@@ -239,22 +255,6 @@
             this.dgvAcesorios.Size = new System.Drawing.Size(554, 211);
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
-            // 
-            // comboBox_modelo
-            // 
-            this.comboBox_modelo.FormattingEnabled = true;
-            this.comboBox_modelo.Items.AddRange(new object[] {
-            "Trimble",
-            "Riegl",
-            "Pentax",
-            "Geoslam",
-            "DJI Enterprise",
-            "Spectra Precision"});
-            this.comboBox_modelo.Location = new System.Drawing.Point(90, 84);
-            this.comboBox_modelo.Name = "comboBox_modelo";
-            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
-            this.comboBox_modelo.TabIndex = 14;
-            this.comboBox_modelo.Text = "(seleciones una opcion)";
             // 
             // preEquipo
             // 
