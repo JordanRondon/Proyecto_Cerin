@@ -19,7 +19,7 @@ namespace CapaDato
         public static datComprobante GetInstancia => instancia;
         #endregion
 
-        public void generarComprobante(entServicio servicio)
+        public void generarComprobante(entServicio servicio, List<entEquipo_Servicio> listDet, entCliente cliente, List<entEquipo> equipos)
         {
             // Crear un documento PDF
             Document doc = new Document();
@@ -65,8 +65,8 @@ namespace CapaDato
             
 
             // Fecha y hora
-            string fecha_hora = "Hora\n" + "11:22:00"
-                + "\n\nDia/mes/año" + "\n21/" + "08/" + "2023";
+            string fecha_hora = "Hora\n" + servicio.FechaRegistro.TimeOfDay//establecemos la hora
+                + "\n\nDia/mes/año" + "\n/" + servicio.FechaRegistro.Date;//establecemos la fecha
             PdfPCell rucCell = new PdfPCell(new Phrase(fecha_hora, new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL)));
             rucCell.HorizontalAlignment = Element.ALIGN_CENTER;
             rucCell.Border = Rectangle.NO_BORDER; // Eliminar borde
@@ -86,7 +86,7 @@ namespace CapaDato
             doc.Add(ruc);
 
             //Configuracion de numero de boleta
-            string boleta = "Nº  " + "000001\n";
+            string boleta = "Nº  00" + servicio.IdServicio + "\n";//estabkecemos el codigo del servicio
             Paragraph ncomprobante = new Paragraph(boleta, new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD,BaseColor.RED));
             ncomprobante.Alignment = Element.ALIGN_RIGHT;
             doc.Add(ncomprobante);
@@ -105,18 +105,18 @@ namespace CapaDato
             PdfPCell clienteCell = new PdfPCell();
             clienteCell.Border = Rectangle.NO_BORDER; // Eliminar borde
             clienteCell.AddElement(new Paragraph("Datos del Cliente:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD)));
-            clienteCell.AddElement(new Paragraph("DNI: 71691662"));
-            clienteCell.AddElement(new Paragraph("Cliente: Juan Pérez"));
-            clienteCell.AddElement(new Paragraph("Celular: 963258741"));
+            clienteCell.AddElement(new Paragraph("DNI: "+cliente.Dni));
+            clienteCell.AddElement(new Paragraph("Cliente: "+cliente.Apellido + ", " + cliente.Nombre));
+            clienteCell.AddElement(new Paragraph("Celular: "+ cliente.Telefono));
             contenidoTable.AddCell(clienteCell);
 
             // Segunda columna: Datos de la Empresa
             PdfPCell empresaCell2 = new PdfPCell();
             empresaCell2.Border = Rectangle.NO_BORDER; // Eliminar borde
             empresaCell2.AddElement(new Paragraph("\n"));
-            empresaCell2.AddElement(new Paragraph("RUC: 10201020201"));
-            empresaCell2.AddElement(new Paragraph("Razon social: Juan Pérez"));
-            empresaCell2.AddElement(new Paragraph("Recepcionista: Juan Pérez"));
+            empresaCell2.AddElement(new Paragraph("RUC: "+cliente.Ruc));
+            empresaCell2.AddElement(new Paragraph("Razon social: "+cliente.RazonSocial));
+            empresaCell2.AddElement(new Paragraph("Recepcionista: __________"));
             contenidoTable.AddCell(empresaCell2);
 
             // Agregar la tabla de contenido al documento
@@ -129,17 +129,26 @@ namespace CapaDato
             // Título "Equipos"
             doc.Add(new Paragraph("Equipos:", new Font(Font.FontFamily.HELVETICA, 12, Font.BOLD)));
 
-            for (int i = 0; i < 3; i++)
+            foreach (var equipo in equipos)
             {
-                Paragraph equipo = new Paragraph("Serie: " + "23we34r      " + "Modelo: " + "exus11      " + "Marca: " + "Eros");
-                doc.Add(equipo);
-                for (int j = 0; j < 5; j++)
+                Paragraph datequipo = new Paragraph("Serie: " + equipo.SerieEquipo + "      Modelo: " + equipo.id_modelo + "      Marca: " + equipo.IdMarca);
+                doc.Add(datequipo);
+
+                //Obtener accesorios de un equipo
+                List<entEquipo_Accesorio> listAccesorios = datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(equipo.SerieEquipo);
+
+                foreach (var item in listAccesorios)
                 {
+                    //Obtener accesorio especifico
+                    entAccesorio accesorio = datAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                    //Mostramos 
                     Paragraph accsesorios = new Paragraph();
                     accsesorios.FirstLineIndent = 20; // Establecer la sangría en puntos (ajusta según tus necesidades)
-                    accsesorios.Add("Accesorio" + (j + 1));
+                    accsesorios.Add(accesorio.Nombre + "(" + item.cantidad + ").");
                     doc.Add(accsesorios);
                 }
+                entEquipo_Servicio equiposervicio = datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(equipo.SerieEquipo,servicio.IdServicio);
 
                 // Crear una tabla de dos columnas
                 PdfPTable TableRecomendaciones = new PdfPTable(2);
@@ -147,7 +156,7 @@ namespace CapaDato
                 TableRecomendaciones.SpacingBefore = 10f;
                 TableRecomendaciones.SpacingAfter = 10f;
 
-                string prelminares = "La informática, ​ también llamada computación, ​ es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital. La informática abarca desde disciplinas teóricas hasta disciplinas prácticas.​";
+                //string prelminares = "La informática, ​ también llamada computación, ​ es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital. La informática abarca desde disciplinas teóricas hasta disciplinas prácticas.​";
 
                 // Primera columna: Cabecera Datos del Cliente
                 PdfPCell cabeceraPreliminares = new PdfPCell();
@@ -168,13 +177,13 @@ namespace CapaDato
                 // Primera columna: Datos del Cliente
                 PdfPCell preliminares = new PdfPCell();
                 preliminares.Border = PdfPCell.BOX; // Establecer todos los bordes
-                preliminares.AddElement(new Paragraph(prelminares));
+                preliminares.AddElement(new Paragraph(equiposervicio.Observaciones_preliminares));
                 TableRecomendaciones.AddCell(preliminares);
 
                 // Segunda columna: Datos de la Empresa
                 PdfPCell finales = new PdfPCell();
                 finales.Border = PdfPCell.BOX; // Establecer todos los bordes
-                finales.AddElement(new Paragraph(prelminares));
+                finales.AddElement(new Paragraph(equiposervicio.observaciones_finales));
                 TableRecomendaciones.AddCell(finales);
 
                 // Agregar la tabla de contenido al documento

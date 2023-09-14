@@ -201,6 +201,9 @@ namespace Cerin_Ingenieros.Servicios
                     logEquipo.GetInstancia.editarEquipo(item);
                 }
 
+                logComprobante.GetInstancia.generarComprobante(servicio, list_det_equipo_servicio, clienteSelecionado, equiposSelecionados);
+
+
                 prosesoCancelado = true;
                 clienteSelecionado = null;
                 equiposSelecionados.Clear();

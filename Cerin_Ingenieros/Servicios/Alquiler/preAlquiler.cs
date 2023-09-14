@@ -17,6 +17,7 @@ namespace Cerin_Ingenieros.Servicios
     {
         entCliente clienteSelecionado = null;
         List<entEquipo> equiposSelecionados;
+        List<entEquipo_Servicio> listaDetalleEquiposServicios = new List<entEquipo_Servicio>();
         bool prosesoCancelado = true;
         public preAlquiler()
         {
@@ -197,13 +198,13 @@ namespace Cerin_Ingenieros.Servicios
                 {
                     equipo_Servicio.serie_equipo = item.SerieEquipo;
                     logEquipo_Servicio.GetInstancia.insertarEquipoServicio(equipo_Servicio);
+                    listaDetalleEquiposServicios.Add(equipo_Servicio);
 
                     //ACTUALIZAR EL EQUIPO A OCUPADO(PRESTADO)
                     item.Estado = 'O';
                     logEquipo.GetInstancia.editarEquipo(item);
-
                 }
-                logComprobante.GetInstancia.generarComprobante(servicio);
+                logComprobante.GetInstancia.generarComprobante(servicio, listaDetalleEquiposServicios,clienteSelecionado,equiposSelecionados);
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;
