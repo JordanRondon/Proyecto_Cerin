@@ -14,8 +14,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 {
     public partial class preActualizarServicios : Form
     {
-        private string indexEquipo = "";
-        private int indexServicio = -1;
+        private string serieEquipo = "";
+        private int id_Equipo = -1;
         public preActualizarServicios()
         {
             InitializeComponent();
@@ -37,8 +37,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             label_tipo_Servicio.Text = "TIPO";
             txb_Recomendaciones.Text = "";
             limpiarTablas();
-            indexEquipo = "";
-            indexServicio = -1;
+            serieEquipo = "";
+            id_Equipo = -1;
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 if (servicioActual.FechaEntrega == null)
                 {
-                    indexServicio = servicioActual.IdServicio;
+                    id_Equipo = servicioActual.IdServicio;
                     cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                     tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
                     if (cliente.Nombre != "")
@@ -95,12 +95,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+                entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
                 if (item.Estado == 'D') estado = "Disponible";
                 else estado = "Ocupado";
                 dataGridView_equipos.Rows.Add(
                     item.SerieEquipo,
-                    item.id_modelo,
+                    modelo.nombre,
                     estado,
                     marca.Nombre
                 );
@@ -109,11 +110,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //indice de la fila seccionada con doble click para
+            //indice de la fila seleccionada con doble click para
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-            indexEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+            serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
 
-            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(indexEquipo);
+            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
 
             dataGridView_Accesorios.Rows.Clear();
 
@@ -126,8 +127,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     item.cantidad
                 );
             }
-
-            entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo,1);//////////////el 1 es temporal actualizar
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -137,13 +136,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void btn_agregarRecomendacion_Click(object sender, EventArgs e)
         {
-            if (indexEquipo != "")
+            if (serieEquipo != "")
             {
-                entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(indexEquipo, 1);//////////////el 1 es temporal actualizar
                 if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
-                    //equipo.Recomendaciones = txb_Recomendaciones.Text;
-                    logEquipo.GetInstancia.editarEquipo(equipo);
+                    entEquipo_Servicio equipo_servicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, id_Equipo);
+                    equipo_servicio.observaciones_finales = txb_Recomendaciones.Text;
+                    logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipo_servicio);
                 }
                 else
                 {
@@ -160,10 +159,10 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             try
             {
-                if (indexServicio != -1)
+                if (id_Equipo != -1)
                 {
                     entServicio servicio = new entServicio();
-                    servicio.IdServicio = indexServicio;
+                    servicio.IdServicio = id_Equipo;
                     servicio.FechaEntrega = DateTime.Now;
                     if (logServicio.GetInstancia.ActualizarEntregaServicio(servicio))
                     {

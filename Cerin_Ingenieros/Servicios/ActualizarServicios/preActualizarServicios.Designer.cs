@@ -49,6 +49,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_FinalizarServicio = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -110,6 +111,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dataGridView_equipos);
             this.panel1.Controls.Add(this.label_nombre_ruc_cliente);
             this.panel1.Controls.Add(this.label_tipo_Servicio);
@@ -209,7 +211,7 @@
             this.dataGridView_Accesorios.AllowUserToAddRows = false;
             this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(52, 199);
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(22, 207);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
             this.dataGridView_Accesorios.TabIndex = 41;
@@ -276,6 +278,16 @@
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(136, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "ACCESORIOS";
+            // 
             // preActualizarServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,5 +340,6 @@
         private System.Windows.Forms.Button btn_agregarRecomendacion;
         private System.Windows.Forms.Button btn_FinalizarServicio;
         private System.Windows.Forms.TextBox txb_Recomendaciones;
+        private System.Windows.Forms.Label label2;
     }
 }
