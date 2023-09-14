@@ -1,4 +1,5 @@
 ﻿using CapaLogica;
+using Cerin_Ingenieros.Mantenedor;
 using Cerin_Ingenieros.Servicios;
 using Cerin_Ingenieros.Servicios.ActualizarServicios;
 using System;
@@ -98,6 +99,11 @@ namespace Cerin_Ingenieros
             {
                 this.WindowState = FormWindowState.Normal;
             }
+        }
+
+        private void btnModelo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preModelo());
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

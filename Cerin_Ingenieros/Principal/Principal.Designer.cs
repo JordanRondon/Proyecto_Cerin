@@ -35,6 +35,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_actualizar_servicio = new System.Windows.Forms.Button();
             this.btn_marca = new System.Windows.Forms.Button();
             this.btn_empleado = new System.Windows.Forms.Button();
@@ -42,17 +43,18 @@
             this.btn_mantenimiento = new System.Windows.Forms.Button();
             this.btn_alquiler = new System.Windows.Forms.Button();
             this.panel_principal = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnPantallaCom = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnModelo = new System.Windows.Forms.Button();
             this.panelOpPrincipal.SuspendLayout();
-            this.panel_principal.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_principal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOpPrincipal
@@ -60,6 +62,8 @@
             this.panelOpPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelOpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelOpPrincipal.Controls.Add(this.panel8);
+            this.panelOpPrincipal.Controls.Add(this.btnModelo);
             this.panelOpPrincipal.Controls.Add(this.panel7);
             this.panelOpPrincipal.Controls.Add(this.panel6);
             this.panelOpPrincipal.Controls.Add(this.panel5);
@@ -81,7 +85,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel7.Location = new System.Drawing.Point(0, 436);
+            this.panel7.Location = new System.Drawing.Point(0, 521);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(10, 50);
             this.panel7.TabIndex = 12;
@@ -89,7 +93,7 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel6.Location = new System.Drawing.Point(0, 369);
+            this.panel6.Location = new System.Drawing.Point(0, 454);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(10, 50);
             this.panel6.TabIndex = 11;
@@ -126,6 +130,16 @@
             this.panel2.Size = new System.Drawing.Size(10, 50);
             this.panel2.TabIndex = 7;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(175, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // btn_actualizar_servicio
             // 
             this.btn_actualizar_servicio.FlatAppearance.BorderSize = 0;
@@ -134,7 +148,7 @@
             this.btn_actualizar_servicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_actualizar_servicio.ForeColor = System.Drawing.Color.White;
-            this.btn_actualizar_servicio.Location = new System.Drawing.Point(0, 436);
+            this.btn_actualizar_servicio.Location = new System.Drawing.Point(0, 521);
             this.btn_actualizar_servicio.Name = "btn_actualizar_servicio";
             this.btn_actualizar_servicio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_actualizar_servicio.Size = new System.Drawing.Size(175, 50);
@@ -170,7 +184,7 @@
             this.btn_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_empleado.ForeColor = System.Drawing.Color.White;
-            this.btn_empleado.Location = new System.Drawing.Point(0, 369);
+            this.btn_empleado.Location = new System.Drawing.Point(0, 454);
             this.btn_empleado.Name = "btn_empleado";
             this.btn_empleado.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_empleado.Size = new System.Drawing.Size(175, 50);
@@ -248,6 +262,19 @@
             this.panel_principal.Size = new System.Drawing.Size(1180, 642);
             this.panel_principal.TabIndex = 1;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 37);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1183, 563);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -309,28 +336,31 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // pictureBox2
+            // panel8
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 37);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1183, 563);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel8.Location = new System.Drawing.Point(0, 378);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 50);
+            this.panel8.TabIndex = 14;
             // 
-            // pictureBox1
+            // btnModelo
             // 
-            this.pictureBox1.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 7);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(175, 88);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.btnModelo.FlatAppearance.BorderSize = 0;
+            this.btnModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.btnModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModelo.ForeColor = System.Drawing.Color.White;
+            this.btnModelo.Location = new System.Drawing.Point(0, 378);
+            this.btnModelo.Name = "btnModelo";
+            this.btnModelo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnModelo.Size = new System.Drawing.Size(175, 50);
+            this.btnModelo.TabIndex = 13;
+            this.btnModelo.Text = "MODELOS";
+            this.btnModelo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModelo.UseVisualStyleBackColor = true;
+            this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
             // 
             // Principal
             // 
@@ -346,10 +376,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CCI CONTROL DE SERVICIOS";
             this.panelOpPrincipal.ResumeLayout(false);
-            this.panel_principal.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel_principal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -376,5 +406,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button BtnPantallaCom;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button btnModelo;
     }
 }
