@@ -141,8 +141,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
                     entEquipo_Servicio equipo_servicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, id_Equipo);
-                    equipo_servicio.observaciones_finales = txb_Recomendaciones.Text;
-                    logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipo_servicio);
+                    if(equipo_servicio != null)
+                    {
+                        equipo_servicio.observaciones_finales = txb_Recomendaciones.Text;
+                        logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipo_servicio);
+                    }
                 }
                 else
                 {
