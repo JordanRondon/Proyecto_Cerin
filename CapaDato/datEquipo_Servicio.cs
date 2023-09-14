@@ -96,6 +96,69 @@ namespace CapaDato
 
             return lista;
         }
+
+        public bool editarEquipoServicio(entEquipo_Servicio equipoServicio)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("sp_editarEquipoServicio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@serie_equipo", equipoServicio.serie_equipo);
+                cmd.Parameters.AddWithValue("@id_servicio", equipoServicio.IdServicio);
+                cmd.Parameters.AddWithValue("@Observaciones_preliminares", equipoServicio.Observaciones_preliminares);
+                cmd.Parameters.AddWithValue("@observaciones_finales", equipoServicio.observaciones_finales);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
+        public entEquipo_Servicio BuscarEquipoServicioId(string serieEquipo, int id_servicio)
+        {
+            SqlCommand cmd = null;
+            entEquipo_Servicio equipoServicio = new entEquipo_Servicio();
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("sp_BuscarEquipoServicio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serie_equipo", serieEquipo);
+                cmd.Parameters.AddWithValue("@id_servicio", id_servicio);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    equipoServicio.serie_equipo = Convert.ToString(dr["serie_equipo"]);
+                    equipoServicio.IdServicio = Convert.ToInt32(dr["id_servicio"]);
+                    equipoServicio.Observaciones_preliminares = Convert.ToString(dr["Observaciones_preliminares"]);
+                    equipoServicio.observaciones_finales = Convert.ToString(dr["observaciones_finales"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return equipoServicio;
+        }
         #endregion Metodos
     }
 }

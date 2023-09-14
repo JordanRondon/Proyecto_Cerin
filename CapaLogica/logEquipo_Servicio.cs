@@ -21,6 +21,9 @@ namespace CapaLogica
 
         public List<entEquipo> listarEquiposDeUnServicio(int id_servicio) => datEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(id_servicio);
 
+        public bool editarEquipoServicio(entEquipo_Servicio equipoServicio) => datEquipo_Servicio.GetInstancia.editarEquipoServicio(equipoServicio);
+
+        public entEquipo_Servicio BuscarEquipoServicioId(string serieEquipo, int id_servicio) => datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, id_servicio);
         #endregion Metodos
     }
 }
