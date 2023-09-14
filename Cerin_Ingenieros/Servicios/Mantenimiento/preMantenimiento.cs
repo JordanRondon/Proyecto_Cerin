@@ -182,7 +182,7 @@ namespace Cerin_Ingenieros.Servicios
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
-                servicio.estado = 'P';
+                servicio.estado = 'P';//estado
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
 
