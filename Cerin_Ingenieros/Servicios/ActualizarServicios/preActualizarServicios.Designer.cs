@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txb_id_Servicio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
             this.label_nombre_ruc_cliente = new System.Windows.Forms.Label();
             this.label_tipo_Servicio = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_FinalizarServicio = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbHora = new System.Windows.Forms.Label();
+            this.lbFecha = new System.Windows.Forms.Label();
+            this.fechaHora = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
-            this.groupBox3.SuspendLayout();
+            this.grb_observacionesFinales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
-            this.groupBox2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,12 +117,22 @@
             this.panel1.Controls.Add(this.label_tipo_Servicio);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.grb_observacionesFinales);
             this.panel1.Controls.Add(this.dataGridView_Accesorios);
-            this.panel1.Location = new System.Drawing.Point(27, 144);
+            this.panel1.Location = new System.Drawing.Point(27, 137);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 423);
+            this.panel1.Size = new System.Drawing.Size(1130, 430);
             this.panel1.TabIndex = 40;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(136, 184);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "ACCESORIOS";
             // 
             // dataGridView_equipos
             // 
@@ -175,17 +185,17 @@
             this.label5.TabIndex = 47;
             this.label5.Text = "CLIENTE:";
             // 
-            // groupBox3
+            // grb_observacionesFinales
             // 
-            this.groupBox3.Controls.Add(this.txb_Recomendaciones);
-            this.groupBox3.Controls.Add(this.btn_agregarRecomendacion);
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(481, 184);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(632, 231);
-            this.groupBox3.TabIndex = 43;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "OBSERVACIONES / RECOMENDACIONES PRELIMINARES";
+            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
+            this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
+            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(481, 184);
+            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(632, 231);
+            this.grb_observacionesFinales.TabIndex = 43;
+            this.grb_observacionesFinales.TabStop = false;
+            this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
             // 
             // txb_Recomendaciones
             // 
@@ -215,37 +225,6 @@
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
             this.dataGridView_Accesorios.TabIndex = 41;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(925, 58);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 62);
-            this.groupBox2.TabIndex = 42;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Fecha y hora";
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Enabled = false;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(122, 26);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(91, 23);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(16, 26);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(91, 23);
-            this.dateTimePicker1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -278,15 +257,36 @@
             this.btn_Cancelar.UseVisualStyleBackColor = true;
             this.btn_Cancelar.Click += new System.EventHandler(this.btn_Cancelar_Click);
             // 
-            // label2
+            // lbHora
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(136, 184);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "ACCESORIOS";
+            this.lbHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHora.AutoSize = true;
+            this.lbHora.BackColor = System.Drawing.Color.Transparent;
+            this.lbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHora.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lbHora.Location = new System.Drawing.Point(1014, 23);
+            this.lbHora.Name = "lbHora";
+            this.lbHora.Size = new System.Drawing.Size(149, 39);
+            this.lbHora.TabIndex = 44;
+            this.lbHora.Text = "12:12:12";
+            // 
+            // lbFecha
+            // 
+            this.lbFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFecha.BackColor = System.Drawing.Color.Transparent;
+            this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFecha.ForeColor = System.Drawing.Color.Gray;
+            this.lbFecha.Location = new System.Drawing.Point(762, 65);
+            this.lbFecha.Name = "lbFecha";
+            this.lbFecha.Size = new System.Drawing.Size(401, 29);
+            this.lbFecha.TabIndex = 45;
+            this.lbFecha.Text = "martes, 29 de agosto del 2023";
+            this.lbFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // fechaHora
+            // 
+            this.fechaHora.Enabled = true;
+            this.fechaHora.Tick += new System.EventHandler(this.fechaHora_Tick);
             // 
             // preActualizarServicios
             // 
@@ -294,9 +294,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 642);
+            this.Controls.Add(this.lbFecha);
+            this.Controls.Add(this.lbHora);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -307,10 +308,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.grb_observacionesFinales.ResumeLayout(false);
+            this.grb_observacionesFinales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -326,10 +326,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.DataGridView dataGridView_Accesorios;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox grb_observacionesFinales;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label_tipo_Servicio;
         private System.Windows.Forms.Label label3;
@@ -341,5 +338,8 @@
         private System.Windows.Forms.Button btn_FinalizarServicio;
         private System.Windows.Forms.TextBox txb_Recomendaciones;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbHora;
+        private System.Windows.Forms.Label lbFecha;
+        private System.Windows.Forms.Timer fechaHora;
     }
 }
