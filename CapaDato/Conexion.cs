@@ -13,8 +13,8 @@ namespace CapaDato
 
         public static Conexion GetInstancia => instancia;
 
-        //public SqlConnection Conectar => new SqlConnection("Data Source=.;Initial Catalog=DBCERIN;" + "Integrated Security=true;");
-        public SqlConnection Conectar => new SqlConnection("Data Source=DESKTOP-R3U5A28\\SQLEXPRESS;Initial Catalog=DBCERIN;" + "Integrated Security=true;");
+        public SqlConnection Conectar => new SqlConnection("Data Source=.;Initial Catalog=DBCERIN;" + "Integrated Security=true;");
+        //public SqlConnection Conectar => new SqlConnection("Data Source=DESKTOP-R3U5A28\\SQLEXPRESS;Initial Catalog=DBCERIN;" + "Integrated Security=true;");
 
     }
 }

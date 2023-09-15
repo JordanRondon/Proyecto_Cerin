@@ -22,6 +22,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             ConfigCabecera();
             dataGridView_equipos.ReadOnly = true;
             dataGridView_Accesorios.ReadOnly = true;
+            grb_observacionesFinales.Enabled = false;
         }
 
         private void limpiarTablas()
@@ -39,6 +40,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             limpiarTablas();
             serieEquipo = "";
             id_Equipo = -1;
+            grb_observacionesFinales.Enabled = false;
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -64,6 +66,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     label_tipo_Servicio.Text = tipoServicio.Nombre;
                     listarEquipos(servicioActual.IdServicio);
                 } else MessageBox.Show("Proceso terminado");
+                
+                if(servicioActual.IdTipoServicio != 1)
+                {
+                    grb_observacionesFinales.Enabled = true;
+                }
             }
             else
                 MessageBox.Show("Código de Servicio inexistente");
@@ -127,6 +134,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     item.cantidad
                 );
             }
+
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -145,6 +153,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     {
                         equipo_servicio.observaciones_finales = txb_Recomendaciones.Text;
                         logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipo_servicio);
+                        MessageBox.Show("Observaciones Finales agregados");
                     }
                 }
                 else
@@ -179,6 +188,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 MessageBox.Show("Error.." + ex);
             }
+        }
+
+        private void fechaHora_Tick(object sender, EventArgs e)
+        {
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
     }
 }
