@@ -33,6 +33,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txb_razon_social = new System.Windows.Forms.TextBox();
             this.txb_ruc = new System.Windows.Forms.TextBox();
+            this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
             this.lb_telefono_cliente = new System.Windows.Forms.Label();
@@ -40,6 +41,11 @@
             this.comboBox_empleado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
+            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
+            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
+            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
+            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.dataGridView_list_equipos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_editar = new System.Windows.Forms.Button();
@@ -51,20 +57,14 @@
             this.lbFecha = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
-            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
-            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
-            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
-            this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.grb_observacionesFinales.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_list_equipos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
-            this.grb_observacionesFinales.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
@@ -121,6 +121,26 @@
             this.txb_ruc.Tag = "RUC";
             this.txb_ruc.Text = "RUC";
             this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btn_slect_cliente
+            // 
+            this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_slect_cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_slect_cliente.BorderRadius = 0;
+            this.btn_slect_cliente.BorderSize = 0;
+            this.btn_slect_cliente.FlatAppearance.BorderSize = 0;
+            this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.Location = new System.Drawing.Point(81, 34);
+            this.btn_slect_cliente.Name = "btn_slect_cliente";
+            this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
+            this.btn_slect_cliente.TabIndex = 20;
+            this.btn_slect_cliente.Text = "Selecionar cliente";
+            this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
+            this.btn_slect_cliente.UseVisualStyleBackColor = false;
+            this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
             // 
             // lb_dni_ruc_cliente
             // 
@@ -199,6 +219,66 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
             // 
+            // grb_observacionesFinales
+            // 
+            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
+            this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
+            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(417, 298);
+            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(317, 221);
+            this.grb_observacionesFinales.TabIndex = 44;
+            this.grb_observacionesFinales.TabStop = false;
+            this.grb_observacionesFinales.Text = "Observaciones preliminares";
+            // 
+            // txb_Recomendaciones
+            // 
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(6, 37);
+            this.txb_Recomendaciones.Multiline = true;
+            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(301, 129);
+            this.txb_Recomendaciones.TabIndex = 41;
+            // 
+            // btn_agregarRecomendacion
+            // 
+            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(107, 174);
+            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
+            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_agregarRecomendacion.TabIndex = 39;
+            this.btn_agregarRecomendacion.Text = "Agregar";
+            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_Accesorios
+            // 
+            this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 313);
+            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
+            this.dataGridView_Accesorios.TabIndex = 42;
+            // 
+            // btn_agregar_equipo
+            // 
+            this.btn_agregar_equipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_agregar_equipo.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_agregar_equipo.BorderRadius = 0;
+            this.btn_agregar_equipo.BorderSize = 0;
+            this.btn_agregar_equipo.FlatAppearance.BorderSize = 0;
+            this.btn_agregar_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregar_equipo.ForeColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 30);
+            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
+            this.btn_agregar_equipo.Size = new System.Drawing.Size(200, 40);
+            this.btn_agregar_equipo.TabIndex = 4;
+            this.btn_agregar_equipo.Text = "Agregar equipo";
+            this.btn_agregar_equipo.TextColor = System.Drawing.Color.White;
+            this.btn_agregar_equipo.UseVisualStyleBackColor = false;
+            this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
+            // 
             // dataGridView_list_equipos
             // 
             this.dataGridView_list_equipos.AllowUserToAddRows = false;
@@ -213,6 +293,7 @@
             this.dataGridView_list_equipos.RowHeadersVisible = false;
             this.dataGridView_list_equipos.Size = new System.Drawing.Size(717, 191);
             this.dataGridView_list_equipos.TabIndex = 2;
+            this.dataGridView_list_equipos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_equipos_CellContentDoubleClick);
             // 
             // panel1
             // 
@@ -328,86 +409,6 @@
             this.panel3.Size = new System.Drawing.Size(1180, 641);
             this.panel3.TabIndex = 23;
             // 
-            // dataGridView_Accesorios
-            // 
-            this.dataGridView_Accesorios.AllowUserToAddRows = false;
-            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 313);
-            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
-            this.dataGridView_Accesorios.TabIndex = 42;
-            // 
-            // grb_observacionesFinales
-            // 
-            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
-            this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
-            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(417, 298);
-            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(317, 221);
-            this.grb_observacionesFinales.TabIndex = 44;
-            this.grb_observacionesFinales.TabStop = false;
-            this.grb_observacionesFinales.Text = "Observaciones preliminares";
-            // 
-            // txb_Recomendaciones
-            // 
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(6, 37);
-            this.txb_Recomendaciones.Multiline = true;
-            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(301, 115);
-            this.txb_Recomendaciones.TabIndex = 41;
-            // 
-            // btn_agregarRecomendacion
-            // 
-            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(107, 174);
-            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
-            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
-            this.btn_agregarRecomendacion.TabIndex = 39;
-            this.btn_agregarRecomendacion.Text = "Agregar";
-            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
-            // 
-            // btn_slect_cliente
-            // 
-            this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_slect_cliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_slect_cliente.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_slect_cliente.BorderRadius = 0;
-            this.btn_slect_cliente.BorderSize = 0;
-            this.btn_slect_cliente.FlatAppearance.BorderSize = 0;
-            this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
-            this.btn_slect_cliente.Location = new System.Drawing.Point(81, 34);
-            this.btn_slect_cliente.Name = "btn_slect_cliente";
-            this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
-            this.btn_slect_cliente.TabIndex = 20;
-            this.btn_slect_cliente.Text = "Selecionar cliente";
-            this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
-            this.btn_slect_cliente.UseVisualStyleBackColor = false;
-            this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
-            // 
-            // btn_agregar_equipo
-            // 
-            this.btn_agregar_equipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_agregar_equipo.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_agregar_equipo.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_agregar_equipo.BorderRadius = 0;
-            this.btn_agregar_equipo.BorderSize = 0;
-            this.btn_agregar_equipo.FlatAppearance.BorderSize = 0;
-            this.btn_agregar_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_agregar_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar_equipo.ForeColor = System.Drawing.Color.White;
-            this.btn_agregar_equipo.Location = new System.Drawing.Point(33, 30);
-            this.btn_agregar_equipo.Name = "btn_agregar_equipo";
-            this.btn_agregar_equipo.Size = new System.Drawing.Size(200, 40);
-            this.btn_agregar_equipo.TabIndex = 4;
-            this.btn_agregar_equipo.Text = "Agregar equipo";
-            this.btn_agregar_equipo.TextColor = System.Drawing.Color.White;
-            this.btn_agregar_equipo.UseVisualStyleBackColor = false;
-            this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
-            // 
             // preAlquiler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -423,14 +424,14 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.grb_observacionesFinales.ResumeLayout(false);
+            this.grb_observacionesFinales.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_list_equipos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
-            this.grb_observacionesFinales.ResumeLayout(false);
-            this.grb_observacionesFinales.PerformLayout();
             this.ResumeLayout(false);
 
         }
