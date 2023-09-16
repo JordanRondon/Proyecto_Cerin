@@ -10,20 +10,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace Cerin_Ingenieros.Servicios
 {
     public partial class preAlquiler : Form
     {
-        entCliente clienteSelecionado = null;
-        List<entEquipo> equiposSelecionados;
-        List<entEquipo_Servicio> listaDetalleEquiposServicios = new List<entEquipo_Servicio>();
-        bool prosesoCancelado = true;
+        entCliente clienteSelecionado = null;   //Cliente selecionado para el servicio
+        List<entEquipo> equiposSelecionados;    //lista de equipoas para alquiler
+        List<entEquipo_Servicio> listaDetalleEquiposServicios = new List<entEquipo_Servicio>();     //lista de equipo_servicio
+        bool prosesoCancelado = true;           //control de si el proseso se cancelo
+
+
+
         public preAlquiler()
         {
             InitializeComponent();
             listarDatosComboBoxEmpleados();
-            inicializarVariablesAux();
+
+            ConfiguracionInicial();
+
             ConfigCabecera();
             listarEquipos();
             comboBox_empleado.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
@@ -53,6 +59,12 @@ namespace Cerin_Ingenieros.Servicios
             foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
             equiposSelecionados = logEquipo.GetInstancia.listarEquipoAlquiler();
             equiposSelecionados = new List<entEquipo>();
+
+
+            dataGridView_Accesorios.Columns.AddRange(
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
+                new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
+            );
         }
 
         private void listarEquipos()
@@ -77,16 +89,13 @@ namespace Cerin_Ingenieros.Servicios
             }
         }
 
-        private void inicializarVariablesAux()
+        private void ConfiguracionInicial()
         {
             //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
 
             //Configuracion inicial
-            groupBox2.Enabled = false;
-            groupBox3.Enabled = false;
-
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
@@ -96,6 +105,14 @@ namespace Cerin_Ingenieros.Servicios
             lb_nombres_cliente.Text = "Nombres";
             lb_apellidos_cliente.Text = "Apellidos";
             lb_telefono_cliente.Text = "Telefono";
+
+            btn_slect_cliente.Enabled = false;
+            btn_agregar_equipo.Enabled = false;
+            comboBox_empleado.Enabled = false;
+            dataGridView_list_equipos.Enabled = false;
+            dataGridView_Accesorios.Enabled = false;
+            txb_Recomendaciones.Enabled = false;
+            btn_agregarRecomendacion.Enabled = false;
         }
 
         //Botones
@@ -120,10 +137,20 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
         {
+            //abrir ventana para selecionar equipos
             preSelectEquipoAlquiler preSelectEquipo = new preSelectEquipoAlquiler();
             preSelectEquipo.ShowDialog();
 
+            //obtenemos equipos selecionados
             equiposSelecionados.AddRange(preSelectEquipo.getEquipos());
+
+            //detalle_equipo_servicio
+            
+            foreach(var equipo in equiposSelecionados)
+            {
+                entEquipo_Servicio entEquipo_Servicio = new entEquipo_Servicio();
+
+            }
 
             listarEquipos();
         }
@@ -157,13 +184,23 @@ namespace Cerin_Ingenieros.Servicios
             prosesoCancelado = true;
             ActualizarEstadosEquipos();
             listarEquipos();
-            inicializarVariablesAux();
+            ConfiguracionInicial();
+            LimpiarDGV();
+        }
+        private void LimpiarDGV()
+        {
+            dataGridView_Accesorios.Rows.Clear();
+            dataGridView_Accesorios.Columns.Clear();
+
+            dataGridView_list_equipos.Rows.Clear();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            groupBox2.Enabled = true;
-            groupBox3.Enabled = true;
+            btn_slect_cliente.Enabled = true;
+            btn_agregar_equipo.Enabled = true;
+            comboBox_empleado.Enabled = true;
+            dataGridView_list_equipos.Enabled = true;
 
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
@@ -216,7 +253,7 @@ namespace Cerin_Ingenieros.Servicios
                 lb_nombres_cliente.Text = "Nombres";
                 lb_telefono_cliente.Text = "Telefono";
 
-                inicializarVariablesAux();
+                //inicializarVariablesAux();
 
                 listarEquipos();
             }
@@ -268,6 +305,31 @@ namespace Cerin_Ingenieros.Servicios
                 textBox.Text = "Razon social";
                 textBox.ForeColor = SystemColors.GrayText; // Cambia el color de texto a gris
             }
+        }
+
+        private void dataGridView_list_equipos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Obtenemos la fila selecionada
+            DataGridViewRow filaActual = dataGridView_list_equipos.Rows[e.RowIndex];
+            string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+
+            //Buscamos la lista de accesorios yla cantidad de un equipo X
+            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
+
+            dataGridView_Accesorios.Rows.Clear();
+
+            //mostramos el accesorio
+            foreach (var item in listaAccesorios)
+            {
+                entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                dataGridView_Accesorios.Rows.Add(
+                    accesorio.Nombre,
+                    item.cantidad
+                );
+            }
+            txb_Recomendaciones.Enabled = true;
+            btn_agregarRecomendacion.Enabled = true;
         }
     }
 }

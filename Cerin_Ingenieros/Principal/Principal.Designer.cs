@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelOpPrincipal = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.btnModelo = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -48,8 +50,6 @@
             this.BtnPantallaCom = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnModelo = new System.Windows.Forms.Button();
             this.panelOpPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_principal.SuspendLayout();
@@ -79,8 +79,34 @@
             this.panelOpPrincipal.Controls.Add(this.btn_alquiler);
             this.panelOpPrincipal.Location = new System.Drawing.Point(0, 38);
             this.panelOpPrincipal.Name = "panelOpPrincipal";
-            this.panelOpPrincipal.Size = new System.Drawing.Size(175, 644);
+            this.panelOpPrincipal.Size = new System.Drawing.Size(175, 722);
             this.panelOpPrincipal.TabIndex = 0;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel8.Location = new System.Drawing.Point(0, 378);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(10, 50);
+            this.panel8.TabIndex = 14;
+            // 
+            // btnModelo
+            // 
+            this.btnModelo.FlatAppearance.BorderSize = 0;
+            this.btnModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.btnModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModelo.ForeColor = System.Drawing.Color.White;
+            this.btnModelo.Location = new System.Drawing.Point(0, 378);
+            this.btnModelo.Name = "btnModelo";
+            this.btnModelo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnModelo.Size = new System.Drawing.Size(175, 50);
+            this.btnModelo.TabIndex = 13;
+            this.btnModelo.Text = "MODELOS";
+            this.btnModelo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModelo.UseVisualStyleBackColor = true;
+            this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
             // 
             // panel7
             // 
@@ -259,7 +285,7 @@
             this.panel_principal.Location = new System.Drawing.Point(173, 39);
             this.panel_principal.Name = "panel_principal";
             this.panel_principal.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.panel_principal.Size = new System.Drawing.Size(1180, 642);
+            this.panel_principal.Size = new System.Drawing.Size(1180, 720);
             this.panel_principal.TabIndex = 1;
             // 
             // pictureBox2
@@ -270,7 +296,7 @@
             this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
             this.pictureBox2.Location = new System.Drawing.Point(0, 37);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1183, 563);
+            this.pictureBox2.Size = new System.Drawing.Size(1183, 641);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -336,38 +362,12 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel8.Location = new System.Drawing.Point(0, 378);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(10, 50);
-            this.panel8.TabIndex = 14;
-            // 
-            // btnModelo
-            // 
-            this.btnModelo.FlatAppearance.BorderSize = 0;
-            this.btnModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.btnModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModelo.ForeColor = System.Drawing.Color.White;
-            this.btnModelo.Location = new System.Drawing.Point(0, 378);
-            this.btnModelo.Name = "btnModelo";
-            this.btnModelo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnModelo.Size = new System.Drawing.Size(175, 50);
-            this.btnModelo.TabIndex = 13;
-            this.btnModelo.Text = "MODELOS";
-            this.btnModelo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModelo.UseVisualStyleBackColor = true;
-            this.btnModelo.Click += new System.EventHandler(this.btnModelo_Click);
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1355, 682);
+            this.ClientSize = new System.Drawing.Size(1355, 760);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_principal);
             this.Controls.Add(this.panelOpPrincipal);
