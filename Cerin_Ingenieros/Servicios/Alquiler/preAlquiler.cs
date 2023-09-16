@@ -148,8 +148,11 @@ namespace Cerin_Ingenieros.Servicios
             
             foreach(var equipo in equiposSelecionados)
             {
-                entEquipo_Servicio entEquipo_Servicio = new entEquipo_Servicio();
-
+                entEquipo_Servicio equipo_Servicio = new entEquipo_Servicio();
+                equipo_Servicio.serie_equipo = equipo.SerieEquipo;
+                equipo_Servicio.Observaciones_preliminares = "";
+                equipo_Servicio.observaciones_finales = "";
+                listaDetalleEquiposServicios.Add(equipo_Servicio);
             }
 
             listarEquipos();
