@@ -137,10 +137,20 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
         {
+            //abrir ventana para selecionar equipos
             preSelectEquipoAlquiler preSelectEquipo = new preSelectEquipoAlquiler();
             preSelectEquipo.ShowDialog();
 
+            //obtenemos equipos selecionados
             equiposSelecionados.AddRange(preSelectEquipo.getEquipos());
+
+            //detalle_equipo_servicio
+            
+            foreach(var equipo in equiposSelecionados)
+            {
+                entEquipo_Servicio entEquipo_Servicio = new entEquipo_Servicio();
+
+            }
 
             listarEquipos();
         }
