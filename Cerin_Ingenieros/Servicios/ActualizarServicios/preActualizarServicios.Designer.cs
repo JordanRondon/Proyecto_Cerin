@@ -51,6 +51,7 @@
             this.lbHora = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.fechaHora = new System.Windows.Forms.Timer(this.components);
+            this.btn_editarRecomendacion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -187,6 +188,7 @@
             // 
             // grb_observacionesFinales
             // 
+            this.grb_observacionesFinales.Controls.Add(this.btn_editarRecomendacion);
             this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
             this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,13 +204,14 @@
             this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 37);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(583, 138);
+            this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(583, 147);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(513, 190);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(25, 190);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -288,6 +291,17 @@
             this.fechaHora.Enabled = true;
             this.fechaHora.Tick += new System.EventHandler(this.fechaHora_Tick);
             // 
+            // btn_editarRecomendacion
+            // 
+            this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 190);
+            this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
+            this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_editarRecomendacion.TabIndex = 42;
+            this.btn_editarRecomendacion.Text = "Editar";
+            this.btn_editarRecomendacion.UseVisualStyleBackColor = true;
+            this.btn_editarRecomendacion.Click += new System.EventHandler(this.btn_editarRecomendacion_Click);
+            // 
             // preActualizarServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -341,5 +355,6 @@
         private System.Windows.Forms.Label lbHora;
         private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.Timer fechaHora;
+        private System.Windows.Forms.Button btn_editarRecomendacion;
     }
 }
