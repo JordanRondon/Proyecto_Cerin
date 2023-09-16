@@ -14,11 +14,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 {
     public partial class preActualizarServicios : Form
     {
-        private string serieEquipo = "";
-        private int id_Equipo = -1;
+        private entServicio servicioActual = new entServicio();
+        private entEquipo_Servicio equipoServicio = new entEquipo_Servicio();
         public preActualizarServicios()
         {
             InitializeComponent();
+            limpiarEntradas();
             ConfigCabecera();
             dataGridView_equipos.ReadOnly = true;
             dataGridView_Accesorios.ReadOnly = true;
@@ -38,14 +39,18 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             label_tipo_Servicio.Text = "TIPO";
             txb_Recomendaciones.Text = "";
             limpiarTablas();
-            serieEquipo = "";
-            id_Equipo = -1;
+            servicioActual = null;
+            equipoServicio = null;
             grb_observacionesFinales.Enabled = false;
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            entServicio servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+            servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+            equipoServicio = null;
+            grb_observacionesFinales.Enabled = false;
+            txb_Recomendaciones.Text = "";
+
             entCliente cliente = new entCliente();
             entTipoServicio tipoServicio = new entTipoServicio();
 
@@ -55,7 +60,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 if (servicioActual.FechaEntrega == null)
                 {
-                    id_Equipo = servicioActual.IdServicio;
                     cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                     tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
                     if (cliente.Nombre != "")
@@ -65,12 +69,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
                     label_tipo_Servicio.Text = tipoServicio.Nombre;
                     listarEquipos(servicioActual.IdServicio);
-                } else MessageBox.Show("Proceso terminado");
-                
-                if(servicioActual.IdTipoServicio != 1)
-                {
-                    grb_observacionesFinales.Enabled = true;
                 }
+                else MessageBox.Show("Proceso terminado");
             }
             else
                 MessageBox.Show("Código de Servicio inexistente");
@@ -117,11 +117,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            grb_observacionesFinales.Enabled = true;
+
             //indice de la fila seleccionada con doble click para
             DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-            serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
-
-            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
+            string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);    
 
             dataGridView_Accesorios.Rows.Clear();
 
@@ -135,6 +136,15 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 );
             }
 
+            equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+            txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+
+            if(txb_Recomendaciones.Text != null)
+            {
+                txb_Recomendaciones.Enabled = false;
+                btn_agregarRecomendacion.Enabled = false;
+                btn_editarRecomendacion.Enabled = true;
+            }
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -144,42 +154,34 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void btn_agregarRecomendacion_Click(object sender, EventArgs e)
         {
-            if (serieEquipo != "")
+            if (equipoServicio != null)
             {
                 if (!string.IsNullOrWhiteSpace(txb_Recomendaciones.Text))
                 {
-                    entEquipo_Servicio equipo_servicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, id_Equipo);
-                    if(equipo_servicio != null)
-                    {
-                        equipo_servicio.observaciones_finales = txb_Recomendaciones.Text;
-                        logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipo_servicio);
-                        MessageBox.Show("Observaciones Finales agregados");
-                    }
+                    equipoServicio.observaciones_finales = txb_Recomendaciones.Text;
+                    logEquipo_Servicio.GetInstancia.editarEquipoServicio(equipoServicio);
+                    MessageBox.Show("Observaciones Finales agregados");
+
+                    txb_Recomendaciones.Enabled = false;
+                    btn_agregarRecomendacion.Enabled = false;
+                    btn_editarRecomendacion.Enabled=true;
                 }
-                else
-                {
-                    MessageBox.Show("Campo de Texto vacío");
-                }
+                else MessageBox.Show("Campo de Texto vacío");
             }
-            else
-            {
-                MessageBox.Show("Selecciona un Equipo");
-            }
+            else MessageBox.Show("Selecciona un Equipo");
         }
 
         private void btn_FinalizarServicio_Click(object sender, EventArgs e)
         {
             try
             {
-                if (id_Equipo != -1)
+                if (servicioActual != null)
                 {
-                    entServicio servicio = new entServicio();
-                    servicio.IdServicio = id_Equipo;
-                    servicio.FechaEntrega = DateTime.Now;
-                    if (logServicio.GetInstancia.ActualizarEntregaServicio(servicio))
+                    servicioActual.FechaEntrega = DateTime.Now;
+                    if (logServicio.GetInstancia.ActualizarEntregaServicio(servicioActual))
                     {
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
-                        logServicio.GetInstancia.ActualizarEstadoEquipo(servicio);
+                        logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
                         limpiarEntradas();
                     }
                 } else MessageBox.Show("Ingresa el Código del Servicio");
@@ -194,6 +196,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void btn_editarRecomendacion_Click(object sender, EventArgs e)
+        {
+            txb_Recomendaciones.Enabled = true;
+            btn_agregarRecomendacion.Enabled = true;
+            btn_editarRecomendacion.Enabled = false;
         }
     }
 }
