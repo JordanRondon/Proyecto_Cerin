@@ -19,6 +19,8 @@ namespace CapaEntidad
 
         public int IdMarca { get; set; }
 
+        public int id_categoria { get; set; }
+
         public string otrosaccesorios { get; set; }
     }
 }

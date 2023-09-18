@@ -42,6 +42,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -79,6 +80,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -117,6 +119,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -148,6 +151,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
                 cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", equipo.id_categoria);
                 cmd.Parameters.AddWithValue("@otros_accesorios", equipo.otrosaccesorios);
 
 
@@ -185,6 +189,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@estado", equipo.Estado);
                 cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", equipo.id_categoria);
                 cmd.Parameters.AddWithValue("@otros_accesorios", equipo.otrosaccesorios);
 
                 cn.Open();
@@ -260,6 +265,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -300,6 +306,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -340,6 +347,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
 
                     lista.Add(equipo);
@@ -383,6 +391,7 @@ namespace CapaDato
                     equipo.Estado = Convert.ToChar(dr["estado"]);
                     equipo.IdTipo = Convert.ToInt32(dr["id_tipo"]);
                     equipo.IdMarca = Convert.ToInt32(dr["id_Marca"]);
+                    equipo.id_categoria = Convert.ToInt32(dr["id_categoria_equipo"]);
                     equipo.otrosaccesorios = Convert.ToString(dr["otros_accesorios"]);
                 }
             }

@@ -78,6 +78,7 @@
   <ItemGroup>
     <Compile Include="logAccesorio.cs" />
     <Compile Include="logApi.cs" />
+    <Compile Include="logCategoria.cs" />
     <Compile Include="logCliente.cs" />
     <Compile Include="logComprobante.cs" />
     <Compile Include="logEmpleado.cs" />
