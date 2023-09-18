@@ -1,4 +1,5 @@
 ﻿using Cerin_Ingenieros.Mantenedor;
+using Cerin_Ingenieros.Servicios.ViewCertificado;
 using System;
 using System.Collections.Generic;
 using System.Linq;

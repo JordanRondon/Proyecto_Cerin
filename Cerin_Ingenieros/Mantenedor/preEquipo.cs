@@ -15,8 +15,8 @@ namespace Cerin_Ingenieros
 {
     public partial class preEquipo : Form
     {
-        string registroSeleccionado = "";
-        List<entAccesorio> listaaccesorios;
+        private string registroSeleccionado = "";
+        private List<entAccesorio> listaaccesorios;
 
         public preEquipo()
         {
@@ -25,10 +25,10 @@ namespace Cerin_Ingenieros
             deshablitar_btn();
             ConfigCabecera();
             listarEquipo();
-            listarDatosComboBoxModelo();
-            listarDatosComboBoxMarca();
+            listarDatosComboBox();
             comboBox_modelo.SelectedIndex = -1;
             comboBox_marca.SelectedIndex = -1;
+            comboBoxCategoria.SelectedIndex = -1;
         }
 
         private void limpiar_entradas()
@@ -36,6 +36,7 @@ namespace Cerin_Ingenieros
             txb_serie_equipo.Text = "";
             comboBox_marca.SelectedIndex = -1;
             comboBox_modelo.SelectedIndex = -1;
+            comboBoxCategoria.SelectedIndex = -1;
             registroSeleccionado = "";
             listaaccesorios.Clear();
             CargarAccesorios();
@@ -47,6 +48,7 @@ namespace Cerin_Ingenieros
             txb_serie_equipo.Enabled = true;
             comboBox_marca.Enabled = true;
             comboBox_modelo.Enabled = true;
+            comboBoxCategoria.Enabled = true;
         }
 
         private void deshablitar_entradas()
@@ -54,6 +56,7 @@ namespace Cerin_Ingenieros
             txb_serie_equipo.Enabled = false;
             comboBox_marca.Enabled = false;
             comboBox_modelo.Enabled = false;
+            comboBoxCategoria.Enabled = false;
             dgvAcesorios.Enabled = false;
         }
 
@@ -91,6 +94,7 @@ namespace Cerin_Ingenieros
             dgvAcesorios.Enabled = true;
             comboBox_modelo.SelectedIndex = 0;
             comboBox_marca.SelectedIndex = 0;
+            comboBoxCategoria.SelectedIndex = 0;
             cargarAccesorios();
         }
         private void cargarAccesorios()
@@ -137,6 +141,7 @@ namespace Cerin_Ingenieros
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                new DataGridViewTextBoxColumn { HeaderText = "Categira equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
 
@@ -158,6 +163,7 @@ namespace Cerin_Ingenieros
                 string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
+                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
 
                 switch (item.Estado)
                 {
@@ -171,17 +177,12 @@ namespace Cerin_Ingenieros
                     item.SerieEquipo,
                     modelo.nombre,
                     estado,
-                    marca.Nombre
+                    marca.Nombre,
+                    categoria.Nombre
                 );
             }
         }
-
-        private void listarDatosComboBoxModelo()
-        {
-            comboBox_modelo.ValueMember = "id_modelo";
-            comboBox_modelo.DisplayMember = "nombre";
-            comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
-        }
+        
 
         private int obtenerIndiceModeloSelec(DataGridViewRow filaActual)
         {
@@ -210,11 +211,19 @@ namespace Cerin_Ingenieros
                 return -1;
         }
 
-        private void listarDatosComboBoxMarca()
+        private void listarDatosComboBox()
         {
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
             comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
+
+            comboBox_modelo.ValueMember = "id_modelo";
+            comboBox_modelo.DisplayMember = "nombre";
+            comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
+
+            comboBoxCategoria.ValueMember = "id_categoria_equipo";
+            comboBoxCategoria.DisplayMember = "nombre";
+            comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
         }
 
         private int obtenerIndiceMarcaSelec(DataGridViewRow filaActual)
@@ -244,6 +253,33 @@ namespace Cerin_Ingenieros
                 return -1;
         }
 
+        private int obtenerIndiceCategoriaSelec(DataGridViewRow filaActual)
+        {
+            List<entCategoria> listacategoria = new List<entCategoria>();
+
+            listacategoria = logCategoria.GetInstancia.listarCategoriasEquipos();
+
+            entCategoria categoriaSeleccionada = new entCategoria();
+
+            foreach (var i in listacategoria)
+            {
+                //obtenemos el registro mediante un ID especifico 
+                if (i.Nombre == filaActual.Cells[4].Value.ToString())
+                {
+                    categoriaSeleccionada = i;
+                    break;
+                }
+            }
+
+            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
+            int index = comboBoxCategoria.FindString(categoriaSeleccionada.Nombre);
+
+            if (index != -1)
+                return index;
+            else
+                return -1;
+        }
+
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //LIMPIAR EQUIPO ACESORIO
@@ -256,6 +292,7 @@ namespace Cerin_Ingenieros
             //FALTA ACUTALIZAR EL ESTADO
             comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
             comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
+            comboBoxCategoria.SelectedIndex = obtenerIndiceCategoriaSelec(filaActual);
 
             habilitar_btn_modificacion();
 
@@ -284,7 +321,7 @@ namespace Cerin_Ingenieros
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1);
+            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex !=-1);
 
             try
             {
@@ -299,6 +336,8 @@ namespace Cerin_Ingenieros
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     equipo.IdMarca = marcaSelec.IdMarca;
+                    entCategoria marcaCategoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    equipo.id_categoria = marcaCategoria.id_categoria_equipo;
                     equipo.otrosaccesorios = "";
 
                     string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);
@@ -353,16 +392,17 @@ namespace Cerin_Ingenieros
             //listaaccesorios.Clear();
 
             //reiniciar el combobox al primer elemento 
-            if (comboBox_marca.Items.Count >= 0 || comboBox_modelo.Items.Count >= 0)
+            if (comboBox_marca.Items.Count >= 0 || comboBox_modelo.Items.Count >= 0 || comboBoxCategoria.Items.Count>=0)
             {
                 comboBox_marca.SelectedIndex = 0;
                 comboBox_modelo.SelectedIndex = 0;
+                comboBoxCategoria.SelectedIndex = 0;
             }  
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1);
+            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex != -1);
 
             try
             {
@@ -377,6 +417,8 @@ namespace Cerin_Ingenieros
                     equipo.IdTipo = 1; //tipo de servicio alquiler
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     equipo.IdMarca = marcaSelec.IdMarca ;
+                    entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    equipo.id_categoria = categoria.id_categoria_equipo;
                     equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
@@ -471,7 +513,7 @@ namespace Cerin_Ingenieros
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1);
+            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex!=-1);
 
             try
             {

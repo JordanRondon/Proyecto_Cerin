@@ -86,6 +86,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="datAccesorio.cs" />
     <Compile Include="datApi.cs" />
+    <Compile Include="datCategoria.cs" />
     <Compile Include="datCliente.cs" />
     <Compile Include="datComprobante.cs" />
     <Compile Include="datEmpleado.cs" />
