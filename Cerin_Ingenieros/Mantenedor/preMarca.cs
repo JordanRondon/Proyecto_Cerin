@@ -78,12 +78,15 @@ namespace Cerin_Ingenieros
 
         private void dataGridView_marcas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dataGridView_marcas.Rows[e.RowIndex];
+            if (e.RowIndex>=0)
+            {
+                DataGridViewRow filaActual = dataGridView_marcas.Rows[e.RowIndex];
 
-            txb_codigo.Text = filaActual.Cells[0].Value.ToString();
-            txb_nombre.Text = filaActual.Cells[1].Value.ToString();
-            
-            habilitar_btn_modificacion();
+                txb_codigo.Text = filaActual.Cells[0].Value.ToString();
+                txb_nombre.Text = filaActual.Cells[1].Value.ToString();
+
+                habilitar_btn_modificacion();
+            }
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)

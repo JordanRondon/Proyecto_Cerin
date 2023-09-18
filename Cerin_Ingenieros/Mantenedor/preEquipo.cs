@@ -282,41 +282,42 @@ namespace Cerin_Ingenieros
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //LIMPIAR EQUIPO ACESORIO
-            cargarAccesorios();
-
-            DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-
-            registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
-            txb_serie_equipo.Text = registroSeleccionado;
-            //FALTA ACUTALIZAR EL ESTADO
-            comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
-            comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
-            comboBoxCategoria.SelectedIndex = obtenerIndiceCategoriaSelec(filaActual);
-
-            habilitar_btn_modificacion();
-
-            //cargar accesorios del equipo actual
-
-            List<entEquipo_Accesorio> listAccesoriosDeX = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(registroSeleccionado);
-
-            foreach(var item in listAccesoriosDeX)
+            if (e.RowIndex>=0)
             {
-                entAccesorio acctemp = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
-                for(int i = 0;dgvAcesorios.Rows.Count > 0; i++)
+                //LIMPIAR EQUIPO ACESORIO
+                cargarAccesorios();
+
+                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+
+                registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                txb_serie_equipo.Text = registroSeleccionado;
+                //FALTA ACUTALIZAR EL ESTADO
+                comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
+                comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
+                comboBoxCategoria.SelectedIndex = obtenerIndiceCategoriaSelec(filaActual);
+
+                habilitar_btn_modificacion();
+
+                //cargar accesorios del equipo actual
+
+                List<entEquipo_Accesorio> listAccesoriosDeX = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(registroSeleccionado);
+
+                foreach (var item in listAccesoriosDeX)
                 {
-                    string nombreaccesorio = dgvAcesorios.Rows[i].Cells[1].Value.ToString(); 
-                    if (nombreaccesorio == acctemp.Nombre)
+                    entAccesorio acctemp = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+                    for (int i = 0; dgvAcesorios.Rows.Count > 0; i++)
                     {
-                        dgvAcesorios.Rows[i].Cells[0].Value = true;
-                        dgvAcesorios.Rows[i].Cells[2].Value = item.cantidad;
-                        dgvAcesorios.Rows[i].Cells[2].ReadOnly = false;
-                        break;
+                        string nombreaccesorio = dgvAcesorios.Rows[i].Cells[1].Value.ToString();
+                        if (nombreaccesorio == acctemp.Nombre)
+                        {
+                            dgvAcesorios.Rows[i].Cells[0].Value = true;
+                            dgvAcesorios.Rows[i].Cells[2].Value = item.cantidad;
+                            dgvAcesorios.Rows[i].Cells[2].ReadOnly = false;
+                            break;
+                        }
                     }
                 }
             }
-
-
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)

@@ -84,11 +84,17 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
 
             dataGridView_Accesorios.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
                 new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
             );
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+
         }
 
         private void listarEquipos(int id_servicio)
@@ -117,33 +123,37 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            grb_observacionesFinales.Enabled = true;
-
-            //indice de la fila seleccionada con doble click para
-            DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-            string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
-            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);    
-
-            dataGridView_Accesorios.Rows.Clear();
-
-            foreach (var item in listaAccesorios)
+            if (e.RowIndex>=0)
             {
-                entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+                grb_observacionesFinales.Enabled = true;
 
-                dataGridView_Accesorios.Rows.Add(
-                    accesorio.Nombre,
-                    item.cantidad
-                );
-            }
+                //indice de la fila seleccionada con doble click para
+                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
 
-            equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
-            txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+                dataGridView_Accesorios.Rows.Clear();
 
-            if(txb_Recomendaciones.Text != null)
-            {
-                txb_Recomendaciones.Enabled = false;
-                btn_agregarRecomendacion.Enabled = false;
-                btn_editarRecomendacion.Enabled = true;
+                foreach (var item in listaAccesorios)
+                {
+                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                    dataGridView_Accesorios.Rows.Add(
+                        accesorio.Nombre,
+                        item.cantidad
+                    );
+                }
+
+                equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+                txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+
+                if (txb_Recomendaciones.Text != null)
+                {
+                    txb_Recomendaciones.Enabled = false;
+                    btn_agregarRecomendacion.Enabled = false;
+                    btn_editarRecomendacion.Enabled = true;
+                }
+
             }
         }
 
