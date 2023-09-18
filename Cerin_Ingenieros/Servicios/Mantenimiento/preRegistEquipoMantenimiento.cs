@@ -26,10 +26,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             InitializeComponent();
             //registrar
-            listarDatosComboBoxMarca();
+            listarDatosComboBox();
             configInitial();
             ConfigCabecera();
-            listarDatosComboBoxModelo();
             comboBox_modelo.SelectedIndex = -1;
 
             //selecionar
@@ -64,17 +63,19 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             BtnEditarRegist.Enabled = true;
         }
 
-        private void listarDatosComboBoxMarca()
+        private void listarDatosComboBox()
         {
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
             comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
-        }
-        private void listarDatosComboBoxModelo()
-        {
+
             comboBox_modelo.ValueMember = "id_modelo";
             comboBox_modelo.DisplayMember = "nombre";
             comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
+
+            comboBoxCategoria.ValueMember = "id_categoria_equipo";
+            comboBoxCategoria.DisplayMember = "nombre";
+            comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
         }
 
         private void btnCancelarRegist_Click(object sender, EventArgs e)
@@ -91,7 +92,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             try
             {
-                bool campos = txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex!=-1 && comboBox_marca.SelectedIndex != -1;
+                bool campos = txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex!=-1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex!=-1;
                 if (campos)
                 {
                     entEquipo equipo = new entEquipo();
@@ -99,10 +100,12 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
                     entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
                     equipo.id_modelo = modeloSelec.id_modelo;
-                    equipo.Estado = 'D';//POR DEFECTO DISPONIBLE
+                    equipo.Estado = 'E';//POR DEFECTO DISPONIBLE
                     equipo.IdTipo = 2; //EQUIPO EXTERNO A LA EMPRESA
                     entMarca marcaselect = (entMarca)comboBox_marca.SelectedItem;
                     equipo.IdMarca = marcaselect.IdMarca;
+                    entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    equipo.id_categoria = categoria.id_categoria_equipo;
                     equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.insertaEquipo(equipo);
@@ -126,7 +129,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" },
+                new DataGridViewTextBoxColumn { HeaderText = "Categoria" }
             );
 
             //desabilitar que se pueda ordenar por columnas
@@ -145,14 +149,17 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             {
                 string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
+                entModelo modelo  = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
-                if (item.Estado == 'D') estado = "Disponible";
-                else estado = "Ocupado";
+                if (item.Estado == 'E') estado = "Entregado";
+                else estado = "Entregado";
                 dgvListaDeEquipoClientes.Rows.Add(
                     item.SerieEquipo,
-                    item.id_modelo,
+                    modelo.nombre,
                     estado,
-                    marca.Nombre
+                    marca.Nombre,
+                    categoria.Nombre
                 );
             }
         }
