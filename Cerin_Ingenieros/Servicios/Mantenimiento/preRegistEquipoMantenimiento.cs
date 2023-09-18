@@ -153,7 +153,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 entModelo modelo  = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
                 if (item.Estado == 'E') estado = "Entregado";
-                else estado = "Entregado";
+                else if (item.Estado == 'U') estado = "En uso";
+                else estado = "En proceso";
                 dgvListaDeEquipoClientes.Rows.Add(
                     item.SerieEquipo,
                     modelo.nombre,
@@ -263,21 +264,27 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(txb_serie.Text,2);
                 if (equipo != null)
                 {
-                    //Desactivamos las opciones de modificar el equipo selecionado
-                    txb_serie.Enabled = false;
-                    btnBuscarEquipo.Enabled = false;
+                    if(equipo.Estado == 'E')
+                    {
+                        //Desactivamos las opciones de modificar el equipo selecionado
+                        txb_serie.Enabled = false;
+                        btnBuscarEquipo.Enabled = false;
 
-                    //activamos los accesorios y las observaciones
-                    groupBoxAccesorios.Enabled = true;
-                    groupBoxObservaciones.Enabled = true;
-                    btnCancelarEquipo.Enabled = true;
-                    btn_guardar.Enabled = true;
+                        //activamos los accesorios y las observaciones
+                        groupBoxAccesorios.Enabled = true;
+                        groupBoxObservaciones.Enabled = true;
+                        btnCancelarEquipo.Enabled = true;
+                        btn_guardar.Enabled = true;
 
-                    //cargamos los accesorios y elejimos los accesorios del equipo
-                    //con los cuales entra al laboratorio
-                    CargarTodosLosAccesorios();
-
-                    temp = equipo;
+                        //cargamos los accesorios y elejimos los accesorios del equipo
+                        //con los cuales entra al laboratorio
+                        CargarTodosLosAccesorios();
+                        temp = equipo;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El equipo ya se encuentra en la lista");
+                    }                    
                 }
                 else
                 {
@@ -323,6 +330,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             list_equipo_servicio.Add(equipo_Servicio);
 
             //agregamos el equipo selecionado a la lsita de equipos
+            temp.Estado = 'U';
+            logEquipo.GetInstancia.editarEquipo(temp);
             selecionado.Add(temp);
 
             //Registramos los accesorios para el equipo
@@ -396,6 +405,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
             //configuracion inicial
             conficancel();
+            listarEquipo();
         }
     }
 }

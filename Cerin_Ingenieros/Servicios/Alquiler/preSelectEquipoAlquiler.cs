@@ -44,7 +44,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             //insertar los datos 
             foreach (var item in lisEquiposelect)
             {
-                string estado2 = "";
+                string estado2;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
                 if (item.Estado == 'D') estado2 = "Disponible";
@@ -78,7 +78,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             }
             else
             {
-                lisEquiposelect = logEquipo.GetInstancia.listarEquipoAlquiler();
+                lisEquiposelect = logEquipo.GetInstancia.listarEquipoDisponible();
             }
             listarEquipos();
         }

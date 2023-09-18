@@ -37,9 +37,7 @@ namespace Cerin_Ingenieros
             panel_principal.Tag = formhijo;
             formhijo.BringToFront();
             formhijo.Show();
-
         }
-
 
         private void btn_empleado_Click(object sender, EventArgs e)
         {
@@ -53,7 +51,6 @@ namespace Cerin_Ingenieros
 
         private void btn_alquiler_Click(object sender, EventArgs e)
         {
-            //logComprobante.GetInstancia.generarComprobante(new CapaEntidad.entServicio());
             AbrirFormHijo(new preAlquiler());
         }
 
@@ -74,6 +71,7 @@ namespace Cerin_Ingenieros
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
+            FormActivo.Close();
             Close();
         }
         #region Movimiento del formulario
