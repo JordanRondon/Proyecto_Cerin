@@ -102,24 +102,25 @@ namespace Cerin_Ingenieros
 
         private void dataGridView_empleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dataGridView_empleados.Rows[e.RowIndex];
+            if (e.RowIndex>=0)
+            {
+                DataGridViewRow filaActual = dataGridView_empleados.Rows[e.RowIndex];
 
-            registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
-            txb_nombres_empleado.Text = filaActual.Cells[1].Value.ToString();
-            txb_apellidos_empleado.Text = filaActual.Cells[2].Value.ToString();
-            txb_dniEmpleado.Text = filaActual.Cells[3].Value.ToString();
-            txb_direccion_empleado.Text = filaActual.Cells[4].Value.ToString();
-            txb_correo_empleado.Text = filaActual.Cells[5].Value.ToString();
-            txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
+                registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
+                txb_nombres_empleado.Text = filaActual.Cells[1].Value.ToString();
+                txb_apellidos_empleado.Text = filaActual.Cells[2].Value.ToString();
+                txb_dniEmpleado.Text = filaActual.Cells[3].Value.ToString();
+                txb_direccion_empleado.Text = filaActual.Cells[4].Value.ToString();
+                txb_correo_empleado.Text = filaActual.Cells[5].Value.ToString();
+                txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
 
-            habilitar_btn_modificacion();
+                habilitar_btn_modificacion();
 
-            txb_dniEmpleado.Enabled = false;
-            txb_apellidos_empleado.Enabled = false;
-            txb_nombres_empleado.Enabled = false;
-            btn_buscar.Enabled = false;
-
-
+                txb_dniEmpleado.Enabled = false;
+                txb_apellidos_empleado.Enabled = false;
+                txb_nombres_empleado.Enabled = false;
+                btn_buscar.Enabled = false;
+            }
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)

@@ -48,6 +48,7 @@
             this.dgvListaDeEquipoClientes = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
@@ -58,7 +59,8 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
-            this.comboBox_modelo = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -209,7 +211,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, -2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1152, 600);
@@ -284,7 +286,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(348, 22);
+            this.label5.Location = new System.Drawing.Point(338, 12);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(373, 31);
             this.label5.TabIndex = 23;
@@ -292,6 +294,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxCategoria);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.comboBox_modelo);
             this.groupBox1.Controls.Add(this.comboBox_marca);
             this.groupBox1.Controls.Add(this.label8);
@@ -299,18 +303,27 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(18, 80);
+            this.groupBox1.Location = new System.Drawing.Point(18, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 97);
+            this.groupBox1.Size = new System.Drawing.Size(1156, 125);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CARACTERISTICAS DE EQUIPO";
+            // 
+            // comboBox_modelo
+            // 
+            this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_modelo.FormattingEnabled = true;
+            this.comboBox_modelo.Location = new System.Drawing.Point(270, 75);
+            this.comboBox_modelo.Name = "comboBox_modelo";
+            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
+            this.comboBox_modelo.TabIndex = 15;
             // 
             // comboBox_marca
             // 
             this.comboBox_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_marca.FormattingEnabled = true;
-            this.comboBox_marca.Location = new System.Drawing.Point(839, 37);
+            this.comboBox_marca.Location = new System.Drawing.Point(557, 75);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
@@ -319,7 +332,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(753, 43);
+            this.label8.Location = new System.Drawing.Point(554, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 12;
@@ -328,16 +341,16 @@
             // txb_serie_equipo
             // 
             this.txb_serie_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_serie_equipo.Location = new System.Drawing.Point(90, 40);
+            this.txb_serie_equipo.Location = new System.Drawing.Point(28, 78);
             this.txb_serie_equipo.Name = "txb_serie_equipo";
-            this.txb_serie_equipo.Size = new System.Drawing.Size(241, 23);
+            this.txb_serie_equipo.Size = new System.Drawing.Size(176, 23);
             this.txb_serie_equipo.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(369, 43);
+            this.label3.Location = new System.Drawing.Point(267, 39);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 2;
@@ -408,14 +421,31 @@
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
-            // comboBox_modelo
+            // comboBoxCategoria
             // 
-            this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_modelo.FormattingEnabled = true;
-            this.comboBox_modelo.Location = new System.Drawing.Point(452, 37);
-            this.comboBox_modelo.Name = "comboBox_modelo";
-            this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
-            this.comboBox_modelo.TabIndex = 15;
+            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Items.AddRange(new object[] {
+            "Trimble",
+            "Riegl",
+            "Pentax",
+            "Geoslam",
+            "DJI Enterprise",
+            "Spectra Precision"});
+            this.comboBoxCategoria.Location = new System.Drawing.Point(839, 75);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
+            this.comboBoxCategoria.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(836, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Categoria";
             // 
             // preRegistEquipoMantenimiento
             // 
@@ -479,5 +509,7 @@
         private System.Windows.Forms.DataGridView dgvListaDeEquipoClientes;
         private System.Windows.Forms.Button btnCancelarEquipo;
         private System.Windows.Forms.ComboBox comboBox_modelo;
+        private System.Windows.Forms.ComboBox comboBoxCategoria;
+        private System.Windows.Forms.Label label6;
     }
 }

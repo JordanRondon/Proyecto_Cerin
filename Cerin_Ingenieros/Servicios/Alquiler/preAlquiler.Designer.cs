@@ -41,9 +41,11 @@
             this.comboBox_empleado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_cancelarObservacion = new System.Windows.Forms.Button();
+            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
-            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.dataGridView_list_equipos = new System.Windows.Forms.DataGridView();
@@ -207,6 +209,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btn_Delete);
+            this.groupBox3.Controls.Add(this.btn_cancelarObservacion);
+            this.groupBox3.Controls.Add(this.btn_agregarRecomendacion);
             this.groupBox3.Controls.Add(this.grb_observacionesFinales);
             this.groupBox3.Controls.Add(this.dataGridView_Accesorios);
             this.groupBox3.Controls.Add(this.btn_agregar_equipo);
@@ -219,44 +224,71 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
             // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(33, 494);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(153, 35);
+            this.btn_Delete.TabIndex = 45;
+            this.btn_Delete.Text = "Eliminar equipo";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
+            // btn_cancelarObservacion
+            // 
+            this.btn_cancelarObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelarObservacion.Location = new System.Drawing.Point(655, 494);
+            this.btn_cancelarObservacion.Name = "btn_cancelarObservacion";
+            this.btn_cancelarObservacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_cancelarObservacion.TabIndex = 42;
+            this.btn_cancelarObservacion.Text = "Cancelar";
+            this.btn_cancelarObservacion.UseVisualStyleBackColor = true;
+            this.btn_cancelarObservacion.Click += new System.EventHandler(this.btn_cancelarObservacion_Click);
+            // 
+            // btn_agregarRecomendacion
+            // 
+            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(345, 494);
+            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
+            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
+            this.btn_agregarRecomendacion.TabIndex = 39;
+            this.btn_agregarRecomendacion.Text = "Actualizar observaciones";
+            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
+            this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
+            // 
             // grb_observacionesFinales
             // 
             this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
-            this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(417, 298);
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(399, 298);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(317, 221);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(351, 151);
             this.grb_observacionesFinales.TabIndex = 44;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "Observaciones preliminares";
             // 
             // txb_Recomendaciones
             // 
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(6, 37);
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(12, 24);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(301, 129);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(321, 109);
             this.txb_Recomendaciones.TabIndex = 41;
-            // 
-            // btn_agregarRecomendacion
-            // 
-            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(107, 174);
-            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
-            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
-            this.btn_agregarRecomendacion.TabIndex = 39;
-            this.btn_agregarRecomendacion.Text = "Agregar";
-            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
             // 
             // dataGridView_Accesorios
             // 
             this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
+            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
+            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
             this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 313);
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 298);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
+            this.dataGridView_Accesorios.ReadOnly = true;
+            this.dataGridView_Accesorios.RowHeadersVisible = false;
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 151);
             this.dataGridView_Accesorios.TabIndex = 42;
             // 
             // btn_agregar_equipo
@@ -465,5 +497,7 @@
         private System.Windows.Forms.GroupBox grb_observacionesFinales;
         private System.Windows.Forms.TextBox txb_Recomendaciones;
         private System.Windows.Forms.Button btn_agregarRecomendacion;
+        private System.Windows.Forms.Button btn_cancelarObservacion;
+        private System.Windows.Forms.Button btn_Delete;
     }
 }

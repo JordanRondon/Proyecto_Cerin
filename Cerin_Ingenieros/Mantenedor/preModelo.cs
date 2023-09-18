@@ -137,12 +137,15 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void dataGridView_modelos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dataGridView_modelos.Rows[e.RowIndex];
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow filaActual = dataGridView_modelos.Rows[e.RowIndex];
 
-            txb_codigo.Text = filaActual.Cells[0].Value.ToString();
-            txb_nombre.Text = filaActual.Cells[1].Value.ToString();
+                txb_codigo.Text = filaActual.Cells[0].Value.ToString();
+                txb_nombre.Text = filaActual.Cells[1].Value.ToString();
 
-            habilitar_btn_modificacion();
+                habilitar_btn_modificacion();
+            }
         }
 
         private void btn_editar_Click(object sender, EventArgs e)

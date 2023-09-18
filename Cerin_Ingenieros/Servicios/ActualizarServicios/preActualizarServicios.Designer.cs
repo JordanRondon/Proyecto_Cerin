@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
+            this.btn_editarRecomendacion = new System.Windows.Forms.Button();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
@@ -51,7 +52,6 @@
             this.lbHora = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.fechaHora = new System.Windows.Forms.Timer(this.components);
-            this.btn_editarRecomendacion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -138,10 +138,14 @@
             // dataGridView_equipos
             // 
             this.dataGridView_equipos.AllowUserToAddRows = false;
+            this.dataGridView_equipos.AllowUserToDeleteRows = false;
+            this.dataGridView_equipos.AllowUserToResizeColumns = false;
+            this.dataGridView_equipos.AllowUserToResizeRows = false;
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equipos.Location = new System.Drawing.Point(116, 36);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
+            this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.Size = new System.Drawing.Size(899, 136);
             this.dataGridView_equipos.TabIndex = 46;
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
@@ -199,6 +203,17 @@
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
             // 
+            // btn_editarRecomendacion
+            // 
+            this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 190);
+            this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
+            this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_editarRecomendacion.TabIndex = 42;
+            this.btn_editarRecomendacion.Text = "Editar";
+            this.btn_editarRecomendacion.UseVisualStyleBackColor = true;
+            this.btn_editarRecomendacion.Click += new System.EventHandler(this.btn_editarRecomendacion_Click);
+            // 
             // txb_Recomendaciones
             // 
             this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 37);
@@ -222,10 +237,14 @@
             // dataGridView_Accesorios
             // 
             this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
+            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
+            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
             this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Accesorios.Location = new System.Drawing.Point(22, 207);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
+            this.dataGridView_Accesorios.RowHeadersVisible = false;
             this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
             this.dataGridView_Accesorios.TabIndex = 41;
             // 
@@ -290,17 +309,6 @@
             // 
             this.fechaHora.Enabled = true;
             this.fechaHora.Tick += new System.EventHandler(this.fechaHora_Tick);
-            // 
-            // btn_editarRecomendacion
-            // 
-            this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 190);
-            this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
-            this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
-            this.btn_editarRecomendacion.TabIndex = 42;
-            this.btn_editarRecomendacion.Text = "Editar";
-            this.btn_editarRecomendacion.UseVisualStyleBackColor = true;
-            this.btn_editarRecomendacion.Click += new System.EventHandler(this.btn_editarRecomendacion_Click);
             // 
             // preActualizarServicios
             // 
