@@ -162,7 +162,7 @@ namespace Cerin_Ingenieros.Servicios
             {
                 foreach (var item in equiposSelecionados)
                 {
-                    item.Estado = 'D';
+                    item.Estado = 'E';
                     logEquipo.GetInstancia.editarEquipo(item);
                 }
                 equiposSelecionados.Clear();
@@ -202,7 +202,7 @@ namespace Cerin_Ingenieros.Servicios
                     IdCliente = clienteSelecionado.IdCliente
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
-                servicio.IdEmpleado = comboBox_empleado.SelectedIndex + 1;//temp.IdEmpleado;
+                servicio.IdEmpleado = Convert.ToInt16(comboBox_empleado.SelectedValue); //temp.IdEmpleado;
                 servicio.estado = 'P';//estado
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
