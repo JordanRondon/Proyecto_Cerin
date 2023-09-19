@@ -105,7 +105,7 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
-            btn_editar.Enabled = false;
+            //btn_editar.Enabled = false;
             btn_Delete.Enabled = false;
             btn_cancelarObservacion.Enabled = false;
 
@@ -224,7 +224,7 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
-            btn_editar.Enabled = true;
+            //btn_editar.Enabled = true;
             prosesoCancelado = true;
         }
 
