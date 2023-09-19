@@ -18,16 +18,16 @@ namespace CapaDato
         public static datDocumento GetInstancia => instancia;
         #endregion
 
-        public entDocumento BuscarDocumentoPorId(int id)
+        public entDocumento BuscarDocumentoPorNombre(string nombre)
         {
             SqlCommand cmd = null;
             entDocumento ac = null; // Debes crear una instancia de la entidad entDocumento.
             try
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar;
-                cmd = new SqlCommand("LeerDocumentoPorID", cn);
+                cmd = new SqlCommand("LeerDocumentoPorNombre", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DocumentoID", id); // Corregir el nombre del parámetro.
+                cmd.Parameters.AddWithValue("@nombre", nombre); // Corregir el nombre del parámetro.
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
 
@@ -36,6 +36,7 @@ namespace CapaDato
                     // Asigna los valores del resultado al objeto entDocumento.
                     ac = new entDocumento
                     {
+                        Id = Convert.ToInt16(dr["id"]),
                         Nombre = dr["nombre"].ToString(),
                         RealName = dr["realName"].ToString(),
                         Doc = (byte[])dr["doc"]
