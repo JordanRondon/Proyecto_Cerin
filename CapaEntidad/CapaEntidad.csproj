@@ -80,6 +80,7 @@
     <Compile Include="entApi.cs" />
     <Compile Include="entCategoria.cs" />
     <Compile Include="entCliente.cs" />
+    <Compile Include="entDocumento.cs" />
     <Compile Include="entEmpleado.cs" />
     <Compile Include="entEquipo.cs" />
     <Compile Include="entEquipo_Accesorio.cs" />

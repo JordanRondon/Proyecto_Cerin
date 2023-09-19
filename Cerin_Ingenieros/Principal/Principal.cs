@@ -71,7 +71,10 @@ namespace Cerin_Ingenieros
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            FormActivo.Close();
+            if (FormActivo!=null)
+            {
+                FormActivo.Close();
+            }
             Close();
         }
         #region Movimiento del formulario

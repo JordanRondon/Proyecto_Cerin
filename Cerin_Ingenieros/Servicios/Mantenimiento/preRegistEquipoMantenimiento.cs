@@ -14,7 +14,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 {
     public partial class preRegistEquipoMantenimiento : Form
     {
-        private List<entEquipo> lisEquiposelect;
+        ////private List<entEquipo> lisEquiposelect;
         private List<entEquipo> selecionado = new List<entEquipo>();
         private entEquipo temp = new entEquipo();
         List<entAccesorio> listaaccesorios;
@@ -283,7 +283,14 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     }
                     else
                     {
-                        MessageBox.Show("El equipo ya se encuentra en la lista");
+                        if (equipo.Estado=='U')
+                        {
+                            MessageBox.Show("El equipo ya se encuentra en la lista");
+                        }
+                        else
+                        {
+                            MessageBox.Show("El equipo ya se encuentra en laboratorio");
+                        }
                     }                    
                 }
                 else

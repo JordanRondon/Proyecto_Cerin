@@ -1,6 +1,7 @@
 ﻿using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.Servicios.Alquiler;
+using Cerin_Ingenieros.Servicios.ViewCertificado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -258,7 +259,10 @@ namespace Cerin_Ingenieros.Servicios
                     logEquipo.GetInstancia.editarEquipo(equipo);
                 }
 
-                logComprobante.GetInstancia.generarComprobante(servicio, listaDetalleEquiposServicios,clienteSelecionado,equiposSelecionados);
+                string file = logComprobante.GetInstancia.generarComprobante(servicio, listaDetalleEquiposServicios,clienteSelecionado,equiposSelecionados);
+
+                preViewCertificado preView = new preViewCertificado(file);
+                preView.Show();
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;
