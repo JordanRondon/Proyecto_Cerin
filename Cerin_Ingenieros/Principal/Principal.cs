@@ -23,6 +23,7 @@ namespace Cerin_Ingenieros
         public Principal()
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         //funcion para el acceso a los formulario
         private void AbrirFormHijo(Form formhijo)
