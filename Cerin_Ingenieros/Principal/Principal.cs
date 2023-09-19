@@ -26,6 +26,7 @@ namespace Cerin_Ingenieros
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
         //funcion para el acceso a los formulario
+
         private void AbrirFormHijo(Form formhijo)
         {
             if (FormActivo != null)
