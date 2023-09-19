@@ -14,12 +14,12 @@ namespace Cerin_Ingenieros.Servicios.ViewCertificado
     public partial class preViewCertificado : Form
     {
         PdfViewer pdf;
-        public preViewCertificado()
+        public preViewCertificado(string ruta)
         {
             InitializeComponent();
             pdf = new PdfViewer();
             this.Controls.Add(pdf);
-            MostrarDocumento("C:/Users/YOBER/Documents/Certificado.pdf");
+            MostrarDocumento(ruta);
         }
 
         public void MostrarDocumento(string rutaDocumento)
