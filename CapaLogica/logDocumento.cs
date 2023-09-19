@@ -15,9 +15,9 @@ namespace CapaLogica
         public static logDocumento GetInstancia => instancia;
         #endregion
 
-        public entDocumento buscarDocumentoId(int id)
+        public entDocumento buscarDocumentoId(string nombre)
         {
-            return datDocumento.GetInstancia.BuscarDocumentoPorId(id);
+            return datDocumento.GetInstancia.BuscarDocumentoPorNombre(nombre);
         }
 
 

@@ -24,7 +24,7 @@ namespace CapaDato
 
         public string generarComprobante(entServicio servicio, List<entEquipo_Servicio> listDet, entCliente cliente, List<entEquipo> equipos)
         {
-            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId(2);
+            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorNombre("Comprobante");
 
             string path = datDocumento.GetInstancia.GuardarDocumentoTemporal(doc);
 
@@ -34,8 +34,8 @@ namespace CapaDato
 
             // Rellenar campos del certificado
             plantilla.Content.Find.Execute(FindText: "<codigo>", ReplaceWith: servicio.IdServicio);
-            plantilla.Content.Find.Execute(FindText: "<Hora>", ReplaceWith: servicio.FechaRegistro.TimeOfDay.ToString());
-            plantilla.Content.Find.Execute(FindText: "<Fecha>", ReplaceWith: servicio.FechaRegistro.Date.ToString());
+            plantilla.Content.Find.Execute(FindText: "<Hora>", ReplaceWith: servicio.FechaRegistro.ToString("HH:mm:ss"));
+            plantilla.Content.Find.Execute(FindText: "<Fecha>", ReplaceWith: servicio.FechaRegistro.Date.ToString("dd/MM/yyyy"));
             if (cliente.Dni!="")
                 plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Dni);
             else plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Ruc);
@@ -92,7 +92,6 @@ namespace CapaDato
                     accesorios = "    - " + accesorio.Nombre + " (" + ac.cantidad + ").";
                     plantilla.Content.Find.Execute(FindText: "<Accesorio>", ReplaceWith: accesorios);
                 }
-                string finequipo = "^p ------------------------------------------------------------------- p^";
                 entEquipo_Servicio equiposervicio = datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(equipo.SerieEquipo, servicio.IdServicio);
                 plantilla.Content.Find.Execute(FindText: "<Preliminares>", ReplaceWith: equiposervicio.Observaciones_preliminares);
                 plantilla.Content.Find.Execute(FindText: "<Finales>", ReplaceWith: equiposervicio.observaciones_finales);
