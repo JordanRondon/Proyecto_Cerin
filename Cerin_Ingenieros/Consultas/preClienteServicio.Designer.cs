@@ -47,6 +47,7 @@
             this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,9 +64,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(496, 42);
+            this.groupBox2.Location = new System.Drawing.Point(17, 42);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(650, 87);
+            this.groupBox2.Size = new System.Drawing.Size(640, 87);
             this.groupBox2.TabIndex = 45;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Cliente";
@@ -199,11 +200,15 @@
             // 
             // dataGridView_servicios
             // 
+            this.dataGridView_servicios.AllowUserToAddRows = false;
+            this.dataGridView_servicios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_servicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_servicios.Location = new System.Drawing.Point(44, 32);
             this.dataGridView_servicios.Name = "dataGridView_servicios";
+            this.dataGridView_servicios.RowHeadersVisible = false;
             this.dataGridView_servicios.Size = new System.Drawing.Size(1044, 127);
             this.dataGridView_servicios.TabIndex = 50;
+            this.dataGridView_servicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_servicios_CellDoubleClick);
             // 
             // txb_Observaciones
             // 
@@ -236,6 +241,7 @@
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.Size = new System.Drawing.Size(735, 122);
             this.dataGridView_equipos.TabIndex = 46;
+            this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
             // dataGridView_Accesorios
             // 
@@ -261,6 +267,26 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "HISTORIAL DE CLIENTE";
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLimpiar.BorderRadius = 0;
+            this.btnLimpiar.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Location = new System.Drawing.Point(947, 58);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(200, 40);
+            this.btnLimpiar.TabIndex = 47;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextColor = System.Drawing.Color.White;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // btn_slect_cliente
             // 
             this.btn_slect_cliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -272,7 +298,7 @@
             this.btn_slect_cliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_slect_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_slect_cliente.ForeColor = System.Drawing.Color.White;
-            this.btn_slect_cliente.Location = new System.Drawing.Point(17, 71);
+            this.btn_slect_cliente.Location = new System.Drawing.Point(663, 58);
             this.btn_slect_cliente.Name = "btn_slect_cliente";
             this.btn_slect_cliente.Size = new System.Drawing.Size(200, 40);
             this.btn_slect_cliente.TabIndex = 46;
@@ -287,6 +313,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1180, 642);
             this.Controls.Add(this.btn_slect_cliente);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
@@ -328,5 +355,6 @@
         private System.Windows.Forms.DataGridView dataGridView_Accesorios;
         private System.Windows.Forms.Label label7;
         private RecursosAdicionales.BotonesModernos.BTNModernos btn_slect_cliente;
+        private RecursosAdicionales.BotonesModernos.BTNModernos btnLimpiar;
     }
 }

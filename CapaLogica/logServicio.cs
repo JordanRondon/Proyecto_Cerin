@@ -24,6 +24,8 @@ namespace CapaLogica
         public entServicio buscarServicio(int id_servicio) => datServicio.GetInstancia.buscarServicio(id_servicio);
 
         public bool ActualizarEstadoEquipo(entServicio id_servicio) => datServicio.GetInstancia.ActualizarEstadoEquipo(id_servicio);
+
+        public List<entServicio> listarServicioCliente(int id_cliente) => datServicio.GetInstancia.listarServicioCliente(id_cliente);
         #endregion
     }
 }
