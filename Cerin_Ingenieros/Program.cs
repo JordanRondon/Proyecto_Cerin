@@ -1,4 +1,5 @@
 ﻿using Cerin_Ingenieros.Consultas;
+using Cerin_Ingenieros.Login;
 using Cerin_Ingenieros.Mantenedor;
 using Cerin_Ingenieros.Servicios;
 using Cerin_Ingenieros.Servicios.ClienteOpciones;
@@ -21,7 +22,7 @@ namespace Cerin_Ingenieros
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            Application.Run(new preLogin());
         }
     }
 }
