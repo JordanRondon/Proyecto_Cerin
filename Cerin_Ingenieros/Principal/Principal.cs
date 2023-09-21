@@ -24,6 +24,13 @@ namespace Cerin_Ingenieros
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            LoadForm();
+        }
+
+        private void LoadForm()
+        {
+            panelEquipo.Visible = false;
+            panelReportes.Visible = false;
         }
         //funcion para el acceso a los formulario
 
@@ -41,24 +48,46 @@ namespace Cerin_Ingenieros
             formhijo.Show();
         }
 
+        private void mostrarSubMenu(Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                escSubMenu();
+                subMenu.Visible = true;
+            }
+            else subMenu.Visible = false;
+        }
+
+        private void escSubMenu()
+        {
+            if (panelEquipo.Visible == true)
+                panelEquipo.Visible = false;
+            if (panelEquipo.Visible == true)
+                panelEquipo.Visible = false;
+        }
+
         private void btn_empleado_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preEmpleado());
+            LoadForm();
         }
 
         private void btn_equipo_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new preEquipo());
+            //AbrirFormHijo(new preEquipo());
+            mostrarSubMenu(panelEquipo);
         }
 
         private void btn_alquiler_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preAlquiler());
+            LoadForm();
         }
 
         private void btn_mantenimiento_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preMantenimiento());
+            LoadForm();
         }
 
         private void btn_marca_Click(object sender, EventArgs e)
@@ -69,6 +98,7 @@ namespace Cerin_Ingenieros
         private void btn_actualizar_servicio_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preActualizarServicios());
+            LoadForm();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -105,6 +135,26 @@ namespace Cerin_Ingenieros
         }
 
         private void btnModelo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preModelo());
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            mostrarSubMenu(panelReportes);
+        }
+
+        private void btnNuevoEquipo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preEquipo());
+        }
+
+        private void btnNuevaMarca_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preMarca());
+        }
+
+        private void btnNuevoModelo_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preModelo());
         }
