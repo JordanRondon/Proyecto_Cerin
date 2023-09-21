@@ -107,7 +107,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
-            btn_editar.Enabled = false;
 
             lb_dni_ruc_cliente.Text = "DNI";
             lb_nombres_cliente.Text = "Nombres";
@@ -187,7 +186,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
-            btn_editar.Enabled = true;
             prosesoCancelado = true;
         }
 
@@ -243,7 +241,6 @@ namespace Cerin_Ingenieros.Servicios
                 lb_telefono_cliente.Text = "Telefono";
 
                 inicializarVariablesAux();
-
                 listarEquipos();
             }
             else

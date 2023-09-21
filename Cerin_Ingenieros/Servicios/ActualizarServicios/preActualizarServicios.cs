@@ -35,6 +35,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void limpiarEntradas()
         {
             txb_id_Servicio.Text = "";
+            txb_id_Servicio.Enabled = true;
             label_nombre_ruc_cliente.Text = "NOMBRE O RAZONSOCIAL";
             label_tipo_Servicio.Text = "TIPO";
             txb_Recomendaciones.Text = "";
@@ -60,6 +61,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 if (servicioActual.FechaEntrega == null)
                 {
+                    //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
+                    txb_id_Servicio.Enabled = false;
+
                     cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                     tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
                     if (cliente.Nombre != "")
