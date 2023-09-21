@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -224,7 +226,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_cancelar.Enabled = true;
-            //btn_editar.Enabled = true;
             prosesoCancelado = true;
         }
 
@@ -261,14 +262,18 @@ namespace Cerin_Ingenieros.Servicios
 
                 string file = logComprobante.GetInstancia.generarComprobante(servicio, listaDetalleEquiposServicios,clienteSelecionado,equiposSelecionados);
 
-                preViewCertificado preView = new preViewCertificado(file);
-                preView.Show();
+                if (file!=null)
+                {
+                    //preViewCertificado preView = new preViewCertificado(file);
+                    //preView.Show();
+
+                    Process.Start(file);
+                }                
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;
                 equiposSelecionados.Clear();
                 listaDetalleEquiposServicios.Clear();
-                equiposSelecionados.Clear();
                 equipoSelecionado = "";
 
                 lb_dni_ruc_cliente.Text = "DNI / RUC";
@@ -278,6 +283,7 @@ namespace Cerin_Ingenieros.Servicios
 
 
                 listarEquipos();
+                ConfiguracionInicial();
             }
             else
             {
