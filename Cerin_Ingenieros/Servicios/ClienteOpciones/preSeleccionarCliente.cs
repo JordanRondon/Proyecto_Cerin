@@ -17,6 +17,10 @@ namespace Cerin_Ingenieros.Servicios
         //variables buscar cliente
         private List<entCliente> lisClienteselect;
         private entCliente selecionado = null;
+        public event EventHandler FormCerrado;
+
+        public event EventHandler<ClienteSeleccionadoEventArgs> ClienteSeleccionado;
+
 
         public preSeleccionarCliente()
         {
@@ -48,7 +52,6 @@ namespace Cerin_Ingenieros.Servicios
                 selecionado.Ruc = Convert.ToString(selectedRow.Cells[4].Value);
                 selecionado.RazonSocial = Convert.ToString(selectedRow.Cells[5].Value);
                 selecionado.Telefono = Convert.ToString(selectedRow.Cells[6].Value);
-                this.Close();
             }
             else
             {
@@ -61,6 +64,18 @@ namespace Cerin_Ingenieros.Servicios
         private void btnSelecionarCliente_Click_1(object sender, EventArgs e)
         {
             SlecionarCliente();
+            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(selecionado));
+            this.Close();
+        }
+
+        public class ClienteSeleccionadoEventArgs : EventArgs
+        {
+            public entCliente ClienteSeleccionado { get; }
+
+            public ClienteSeleccionadoEventArgs(entCliente cliente)
+            {
+                ClienteSeleccionado = cliente;
+            }
         }
 
         private void btn_cancelar_Click_1(object sender, EventArgs e)
@@ -92,10 +107,15 @@ namespace Cerin_Ingenieros.Servicios
             ListarClientes2();
         }
 
-        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        protected override void OnFormClosed(FormClosedEventArgs e)
         {
-            SlecionarCliente();
-            this.Close();
+            base.OnFormClosed(e);
+            FormCerrado?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //ver si se puede implementar
         }
     }
 }
