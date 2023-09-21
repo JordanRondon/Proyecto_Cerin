@@ -239,7 +239,8 @@ namespace Cerin_Ingenieros.Servicios
                 {
                     FechaRegistro = DateTime.Now,
                     IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre("ALQUILER").IdTipoServicio,
-                    IdCliente = clienteSelecionado.IdCliente
+                    IdCliente = clienteSelecionado.IdCliente,
+                    estado = 'P'
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = Convert.ToInt16(comboBox_empleado.SelectedValue);//temp.IdEmpleado;

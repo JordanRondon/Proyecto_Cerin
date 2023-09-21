@@ -88,6 +88,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Consultas\preClienteServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\preClienteServicio.Designer.cs">
+      <DependentUpon>preClienteServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,12 @@
     <Compile Include="Servicios\Alquiler\preAlquiler.Designer.cs">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\preSeleccionarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\preSeleccionarCliente.Designer.cs">
+      <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicios\preSelectCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +177,9 @@
     <Compile Include="Servicios\ViewCertificado\preViewCertificado.Designer.cs">
       <DependentUpon>preViewCertificado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Consultas\preClienteServicio.resx">
+      <DependentUpon>preClienteServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Alquiler\preAlquiler.resx">
       <DependentUpon>preAlquiler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\preSeleccionarCliente.resx">
+      <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\preSelectCliente.resx">
       <DependentUpon>preSelectCliente.cs</DependentUpon>
