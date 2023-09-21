@@ -188,6 +188,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 if (servicioActual != null)
                 {
                     servicioActual.FechaEntrega = DateTime.Now;
+                    servicioActual.estado = 'T';
                     if (logServicio.GetInstancia.ActualizarEntregaServicio(servicioActual))
                     {
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
