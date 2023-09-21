@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -222,8 +223,15 @@ namespace Cerin_Ingenieros.Servicios
                     logEquipo.GetInstancia.editarEquipo(item);
                 }
 
-                logComprobante.GetInstancia.generarComprobante(servicio, list_det_equipo_servicio, clienteSelecionado, equiposSelecionados);
+                string file = logComprobante.GetInstancia.generarComprobante(servicio, list_det_equipo_servicio, clienteSelecionado, equiposSelecionados);
 
+                if (file != null)
+                {
+                    //preViewCertificado preView = new preViewCertificado(file);
+                    //preView.Show();
+
+                    Process.Start(file);
+                }
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;
