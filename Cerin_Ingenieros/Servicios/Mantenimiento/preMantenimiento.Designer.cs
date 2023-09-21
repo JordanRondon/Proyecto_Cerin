@@ -30,6 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_cancelarObservacion = new System.Windows.Forms.Button();
+            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
+            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
+            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
+            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.dataGridView_lista_quipos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -42,8 +48,6 @@
             this.lb_nombres_cliente = new System.Windows.Forms.Label();
             this.comboBox_empleado = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_editar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -51,18 +55,11 @@
             this.lbHora = new System.Windows.Forms.Label();
             this.horaFecha = new System.Windows.Forms.Timer(this.components);
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_cancelarObservacion = new System.Windows.Forms.Button();
-            this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
-            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
-            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
-            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.grb_observacionesFinales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -81,6 +78,73 @@
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Delete.Location = new System.Drawing.Point(33, 458);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(153, 35);
+            this.btn_Delete.TabIndex = 50;
+            this.btn_Delete.Text = "Eliminar equipo";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
+            // 
+            // btn_cancelarObservacion
+            // 
+            this.btn_cancelarObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelarObservacion.Location = new System.Drawing.Point(655, 458);
+            this.btn_cancelarObservacion.Name = "btn_cancelarObservacion";
+            this.btn_cancelarObservacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_cancelarObservacion.TabIndex = 47;
+            this.btn_cancelarObservacion.Text = "Cancelar";
+            this.btn_cancelarObservacion.UseVisualStyleBackColor = true;
+            this.btn_cancelarObservacion.Click += new System.EventHandler(this.btn_cancelarObservacion_Click);
+            // 
+            // btn_agregarRecomendacion
+            // 
+            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(345, 458);
+            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
+            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
+            this.btn_agregarRecomendacion.TabIndex = 46;
+            this.btn_agregarRecomendacion.Text = "Actualizar observaciones";
+            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
+            this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
+            // 
+            // grb_observacionesFinales
+            // 
+            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
+            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(399, 275);
+            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(351, 151);
+            this.grb_observacionesFinales.TabIndex = 49;
+            this.grb_observacionesFinales.TabStop = false;
+            this.grb_observacionesFinales.Text = "Observaciones preliminares";
+            // 
+            // txb_Recomendaciones
+            // 
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(12, 24);
+            this.txb_Recomendaciones.Multiline = true;
+            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(321, 109);
+            this.txb_Recomendaciones.TabIndex = 41;
+            // 
+            // dataGridView_Accesorios
+            // 
+            this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
+            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
+            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
+            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 275);
+            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
+            this.dataGridView_Accesorios.ReadOnly = true;
+            this.dataGridView_Accesorios.RowHeadersVisible = false;
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 151);
+            this.dataGridView_Accesorios.TabIndex = 48;
             // 
             // btn_agregar_equipo
             // 
@@ -240,33 +304,12 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Recepcionista";
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.btn_editar);
-            this.panel1.Controls.Add(this.btn_cancelar);
-            this.panel1.Controls.Add(this.btn_guardar);
-            this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(0, 645);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1181, 54);
-            this.panel1.TabIndex = 26;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.Location = new System.Drawing.Point(495, 10);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(90, 35);
-            this.btn_editar.TabIndex = 3;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(749, 9);
+            this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.Location = new System.Drawing.Point(741, 638);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(90, 35);
+            this.btn_cancelar.Size = new System.Drawing.Size(150, 50);
             this.btn_cancelar.TabIndex = 2;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
@@ -274,10 +317,10 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(618, 9);
+            this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.Location = new System.Drawing.Point(455, 638);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(90, 35);
+            this.btn_guardar.Size = new System.Drawing.Size(150, 50);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
@@ -285,10 +328,10 @@
             // 
             // btn_nuevo
             // 
-            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_nuevo.Location = new System.Drawing.Point(355, 9);
+            this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.Location = new System.Drawing.Point(169, 638);
             this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.Size = new System.Drawing.Size(90, 35);
+            this.btn_nuevo.Size = new System.Drawing.Size(150, 50);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.Text = "Nuevo";
             this.btn_nuevo.UseVisualStyleBackColor = true;
@@ -333,83 +376,18 @@
             this.label7.TabIndex = 29;
             this.label7.Text = "CALIBRACION DE UN EQUIPO";
             // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(33, 458);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(153, 35);
-            this.btn_Delete.TabIndex = 50;
-            this.btn_Delete.Text = "Eliminar equipo";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
-            // btn_cancelarObservacion
-            // 
-            this.btn_cancelarObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelarObservacion.Location = new System.Drawing.Point(655, 458);
-            this.btn_cancelarObservacion.Name = "btn_cancelarObservacion";
-            this.btn_cancelarObservacion.Size = new System.Drawing.Size(95, 35);
-            this.btn_cancelarObservacion.TabIndex = 47;
-            this.btn_cancelarObservacion.Text = "Cancelar";
-            this.btn_cancelarObservacion.UseVisualStyleBackColor = true;
-            this.btn_cancelarObservacion.Click += new System.EventHandler(this.btn_cancelarObservacion_Click);
-            // 
-            // btn_agregarRecomendacion
-            // 
-            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(345, 458);
-            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
-            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
-            this.btn_agregarRecomendacion.TabIndex = 46;
-            this.btn_agregarRecomendacion.Text = "Actualizar observaciones";
-            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
-            this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
-            // 
-            // grb_observacionesFinales
-            // 
-            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
-            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(399, 275);
-            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(351, 151);
-            this.grb_observacionesFinales.TabIndex = 49;
-            this.grb_observacionesFinales.TabStop = false;
-            this.grb_observacionesFinales.Text = "Observaciones preliminares";
-            // 
-            // txb_Recomendaciones
-            // 
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(12, 24);
-            this.txb_Recomendaciones.Multiline = true;
-            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(321, 109);
-            this.txb_Recomendaciones.TabIndex = 41;
-            // 
-            // dataGridView_Accesorios
-            // 
-            this.dataGridView_Accesorios.AllowUserToAddRows = false;
-            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
-            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
-            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
-            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(33, 275);
-            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
-            this.dataGridView_Accesorios.ReadOnly = true;
-            this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 151);
-            this.dataGridView_Accesorios.TabIndex = 48;
-            // 
             // preMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 720);
+            this.Controls.Add(this.btn_cancelar);
+            this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lbFecha);
             this.Controls.Add(this.lbHora);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -417,13 +395,12 @@
             this.Text = "Mantenimiento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preMantenimiento_FormClosing);
             this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
             this.grb_observacionesFinales.ResumeLayout(false);
             this.grb_observacionesFinales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,8 +410,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView_lista_quipos;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_editar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_nuevo;
