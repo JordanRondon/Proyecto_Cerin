@@ -141,6 +141,12 @@
     <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.Designer.cs">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Servicios\ClienteOpciones\preRegistrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Servicios\ClienteOpciones\preRegistrarCliente.Designer.cs">
+      <DependentUpon>preRegistrarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Servicios\Mantenimiento\preMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,10 +165,10 @@
     <Compile Include="Servicios\Alquiler\preAlquiler.Designer.cs">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\preSeleccionarCliente.cs">
+    <Compile Include="Servicios\ClienteOpciones\preSeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\preSeleccionarCliente.Designer.cs">
+    <Compile Include="Servicios\ClienteOpciones\preSeleccionarCliente.Designer.cs">
       <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\preSelectCliente.cs">
@@ -211,6 +217,9 @@
     <EmbeddedResource Include="Servicios\Alquiler\preSelectEquipoAlquiler.resx">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Servicios\ClienteOpciones\preRegistrarCliente.resx">
+      <DependentUpon>preRegistrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.resx">
       <DependentUpon>preRegistEquipoMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +229,7 @@
     <EmbeddedResource Include="Servicios\Alquiler\preAlquiler.resx">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\preSeleccionarCliente.resx">
+    <EmbeddedResource Include="Servicios\ClienteOpciones\preSeleccionarCliente.resx">
       <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\preSelectCliente.resx">
