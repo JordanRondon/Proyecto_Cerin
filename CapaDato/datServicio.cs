@@ -174,7 +174,49 @@ namespace CapaDato
             return seElimino;
         }
 
-        #endregion Metodos
+        public List<entServicio> listarServicioCliente(int id_cliente)
+        {
+            SqlCommand cmd = null;
+            List<entServicio> lista = new List<entServicio>();
 
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("ps_listarServiciosCliente", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_cliente", id_cliente);
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entServicio servicio = new entServicio();
+
+                    servicio.IdServicio = Convert.ToInt32(dr["id_servicio"]);
+                    if (dr["fecha_registro"] != DBNull.Value)
+                        servicio.FechaRegistro = Convert.ToDateTime((dr["fecha_registro"]));
+                    if (dr["fecha_entrega"] != DBNull.Value)
+                        servicio.FechaEntrega = Convert.ToDateTime((dr["fecha_entrega"]));
+                    servicio.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
+                    servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    servicio.estado = Convert.ToChar(dr["estado"]);
+
+                    lista.Add(servicio);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        #endregion Metodos
     }
 }
