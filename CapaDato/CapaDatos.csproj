@@ -94,6 +94,7 @@
     <Compile Include="datEquipo.cs" />
     <Compile Include="datEquipo_Accesorio.cs" />
     <Compile Include="datEquipo_Servicio.cs" />
+    <Compile Include="datLogin.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="datModelo.cs" />
     <Compile Include="datServicio.cs" />

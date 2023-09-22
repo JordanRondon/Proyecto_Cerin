@@ -49,7 +49,9 @@
     <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
       <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -94,11 +96,19 @@
     <Compile Include="Consultas\preClienteServicio.Designer.cs">
       <DependentUpon>preClienteServicio.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Consultas\preHistorialEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consultas\preHistorialEquipo.Designer.cs">
       <DependentUpon>preHistorialEquipo.cs</DependentUpon>
+=======
+    <Compile Include="Login\preLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login\preLogin.Designer.cs">
+      <DependentUpon>preLogin.cs</DependentUpon>
+>>>>>>> 5dc5c1c9ac1cbc1689b8818dde60d611dd08a4a3
     </Compile>
     <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
@@ -192,8 +202,13 @@
     <EmbeddedResource Include="Consultas\preClienteServicio.resx">
       <DependentUpon>preClienteServicio.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Consultas\preHistorialEquipo.resx">
       <DependentUpon>preHistorialEquipo.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="Login\preLogin.resx">
+      <DependentUpon>preLogin.cs</DependentUpon>
+>>>>>>> 5dc5c1c9ac1cbc1689b8818dde60d611dd08a4a3
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
