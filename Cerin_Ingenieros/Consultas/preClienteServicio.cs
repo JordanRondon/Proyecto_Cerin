@@ -41,9 +41,12 @@ namespace Cerin_Ingenieros.Consultas
 
         private void limpiarEntradas()
         {
-            lb_nombre_razonSocial.Text = "CLIENTE O RAZÓN SOCIAL";
-            lb_dni_ruc.Text = "DNI O RUC";
-            lb_nombreEmpleado.Text = "EMPLEADO";
+            lb_nombreCliente.Text = "Nombres:";
+            lb_dni_cliente.Text = "DNI:";
+
+            lb_nombre_razonSocial.Text = "Cliente o Razón Social";
+            lb_dni_ruc.Text = "DNI o RUC";
+            lb_nombreEmpleado.Text = "Nombre";
             limpiarTextBox();
             limpiarTablas();
         }
@@ -173,11 +176,15 @@ namespace Cerin_Ingenieros.Consultas
 
                 if (clienteSelecionado.Dni != null)
                 {
+                    lb_nombreCliente.Text = "Nombres:";
+                    lb_dni_cliente.Text = "DNI:";
                     lb_nombre_razonSocial.Text = clienteSelecionado.Nombre.ToString() + ' ' + clienteSelecionado.Apellido.ToString();
                     lb_dni_ruc.Text = clienteSelecionado.Dni.ToString();
                 }
                 else
                 {
+                    lb_nombreCliente.Text = "Razón Social:";
+                    lb_dni_cliente.Text = "RUC:";
                     lb_nombre_razonSocial.Text = clienteSelecionado.RazonSocial.ToString();
                     lb_dni_ruc.Text = clienteSelecionado.Ruc.ToString();
                 }
