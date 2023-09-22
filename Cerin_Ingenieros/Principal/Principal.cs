@@ -76,6 +76,7 @@ namespace Cerin_Ingenieros
         {
             //AbrirFormHijo(new preEquipo());
             mostrarSubMenu(panelEquipo);
+            panelReportes.Visible = false;
         }
 
         private void btn_alquiler_Click(object sender, EventArgs e)
@@ -142,6 +143,7 @@ namespace Cerin_Ingenieros
         private void btnReportes_Click(object sender, EventArgs e)
         {
             mostrarSubMenu(panelReportes);
+            panelEquipo.Visible = false;
         }
 
         private void btnNuevoEquipo_Click(object sender, EventArgs e)

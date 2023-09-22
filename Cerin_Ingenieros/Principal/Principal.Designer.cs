@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panelOpPrincipal = new System.Windows.Forms.Panel();
+            this.panelOpciones = new System.Windows.Forms.Panel();
             this.btn_mantenimiento = new System.Windows.Forms.Button();
             this.btn_actualizar_servicio = new System.Windows.Forms.Button();
             this.btn_alquiler = new System.Windows.Forms.Button();
@@ -36,14 +36,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.panelEquipo = new System.Windows.Forms.Panel();
             this.btnNuevoModelo = new System.Windows.Forms.Button();
             this.btnNuevaMarca = new System.Windows.Forms.Button();
             this.btnNuevoEquipo = new System.Windows.Forms.Button();
             this.btn_equipo = new System.Windows.Forms.Button();
-            this.btn_empleado = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_principal = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -51,46 +49,87 @@
             this.BtnPantallaCom = new System.Windows.Forms.Button();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelAlquiler = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panelCalibracion = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panelActualizarServicio = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.panelOpPrincipal.SuspendLayout();
+            this.panelEquipoPrincipal = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panelReportesPrincipal = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panelnuevoEquipo = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panelnNuevaMarca = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panelu = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panelNuevoModelo = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelOpciones.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel9.SuspendLayout();
+            this.panelAlquiler.SuspendLayout();
+            this.panel22.SuspendLayout();
+            this.panelCalibracion.SuspendLayout();
+            this.panelActualizarServicio.SuspendLayout();
+            this.panelEquipoPrincipal.SuspendLayout();
+            this.panelReportesPrincipal.SuspendLayout();
+            this.panelnuevoEquipo.SuspendLayout();
+            this.panelnNuevaMarca.SuspendLayout();
+            this.panelu.SuspendLayout();
+            this.panel20.SuspendLayout();
+            this.panelNuevoModelo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelOpPrincipal
+            // panelOpciones
             // 
-            this.panelOpPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panelOpciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelOpPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panelOpPrincipal.Controls.Add(this.btn_mantenimiento);
-            this.panelOpPrincipal.Controls.Add(this.btn_actualizar_servicio);
-            this.panelOpPrincipal.Controls.Add(this.btn_alquiler);
-            this.panelOpPrincipal.Controls.Add(this.panelReportes);
-            this.panelOpPrincipal.Controls.Add(this.button8);
-            this.panelOpPrincipal.Controls.Add(this.btnReportes);
-            this.panelOpPrincipal.Controls.Add(this.panelEquipo);
-            this.panelOpPrincipal.Controls.Add(this.btn_equipo);
-            this.panelOpPrincipal.Controls.Add(this.btn_empleado);
-            this.panelOpPrincipal.Location = new System.Drawing.Point(0, 149);
-            this.panelOpPrincipal.Name = "panelOpPrincipal";
-            this.panelOpPrincipal.Size = new System.Drawing.Size(175, 610);
-            this.panelOpPrincipal.TabIndex = 0;
+            this.panelOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelOpciones.Controls.Add(this.panelReportes);
+            this.panelOpciones.Controls.Add(this.panelReportesPrincipal);
+            this.panelOpciones.Controls.Add(this.panel2);
+            this.panelOpciones.Controls.Add(this.panelEquipo);
+            this.panelOpciones.Controls.Add(this.panelEquipoPrincipal);
+            this.panelOpciones.Controls.Add(this.panel6);
+            this.panelOpciones.Controls.Add(this.panelActualizarServicio);
+            this.panelOpciones.Controls.Add(this.panel8);
+            this.panelOpciones.Controls.Add(this.panelCalibracion);
+            this.panelOpciones.Controls.Add(this.panel4);
+            this.panelOpciones.Controls.Add(this.panelAlquiler);
+            this.panelOpciones.Controls.Add(this.panel10);
+            this.panelOpciones.Controls.Add(this.pictureBox1);
+            this.panelOpciones.Controls.Add(this.panel3);
+            this.panelOpciones.Location = new System.Drawing.Point(0, 39);
+            this.panelOpciones.Name = "panelOpciones";
+            this.panelOpciones.Size = new System.Drawing.Size(175, 720);
+            this.panelOpciones.TabIndex = 0;
             // 
             // btn_mantenimiento
             // 
-            this.btn_mantenimiento.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_mantenimiento.FlatAppearance.BorderSize = 0;
             this.btn_mantenimiento.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btn_mantenimiento.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_mantenimiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_mantenimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_mantenimiento.ForeColor = System.Drawing.Color.White;
-            this.btn_mantenimiento.Location = new System.Drawing.Point(0, 548);
+            this.btn_mantenimiento.Location = new System.Drawing.Point(0, 0);
             this.btn_mantenimiento.Name = "btn_mantenimiento";
             this.btn_mantenimiento.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_mantenimiento.Size = new System.Drawing.Size(175, 50);
@@ -102,14 +141,13 @@
             // 
             // btn_actualizar_servicio
             // 
-            this.btn_actualizar_servicio.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_actualizar_servicio.FlatAppearance.BorderSize = 0;
             this.btn_actualizar_servicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btn_actualizar_servicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_actualizar_servicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_actualizar_servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_actualizar_servicio.ForeColor = System.Drawing.Color.White;
-            this.btn_actualizar_servicio.Location = new System.Drawing.Point(0, 498);
+            this.btn_actualizar_servicio.Location = new System.Drawing.Point(0, 0);
             this.btn_actualizar_servicio.Name = "btn_actualizar_servicio";
             this.btn_actualizar_servicio.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_actualizar_servicio.Size = new System.Drawing.Size(175, 50);
@@ -122,14 +160,13 @@
             // btn_alquiler
             // 
             this.btn_alquiler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_alquiler.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_alquiler.FlatAppearance.BorderSize = 0;
             this.btn_alquiler.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btn_alquiler.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_alquiler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_alquiler.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_alquiler.ForeColor = System.Drawing.Color.White;
-            this.btn_alquiler.Location = new System.Drawing.Point(0, 448);
+            this.btn_alquiler.Location = new System.Drawing.Point(0, 0);
             this.btn_alquiler.Name = "btn_alquiler";
             this.btn_alquiler.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_alquiler.Size = new System.Drawing.Size(175, 50);
@@ -141,13 +178,13 @@
             // 
             // panelReportes
             // 
-            this.panelReportes.Controls.Add(this.button5);
-            this.panelReportes.Controls.Add(this.button6);
-            this.panelReportes.Controls.Add(this.button7);
+            this.panelReportes.Controls.Add(this.panel20);
+            this.panelReportes.Controls.Add(this.panelu);
+            this.panelReportes.Controls.Add(this.panel22);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 299);
+            this.panelReportes.Location = new System.Drawing.Point(0, 573);
             this.panelReportes.Name = "panelReportes";
-            this.panelReportes.Size = new System.Drawing.Size(175, 149);
+            this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
             // 
             // button5
@@ -158,10 +195,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(0, 96);
+            this.button5.Location = new System.Drawing.Point(0, 0);
             this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(175, 40);
+            this.button5.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button5.Size = new System.Drawing.Size(156, 50);
             this.button5.TabIndex = 7;
             this.button5.Text = "rp3";
             this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -175,10 +212,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(0, 49);
+            this.button6.Location = new System.Drawing.Point(0, 0);
             this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(175, 50);
+            this.button6.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button6.Size = new System.Drawing.Size(156, 50);
             this.button6.TabIndex = 104;
             this.button6.Text = "rp2";
             this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -192,42 +229,24 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(3, 3);
+            this.button7.Location = new System.Drawing.Point(0, 0);
             this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(175, 50);
+            this.button7.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button7.Size = new System.Drawing.Size(156, 50);
             this.button7.TabIndex = 103;
             this.button7.Text = "rp1";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // button8
-            // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(430, 374);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(175, 50);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "EQUIPO";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // btnReportes
             // 
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportes.FlatAppearance.BorderSize = 0;
             this.btnReportes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(0, 249);
+            this.btnReportes.Location = new System.Drawing.Point(0, 0);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnReportes.Size = new System.Drawing.Size(175, 50);
@@ -239,13 +258,13 @@
             // 
             // panelEquipo
             // 
-            this.panelEquipo.Controls.Add(this.btnNuevoModelo);
-            this.panelEquipo.Controls.Add(this.btnNuevaMarca);
-            this.panelEquipo.Controls.Add(this.btnNuevoEquipo);
+            this.panelEquipo.Controls.Add(this.panelNuevoModelo);
+            this.panelEquipo.Controls.Add(this.panelnuevoEquipo);
+            this.panelEquipo.Controls.Add(this.panelnNuevaMarca);
             this.panelEquipo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEquipo.Location = new System.Drawing.Point(0, 100);
+            this.panelEquipo.Location = new System.Drawing.Point(0, 338);
             this.panelEquipo.Name = "panelEquipo";
-            this.panelEquipo.Size = new System.Drawing.Size(175, 149);
+            this.panelEquipo.Size = new System.Drawing.Size(175, 175);
             this.panelEquipo.TabIndex = 1;
             // 
             // btnNuevoModelo
@@ -254,12 +273,12 @@
             this.btnNuevoModelo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btnNuevoModelo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnNuevoModelo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoModelo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoModelo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoModelo.Location = new System.Drawing.Point(0, 96);
+            this.btnNuevoModelo.Location = new System.Drawing.Point(0, 0);
             this.btnNuevoModelo.Name = "btnNuevoModelo";
-            this.btnNuevoModelo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnNuevoModelo.Size = new System.Drawing.Size(175, 40);
+            this.btnNuevoModelo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNuevoModelo.Size = new System.Drawing.Size(156, 50);
             this.btnNuevoModelo.TabIndex = 7;
             this.btnNuevoModelo.Text = "NUEVO MODELO";
             this.btnNuevoModelo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -272,12 +291,12 @@
             this.btnNuevaMarca.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btnNuevaMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnNuevaMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaMarca.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevaMarca.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaMarca.Location = new System.Drawing.Point(0, 49);
+            this.btnNuevaMarca.Location = new System.Drawing.Point(0, 0);
             this.btnNuevaMarca.Name = "btnNuevaMarca";
-            this.btnNuevaMarca.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnNuevaMarca.Size = new System.Drawing.Size(175, 50);
+            this.btnNuevaMarca.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNuevaMarca.Size = new System.Drawing.Size(156, 50);
             this.btnNuevaMarca.TabIndex = 6;
             this.btnNuevaMarca.Text = "NUEVA MARCAS";
             this.btnNuevaMarca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -290,12 +309,12 @@
             this.btnNuevoEquipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btnNuevoEquipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnNuevoEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevoEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNuevoEquipo.ForeColor = System.Drawing.Color.White;
-            this.btnNuevoEquipo.Location = new System.Drawing.Point(3, 3);
+            this.btnNuevoEquipo.Location = new System.Drawing.Point(0, 0);
             this.btnNuevoEquipo.Name = "btnNuevoEquipo";
-            this.btnNuevoEquipo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnNuevoEquipo.Size = new System.Drawing.Size(175, 50);
+            this.btnNuevoEquipo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNuevoEquipo.Size = new System.Drawing.Size(156, 50);
             this.btnNuevoEquipo.TabIndex = 5;
             this.btnNuevoEquipo.Text = "NUEVO EQUIPO";
             this.btnNuevoEquipo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -304,14 +323,13 @@
             // 
             // btn_equipo
             // 
-            this.btn_equipo.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_equipo.FlatAppearance.BorderSize = 0;
             this.btn_equipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
             this.btn_equipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_equipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_equipo.ForeColor = System.Drawing.Color.White;
-            this.btn_equipo.Location = new System.Drawing.Point(0, 50);
+            this.btn_equipo.Location = new System.Drawing.Point(0, 0);
             this.btn_equipo.Name = "btn_equipo";
             this.btn_equipo.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btn_equipo.Size = new System.Drawing.Size(175, 50);
@@ -321,27 +339,9 @@
             this.btn_equipo.UseVisualStyleBackColor = true;
             this.btn_equipo.Click += new System.EventHandler(this.btn_equipo_Click);
             // 
-            // btn_empleado
-            // 
-            this.btn_empleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_empleado.FlatAppearance.BorderSize = 0;
-            this.btn_empleado.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.btn_empleado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_empleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_empleado.ForeColor = System.Drawing.Color.White;
-            this.btn_empleado.Location = new System.Drawing.Point(0, 0);
-            this.btn_empleado.Name = "btn_empleado";
-            this.btn_empleado.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_empleado.Size = new System.Drawing.Size(175, 50);
-            this.btn_empleado.TabIndex = 100;
-            this.btn_empleado.Text = "EMPLEADO";
-            this.btn_empleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_empleado.UseVisualStyleBackColor = true;
-            this.btn_empleado.Click += new System.EventHandler(this.btn_empleado_Click);
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.pictureBox1.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
             this.pictureBox1.Location = new System.Drawing.Point(0, 10);
             this.pictureBox1.Name = "pictureBox1";
@@ -369,9 +369,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.Image = global::Cerin_Ingenieros.Properties.Resources.LOGO_CCI_LABS;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 37);
+            this.pictureBox2.Location = new System.Drawing.Point(8, 37);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1183, 641);
+            this.pictureBox2.Size = new System.Drawing.Size(1175, 641);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
@@ -437,16 +437,245 @@
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(175, 10);
+            this.panel3.TabIndex = 101;
+            // 
+            // panelAlquiler
+            // 
+            this.panelAlquiler.Controls.Add(this.panel5);
+            this.panelAlquiler.Controls.Add(this.btn_alquiler);
+            this.panelAlquiler.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelAlquiler.Location = new System.Drawing.Point(0, 108);
+            this.panelAlquiler.Name = "panelAlquiler";
+            this.panelAlquiler.Size = new System.Drawing.Size(175, 50);
+            this.panelAlquiler.TabIndex = 108;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 50);
+            this.panel5.TabIndex = 109;
+            // 
+            // panel22
+            // 
+            this.panel22.Controls.Add(this.panel23);
+            this.panel22.Controls.Add(this.button6);
+            this.panel22.Location = new System.Drawing.Point(19, 64);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(156, 50);
+            this.panel22.TabIndex = 110;
+            // 
+            // panel23
+            // 
+            this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel23.Location = new System.Drawing.Point(0, 0);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(10, 50);
+            this.panel23.TabIndex = 109;
+            // 
+            // panelCalibracion
+            // 
+            this.panelCalibracion.Controls.Add(this.panel7);
+            this.panelCalibracion.Controls.Add(this.btn_mantenimiento);
+            this.panelCalibracion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelCalibracion.Location = new System.Drawing.Point(0, 168);
+            this.panelCalibracion.Name = "panelCalibracion";
+            this.panelCalibracion.Size = new System.Drawing.Size(175, 50);
+            this.panelCalibracion.TabIndex = 111;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(10, 50);
+            this.panel7.TabIndex = 109;
+            // 
+            // panelActualizarServicio
+            // 
+            this.panelActualizarServicio.Controls.Add(this.panel9);
+            this.panelActualizarServicio.Controls.Add(this.btn_actualizar_servicio);
+            this.panelActualizarServicio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelActualizarServicio.Location = new System.Drawing.Point(0, 228);
+            this.panelActualizarServicio.Name = "panelActualizarServicio";
+            this.panelActualizarServicio.Size = new System.Drawing.Size(175, 50);
+            this.panelActualizarServicio.TabIndex = 111;
+            // 
             // panel9
             // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel9.Controls.Add(this.pictureBox1);
-            this.panel9.Location = new System.Drawing.Point(0, 40);
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(175, 109);
-            this.panel9.TabIndex = 15;
+            this.panel9.Size = new System.Drawing.Size(10, 50);
+            this.panel9.TabIndex = 109;
+            // 
+            // panelEquipoPrincipal
+            // 
+            this.panelEquipoPrincipal.Controls.Add(this.panel11);
+            this.panelEquipoPrincipal.Controls.Add(this.btn_equipo);
+            this.panelEquipoPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelEquipoPrincipal.Location = new System.Drawing.Point(0, 288);
+            this.panelEquipoPrincipal.Name = "panelEquipoPrincipal";
+            this.panelEquipoPrincipal.Size = new System.Drawing.Size(175, 50);
+            this.panelEquipoPrincipal.TabIndex = 111;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(10, 50);
+            this.panel11.TabIndex = 109;
+            // 
+            // panelReportesPrincipal
+            // 
+            this.panelReportesPrincipal.Controls.Add(this.panel13);
+            this.panelReportesPrincipal.Controls.Add(this.btnReportes);
+            this.panelReportesPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 523);
+            this.panelReportesPrincipal.Name = "panelReportesPrincipal";
+            this.panelReportesPrincipal.Size = new System.Drawing.Size(175, 50);
+            this.panelReportesPrincipal.TabIndex = 111;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(10, 50);
+            this.panel13.TabIndex = 109;
+            // 
+            // panelnuevoEquipo
+            // 
+            this.panelnuevoEquipo.Controls.Add(this.panel15);
+            this.panelnuevoEquipo.Controls.Add(this.btnNuevoEquipo);
+            this.panelnuevoEquipo.Location = new System.Drawing.Point(19, 8);
+            this.panelnuevoEquipo.Name = "panelnuevoEquipo";
+            this.panelnuevoEquipo.Size = new System.Drawing.Size(156, 50);
+            this.panelnuevoEquipo.TabIndex = 111;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(10, 50);
+            this.panel15.TabIndex = 109;
+            // 
+            // panelnNuevaMarca
+            // 
+            this.panelnNuevaMarca.Controls.Add(this.panel17);
+            this.panelnNuevaMarca.Controls.Add(this.btnNuevaMarca);
+            this.panelnNuevaMarca.Location = new System.Drawing.Point(19, 64);
+            this.panelnNuevaMarca.Name = "panelnNuevaMarca";
+            this.panelnNuevaMarca.Size = new System.Drawing.Size(156, 50);
+            this.panelnNuevaMarca.TabIndex = 111;
+            // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel17.Location = new System.Drawing.Point(0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(10, 50);
+            this.panel17.TabIndex = 109;
+            // 
+            // panelu
+            // 
+            this.panelu.Controls.Add(this.panel19);
+            this.panelu.Controls.Add(this.button7);
+            this.panelu.Location = new System.Drawing.Point(19, 8);
+            this.panelu.Name = "panelu";
+            this.panelu.Size = new System.Drawing.Size(156, 50);
+            this.panelu.TabIndex = 111;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel19.Location = new System.Drawing.Point(0, 0);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(10, 50);
+            this.panel19.TabIndex = 109;
+            // 
+            // panel20
+            // 
+            this.panel20.Controls.Add(this.panel21);
+            this.panel20.Controls.Add(this.button5);
+            this.panel20.Location = new System.Drawing.Point(19, 120);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(156, 50);
+            this.panel20.TabIndex = 111;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(10, 50);
+            this.panel21.TabIndex = 109;
+            // 
+            // panelNuevoModelo
+            // 
+            this.panelNuevoModelo.Controls.Add(this.panel25);
+            this.panelNuevoModelo.Controls.Add(this.btnNuevoModelo);
+            this.panelNuevoModelo.Location = new System.Drawing.Point(19, 120);
+            this.panelNuevoModelo.Name = "panelNuevoModelo";
+            this.panelNuevoModelo.Size = new System.Drawing.Size(156, 50);
+            this.panelNuevoModelo.TabIndex = 111;
+            // 
+            // panel25
+            // 
+            this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel25.Location = new System.Drawing.Point(0, 0);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(10, 50);
+            this.panel25.TabIndex = 109;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 158);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(175, 10);
+            this.panel4.TabIndex = 101;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 278);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(175, 10);
+            this.panel6.TabIndex = 101;
+            // 
+            // panel8
+            // 
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 218);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(175, 10);
+            this.panel8.TabIndex = 101;
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 98);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(175, 10);
+            this.panel10.TabIndex = 102;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 513);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(175, 10);
+            this.panel2.TabIndex = 102;
             // 
             // Principal
             // 
@@ -454,32 +683,40 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1355, 760);
-            this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_principal);
-            this.Controls.Add(this.panelOpPrincipal);
+            this.Controls.Add(this.panelOpciones);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CCI CONTROL DE SERVICIOS";
-            this.panelOpPrincipal.ResumeLayout(false);
+            this.panelOpciones.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
             this.panelEquipo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_principal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
+            this.panelAlquiler.ResumeLayout(false);
+            this.panel22.ResumeLayout(false);
+            this.panelCalibracion.ResumeLayout(false);
+            this.panelActualizarServicio.ResumeLayout(false);
+            this.panelEquipoPrincipal.ResumeLayout(false);
+            this.panelReportesPrincipal.ResumeLayout(false);
+            this.panelnuevoEquipo.ResumeLayout(false);
+            this.panelnNuevaMarca.ResumeLayout(false);
+            this.panelu.ResumeLayout(false);
+            this.panel20.ResumeLayout(false);
+            this.panelNuevoModelo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelOpPrincipal;
+        private System.Windows.Forms.Panel panelOpciones;
         private System.Windows.Forms.Panel panel_principal;
         private System.Windows.Forms.Button btn_alquiler;
-        private System.Windows.Forms.Button btn_empleado;
         private System.Windows.Forms.Button btn_equipo;
         private System.Windows.Forms.Button btn_mantenimiento;
         private System.Windows.Forms.Button btn_actualizar_servicio;
@@ -493,12 +730,38 @@
         private System.Windows.Forms.Button btnNuevoModelo;
         private System.Windows.Forms.Button btnNuevaMarca;
         private System.Windows.Forms.Button btnNuevoEquipo;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Panel panelReportes;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Panel panelu;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Panel panelAlquiler;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panelCalibracion;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panelNuevoModelo;
+        private System.Windows.Forms.Panel panel25;
+        private System.Windows.Forms.Panel panelnuevoEquipo;
+        private System.Windows.Forms.Panel panel15;
+        private System.Windows.Forms.Panel panelnNuevaMarca;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Panel panelReportesPrincipal;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panelActualizarServicio;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panelEquipoPrincipal;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel2;
     }
 }
