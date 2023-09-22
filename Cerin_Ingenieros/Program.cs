@@ -21,7 +21,7 @@ namespace Cerin_Ingenieros
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new preClienteServicio());
+            Application.Run(new preHistorialEquipo());
         }
     }
 }
