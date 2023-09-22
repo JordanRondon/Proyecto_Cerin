@@ -33,7 +33,6 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txb_id_Servicio = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
@@ -46,18 +45,21 @@
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.btn_FinalizarServicio = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lbHora = new System.Windows.Forms.Label();
             this.lbFecha = new System.Windows.Forms.Label();
             this.fechaHora = new System.Windows.Forms.Timer(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.grb_observacionesFinales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
-            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -66,7 +68,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txb_id_Servicio);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(27, 41);
+            this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(466, 90);
             this.groupBox1.TabIndex = 35;
@@ -100,18 +102,11 @@
             this.txb_id_Servicio.Size = new System.Drawing.Size(302, 26);
             this.txb_id_Servicio.TabIndex = 0;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(424, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(323, 31);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "ACTUALIZAR SERVICIO";
-            // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dataGridView_equipos);
             this.panel1.Controls.Add(this.label_nombre_ruc_cliente);
@@ -120,16 +115,17 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.grb_observacionesFinales);
             this.panel1.Controls.Add(this.dataGridView_Accesorios);
-            this.panel1.Location = new System.Drawing.Point(27, 137);
+            this.panel1.Location = new System.Drawing.Point(12, 102);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1130, 430);
+            this.panel1.Size = new System.Drawing.Size(1156, 456);
             this.panel1.TabIndex = 40;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(136, 184);
+            this.label2.Location = new System.Drawing.Point(44, 243);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 49;
@@ -141,12 +137,14 @@
             this.dataGridView_equipos.AllowUserToDeleteRows = false;
             this.dataGridView_equipos.AllowUserToResizeColumns = false;
             this.dataGridView_equipos.AllowUserToResizeRows = false;
+            this.dataGridView_equipos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_equipos.Location = new System.Drawing.Point(116, 36);
+            this.dataGridView_equipos.Location = new System.Drawing.Point(48, 43);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
             this.dataGridView_equipos.RowHeadersVisible = false;
-            this.dataGridView_equipos.Size = new System.Drawing.Size(899, 136);
+            this.dataGridView_equipos.Size = new System.Drawing.Size(1071, 176);
             this.dataGridView_equipos.TabIndex = 46;
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
@@ -154,7 +152,7 @@
             // 
             this.label_nombre_ruc_cliente.AutoSize = true;
             this.label_nombre_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(198, 13);
+            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(130, 20);
             this.label_nombre_ruc_cliente.Name = "label_nombre_ruc_cliente";
             this.label_nombre_ruc_cliente.Size = new System.Drawing.Size(214, 20);
             this.label_nombre_ruc_cliente.TabIndex = 48;
@@ -164,7 +162,7 @@
             // 
             this.label_tipo_Servicio.AutoSize = true;
             this.label_tipo_Servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_Servicio.Location = new System.Drawing.Point(883, 13);
+            this.label_tipo_Servicio.Location = new System.Drawing.Point(901, 20);
             this.label_tipo_Servicio.Name = "label_tipo_Servicio";
             this.label_tipo_Servicio.Size = new System.Drawing.Size(45, 20);
             this.label_tipo_Servicio.TabIndex = 45;
@@ -174,7 +172,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(719, 13);
+            this.label3.Location = new System.Drawing.Point(737, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 44;
@@ -184,7 +182,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(112, 13);
+            this.label5.Location = new System.Drawing.Point(44, 20);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 47;
@@ -192,13 +190,15 @@
             // 
             // grb_observacionesFinales
             // 
+            this.grb_observacionesFinales.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grb_observacionesFinales.Controls.Add(this.btn_editarRecomendacion);
             this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
             this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(481, 184);
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(431, 266);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(632, 231);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(632, 179);
             this.grb_observacionesFinales.TabIndex = 43;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
@@ -206,7 +206,7 @@
             // btn_editarRecomendacion
             // 
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 190);
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 138);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
             this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_editarRecomendacion.TabIndex = 42;
@@ -216,17 +216,17 @@
             // 
             // txb_Recomendaciones
             // 
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 37);
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 32);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(583, 147);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(466, 141);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(25, 190);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(513, 32);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -240,27 +240,20 @@
             this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
             this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
             this.dataGridView_Accesorios.AllowUserToResizeRows = false;
+            this.dataGridView_Accesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(22, 207);
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(48, 277);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 194);
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 168);
             this.dataGridView_Accesorios.TabIndex = 41;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btn_FinalizarServicio);
-            this.panel2.Controls.Add(this.btn_Cancelar);
-            this.panel2.Location = new System.Drawing.Point(27, 576);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1130, 54);
-            this.panel2.TabIndex = 43;
             // 
             // btn_FinalizarServicio
             // 
+            this.btn_FinalizarServicio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_FinalizarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FinalizarServicio.Location = new System.Drawing.Point(22, 10);
+            this.btn_FinalizarServicio.Location = new System.Drawing.Point(77, 594);
             this.btn_FinalizarServicio.Name = "btn_FinalizarServicio";
             this.btn_FinalizarServicio.Size = new System.Drawing.Size(95, 35);
             this.btn_FinalizarServicio.TabIndex = 39;
@@ -270,8 +263,9 @@
             // 
             // btn_Cancelar
             // 
+            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.Location = new System.Drawing.Point(998, 10);
+            this.btn_Cancelar.Location = new System.Drawing.Point(1027, 594);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_Cancelar.TabIndex = 38;
@@ -286,7 +280,7 @@
             this.lbHora.BackColor = System.Drawing.Color.Transparent;
             this.lbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHora.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbHora.Location = new System.Drawing.Point(1014, 23);
+            this.lbHora.Location = new System.Drawing.Point(1020, 8);
             this.lbHora.Name = "lbHora";
             this.lbHora.Size = new System.Drawing.Size(149, 39);
             this.lbHora.TabIndex = 44;
@@ -298,7 +292,7 @@
             this.lbFecha.BackColor = System.Drawing.Color.Transparent;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFecha.ForeColor = System.Drawing.Color.Gray;
-            this.lbFecha.Location = new System.Drawing.Point(762, 65);
+            this.lbFecha.Location = new System.Drawing.Point(770, 47);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(401, 29);
             this.lbFecha.TabIndex = 45;
@@ -310,18 +304,49 @@
             this.fechaHora.Enabled = true;
             this.fechaHora.Tick += new System.EventHandler(this.fechaHora_Tick);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.lbFecha);
+            this.panel3.Controls.Add(this.lbHora);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1180, 79);
+            this.panel3.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 9);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(548, 54);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "EQUIPOS A LABORATORIO";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btn_FinalizarServicio);
+            this.panel4.Controls.Add(this.btn_Cancelar);
+            this.panel4.Controls.Add(this.groupBox1);
+            this.panel4.Controls.Add(this.panel1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 79);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1180, 641);
+            this.panel4.TabIndex = 47;
+            // 
             // preActualizarServicios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1180, 642);
-            this.Controls.Add(this.lbFecha);
-            this.Controls.Add(this.lbHora);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1180, 720);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preActualizarServicios";
             this.Text = "preActualizarServicios";
@@ -333,9 +358,10 @@
             this.grb_observacionesFinales.ResumeLayout(false);
             this.grb_observacionesFinales.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
-            this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -343,13 +369,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txb_id_Servicio;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.DataGridView dataGridView_Accesorios;
         private System.Windows.Forms.GroupBox grb_observacionesFinales;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label_tipo_Servicio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView_equipos;
@@ -364,5 +388,8 @@
         private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.Timer fechaHora;
         private System.Windows.Forms.Button btn_editarRecomendacion;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel4;
     }
 }
