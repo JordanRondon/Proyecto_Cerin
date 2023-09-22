@@ -362,7 +362,7 @@ namespace CapaDato
             return lista;
         }
 
-        public entEquipo buscarEquipo(string serie)
+        public entEquipo buscarEquipoID(string serie, int idtipo)
         {
             SqlCommand cmd = null;
             entEquipo equipo = null;
@@ -371,10 +371,12 @@ namespace CapaDato
             {
                 SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
 
-                cmd = new SqlCommand("sp_BuscarEquipo", cn);
+                cmd = new SqlCommand("sp_BuscarEquipoID", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@serie_equipo", serie);
+                cmd.Parameters.AddWithValue("@id_tipo_equipo", idtipo);
+
 
                 cn.Open();
 

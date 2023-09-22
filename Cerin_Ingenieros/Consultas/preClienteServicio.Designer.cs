@@ -33,8 +33,8 @@
             this.lb_dni_ruc = new System.Windows.Forms.Label();
             this.lb_nombre_razonSocial = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lb_dni_cliente = new System.Windows.Forms.Label();
-            this.lb_nombreCliente = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,8 +62,8 @@
             this.groupBox2.Controls.Add(this.lb_dni_ruc);
             this.groupBox2.Controls.Add(this.lb_nombre_razonSocial);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.lb_dni_cliente);
-            this.groupBox2.Controls.Add(this.lb_nombreCliente);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Location = new System.Drawing.Point(17, 42);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(640, 87);
@@ -77,15 +77,15 @@
             this.lb_nombreEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_nombreEmpleado.Location = new System.Drawing.Point(421, 59);
             this.lb_nombreEmpleado.Name = "lb_nombreEmpleado";
-            this.lb_nombreEmpleado.Size = new System.Drawing.Size(65, 20);
+            this.lb_nombreEmpleado.Size = new System.Drawing.Size(81, 20);
             this.lb_nombreEmpleado.TabIndex = 62;
-            this.lb_nombreEmpleado.Text = "Nombre";
+            this.lb_nombreEmpleado.Text = "Empleado";
             // 
             // lb_dni_ruc
             // 
             this.lb_dni_ruc.AutoSize = true;
             this.lb_dni_ruc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dni_ruc.Location = new System.Drawing.Point(108, 59);
+            this.lb_dni_ruc.Location = new System.Drawing.Point(89, 59);
             this.lb_dni_ruc.Name = "lb_dni_ruc";
             this.lb_dni_ruc.Size = new System.Drawing.Size(89, 20);
             this.lb_dni_ruc.TabIndex = 61;
@@ -95,7 +95,7 @@
             // 
             this.lb_nombre_razonSocial.AutoSize = true;
             this.lb_nombre_razonSocial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nombre_razonSocial.Location = new System.Drawing.Point(108, 16);
+            this.lb_nombre_razonSocial.Location = new System.Drawing.Point(89, 16);
             this.lb_nombre_razonSocial.Name = "lb_nombre_razonSocial";
             this.lb_nombre_razonSocial.Size = new System.Drawing.Size(166, 20);
             this.lb_nombre_razonSocial.TabIndex = 60;
@@ -111,25 +111,25 @@
             this.label9.TabIndex = 59;
             this.label9.Text = "Atendido por:";
             // 
-            // lb_dni_cliente
+            // label10
             // 
-            this.lb_dni_cliente.AutoSize = true;
-            this.lb_dni_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dni_cliente.Location = new System.Drawing.Point(6, 59);
-            this.lb_dni_cliente.Name = "lb_dni_cliente";
-            this.lb_dni_cliente.Size = new System.Drawing.Size(41, 20);
-            this.lb_dni_cliente.TabIndex = 58;
-            this.lb_dni_cliente.Text = "DNI:";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 59);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 20);
+            this.label10.TabIndex = 58;
+            this.label10.Text = "DNI:";
             // 
-            // lb_nombreCliente
+            // label8
             // 
-            this.lb_nombreCliente.AutoSize = true;
-            this.lb_nombreCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nombreCliente.Location = new System.Drawing.Point(6, 16);
-            this.lb_nombreCliente.Name = "lb_nombreCliente";
-            this.lb_nombreCliente.Size = new System.Drawing.Size(77, 20);
-            this.lb_nombreCliente.TabIndex = 56;
-            this.lb_nombreCliente.Text = "Nombres:";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(77, 20);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "Nombres:";
             // 
             // panel1
             // 
@@ -340,8 +340,8 @@
         private System.Windows.Forms.Label lb_dni_ruc;
         private System.Windows.Forms.Label lb_nombre_razonSocial;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lb_dni_cliente;
-        private System.Windows.Forms.Label lb_nombreCliente;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
