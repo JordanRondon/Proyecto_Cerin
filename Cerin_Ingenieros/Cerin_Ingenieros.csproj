@@ -96,11 +96,19 @@
     <Compile Include="Consultas\preClienteServicio.Designer.cs">
       <DependentUpon>preClienteServicio.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Consultas\preHistorialEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\preHistorialEquipo.Designer.cs">
+      <DependentUpon>preHistorialEquipo.cs</DependentUpon>
+=======
     <Compile Include="Login\preLogin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login\preLogin.Designer.cs">
       <DependentUpon>preLogin.cs</DependentUpon>
+>>>>>>> 5dc5c1c9ac1cbc1689b8818dde60d611dd08a4a3
     </Compile>
     <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
@@ -194,8 +202,13 @@
     <EmbeddedResource Include="Consultas\preClienteServicio.resx">
       <DependentUpon>preClienteServicio.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Consultas\preHistorialEquipo.resx">
+      <DependentUpon>preHistorialEquipo.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Login\preLogin.resx">
       <DependentUpon>preLogin.cs</DependentUpon>
+>>>>>>> 5dc5c1c9ac1cbc1689b8818dde60d611dd08a4a3
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>

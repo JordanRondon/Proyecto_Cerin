@@ -261,8 +261,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             if (txb_serie.Text!="")
             {
-                entEquipo equipo = logEquipo.GetInstancia.buscarEquipoID(txb_serie.Text,2);
-                if (equipo != null)
+                entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(txb_serie.Text);
+                if (equipo != null && equipo.IdTipo == 2)
                 {
                     if(equipo.Estado == 'E')
                     {
