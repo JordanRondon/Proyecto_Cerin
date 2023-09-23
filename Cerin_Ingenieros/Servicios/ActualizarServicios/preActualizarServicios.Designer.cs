@@ -137,7 +137,8 @@
             this.dataGridView_equipos.AllowUserToDeleteRows = false;
             this.dataGridView_equipos.AllowUserToResizeColumns = false;
             this.dataGridView_equipos.AllowUserToResizeRows = false;
-            this.dataGridView_equipos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView_equipos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -205,6 +206,7 @@
             // 
             // btn_editarRecomendacion
             // 
+            this.btn_editarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 138);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
@@ -216,6 +218,8 @@
             // 
             // txb_Recomendaciones
             // 
+            this.txb_Recomendaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 32);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
@@ -225,6 +229,7 @@
             // 
             // btn_agregarRecomendacion
             // 
+            this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregarRecomendacion.Location = new System.Drawing.Point(513, 32);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";

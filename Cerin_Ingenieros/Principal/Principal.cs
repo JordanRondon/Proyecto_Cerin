@@ -1,4 +1,5 @@
 ﻿using CapaLogica;
+using Cerin_Ingenieros.Consultas;
 using Cerin_Ingenieros.Mantenedor;
 using Cerin_Ingenieros.Servicios;
 using Cerin_Ingenieros.Servicios.ActualizarServicios;
@@ -40,20 +41,23 @@ namespace Cerin_Ingenieros
                 panelActualizarServicio.Visible = true;
                 panelEquipoPrincipal.Visible = true;
                 panelReportesPrincipal.Visible = true;
+                panelEmpleado.Visible = true;
             }else if (rolUser == 2)//recepcionista
             {
                 panelAlquiler.Visible = true;
                 panelCalibracion.Visible = true;
                 panelActualizarServicio.Visible = true;
-                panelEquipoPrincipal.Visible = true;
-                panelReportesPrincipal.Visible = false;
-            }else if(rolUser == 3)//laboratorio
+                panelEquipoPrincipal.Visible = false;
+                panelReportesPrincipal.Visible = true;
+                panelEmpleado.Visible = false;
+            }
+            else if(rolUser == 3)//laboratorio
             {
                 panelAlquiler.Visible = false;
                 panelCalibracion.Visible = false;
                 panelActualizarServicio.Visible = true;
                 panelEquipoPrincipal.Visible = false;
-                panelReportesPrincipal.Visible = false;
+                panelReportesPrincipal.Visible = true;
             }
         }
 
@@ -189,6 +193,22 @@ namespace Cerin_Ingenieros
         private void btnNuevoModelo_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preModelo());
+        }
+
+        private void btnEmpleado_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preEmpleado());
+            LoadForm();
+        }
+
+        private void btnClienteSercio_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preClienteServicio());
+        }
+
+        private void btnHistorialEquipo_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preHistorialEquipo());
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)

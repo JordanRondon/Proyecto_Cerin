@@ -48,6 +48,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_cancelar);
@@ -60,6 +62,7 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
             this.btn_eliminar.Name = "btn_eliminar";
@@ -71,6 +74,7 @@
             // 
             // btn_editar
             // 
+            this.btn_editar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editar.Location = new System.Drawing.Point(573, 3);
             this.btn_editar.Name = "btn_editar";
@@ -82,6 +86,7 @@
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
             this.btn_cancelar.Name = "btn_cancelar";
@@ -93,6 +98,7 @@
             // 
             // btn_guardar
             // 
+            this.btn_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_guardar.Location = new System.Drawing.Point(462, 3);
             this.btn_guardar.Name = "btn_guardar";
@@ -104,6 +110,7 @@
             // 
             // btn_nuevo
             // 
+            this.btn_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nuevo.Location = new System.Drawing.Point(336, 3);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -119,6 +126,9 @@
             this.dataGridView_modelos.AllowUserToDeleteRows = false;
             this.dataGridView_modelos.AllowUserToResizeColumns = false;
             this.dataGridView_modelos.AllowUserToResizeRows = false;
+            this.dataGridView_modelos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_modelos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_modelos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_modelos.Location = new System.Drawing.Point(196, 290);
@@ -130,6 +140,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(371, 22);
@@ -140,6 +151,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txb_nombre);
             this.groupBox1.Controls.Add(this.txb_codigo);
             this.groupBox1.Controls.Add(this.label3);
@@ -154,6 +167,7 @@
             // 
             // txb_nombre
             // 
+            this.txb_nombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_nombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_nombre.Location = new System.Drawing.Point(655, 51);
             this.txb_nombre.Name = "txb_nombre";
@@ -170,6 +184,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(577, 54);
@@ -192,6 +207,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1180, 642);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView_modelos);

@@ -57,6 +57,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.txb_direccion_empleado);
             this.groupBox1.Controls.Add(this.txb_apellidos_empleado);
             this.groupBox1.Controls.Add(this.txb_nombres_empleado);
@@ -70,49 +72,54 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(40, 43);
+            this.groupBox1.Location = new System.Drawing.Point(68, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1110, 143);
+            this.groupBox1.Size = new System.Drawing.Size(1082, 225);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DATOS EMPLEADO";
             // 
             // txb_direccion_empleado
             // 
+            this.txb_direccion_empleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_direccion_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_direccion_empleado.Location = new System.Drawing.Point(847, 93);
+            this.txb_direccion_empleado.Location = new System.Drawing.Point(743, 93);
             this.txb_direccion_empleado.Name = "txb_direccion_empleado";
             this.txb_direccion_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_direccion_empleado.TabIndex = 11;
             // 
             // txb_apellidos_empleado
             // 
+            this.txb_apellidos_empleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_apellidos_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_apellidos_empleado.Location = new System.Drawing.Point(460, 37);
+            this.txb_apellidos_empleado.Location = new System.Drawing.Point(199, 147);
             this.txb_apellidos_empleado.Name = "txb_apellidos_empleado";
             this.txb_apellidos_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_apellidos_empleado.TabIndex = 10;
             // 
             // txb_nombres_empleado
             // 
+            this.txb_nombres_empleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_nombres_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombres_empleado.Location = new System.Drawing.Point(847, 37);
+            this.txb_nombres_empleado.Location = new System.Drawing.Point(743, 37);
             this.txb_nombres_empleado.Name = "txb_nombres_empleado";
             this.txb_nombres_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_nombres_empleado.TabIndex = 9;
             // 
             // txb_correo_empleado
             // 
+            this.txb_correo_empleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_correo_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_correo_empleado.Location = new System.Drawing.Point(460, 90);
+            this.txb_correo_empleado.Location = new System.Drawing.Point(743, 147);
             this.txb_correo_empleado.Name = "txb_correo_empleado";
             this.txb_correo_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_correo_empleado.TabIndex = 8;
             // 
             // txb_telefono_empleado
             // 
+            this.txb_telefono_empleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_telefono_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_telefono_empleado.Location = new System.Drawing.Point(90, 90);
+            this.txb_telefono_empleado.Location = new System.Drawing.Point(199, 96);
             this.txb_telefono_empleado.Name = "txb_telefono_empleado";
             this.txb_telefono_empleado.Size = new System.Drawing.Size(241, 23);
             this.txb_telefono_empleado.TabIndex = 7;
@@ -120,8 +127,9 @@
             // 
             // txb_dniEmpleado
             // 
+            this.txb_dniEmpleado.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txb_dniEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_dniEmpleado.Location = new System.Drawing.Point(90, 40);
+            this.txb_dniEmpleado.Location = new System.Drawing.Point(199, 40);
             this.txb_dniEmpleado.Name = "txb_dniEmpleado";
             this.txb_dniEmpleado.Size = new System.Drawing.Size(241, 23);
             this.txb_dniEmpleado.TabIndex = 6;
@@ -129,9 +137,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(761, 96);
+            this.label4.Location = new System.Drawing.Point(657, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(67, 17);
             this.label4.TabIndex = 5;
@@ -139,9 +148,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 93);
+            this.label5.Location = new System.Drawing.Point(118, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 4;
@@ -149,9 +159,10 @@
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(382, 90);
+            this.label6.Location = new System.Drawing.Point(665, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 17);
             this.label6.TabIndex = 3;
@@ -159,9 +170,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(382, 40);
+            this.label3.Location = new System.Drawing.Point(121, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 2;
@@ -169,9 +181,10 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(761, 40);
+            this.label2.Location = new System.Drawing.Point(657, 40);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 1;
@@ -179,9 +192,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 46);
+            this.label1.Location = new System.Drawing.Point(118, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 0;
@@ -189,19 +203,22 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btn_buscar);
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_cancelar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(0, 201);
+            this.panel1.Location = new System.Drawing.Point(0, 282);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1181, 48);
             this.panel1.TabIndex = 1;
             // 
             // btn_buscar
             // 
+            this.btn_buscar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_buscar.Location = new System.Drawing.Point(362, 5);
             this.btn_buscar.Name = "btn_buscar";
@@ -213,6 +230,7 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(728, 5);
             this.btn_eliminar.Name = "btn_eliminar";
@@ -224,6 +242,7 @@
             // 
             // btn_editar
             // 
+            this.btn_editar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editar.Location = new System.Drawing.Point(606, 5);
             this.btn_editar.Name = "btn_editar";
@@ -235,6 +254,7 @@
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.Location = new System.Drawing.Point(845, 5);
             this.btn_cancelar.Name = "btn_cancelar";
@@ -246,6 +266,7 @@
             // 
             // btn_guardar
             // 
+            this.btn_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_guardar.Location = new System.Drawing.Point(485, 5);
             this.btn_guardar.Name = "btn_guardar";
@@ -257,6 +278,7 @@
             // 
             // btn_nuevo
             // 
+            this.btn_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nuevo.Location = new System.Drawing.Point(237, 5);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -272,17 +294,21 @@
             this.dataGridView_empleados.AllowUserToDeleteRows = false;
             this.dataGridView_empleados.AllowUserToResizeColumns = false;
             this.dataGridView_empleados.AllowUserToResizeRows = false;
+            this.dataGridView_empleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_empleados.Location = new System.Drawing.Point(52, 295);
+            this.dataGridView_empleados.Location = new System.Drawing.Point(52, 355);
             this.dataGridView_empleados.Name = "dataGridView_empleados";
             this.dataGridView_empleados.RowHeadersVisible = false;
-            this.dataGridView_empleados.Size = new System.Drawing.Size(1083, 304);
+            this.dataGridView_empleados.Size = new System.Drawing.Size(1083, 244);
             this.dataGridView_empleados.TabIndex = 2;
             this.dataGridView_empleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_empleados_CellDoubleClick);
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(373, 9);
