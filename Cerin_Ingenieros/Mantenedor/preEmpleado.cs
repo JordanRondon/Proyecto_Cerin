@@ -26,6 +26,7 @@ namespace Cerin_Ingenieros
             deshablitar_btn();
             listarEmpleado();
             dataGridView_empleados.ReadOnly = true;
+            cmb_rol.SelectedIndex = -1;
         }
 
         private void limpiar_entradas()
@@ -37,6 +38,10 @@ namespace Cerin_Ingenieros
             txb_correo_empleado.Text = "";
             txb_telefono_empleado.Text = "";
             registroSeleccionado = -1;
+
+            txb_userNamer.Text = "";
+            txb_contraseña.Text = "";
+            cmb_rol.SelectedIndex = -1;
         }
 
         private void hablitar_entradas()
@@ -47,6 +52,10 @@ namespace Cerin_Ingenieros
             txb_direccion_empleado.Enabled = true;
             txb_correo_empleado.Enabled = true;
             txb_telefono_empleado.Enabled = true;
+
+            txb_userNamer.Enabled = true;
+            txb_contraseña.Enabled = true;
+            cmb_rol.Enabled = true;
         }
 
         private void deshablitar_entradas()
@@ -57,6 +66,10 @@ namespace Cerin_Ingenieros
             txb_direccion_empleado.Enabled = false;
             txb_correo_empleado.Enabled = false;
             txb_telefono_empleado.Enabled = false;
+
+            txb_userNamer.Enabled = false;
+            txb_contraseña.Enabled = false;
+            cmb_rol.Enabled = false;
         }
 
         private void deshablitar_btn()
@@ -165,6 +178,12 @@ namespace Cerin_Ingenieros
                 txb_correo_empleado.Text = filaActual.Cells[5].Value.ToString();
                 txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
 
+                txb_userNamer.Text = filaActual.Cells[7].Value.ToString();
+                txb_contraseña.Text = filaActual.Cells[8].Value.ToString();
+                int indiceRol = cmb_rol.FindString(filaActual.Cells[9].Value.ToString()); 
+                if (indiceRol != -1) cmb_rol.SelectedIndex = indiceRol;
+                else cmb_rol.SelectedIndex = -1;
+
                 habilitar_btn_modificacion();
 
                 txb_dniEmpleado.Enabled = false;
@@ -238,6 +257,16 @@ namespace Cerin_Ingenieros
                     empleado.Telefono = txb_telefono_empleado.Text.Trim();
 
                     logEmpleado.GetInstancia.editarEmpleado(empleado);
+
+                    entUsuario usuario = new entUsuario();
+                    usuario.id_usuario = logUser.GetInstancia.buscarUsuario(empleado.IdEmpleado).id_usuario;
+                    usuario.userName = txb_userNamer.Text.Trim();
+                    usuario.password = txb_contraseña.Text;
+                    entRol rolSelec = (entRol)cmb_rol.SelectedItem;
+                    usuario.id_rol = rolSelec.id_rol;
+                    usuario.id_empleado =empleado.IdEmpleado;
+
+                    logUser.GetInstancia.editarUsuario(usuario);
                 }
                 else
                 {
@@ -264,10 +293,12 @@ namespace Cerin_Ingenieros
                 if (datosIngresados == true && registroSeleccionado > -1)
                 {
                     entEmpleado empleado = new entEmpleado();
-
                     empleado.IdEmpleado = registroSeleccionado;
-
                     logEmpleado.GetInstancia.deshabilitarEmpleado(empleado);
+
+                    entUsuario usuario = new entUsuario();
+                    usuario.id_usuario = logUser.GetInstancia.buscarUsuario(empleado.IdEmpleado).id_usuario;
+                    logUser.GetInstancia.deshabilitarUsuario(usuario);
                 }
                 else
                 {
