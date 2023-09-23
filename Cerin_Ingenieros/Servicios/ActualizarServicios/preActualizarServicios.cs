@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -191,6 +192,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 if (servicioActual != null)
                 {
+                    List<entEquipo> listaEquipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
+                    entCliente clienteSelecionado = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                     servicioActual.FechaEntrega = DateTime.Now;
                     servicioActual.estado = 'T';
                     if (logServicio.GetInstancia.ActualizarEntregaServicio(servicioActual))
@@ -198,6 +201,15 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
                         logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
                         limpiarEntradas();
+                    }
+                    string file = logComprobante.GetInstancia.generarComprobante(servicioActual, clienteSelecionado, listaEquipos);
+
+                    if (file != null)
+                    {
+                        //preViewCertificado preView = new preViewCertificado(file);
+                        //preView.Show();
+
+                        Process.Start(file);
                     }
                 } else MessageBox.Show("Ingresa el Código del Servicio");
             }

@@ -15,9 +15,9 @@ namespace CapaLogica
         public static logComprobante GetInstancia => instancia;
         #endregion
 
-        public string generarComprobante(entServicio servicio, List<entEquipo_Servicio> listaDetalleEquiposServicios, entCliente clienteSelecionado, List<entEquipo> equiposSelecionados)
+        public string generarComprobante(entServicio servicio, entCliente clienteSelecionado, List<entEquipo> equiposSelecionados)
         {
-            return datComprobante.GetInstancia.generarComprobante(servicio, listaDetalleEquiposServicios,clienteSelecionado,equiposSelecionados);
+            return datComprobante.GetInstancia.generarComprobante(servicio,clienteSelecionado,equiposSelecionados);
         }
     }
 }
