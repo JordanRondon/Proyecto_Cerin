@@ -201,6 +201,54 @@ namespace CapaDato
 
             return empleado;
         }
+
+        public entEmpleado BuscarEmpleadoDNI(string dni)
+        {
+            SqlCommand cmd = null;
+            entEmpleado empleado = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_BuscarEmpleadoPorDNI", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@dni", dni);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    empleado = new entEmpleado();
+
+                    empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    empleado.Apellido = Convert.ToString(dr["nombre"]); ;
+                    empleado.Nombre = Convert.ToString(dr["apellido"]); ;
+                    empleado.Dni = Convert.ToString(dr["dni"]);
+                    empleado.Direccion = Convert.ToString(dr["direccion"]);
+                    empleado.Correo = Convert.ToString(dr["correo"]);
+                    empleado.Telefono = Convert.ToString(dr["telefono"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return empleado;
+        }
+
         #endregion
     }
 }

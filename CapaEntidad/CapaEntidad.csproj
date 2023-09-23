@@ -87,6 +87,7 @@
     <Compile Include="entEquipo_Servicio.cs" />
     <Compile Include="entMarca.cs" />
     <Compile Include="entModelo.cs" />
+    <Compile Include="entRol.cs" />
     <Compile Include="entServicio.cs" />
     <Compile Include="entTipoServicio.cs" />
     <Compile Include="entUsuario.cs" />

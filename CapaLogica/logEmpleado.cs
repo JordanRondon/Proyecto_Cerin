@@ -25,6 +25,8 @@ namespace CapaLogica
         public bool deshabilitarEmpleado(entEmpleado empleado) => datEmpleado.GetInstancia.deshabilitarEmpleado(empleado);
 
         public entEmpleado BuscarEmpleadoId(int id) => datEmpleado.GetInstancia.BuscarEmpleadoId(id);
+
+        public entEmpleado BuscarEmpleadoDNI(string dni) => datEmpleado.GetInstancia.BuscarEmpleadoDNI(dni);
         #endregion
     }
 }

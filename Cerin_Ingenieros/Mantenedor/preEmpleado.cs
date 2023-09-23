@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,7 @@ namespace Cerin_Ingenieros
         public preEmpleado()
         {
             InitializeComponent();
+            listarDatosComboBoxRol();
             ConfigCabecera();
             deshablitar_entradas();
             deshablitar_btn();
@@ -96,7 +98,14 @@ namespace Cerin_Ingenieros
             deshablitar_btn();
         }
 
-        private void ConfigCabecera()
+        private void listarDatosComboBoxRol()
+        {
+            cmb_rol.ValueMember = "id_rol";
+            cmb_rol.DisplayMember = "nombre";
+            cmb_rol.DataSource = logRol.GetInstancia.listarRol();
+        }
+
+            private void ConfigCabecera()
         {
             dataGridView_empleados.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Código" },
@@ -105,7 +114,10 @@ namespace Cerin_Ingenieros
                 new DataGridViewTextBoxColumn { HeaderText = "DNI" },
                 new DataGridViewTextBoxColumn { HeaderText = "Dirreccion" },
                 new DataGridViewTextBoxColumn { HeaderText = "Correo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Teléfono" }
+                new DataGridViewTextBoxColumn { HeaderText = "Teléfono" },
+                new DataGridViewTextBoxColumn { HeaderText = "UserName" },
+                new DataGridViewTextBoxColumn { HeaderText = "Contraseña" },
+                new DataGridViewTextBoxColumn { HeaderText = "Rol" }
             );
 
             //desabilitar que se pueda ordenar por columnas
@@ -115,12 +127,15 @@ namespace Cerin_Ingenieros
         private void listarEmpleado()
         {
             List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
+            
 
             dataGridView_empleados.Rows.Clear();
 
             //insertar los datos 
             foreach (var item in listaEmpleado)
             {
+                entUsuario usuario = logUser.GetInstancia.buscarUsuario(item.IdEmpleado);
+                string nombreRol = logRol.GetInstancia.buscarRolId(usuario.id_rol).nombre;
                 dataGridView_empleados.Rows.Add(
                     item.IdEmpleado,
                     item.Nombre,
@@ -128,7 +143,10 @@ namespace Cerin_Ingenieros
                     item.Dni,
                     item.Direccion,
                     item.Correo,
-                    item.Telefono
+                    item.Telefono,
+                    usuario.userName,
+                    usuario.password,
+                    nombreRol
                 );
             }
         }
@@ -175,6 +193,16 @@ namespace Cerin_Ingenieros
                     empleado.Telefono = txb_telefono_empleado.Text.Trim();
 
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
+
+                    entUsuario usuario = new entUsuario();
+
+                    usuario.userName = txb_userNamer.Text.Trim();
+                    usuario.password = txb_contraseña.Text;
+                    entRol rolSelec = (entRol)cmb_rol.SelectedItem;
+                    usuario.id_rol = rolSelec.id_rol;
+                    usuario.id_empleado = logEmpleado.GetInstancia.BuscarEmpleadoDNI(empleado.Dni).IdEmpleado;
+
+                    logUser.GetInstancia.insertarUsuario(usuario);
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
