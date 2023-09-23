@@ -30,6 +30,8 @@
         {
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
-            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.panel1.SuspendLayout();
@@ -56,6 +56,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(370, 11);
@@ -81,6 +82,32 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Caracteristicas del equipo";
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Items.AddRange(new object[] {
+            "Trimble",
+            "Riegl",
+            "Pentax",
+            "Geoslam",
+            "DJI Enterprise",
+            "Spectra Precision"});
+            this.comboBoxCategoria.Location = new System.Drawing.Point(90, 186);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
+            this.comboBoxCategoria.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 191);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 17);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Categoria";
             // 
             // comboBox_modelo
             // 
@@ -158,6 +185,9 @@
             this.dataGridView_equipos.AllowUserToDeleteRows = false;
             this.dataGridView_equipos.AllowUserToResizeColumns = false;
             this.dataGridView_equipos.AllowUserToResizeRows = false;
+            this.dataGridView_equipos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_equipos.Location = new System.Drawing.Point(61, 397);
@@ -170,6 +200,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_cancelar);
@@ -182,6 +214,7 @@
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_eliminar.Location = new System.Drawing.Point(685, 4);
             this.btn_eliminar.Name = "btn_eliminar";
@@ -193,6 +226,7 @@
             // 
             // btn_editar
             // 
+            this.btn_editar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editar.Location = new System.Drawing.Point(573, 3);
             this.btn_editar.Name = "btn_editar";
@@ -204,6 +238,7 @@
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.Location = new System.Drawing.Point(805, 3);
             this.btn_cancelar.Name = "btn_cancelar";
@@ -215,6 +250,7 @@
             // 
             // btn_guardar
             // 
+            this.btn_guardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_guardar.Location = new System.Drawing.Point(462, 3);
             this.btn_guardar.Name = "btn_guardar";
@@ -226,6 +262,7 @@
             // 
             // btn_nuevo
             // 
+            this.btn_nuevo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_nuevo.Location = new System.Drawing.Point(336, 3);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -237,6 +274,8 @@
             // 
             // groupBoxAccesorios
             // 
+            this.groupBoxAccesorios.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBoxAccesorios.Controls.Add(this.dgvAcesorios);
             this.groupBoxAccesorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxAccesorios.Location = new System.Drawing.Point(517, 63);
@@ -252,6 +291,9 @@
             this.dgvAcesorios.AllowUserToDeleteRows = false;
             this.dgvAcesorios.AllowUserToResizeColumns = false;
             this.dgvAcesorios.AllowUserToResizeRows = false;
+            this.dgvAcesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAcesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAcesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAcesorios.Location = new System.Drawing.Point(26, 19);
@@ -260,32 +302,6 @@
             this.dgvAcesorios.Size = new System.Drawing.Size(554, 211);
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
-            // 
-            // comboBoxCategoria
-            // 
-            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Items.AddRange(new object[] {
-            "Trimble",
-            "Riegl",
-            "Pentax",
-            "Geoslam",
-            "DJI Enterprise",
-            "Spectra Precision"});
-            this.comboBoxCategoria.Location = new System.Drawing.Point(90, 186);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
-            this.comboBoxCategoria.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 191);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 17);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Categoria";
             // 
             // preEquipo
             // 
