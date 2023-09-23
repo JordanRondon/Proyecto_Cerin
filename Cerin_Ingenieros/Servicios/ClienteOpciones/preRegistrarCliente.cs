@@ -193,8 +193,29 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+
+            bool datosIngresados = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && txb_dni_cliente.Text != "");
+
+            try
+            {
+                if (id_Temporal>=0)
+                {
+                    logCliente.GetInstancia.deshabilitarCliente(id_Temporal);
+                }
+                else
+                {
+                    MessageBox.Show("Casilla vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+
+            ListarClientes();
             ConfiguracionInicial();
             LimpiarVariables();
+            id_Temporal = -1;
         }
 
         private void btn_cancelar_registro_Click(object sender, EventArgs e)
