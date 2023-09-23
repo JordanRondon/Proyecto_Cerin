@@ -19,12 +19,42 @@ namespace Cerin_Ingenieros
         //FUNCION PARA MOVIMIENTO DEL FORMULARIO
         private int m, mx, my;
         private Form FormActivo = null;
+        private int rolUser;
 
-        public Principal()
+        public Principal(int rol_user)
         {
             InitializeComponent();
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             LoadForm();
+
+            rolUser = rol_user;
+            BotonesSegunRol();
+        }
+
+        private void BotonesSegunRol()
+        {
+            if (rolUser == 1)//admin
+            {
+                panelAlquiler.Visible = true;
+                panelCalibracion.Visible = true;
+                panelActualizarServicio.Visible = true;
+                panelEquipoPrincipal.Visible = true;
+                panelReportesPrincipal.Visible = true;
+            }else if (rolUser == 2)//recepcionista
+            {
+                panelAlquiler.Visible = true;
+                panelCalibracion.Visible = true;
+                panelActualizarServicio.Visible = true;
+                panelEquipoPrincipal.Visible = true;
+                panelReportesPrincipal.Visible = false;
+            }else if(rolUser == 3)//laboratorio
+            {
+                panelAlquiler.Visible = false;
+                panelCalibracion.Visible = false;
+                panelActualizarServicio.Visible = true;
+                panelEquipoPrincipal.Visible = false;
+                panelReportesPrincipal.Visible = false;
+            }
         }
 
         private void LoadForm()

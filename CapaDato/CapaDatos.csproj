@@ -99,6 +99,7 @@
     <Compile Include="datModelo.cs" />
     <Compile Include="datServicio.cs" />
     <Compile Include="datTipoServicio.cs" />
+    <Compile Include="datUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

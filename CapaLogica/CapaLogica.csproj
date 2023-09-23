@@ -90,6 +90,7 @@
     <Compile Include="logModelo.cs" />
     <Compile Include="logServicio.cs" />
     <Compile Include="logTipoServicio.cs" />
+    <Compile Include="logUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
