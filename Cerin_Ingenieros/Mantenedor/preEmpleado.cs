@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,6 +20,8 @@ namespace Cerin_Ingenieros
         public preEmpleado()
         {
             InitializeComponent();
+            listarDatosComboBoxRol();
+            ConfigCabecera();
             deshablitar_entradas();
             deshablitar_btn();
             listarEmpleado();
@@ -95,9 +98,57 @@ namespace Cerin_Ingenieros
             deshablitar_btn();
         }
 
+        private void listarDatosComboBoxRol()
+        {
+            cmb_rol.ValueMember = "id_rol";
+            cmb_rol.DisplayMember = "nombre";
+            cmb_rol.DataSource = logRol.GetInstancia.listarRol();
+        }
+
+            private void ConfigCabecera()
+        {
+            dataGridView_empleados.Columns.AddRange(
+                new DataGridViewTextBoxColumn { HeaderText = "Código" },
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
+                new DataGridViewTextBoxColumn { HeaderText = "Apellido" },
+                new DataGridViewTextBoxColumn { HeaderText = "DNI" },
+                new DataGridViewTextBoxColumn { HeaderText = "Dirreccion" },
+                new DataGridViewTextBoxColumn { HeaderText = "Correo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Teléfono" },
+                new DataGridViewTextBoxColumn { HeaderText = "UserName" },
+                new DataGridViewTextBoxColumn { HeaderText = "Contraseña" },
+                new DataGridViewTextBoxColumn { HeaderText = "Rol" }
+            );
+
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_empleados.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
         private void listarEmpleado()
         {
-            dataGridView_empleados.DataSource = logEmpleado.GetInstancia.listarEmpleado();
+            List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
+            
+
+            dataGridView_empleados.Rows.Clear();
+
+            //insertar los datos 
+            foreach (var item in listaEmpleado)
+            {
+                entUsuario usuario = logUser.GetInstancia.buscarUsuario(item.IdEmpleado);
+                string nombreRol = logRol.GetInstancia.buscarRolId(usuario.id_rol).nombre;
+                dataGridView_empleados.Rows.Add(
+                    item.IdEmpleado,
+                    item.Nombre,
+                    item.Apellido,
+                    item.Dni,
+                    item.Direccion,
+                    item.Correo,
+                    item.Telefono,
+                    usuario.userName,
+                    usuario.password,
+                    nombreRol
+                );
+            }
         }
 
         private void dataGridView_empleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -142,6 +193,16 @@ namespace Cerin_Ingenieros
                     empleado.Telefono = txb_telefono_empleado.Text.Trim();
 
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
+
+                    entUsuario usuario = new entUsuario();
+
+                    usuario.userName = txb_userNamer.Text.Trim();
+                    usuario.password = txb_contraseña.Text;
+                    entRol rolSelec = (entRol)cmb_rol.SelectedItem;
+                    usuario.id_rol = rolSelec.id_rol;
+                    usuario.id_empleado = logEmpleado.GetInstancia.BuscarEmpleadoDNI(empleado.Dni).IdEmpleado;
+
+                    logUser.GetInstancia.insertarUsuario(usuario);
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -224,12 +285,6 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
         }
 
-        /// <summary>
-        /// Manejador de eventos que valida que soo se ingrese numeros 
-        /// </summary>
-        /// <param name="sender">De donde se desencadeno el evento</param>
-        /// <param name="e">Informacion del evento</param>
-
         private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -256,9 +311,7 @@ namespace Cerin_Ingenieros
                 {
                     MessageBox.Show("DNI no valida");
                 }
-            }
-
-            
+            }            
         }
     }
 }

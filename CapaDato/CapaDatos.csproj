@@ -97,6 +97,7 @@
     <Compile Include="datLogin.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="datModelo.cs" />
+    <Compile Include="datRol.cs" />
     <Compile Include="datServicio.cs" />
     <Compile Include="datTipoServicio.cs" />
     <Compile Include="datUser.cs" />
