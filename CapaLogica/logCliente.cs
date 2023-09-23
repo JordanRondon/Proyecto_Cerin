@@ -35,6 +35,8 @@ namespace CapaLogica
 
         public entCliente buscarClienteId(int id_cliente) => datCliente.GetInstancia.buscarClienteId(id_cliente);
 
+        public bool deshabilitarCliente(int id) => datCliente.GetInstancia.deshabilitarCliente(id);
+
         #endregion
     }
 }
