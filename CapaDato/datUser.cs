@@ -190,10 +190,10 @@ namespace CapaDato
                 cmd = new SqlCommand("ps_modificarUsuario", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
+                cmd.Parameters.AddWithValue("@id_usuario", usuario.id_usuario);
                 cmd.Parameters.AddWithValue("@nombre_usuario", usuario.userName);
                 cmd.Parameters.AddWithValue("@contraseña", usuario.password);
                 cmd.Parameters.AddWithValue("@id_rol", usuario.id_rol);
-                cmd.Parameters.AddWithValue("@id_empleado", usuario.id_empleado);
 
                 cn.Open();
 
