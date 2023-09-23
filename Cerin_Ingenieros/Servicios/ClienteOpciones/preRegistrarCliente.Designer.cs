@@ -49,6 +49,7 @@
             this.txb_dni_cliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBuscarRuc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes2)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxRegistrar.SuspendLayout();
@@ -73,7 +74,6 @@
             // 
             this.panel1.Controls.Add(this.btn_cancelar_registro);
             this.panel1.Controls.Add(this.btn_eliminar);
-            this.panel1.Controls.Add(this.btn_buscar);
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
@@ -85,7 +85,7 @@
             // btn_cancelar_registro
             // 
             this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar_registro.Location = new System.Drawing.Point(890, 9);
+            this.btn_cancelar_registro.Location = new System.Drawing.Point(789, 9);
             this.btn_cancelar_registro.Name = "btn_cancelar_registro";
             this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
             this.btn_cancelar_registro.TabIndex = 9;
@@ -96,7 +96,7 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(748, 10);
+            this.btn_eliminar.Location = new System.Drawing.Point(647, 10);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(90, 35);
             this.btn_eliminar.TabIndex = 8;
@@ -107,9 +107,9 @@
             // btn_buscar
             // 
             this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(384, 10);
+            this.btn_buscar.Location = new System.Drawing.Point(371, 39);
             this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(90, 35);
+            this.btn_buscar.Size = new System.Drawing.Size(90, 23);
             this.btn_buscar.TabIndex = 7;
             this.btn_buscar.Text = "Buscar";
             this.btn_buscar.UseVisualStyleBackColor = true;
@@ -118,7 +118,7 @@
             // btn_editar
             // 
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editar.Location = new System.Drawing.Point(626, 9);
+            this.btn_editar.Location = new System.Drawing.Point(525, 9);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(90, 35);
             this.btn_editar.TabIndex = 3;
@@ -129,7 +129,7 @@
             // btn_guardar
             // 
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_guardar.Location = new System.Drawing.Point(508, 9);
+            this.btn_guardar.Location = new System.Drawing.Point(407, 9);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(90, 35);
             this.btn_guardar.TabIndex = 1;
@@ -150,13 +150,15 @@
             // 
             // groupBoxRegistrar
             // 
+            this.groupBoxRegistrar.Controls.Add(this.btnBuscarRuc);
             this.groupBoxRegistrar.Controls.Add(this.txb_razonSocial_cliente);
             this.groupBoxRegistrar.Controls.Add(this.label6);
+            this.groupBoxRegistrar.Controls.Add(this.txb_nombre_cliente);
+            this.groupBoxRegistrar.Controls.Add(this.label2);
+            this.groupBoxRegistrar.Controls.Add(this.btn_buscar);
             this.groupBoxRegistrar.Controls.Add(this.txb_telefono_cliente);
             this.groupBoxRegistrar.Controls.Add(this.label5);
-            this.groupBoxRegistrar.Controls.Add(this.txb_nombre_cliente);
             this.groupBoxRegistrar.Controls.Add(this.txb_ruc_cliente);
-            this.groupBoxRegistrar.Controls.Add(this.label2);
             this.groupBoxRegistrar.Controls.Add(this.label4);
             this.groupBoxRegistrar.Controls.Add(this.txb_apellidos_cliente);
             this.groupBoxRegistrar.Controls.Add(this.txb_dni_cliente);
@@ -172,17 +174,19 @@
             // 
             // txb_razonSocial_cliente
             // 
+            this.txb_razonSocial_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_razonSocial_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_razonSocial_cliente.Location = new System.Drawing.Point(629, 124);
+            this.txb_razonSocial_cliente.Location = new System.Drawing.Point(629, 83);
             this.txb_razonSocial_cliente.Name = "txb_razonSocial_cliente";
             this.txb_razonSocial_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_razonSocial_cliente.TabIndex = 18;
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(538, 124);
+            this.label6.Location = new System.Drawing.Point(538, 83);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 17;
@@ -190,17 +194,19 @@
             // 
             // txb_telefono_cliente
             // 
+            this.txb_telefono_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_telefono_cliente.Location = new System.Drawing.Point(114, 124);
+            this.txb_telefono_cliente.Location = new System.Drawing.Point(629, 132);
             this.txb_telefono_cliente.Name = "txb_telefono_cliente";
             this.txb_telefono_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_telefono_cliente.TabIndex = 16;
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(24, 124);
+            this.label5.Location = new System.Drawing.Point(539, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 15;
@@ -209,13 +215,14 @@
             // txb_nombre_cliente
             // 
             this.txb_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_cliente.Location = new System.Drawing.Point(629, 83);
+            this.txb_nombre_cliente.Location = new System.Drawing.Point(115, 132);
             this.txb_nombre_cliente.Name = "txb_nombre_cliente";
             this.txb_nombre_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_nombre_cliente.TabIndex = 14;
             // 
             // txb_ruc_cliente
             // 
+            this.txb_ruc_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_ruc_cliente.Location = new System.Drawing.Point(629, 39);
             this.txb_ruc_cliente.Name = "txb_ruc_cliente";
@@ -226,7 +233,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(538, 83);
+            this.label2.Location = new System.Drawing.Point(24, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 12;
@@ -234,6 +241,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(539, 39);
@@ -278,6 +286,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI";
             // 
+            // btnBuscarRuc
+            // 
+            this.btnBuscarRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarRuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarRuc.Location = new System.Drawing.Point(889, 39);
+            this.btnBuscarRuc.Name = "btnBuscarRuc";
+            this.btnBuscarRuc.Size = new System.Drawing.Size(90, 23);
+            this.btnBuscarRuc.TabIndex = 19;
+            this.btnBuscarRuc.Text = "Buscar";
+            this.btnBuscarRuc.UseVisualStyleBackColor = true;
+            this.btnBuscarRuc.Click += new System.EventHandler(this.btnBuscarRuc_Click);
+            // 
             // preRegistrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -320,5 +340,6 @@
         private System.Windows.Forms.TextBox txb_dni_cliente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBuscarRuc;
     }
 }
