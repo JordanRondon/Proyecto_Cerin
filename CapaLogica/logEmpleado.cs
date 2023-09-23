@@ -26,10 +26,7 @@ namespace CapaLogica
 
         public entEmpleado BuscarEmpleadoId(int id) => datEmpleado.GetInstancia.BuscarEmpleadoId(id);
 
-<<<<<<< HEAD
         public entEmpleado BuscarEmpleadoDNI(string dni) => datEmpleado.GetInstancia.BuscarEmpleadoDNI(dni);
-=======
->>>>>>> 61fb956bcbeff1aa93f40b58b1ad08b10eb1fc43
         #endregion
     }
 }
