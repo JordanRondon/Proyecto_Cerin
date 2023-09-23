@@ -19,6 +19,7 @@ namespace Cerin_Ingenieros
         public preEmpleado()
         {
             InitializeComponent();
+            ConfigCabecera();
             deshablitar_entradas();
             deshablitar_btn();
             listarEmpleado();
@@ -95,9 +96,41 @@ namespace Cerin_Ingenieros
             deshablitar_btn();
         }
 
+        private void ConfigCabecera()
+        {
+            dataGridView_empleados.Columns.AddRange(
+                new DataGridViewTextBoxColumn { HeaderText = "Código" },
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
+                new DataGridViewTextBoxColumn { HeaderText = "Apellido" },
+                new DataGridViewTextBoxColumn { HeaderText = "DNI" },
+                new DataGridViewTextBoxColumn { HeaderText = "Dirreccion" },
+                new DataGridViewTextBoxColumn { HeaderText = "Correo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Teléfono" }
+            );
+
+            //desabilitar que se pueda ordenar por columnas
+            foreach (DataGridViewColumn column in dataGridView_empleados.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+
         private void listarEmpleado()
         {
-            dataGridView_empleados.DataSource = logEmpleado.GetInstancia.listarEmpleado();
+            List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
+
+            dataGridView_empleados.Rows.Clear();
+
+            //insertar los datos 
+            foreach (var item in listaEmpleado)
+            {
+                dataGridView_empleados.Rows.Add(
+                    item.IdEmpleado,
+                    item.Nombre,
+                    item.Apellido,
+                    item.Dni,
+                    item.Direccion,
+                    item.Correo,
+                    item.Telefono
+                );
+            }
         }
 
         private void dataGridView_empleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -224,12 +257,6 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
         }
 
-        /// <summary>
-        /// Manejador de eventos que valida que soo se ingrese numeros 
-        /// </summary>
-        /// <param name="sender">De donde se desencadeno el evento</param>
-        /// <param name="e">Informacion del evento</param>
-
         private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
@@ -256,9 +283,7 @@ namespace Cerin_Ingenieros
                 {
                     MessageBox.Show("DNI no valida");
                 }
-            }
-
-            
+            }            
         }
     }
 }
