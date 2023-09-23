@@ -122,44 +122,38 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             // verificar que la cadena tenga 8 caracteres, no esta vacia
-            if (txb_dni_cliente.Text.Length == 8 && txb_ruc_cliente.Text.Length == 11)
+            if (txb_dni_cliente.Text.Length == 8)
             {
                 datosCliente(txb_dni_cliente.Text.Trim());
-                datosRuc(txb_ruc_cliente.Text.Trim());
-            }
-            else if (txb_dni_cliente.Text.Length == 8 || txb_ruc_cliente.Text.Length == 11)
-            {
-                if (txb_dni_cliente.Text != null)
-                {
-                    datosCliente(txb_dni_cliente.Text.Trim());
-                }
-                if (txb_ruc_cliente.Text != null)
-                {
-                    datosRuc(txb_ruc_cliente.Text.Trim());
-                }
             }
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
+            bool band1 = (txb_apellidos_cliente.Text !="" && txb_nombre_cliente.Text !="" && txb_dni_cliente.Text!="") || (txb_razonSocial_cliente.Text != "" && txb_razonSocial_cliente.Text!="");
             bool band2 = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
             try
             {
                 if (band2)
                 {
-                    entCliente cliente = new entCliente();
+                    if (band1)
+                    {
+                        entCliente cliente = new entCliente();
 
-                    cliente.Nombre = txb_nombre_cliente.Text.Trim();
-                    cliente.Apellido = txb_apellidos_cliente.Text.Trim();
-                    cliente.Dni = txb_dni_cliente.Text.Trim();
-                    cliente.Ruc = txb_ruc_cliente.Text.Trim();
-                    cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
-                    cliente.Telefono = txb_telefono_cliente.Text.Trim();
+                        cliente.Nombre = txb_nombre_cliente.Text.Trim();
+                        cliente.Apellido = txb_apellidos_cliente.Text.Trim();
+                        cliente.Dni = txb_dni_cliente.Text.Trim();
+                        cliente.Ruc = txb_ruc_cliente.Text.Trim();
+                        cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
+                        cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
-                    logCliente.GetInstancia.insertarCliente(cliente);
+                        logCliente.GetInstancia.insertarCliente(cliente);
+                    }
+                    else
+                        MessageBox.Show("Casillas vacias", "Error");
                 }
-                else
-                    MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Valores ya registrados");
+                
             }
             catch (Exception ex)
             {
@@ -199,8 +193,29 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+
+            bool datosIngresados = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && txb_dni_cliente.Text != "");
+
+            try
+            {
+                if (id_Temporal>=0)
+                {
+                    logCliente.GetInstancia.deshabilitarCliente(id_Temporal);
+                }
+                else
+                {
+                    MessageBox.Show("Casilla vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+
+            ListarClientes();
             ConfiguracionInicial();
             LimpiarVariables();
+            id_Temporal = -1;
         }
 
         private void btn_cancelar_registro_Click(object sender, EventArgs e)
@@ -224,6 +239,14 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
                 txb_telefono_cliente.Text = filaActual.Cells[6].Value.ToString();
 
                 configEditar();
+            }
+        }
+
+        private void btnBuscarRuc_Click(object sender, EventArgs e)
+        {
+            if (txb_ruc_cliente.Text.Length == 11)
+            {
+                datosRuc(txb_ruc_cliente.Text.Trim());
             }
         }
     }

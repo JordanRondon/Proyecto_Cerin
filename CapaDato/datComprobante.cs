@@ -36,9 +36,9 @@ namespace CapaDato
             plantilla.Content.Find.Execute(FindText: "<codigo>", ReplaceWith: servicio.IdServicio);
             plantilla.Content.Find.Execute(FindText: "<Hora>", ReplaceWith: servicio.FechaRegistro.ToString("HH:mm:ss"));
             plantilla.Content.Find.Execute(FindText: "<Fecha>", ReplaceWith: servicio.FechaRegistro.Date.ToString("dd/MM/yyyy"));
-            if (cliente.Dni!="")
-                plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Dni);
-            else plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Ruc);
+            if (cliente.Ruc!="")
+                plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Ruc);
+            else plantilla.Content.Find.Execute(FindText: "<DNI o RUC>", ReplaceWith: cliente.Dni);
 
             if (cliente.Ruc != "")
                 plantilla.Content.Find.Execute(FindText: "<Cliente>", ReplaceWith: cliente.RazonSocial);
@@ -96,6 +96,25 @@ namespace CapaDato
                 plantilla.Content.Find.Execute(FindText: "<Preliminares>", ReplaceWith: equiposervicio.Observaciones_preliminares);
                 plantilla.Content.Find.Execute(FindText: "<Finales>", ReplaceWith: equiposervicio.observaciones_finales);
             }
+            ///////////////Verificar si esta terminado y generar fecha final
+            if (servicio.estado=='T')
+            {
+                if (servicio.FechaEntrega != null)
+                {
+                    DateTime fecha = (DateTime)servicio.FechaEntrega;
+                    plantilla.Content.Find.Execute(FindText: "<Hora_fin>", ReplaceWith: fecha.ToString("HH:mm:ss"));
+                    plantilla.Content.Find.Execute(FindText: "<Fecha_fin>", ReplaceWith: fecha.ToString("HH:mm:ss"));
+                }
+            }
+            else
+            {
+                plantilla.Content.Find.Execute(FindText: "<Hora_fin>", ReplaceWith: "________");
+                plantilla.Content.Find.Execute(FindText: "<Fecha_fin>", ReplaceWith: "________");
+
+            }
+            if (cliente.Ruc != "")
+                plantilla.Content.Find.Execute(FindText: "<Cliente_nombre>", ReplaceWith: cliente.RazonSocial);
+            else plantilla.Content.Find.Execute(FindText: "<Cliente_nombre>", ReplaceWith: cliente.Apellido + ", " + cliente.Nombre);
 
             // Guardar el documento Word como PDF
             string path2 = AppDomain.CurrentDomain.BaseDirectory;

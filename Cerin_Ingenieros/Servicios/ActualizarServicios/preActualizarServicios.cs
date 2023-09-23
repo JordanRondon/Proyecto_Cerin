@@ -196,13 +196,15 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     entCliente clienteSelecionado = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                     servicioActual.FechaEntrega = DateTime.Now;
                     servicioActual.estado = 'T';
+
+                    string file = logComprobante.GetInstancia.generarComprobante(servicioActual, clienteSelecionado, listaEquipos);
+
                     if (logServicio.GetInstancia.ActualizarEntregaServicio(servicioActual))
                     {
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
                         logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
                         limpiarEntradas();
                     }
-                    string file = logComprobante.GetInstancia.generarComprobante(servicioActual, clienteSelecionado, listaEquipos);
 
                     if (file != null)
                     {

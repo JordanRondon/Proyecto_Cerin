@@ -131,6 +131,36 @@ namespace CapaDato
             return edita;
         }
 
+        public bool deshabilitarCliente(int id)
+        {
+            SqlCommand cmd = null;
+            bool seElimino = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("sp_desHabilitarCliente", cn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_cliente", id);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    seElimino = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return seElimino;
+        }
+
         public List<entCliente> listarClienteDni(string dni)
         {
             SqlCommand cmd = null;
