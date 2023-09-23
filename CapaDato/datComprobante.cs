@@ -22,7 +22,7 @@ namespace CapaDato
         public static datComprobante GetInstancia => instancia;
         #endregion
 
-        public string generarComprobante(entServicio servicio, List<entEquipo_Servicio> listDet, entCliente cliente, List<entEquipo> equipos)
+        public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos)
         {
             entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorNombre("Comprobante");
 
