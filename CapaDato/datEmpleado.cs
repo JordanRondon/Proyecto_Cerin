@@ -43,6 +43,7 @@ namespace CapaDato
                     empleado.Direccion = Convert.ToString(dr["direccion"]);
                     empleado.Correo = Convert.ToString(dr["correo"]);
                     empleado.Telefono = Convert.ToString(dr["telefono"]);
+                    empleado.id_usuario = Convert.ToInt16(dr["id_usuario"]);
 
                     lista.Add(empleado);
                 }
@@ -74,6 +75,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@direccion", empleado.Direccion);
                 cmd.Parameters.AddWithValue("@correo", empleado.Correo);
                 cmd.Parameters.AddWithValue("@telefono", empleado.Telefono);
+                cmd.Parameters.AddWithValue("@id_usuario", empleado.id_usuario);
 
                 cn.Open();
 
@@ -231,6 +233,7 @@ namespace CapaDato
                     empleado.Direccion = Convert.ToString(dr["direccion"]);
                     empleado.Correo = Convert.ToString(dr["correo"]);
                     empleado.Telefono = Convert.ToString(dr["telefono"]);
+                    empleado.id_usuario = Convert.ToInt16(dr["id_usuario"]);
                 }
             }
             catch (Exception ex)

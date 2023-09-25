@@ -18,9 +18,9 @@ namespace CapaLogica
 
         public List<entUsuario> listarUsuarios() => datUser.GetInstancia.listarUsuarios();
 
-        public entUsuario buscarUsuario(int id_empleado) => datUser.GetInstancia.buscarUsuario(id_empleado);
+        public entUsuario buscarUsuario(int id_usuario) => datUser.GetInstancia.buscarUsuario(id_usuario);
 
-        public bool insertarUsuario(entUsuario usuario) => datUser.GetInstancia.insertarUsuario(usuario);
+        public int insertarUsuario(entUsuario usuario) => datUser.GetInstancia.insertarUsuario(usuario);
 
         public bool editarUsuario(entUsuario usuario) => datUser.GetInstancia.editarUsuario(usuario);
 

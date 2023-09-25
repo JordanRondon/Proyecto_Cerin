@@ -84,7 +84,6 @@ namespace CapaDato
                     usuario.password = Convert.ToString(dr["contraseña"]);
                     usuario.id_rol = Convert.ToInt32(dr["id_rol"]);
                     usuario.estado = Convert.ToChar(dr["estado"]);
-                    usuario.id_empleado = Convert.ToInt32(dr["id_empleado"]);
 
                     lista.Add(usuario);
                 }
@@ -98,7 +97,7 @@ namespace CapaDato
             return lista;
         }
 
-        public entUsuario buscarUsuario(int id_empleado)
+        public entUsuario buscarUsuario(int id_usuario)
         {
             SqlCommand cmd = null;
             entUsuario usuario = null;
@@ -110,7 +109,7 @@ namespace CapaDato
                 cmd = new SqlCommand("ps_obtenerUsuario", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id_empleado", id_empleado);
+                cmd.Parameters.AddWithValue("@id_usuario", id_usuario);
 
                 cn.Open();
 
@@ -125,7 +124,6 @@ namespace CapaDato
                     usuario.password = Convert.ToString(dr["contraseña"]);
                     usuario.id_rol = Convert.ToInt32(dr["id_rol"]);
                     usuario.estado = Convert.ToChar(dr["estado"]);
-                    usuario.id_empleado = Convert.ToInt32(dr["id_empleado"]);
                 }
             }
             catch (Exception ex)
@@ -144,10 +142,10 @@ namespace CapaDato
             return usuario;
         }
 
-        public bool insertarUsuario(entUsuario usuario)
+        public int insertarUsuario(entUsuario usuario)
         {
             SqlCommand cmd = null;
-            bool inserta = false;
+            int nuevoID = 0;
 
             try
             {
@@ -159,14 +157,19 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@nombre_usuario", usuario.userName);
                 cmd.Parameters.AddWithValue("@contraseña", usuario.password);
                 cmd.Parameters.AddWithValue("@id_rol", usuario.id_rol);
-                cmd.Parameters.AddWithValue("@id_empleado", usuario.id_empleado);
+
+                SqlParameter outputParameter = new SqlParameter("@NuevoID", SqlDbType.Int);
+                outputParameter.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(outputParameter);
 
                 cn.Open();
 
                 int i = cmd.ExecuteNonQuery();
-                if (i > 0)
+
+                // Verificar si se insertó correctamente y si se obtuvo un nuevo ID
+                if (i > 0 && outputParameter.Value != DBNull.Value)
                 {
-                    inserta = true;
+                    nuevoID = Convert.ToInt32(outputParameter.Value);
                 }
             }
             catch (Exception ex)
@@ -175,7 +178,7 @@ namespace CapaDato
             }
             finally { cmd.Connection.Close(); }
 
-            return inserta;
+            return nuevoID;
         }
 
         public bool editarUsuario(entUsuario usuario)

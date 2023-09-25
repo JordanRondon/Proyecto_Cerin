@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txb_direccion_empleado = new System.Windows.Forms.TextBox();
             this.txb_apellidos_empleado = new System.Windows.Forms.TextBox();
@@ -51,12 +53,12 @@
             this.dataGridView_empleados = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txb_userNamer = new System.Windows.Forms.TextBox();
+            this.cmb_rol = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.txb_contraseña = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmb_rol = new System.Windows.Forms.ComboBox();
+            this.txb_userNamer = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_empleados)).BeginInit();
@@ -306,11 +308,30 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_empleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_empleados.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_empleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_empleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_empleados.Location = new System.Drawing.Point(12, 355);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_empleados.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_empleados.EnableHeadersVisualStyles = false;
+            this.dataGridView_empleados.Location = new System.Drawing.Point(30, 355);
             this.dataGridView_empleados.Name = "dataGridView_empleados";
             this.dataGridView_empleados.RowHeadersVisible = false;
-            this.dataGridView_empleados.Size = new System.Drawing.Size(1154, 275);
+            this.dataGridView_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView_empleados.Size = new System.Drawing.Size(1116, 251);
             this.dataGridView_empleados.TabIndex = 2;
             this.dataGridView_empleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_empleados_CellDoubleClick);
             // 
@@ -327,6 +348,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.cmb_rol);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txb_contraseña);
@@ -341,25 +363,25 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "USUARIO";
             // 
-            // label8
+            // cmb_rol
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 43);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(85, 17);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "USERNAME";
+            this.cmb_rol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_rol.FormattingEnabled = true;
+            this.cmb_rol.Location = new System.Drawing.Point(151, 142);
+            this.cmb_rol.Name = "cmb_rol";
+            this.cmb_rol.Size = new System.Drawing.Size(241, 26);
+            this.cmb_rol.TabIndex = 16;
             // 
-            // txb_userNamer
+            // label10
             // 
-            this.txb_userNamer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txb_userNamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_userNamer.Location = new System.Drawing.Point(151, 40);
-            this.txb_userNamer.Name = "txb_userNamer";
-            this.txb_userNamer.Size = new System.Drawing.Size(241, 23);
-            this.txb_userNamer.TabIndex = 12;
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(32, 147);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 17);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "ROL";
             // 
             // txb_contraseña
             // 
@@ -381,24 +403,25 @@
             this.label9.TabIndex = 13;
             this.label9.Text = "CONTRASEÑA";
             // 
-            // label10
+            // txb_userNamer
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(32, 147);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(37, 17);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "ROL";
+            this.txb_userNamer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txb_userNamer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_userNamer.Location = new System.Drawing.Point(151, 40);
+            this.txb_userNamer.Name = "txb_userNamer";
+            this.txb_userNamer.Size = new System.Drawing.Size(241, 23);
+            this.txb_userNamer.TabIndex = 12;
             // 
-            // cmb_rol
+            // label8
             // 
-            this.cmb_rol.FormattingEnabled = true;
-            this.cmb_rol.Location = new System.Drawing.Point(151, 142);
-            this.cmb_rol.Name = "cmb_rol";
-            this.cmb_rol.Size = new System.Drawing.Size(241, 26);
-            this.cmb_rol.TabIndex = 16;
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(32, 43);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(85, 17);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "USERNAME";
             // 
             // preEmpleado
             // 

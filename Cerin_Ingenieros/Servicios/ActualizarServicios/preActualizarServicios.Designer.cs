@@ -53,6 +53,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -67,6 +69,8 @@
             this.groupBox1.Controls.Add(this.btn_Buscar);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txb_id_Servicio);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 6);
             this.groupBox1.Name = "groupBox1";
@@ -89,7 +93,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 61);
+            this.label1.Location = new System.Drawing.Point(44, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(140, 20);
             this.label1.TabIndex = 1;
@@ -97,9 +101,11 @@
             // 
             // txb_id_Servicio
             // 
-            this.txb_id_Servicio.Location = new System.Drawing.Point(22, 32);
+            this.txb_id_Servicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txb_id_Servicio.ForeColor = System.Drawing.Color.Red;
+            this.txb_id_Servicio.Location = new System.Drawing.Point(49, 36);
             this.txb_id_Servicio.Name = "txb_id_Servicio";
-            this.txb_id_Servicio.Size = new System.Drawing.Size(302, 26);
+            this.txb_id_Servicio.Size = new System.Drawing.Size(260, 19);
             this.txb_id_Servicio.TabIndex = 0;
             // 
             // panel1
@@ -328,9 +334,9 @@
             this.label7.Font = new System.Drawing.Font("Segoe UI Black", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(548, 54);
+            this.label7.Size = new System.Drawing.Size(477, 54);
             this.label7.TabIndex = 30;
-            this.label7.Text = "EQUIPOS A LABORATORIO";
+            this.label7.Text = "ACTUALIZAR SERVICIO";
             // 
             // panel4
             // 
@@ -343,6 +349,24 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(25, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 20);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "N°";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(289, 26);
+            this.textBox1.TabIndex = 39;
             // 
             // preActualizarServicios
             // 
@@ -396,5 +420,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

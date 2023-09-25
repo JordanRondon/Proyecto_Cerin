@@ -56,6 +56,7 @@ namespace Cerin_Ingenieros
             txb_userNamer.Enabled = true;
             txb_contraseña.Enabled = true;
             cmb_rol.Enabled = true;
+            cmb_rol.SelectedIndex = 0;
         }
 
         private void deshablitar_entradas()
@@ -147,7 +148,7 @@ namespace Cerin_Ingenieros
             //insertar los datos 
             foreach (var item in listaEmpleado)
             {
-                entUsuario usuario = logUser.GetInstancia.buscarUsuario(item.IdEmpleado);
+                entUsuario usuario = logUser.GetInstancia.buscarUsuario(item.id_usuario);
                 string nombreRol = logRol.GetInstancia.buscarRolId(usuario.id_rol).nombre;
                 dataGridView_empleados.Rows.Add(
                     item.IdEmpleado,
@@ -196,12 +197,22 @@ namespace Cerin_Ingenieros
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
-
+            bool datos_User = txb_userNamer.Text != "" && txb_contraseña.Text != "" && cmb_rol.SelectedIndex != -1;
             try
             {
 
-                if (datosIngresados == true)
+                if (datosIngresados && datos_User)
                 {
+
+                    entUsuario usuario = new entUsuario();
+
+                    usuario.userName = txb_userNamer.Text.Trim();
+                    usuario.password = txb_contraseña.Text;
+                    entRol rolSelec = (entRol)cmb_rol.SelectedItem;
+                    usuario.id_rol = rolSelec.id_rol;
+                    usuario.estado = 'A';
+                    usuario.id_usuario =  logUser.GetInstancia.insertarUsuario(usuario);
+
                     entEmpleado empleado = new entEmpleado();
 
                     empleado.Nombre = txb_nombres_empleado.Text.Trim();
@@ -210,18 +221,11 @@ namespace Cerin_Ingenieros
                     empleado.Direccion = txb_direccion_empleado.Text.Trim();
                     empleado.Correo = txb_correo_empleado.Text.Trim();
                     empleado.Telefono = txb_telefono_empleado.Text.Trim();
+                    empleado.id_usuario = usuario.id_usuario;
 
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
 
-                    entUsuario usuario = new entUsuario();
-
-                    usuario.userName = txb_userNamer.Text.Trim();
-                    usuario.password = txb_contraseña.Text;
-                    entRol rolSelec = (entRol)cmb_rol.SelectedItem;
-                    usuario.id_rol = rolSelec.id_rol;
-                    usuario.id_empleado = logEmpleado.GetInstancia.BuscarEmpleadoDNI(empleado.Dni).IdEmpleado;
-
-                    logUser.GetInstancia.insertarUsuario(usuario);
+                    
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -241,13 +245,14 @@ namespace Cerin_Ingenieros
         private void btn_editar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
+            bool datos_User = txb_userNamer.Text != "" && txb_contraseña.Text != "" && cmb_rol.SelectedIndex != -1;
 
             try
             {
-                if (datosIngresados == true && registroSeleccionado > -1)
+                if (datosIngresados && datos_User && registroSeleccionado > -1)
                 {
                     entEmpleado empleado = new entEmpleado();
-
+                    entUsuario usuario = new entUsuario();
                     empleado.IdEmpleado = registroSeleccionado;
                     empleado.Nombre = txb_nombres_empleado.Text.Trim();
                     empleado.Apellido = txb_apellidos_empleado.Text.Trim();
@@ -255,16 +260,17 @@ namespace Cerin_Ingenieros
                     empleado.Direccion = txb_direccion_empleado.Text.Trim();
                     empleado.Correo = txb_correo_empleado.Text.Trim();
                     empleado.Telefono = txb_telefono_empleado.Text.Trim();
-
+                    empleado.id_usuario = logEmpleado.GetInstancia.BuscarEmpleadoDNI(empleado.Dni).id_usuario;
                     logEmpleado.GetInstancia.editarEmpleado(empleado);
 
-                    entUsuario usuario = new entUsuario();
-                    usuario.id_usuario = logUser.GetInstancia.buscarUsuario(empleado.IdEmpleado).id_usuario;
+                    
+                    
                     usuario.userName = txb_userNamer.Text.Trim();
                     usuario.password = txb_contraseña.Text;
                     entRol rolSelec = (entRol)cmb_rol.SelectedItem;
                     usuario.id_rol = rolSelec.id_rol;
-                    usuario.id_empleado =empleado.IdEmpleado;
+                    usuario.estado = 'A';
+                    usuario.id_usuario = empleado.id_usuario;
 
                     logUser.GetInstancia.editarUsuario(usuario);
                 }
