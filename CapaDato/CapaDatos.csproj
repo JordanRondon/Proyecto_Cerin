@@ -87,6 +87,7 @@
     <Compile Include="datAccesorio.cs" />
     <Compile Include="datApi.cs" />
     <Compile Include="datCategoria.cs" />
+    <Compile Include="datCertificado.cs" />
     <Compile Include="datCliente.cs" />
     <Compile Include="datComprobante.cs" />
     <Compile Include="datDocumento.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="datServicio.cs" />
     <Compile Include="datTipoServicio.cs" />
     <Compile Include="datUser.cs" />
+    <Compile Include="logCertificado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

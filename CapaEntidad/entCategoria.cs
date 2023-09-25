@@ -11,5 +11,9 @@ namespace CapaEntidad
         public int id_categoria_equipo { get; set; }
 
         public string Nombre { get; set; }
+
+        public int id_documento { get; set; }
+
+        public int tiempo_certificado { get; set; }
     }
 }

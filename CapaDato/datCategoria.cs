@@ -103,6 +103,8 @@ namespace CapaDato
                     cat = new entCategoria();
                     cat.id_categoria_equipo = Convert.ToInt32(dr["id_categoria_equipo"]);
                     cat.Nombre = Convert.ToString(dr["nombre"]);
+                    cat.id_documento = Convert.ToInt32(dr["id_documento"]);
+                    cat.tiempo_certificado = Convert.ToInt32(dr["tiempo_certificado"]);
                 }
             }
             catch (Exception ex)

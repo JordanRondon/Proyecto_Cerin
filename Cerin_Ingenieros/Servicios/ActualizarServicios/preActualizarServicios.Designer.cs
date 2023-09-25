@@ -33,6 +33,8 @@
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txb_id_Servicio = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
@@ -53,8 +55,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -108,6 +110,24 @@
             this.txb_id_Servicio.Size = new System.Drawing.Size(260, 19);
             this.txb_id_Servicio.TabIndex = 0;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Red;
+            this.label4.Location = new System.Drawing.Point(25, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(25, 20);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "N°";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(21, 32);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(289, 26);
+            this.textBox1.TabIndex = 39;
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -153,6 +173,7 @@
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.Size = new System.Drawing.Size(1071, 176);
             this.dataGridView_equipos.TabIndex = 46;
+            this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
             // label_nombre_ruc_cliente
@@ -350,23 +371,19 @@
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
             // 
-            // label4
+            // dataGridViewImageColumn1
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(25, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(25, 20);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "N°";
+            this.dataGridViewImageColumn1.HeaderText = "Column1";
+            this.dataGridViewImageColumn1.Image = global::Cerin_Ingenieros.Properties.Resources.descagar2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             // 
-            // textBox1
+            // dataGridViewImageColumn2
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(289, 26);
-            this.textBox1.TabIndex = 39;
+            this.dataGridViewImageColumn2.HeaderText = "Cerificado";
+            this.dataGridViewImageColumn2.Image = global::Cerin_Ingenieros.Properties.Resources.agregar;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Visible = false;
             // 
             // preActualizarServicios
             // 
@@ -422,5 +439,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
     }
 }

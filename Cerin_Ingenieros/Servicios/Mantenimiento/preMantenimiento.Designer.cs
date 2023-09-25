@@ -42,7 +42,6 @@
             this.txb_razon_social = new System.Windows.Forms.TextBox();
             this.txb_ruc = new System.Windows.Forms.TextBox();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
             this.lb_telefono_cliente = new System.Windows.Forms.Label();
             this.lb_nombres_cliente = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.grb_observacionesFinales.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
@@ -263,17 +263,6 @@
             this.btn_slect_cliente.UseVisualStyleBackColor = false;
             this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
             // 
-            // lb_dni_ruc_cliente
-            // 
-            this.lb_dni_ruc_cliente.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_dni_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dni_ruc_cliente.Location = new System.Drawing.Point(35, 109);
-            this.lb_dni_ruc_cliente.Name = "lb_dni_ruc_cliente";
-            this.lb_dni_ruc_cliente.Size = new System.Drawing.Size(280, 20);
-            this.lb_dni_ruc_cliente.TabIndex = 26;
-            this.lb_dni_ruc_cliente.Text = "DNI";
-            this.lb_dni_ruc_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lb_apellidos_cliente
             // 
             this.lb_apellidos_cliente.BackColor = System.Drawing.SystemColors.Control;
@@ -428,6 +417,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1180, 641);
             this.panel2.TabIndex = 31;
+            // 
+            // lb_dni_ruc_cliente
+            // 
+            this.lb_dni_ruc_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_dni_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dni_ruc_cliente.Location = new System.Drawing.Point(35, 109);
+            this.lb_dni_ruc_cliente.Name = "lb_dni_ruc_cliente";
+            this.lb_dni_ruc_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_dni_ruc_cliente.TabIndex = 26;
+            this.lb_dni_ruc_cliente.Text = "DNI";
+            this.lb_dni_ruc_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // preMantenimiento
             // 
