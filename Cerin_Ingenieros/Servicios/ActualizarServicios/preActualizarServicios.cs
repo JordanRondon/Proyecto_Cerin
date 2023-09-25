@@ -1,4 +1,5 @@
-﻿using CapaEntidad;
+﻿using CapaDato;
+using CapaEntidad;
 using CapaLogica;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +19,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
     {
         private entServicio servicioActual = new entServicio();
         private entEquipo_Servicio equipoServicio = new entEquipo_Servicio();
+
         public preActualizarServicios()
         {
             InitializeComponent();
@@ -87,7 +90,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 new DataGridViewTextBoxColumn { HeaderText = "Serie" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" },
+                new DataGridViewTextBoxColumn { HeaderText = "Cerificado" }
             );
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -105,13 +109,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void listarEquipos(int id_servicio)
         {
             List<entEquipo> listaEquipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(id_servicio);
-            
+
             dataGridView_equipos.Rows.Clear();
 
             //insertar los datos 
             foreach (var item in listaEquipos)
             {
-                string estado;
+                string estado,certificado = "Descagar";
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
@@ -121,7 +125,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     item.SerieEquipo,
                     modelo.nombre,
                     estado,
-                    marca.Nombre
+                    marca.Nombre,
+                    certificado
                 );
             }
         }
@@ -232,6 +237,18 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             txb_Recomendaciones.Enabled = true;
             btn_agregarRecomendacion.Enabled = true;
             btn_editarRecomendacion.Enabled = false;
+        }
+
+        private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
+            {
+                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+
+                logCertificado.GetInstancia.GenerarCerificado(equipo,DateTime.Now);
+            }
         }
     }
 }

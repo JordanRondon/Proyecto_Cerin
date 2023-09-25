@@ -263,13 +263,7 @@ namespace Cerin_Ingenieros.Servicios
 
                 string file = logComprobante.GetInstancia.generarComprobante(servicio, clienteSelecionado,equiposSelecionados);
 
-                if (file!=null)
-                {
-                    //preViewCertificado preView = new preViewCertificado(file);
-                    //preView.Show();
-
-                    Process.Start(file);
-                }                
+                               
 
                 prosesoCancelado = true;
                 clienteSelecionado = null;
@@ -285,6 +279,14 @@ namespace Cerin_Ingenieros.Servicios
 
                 listarEquipos();
                 ConfiguracionInicial();
+
+                if (file != null)
+                {
+                    //preViewCertificado preView = new preViewCertificado(file);
+                    //preView.Show();
+
+                    Process.Start(file);
+                }
             }
             else
             {
