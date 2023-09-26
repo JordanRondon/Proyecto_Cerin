@@ -115,6 +115,8 @@ namespace Cerin_Ingenieros.Servicios
             lb_nombres_cliente.Text = "Nombres";
             lb_apellidos_cliente.Text = "Apellidos";
             lb_telefono_cliente.Text = "Telefono";
+            txb_ruc.Text = "RUC";
+            txb_razon_social.Text = "Razon Social";
 
             btn_slect_cliente.Enabled = false;
             btn_agregar_equipo.Enabled = false;

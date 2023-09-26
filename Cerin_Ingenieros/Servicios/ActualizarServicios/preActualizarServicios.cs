@@ -28,6 +28,10 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             dataGridView_equipos.ReadOnly = true;
             dataGridView_Accesorios.ReadOnly = true;
             grb_observacionesFinales.Enabled = false;
+
+            //Configuracion de fecha y hora
+            lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbFecha.Text = DateTime.Now.ToLongDateString();
         }
 
         private void limpiarTablas()
@@ -51,37 +55,40 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void btn_Buscar_Click(object sender, EventArgs e)
         {
-            servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
-            equipoServicio = null;
-            grb_observacionesFinales.Enabled = false;
-            txb_Recomendaciones.Text = "";
-
-            entCliente cliente = new entCliente();
-            entTipoServicio tipoServicio = new entTipoServicio();
-
-            limpiarTablas();
-
-            if (txb_id_Servicio.Text != "" && servicioActual != null)
+            if (txb_id_Servicio.Text != "")
             {
-                if (servicioActual.FechaEntrega == null)
+                servicioActual = logServicio.GetInstancia.buscarServicio(Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+                equipoServicio = null;
+                grb_observacionesFinales.Enabled = false;
+                txb_Recomendaciones.Text = "";
+
+                entCliente cliente = new entCliente();
+                entTipoServicio tipoServicio = new entTipoServicio();
+
+                limpiarTablas();
+
+                if (txb_id_Servicio.Text != "" && servicioActual != null)
                 {
-                    //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
-                    txb_id_Servicio.Enabled = false;
+                    if (servicioActual.FechaEntrega == null)
+                    {
+                        //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
+                        txb_id_Servicio.Enabled = false;
 
-                    cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
-                    tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
-                    if (cliente.Nombre != "")
-                        label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
-                    else
-                        label_nombre_ruc_cliente.Text = cliente.RazonSocial;
+                        cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
+                        tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
+                        if (cliente.Nombre != "")
+                            label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
+                        else
+                            label_nombre_ruc_cliente.Text = cliente.RazonSocial;
 
-                    label_tipo_Servicio.Text = tipoServicio.Nombre;
-                    listarEquipos(servicioActual.IdServicio);
+                        label_tipo_Servicio.Text = tipoServicio.Nombre;
+                        listarEquipos(servicioActual.IdServicio);
+                    }
+                    else MessageBox.Show("Proceso terminado");
                 }
-                else MessageBox.Show("Proceso terminado");
+                else
+                    MessageBox.Show("Código de Servicio inexistente");
             }
-            else
-                MessageBox.Show("Código de Servicio inexistente");
         }
 
         private void ConfigCabecera()

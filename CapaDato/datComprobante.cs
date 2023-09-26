@@ -103,7 +103,7 @@ namespace CapaDato
                 {
                     DateTime fecha = (DateTime)servicio.FechaEntrega;
                     plantilla.Content.Find.Execute(FindText: "<Hora_fin>", ReplaceWith: fecha.ToString("HH:mm:ss"));
-                    plantilla.Content.Find.Execute(FindText: "<Fecha_fin>", ReplaceWith: fecha.ToString("HH:mm:ss"));
+                    plantilla.Content.Find.Execute(FindText: "<Fecha_fin>", ReplaceWith: fecha.Date.ToString("dd/MM/yyyy"));
                 }
             }
             else

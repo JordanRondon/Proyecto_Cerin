@@ -20,6 +20,7 @@ namespace Cerin_Ingenieros.Consultas
     {
         private entCliente clienteSelecionado = null;
         private int id_servicio = -1;
+        private entServicio servicioSelect = null;
 
         public preClienteServicio()
         {
@@ -195,9 +196,8 @@ namespace Cerin_Ingenieros.Consultas
                     lb_nombre_razonSocial.Text = clienteSelecionado.RazonSocial.ToString();
                     lb_dni_ruc.Text = clienteSelecionado.Ruc.ToString();
                 }
+                listarServicios();
             }
-            else MessageBox.Show("Cliente no exite");
-            listarServicios();
         }
 
         private void dataGridView_servicios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -209,8 +209,9 @@ namespace Cerin_Ingenieros.Consultas
 
                 DataGridViewRow filaActual = dataGridView_servicios.Rows[e.RowIndex];
                 id_servicio = int.Parse(filaActual.Cells[0].Value.ToString());
-                
-                int idEmpleado = logServicio.GetInstancia.buscarServicio(id_servicio).IdEmpleado;
+
+                servicioSelect = logServicio.GetInstancia.buscarServicio(id_servicio);
+                int idEmpleado = servicioSelect.IdEmpleado;
                 entEmpleado empleado = logEmpleado.GetInstancia.BuscarEmpleadoId(idEmpleado);
                 lb_nombreEmpleado.Text = empleado.Nombre + ' ' + empleado.Apellido;
 
@@ -235,7 +236,8 @@ namespace Cerin_Ingenieros.Consultas
 
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
+            entTipoServicio tiposervicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioSelect.IdTipoServicio);
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0 && servicioSelect.estado=='T' && tiposervicio.Nombre!="ALQUILER")
             {
                 string ruta=null;
                 using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
@@ -252,18 +254,16 @@ namespace Cerin_Ingenieros.Consultas
                     DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
                     string serieEquipo = Convert.ToString(filaActual.Cells[1].Value.ToString());
                     entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+                    DateTime date = servicioSelect.FechaRegistro;
 
 
                     string nombreDocumento = serieEquipo+".docx"; // Cambia esto al nombre que desees
                     string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
-                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, rutaCompleta);
 
                     if (path != null)
                     {
-                        //preViewCertificado preView = new preViewCertificado(file);
-                        //preView.Show();
-
                         Process.Start(path);
                     }
                 }
@@ -272,9 +272,14 @@ namespace Cerin_Ingenieros.Consultas
                     MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                
 
-                
+
+
+            }
+            else
+            {
+                if (tiposervicio.Nombre == "ALQUILER" && e.ColumnIndex == 5) MessageBox.Show("No se puede, el servicio es de alquiler");
+                else if (servicioSelect.estado != 'T' && e.ColumnIndex == 5) MessageBox.Show("El servicio aun no termina");
             }
         }
     }

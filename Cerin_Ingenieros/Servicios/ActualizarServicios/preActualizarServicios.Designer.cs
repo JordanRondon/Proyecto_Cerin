@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -74,7 +78,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 6);
+            this.groupBox1.Location = new System.Drawing.Point(60, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(466, 90);
             this.groupBox1.TabIndex = 35;
@@ -105,16 +109,17 @@
             // 
             this.txb_id_Servicio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txb_id_Servicio.ForeColor = System.Drawing.Color.Red;
-            this.txb_id_Servicio.Location = new System.Drawing.Point(49, 36);
+            this.txb_id_Servicio.Location = new System.Drawing.Point(49, 35);
+            this.txb_id_Servicio.Multiline = true;
             this.txb_id_Servicio.Name = "txb_id_Servicio";
-            this.txb_id_Servicio.Size = new System.Drawing.Size(260, 19);
+            this.txb_id_Servicio.Size = new System.Drawing.Size(260, 20);
             this.txb_id_Servicio.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.Red;
-            this.label4.Location = new System.Drawing.Point(25, 35);
+            this.label4.Location = new System.Drawing.Point(24, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(25, 20);
             this.label4.TabIndex = 38;
@@ -167,10 +172,29 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_equipos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_equipos.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_equipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_equipos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView_equipos.EnableHeadersVisualStyles = false;
             this.dataGridView_equipos.Location = new System.Drawing.Point(48, 43);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
             this.dataGridView_equipos.RowHeadersVisible = false;
+            this.dataGridView_equipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_equipos.Size = new System.Drawing.Size(1071, 176);
             this.dataGridView_equipos.TabIndex = 46;
             this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
@@ -226,7 +250,7 @@
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_observacionesFinales.Location = new System.Drawing.Point(431, 266);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(632, 179);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(688, 179);
             this.grb_observacionesFinales.TabIndex = 43;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
@@ -235,7 +259,7 @@
             // 
             this.btn_editarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(513, 138);
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(569, 138);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
             this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_editarRecomendacion.TabIndex = 42;
@@ -251,14 +275,14 @@
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(466, 141);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(522, 141);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(513, 32);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(569, 32);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -274,7 +298,25 @@
             this.dataGridView_Accesorios.AllowUserToResizeRows = false;
             this.dataGridView_Accesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Accesorios.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
             this.dataGridView_Accesorios.Location = new System.Drawing.Point(48, 277);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.RowHeadersVisible = false;
@@ -283,9 +325,9 @@
             // 
             // btn_FinalizarServicio
             // 
-            this.btn_FinalizarServicio.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_FinalizarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_FinalizarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FinalizarServicio.Location = new System.Drawing.Point(77, 594);
+            this.btn_FinalizarServicio.Location = new System.Drawing.Point(60, 594);
             this.btn_FinalizarServicio.Name = "btn_FinalizarServicio";
             this.btn_FinalizarServicio.Size = new System.Drawing.Size(95, 35);
             this.btn_FinalizarServicio.TabIndex = 39;
@@ -295,9 +337,9 @@
             // 
             // btn_Cancelar
             // 
-            this.btn_Cancelar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.Location = new System.Drawing.Point(1027, 594);
+            this.btn_Cancelar.Location = new System.Drawing.Point(1036, 594);
             this.btn_Cancelar.Name = "btn_Cancelar";
             this.btn_Cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_Cancelar.TabIndex = 38;

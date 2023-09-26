@@ -37,17 +37,20 @@
             // 
             // btnSeleciionarCliente
             // 
+            this.btnSeleciionarCliente.BackColor = System.Drawing.Color.White;
+            this.btnSeleciionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleciionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeleciionarCliente.Location = new System.Drawing.Point(0, 0);
             this.btnSeleciionarCliente.Name = "btnSeleciionarCliente";
             this.btnSeleciionarCliente.Size = new System.Drawing.Size(230, 35);
             this.btnSeleciionarCliente.TabIndex = 35;
             this.btnSeleciionarCliente.Text = "SELECIONAR CLIENTE";
-            this.btnSeleciionarCliente.UseVisualStyleBackColor = true;
+            this.btnSeleciionarCliente.UseVisualStyleBackColor = false;
             this.btnSeleciionarCliente.Click += new System.EventHandler(this.btnSeleciionarCliente_Click);
             // 
             // btnRegistraCliente
             // 
+            this.btnRegistraCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistraCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistraCliente.Location = new System.Drawing.Point(228, 0);
             this.btnRegistraCliente.Name = "btnRegistraCliente";

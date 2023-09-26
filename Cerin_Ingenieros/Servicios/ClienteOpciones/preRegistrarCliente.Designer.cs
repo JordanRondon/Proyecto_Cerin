@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClientes2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_cancelar_registro = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.btn_buscar = new System.Windows.Forms.Button();
             this.groupBoxRegistrar = new System.Windows.Forms.GroupBox();
+            this.btnBuscarRuc = new System.Windows.Forms.Button();
             this.txb_razonSocial_cliente = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.txb_nombre_cliente = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txb_telefono_cliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txb_nombre_cliente = new System.Windows.Forms.TextBox();
             this.txb_ruc_cliente = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txb_apellidos_cliente = new System.Windows.Forms.TextBox();
             this.txb_dni_cliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscarRuc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes2)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxRegistrar.SuspendLayout();
@@ -62,11 +64,29 @@
             this.dgvClientes2.AllowUserToResizeColumns = false;
             this.dgvClientes2.AllowUserToResizeRows = false;
             this.dgvClientes2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClientes2.EnableHeadersVisualStyles = false;
             this.dgvClientes2.Location = new System.Drawing.Point(66, 305);
             this.dgvClientes2.Name = "dgvClientes2";
             this.dgvClientes2.RowHeadersVisible = false;
-            this.dgvClientes2.Size = new System.Drawing.Size(1047, 232);
+            this.dgvClientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes2.Size = new System.Drawing.Size(1047, 287);
             this.dgvClientes2.TabIndex = 39;
             this.dgvClientes2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes2_CellContentDoubleClick);
             // 
@@ -104,17 +124,6 @@
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(371, 39);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(90, 23);
-            this.btn_buscar.TabIndex = 7;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
-            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            // 
             // btn_editar
             // 
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -148,6 +157,17 @@
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
+            // btn_buscar
+            // 
+            this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.Location = new System.Drawing.Point(371, 39);
+            this.btn_buscar.Name = "btn_buscar";
+            this.btn_buscar.Size = new System.Drawing.Size(90, 23);
+            this.btn_buscar.TabIndex = 7;
+            this.btn_buscar.Text = "Buscar";
+            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
+            // 
             // groupBoxRegistrar
             // 
             this.groupBoxRegistrar.Controls.Add(this.btnBuscarRuc);
@@ -172,6 +192,18 @@
             this.groupBoxRegistrar.TabStop = false;
             this.groupBoxRegistrar.Text = "DATOS CLIENTE";
             // 
+            // btnBuscarRuc
+            // 
+            this.btnBuscarRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarRuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarRuc.Location = new System.Drawing.Point(889, 39);
+            this.btnBuscarRuc.Name = "btnBuscarRuc";
+            this.btnBuscarRuc.Size = new System.Drawing.Size(90, 23);
+            this.btnBuscarRuc.TabIndex = 19;
+            this.btnBuscarRuc.Text = "Buscar";
+            this.btnBuscarRuc.UseVisualStyleBackColor = true;
+            this.btnBuscarRuc.Click += new System.EventHandler(this.btnBuscarRuc_Click);
+            // 
             // txb_razonSocial_cliente
             // 
             this.txb_razonSocial_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -191,6 +223,24 @@
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 17;
             this.label6.Text = "Razon Social";
+            // 
+            // txb_nombre_cliente
+            // 
+            this.txb_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_nombre_cliente.Location = new System.Drawing.Point(115, 132);
+            this.txb_nombre_cliente.Name = "txb_nombre_cliente";
+            this.txb_nombre_cliente.Size = new System.Drawing.Size(241, 23);
+            this.txb_nombre_cliente.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 132);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 17);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Nombres";
             // 
             // txb_telefono_cliente
             // 
@@ -212,14 +262,6 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Telefono";
             // 
-            // txb_nombre_cliente
-            // 
-            this.txb_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_cliente.Location = new System.Drawing.Point(115, 132);
-            this.txb_nombre_cliente.Name = "txb_nombre_cliente";
-            this.txb_nombre_cliente.Size = new System.Drawing.Size(241, 23);
-            this.txb_nombre_cliente.TabIndex = 14;
-            // 
             // txb_ruc_cliente
             // 
             this.txb_ruc_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -228,16 +270,6 @@
             this.txb_ruc_cliente.Name = "txb_ruc_cliente";
             this.txb_ruc_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_ruc_cliente.TabIndex = 13;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 132);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Nombres";
             // 
             // label4
             // 
@@ -285,18 +317,6 @@
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "DNI";
-            // 
-            // btnBuscarRuc
-            // 
-            this.btnBuscarRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBuscarRuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarRuc.Location = new System.Drawing.Point(889, 39);
-            this.btnBuscarRuc.Name = "btnBuscarRuc";
-            this.btnBuscarRuc.Size = new System.Drawing.Size(90, 23);
-            this.btnBuscarRuc.TabIndex = 19;
-            this.btnBuscarRuc.Text = "Buscar";
-            this.btnBuscarRuc.UseVisualStyleBackColor = true;
-            this.btnBuscarRuc.Click += new System.EventHandler(this.btnBuscarRuc_Click);
             // 
             // preRegistrarCliente
             // 
