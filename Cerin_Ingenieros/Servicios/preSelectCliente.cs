@@ -2,6 +2,7 @@
 using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.Servicios.ClienteOpciones;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,7 @@ namespace Cerin_Ingenieros.Servicios
         {
             InitializeComponent();
             AbrirFormHijo(new preSeleccionarCliente());
+            btnSeleciionarCliente.BackColor = Color.White;
         }
 
         private void btnSeleciionarCliente_Click(object sender, EventArgs e)
@@ -34,7 +36,10 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btnRegistraCliente_Click(object sender, EventArgs e)
         {
+            btnSeleciionarCliente.BackColor = Color.WhiteSmoke;
+            btnRegistraCliente.BackColor= Color.White;
             AbrirFormHijo(new preRegistrarCliente());
+            
         }
 
         private void AbrirFormHijo(Form formHijo)

@@ -26,9 +26,17 @@ namespace Cerin_Ingenieros.Servicios
         public preMantenimiento()
         {
             InitializeComponent();
-            inicializarVariablesAux();
+            ConfiguracionInicial();
             ConfigCabecera();
             listarDatosComboBoxEmpleados();
+
+            //reiniciar variables
+            prosesoCancelado = true;
+            clienteSelecionado = null;
+            equiposSelecionados.Clear();
+            list_det_equipo_servicio.Clear();
+            equiposSelecionados.Clear();
+            equipoSelecionado = "";
         }
         private void listarDatosComboBoxEmpleados()
         {
@@ -94,24 +102,34 @@ namespace Cerin_Ingenieros.Servicios
 
             dataGridView_lista_quipos.Rows.Clear();
         }
-        private void inicializarVariablesAux()
+        private void ConfiguracionInicial()
         {
             //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
 
             //Configuracion inicial
-            groupBox2.Enabled = false;
-            groupBox3.Enabled = false;
-
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
+            //btn_editar.Enabled = false;
+            btn_Delete.Enabled = false;
+            btn_cancelarObservacion.Enabled = false;
 
             lb_dni_ruc_cliente.Text = "DNI";
             lb_nombres_cliente.Text = "Nombres";
             lb_apellidos_cliente.Text = "Apellidos";
             lb_telefono_cliente.Text = "Telefono";
+            txb_ruc.Text = "RUC";
+            txb_razon_social.Text = "Razon Social";
+
+            btn_slect_cliente.Enabled = false;
+            btn_agregar_equipo.Enabled = false;
+            comboBox_empleado.Enabled = false;
+            dataGridView_lista_quipos.Enabled = false;
+            dataGridView_Accesorios.Enabled = false;
+            txb_Recomendaciones.Enabled = false;
+            btn_agregarRecomendacion.Enabled = false;
 
             LimpiarObservaciones();
             dataGridView_Accesorios.Enabled = false;
@@ -174,14 +192,16 @@ namespace Cerin_Ingenieros.Servicios
             prosesoCancelado = true;
             ActualizarEstadosEquipos();
             listarEquipos();
-            inicializarVariablesAux();
+            ConfiguracionInicial();
             LimpiarDGV();
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            groupBox2.Enabled = true;
-            groupBox3.Enabled = true;
+            btn_slect_cliente.Enabled = true;
+            btn_agregar_equipo.Enabled = true;
+            comboBox_empleado.Enabled = true;
+            dataGridView_lista_quipos.Enabled = true;
 
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
@@ -240,7 +260,7 @@ namespace Cerin_Ingenieros.Servicios
                 lb_nombres_cliente.Text = "Nombres";
                 lb_telefono_cliente.Text = "Telefono";
 
-                inicializarVariablesAux();
+                ConfiguracionInicial();
                 listarEquipos();
             }
             else

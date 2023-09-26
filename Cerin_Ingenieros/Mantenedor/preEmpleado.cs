@@ -134,6 +134,8 @@ namespace Cerin_Ingenieros
                 new DataGridViewTextBoxColumn { HeaderText = "Rol" }
             );
 
+            dataGridView_empleados.Columns[0].Width = 60;
+
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_empleados.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
