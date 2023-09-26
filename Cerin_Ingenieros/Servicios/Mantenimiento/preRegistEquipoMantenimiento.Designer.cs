@@ -48,6 +48,8 @@
             this.dgvListaDeEquipoClientes = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,8 +61,7 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
-            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -205,20 +206,20 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, -2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1152, 600);
+            this.tabControl1.Size = new System.Drawing.Size(1164, 603);
             this.tabControl1.TabIndex = 41;
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.Color.White;
             this.tabPage1.Controls.Add(this.groupBoxAccesorios);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.panel1);
@@ -229,10 +230,9 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1144, 563);
+            this.tabPage1.Size = new System.Drawing.Size(1156, 566);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "    Selecionar equipo";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Text = "SELECIONAR EQUIPO";
             // 
             // groupBoxAccesorios
             // 
@@ -247,15 +247,18 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(982, 16);
+            this.button3.Location = new System.Drawing.Point(1040, 6);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 35);
             this.button3.TabIndex = 32;
-            this.button3.Text = "Cancelar";
+            this.button3.Text = "Cerrar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.Controls.Add(this.btnClose);
             this.tabPage2.Controls.Add(this.dgvListaDeEquipoClientes);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.groupBox1);
@@ -263,10 +266,9 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1144, 563);
+            this.tabPage2.Size = new System.Drawing.Size(1156, 566);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Registrar equipo";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Text = "REGISTRAR EQUIPO";
             // 
             // dgvListaDeEquipoClientes
             // 
@@ -309,6 +311,32 @@
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CARACTERISTICAS DE EQUIPO";
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Items.AddRange(new object[] {
+            "Trimble",
+            "Riegl",
+            "Pentax",
+            "Geoslam",
+            "DJI Enterprise",
+            "Spectra Precision"});
+            this.comboBoxCategoria.Location = new System.Drawing.Point(839, 75);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
+            this.comboBoxCategoria.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(836, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Categoria";
             // 
             // comboBox_modelo
             // 
@@ -421,31 +449,16 @@
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
-            // comboBoxCategoria
+            // btnClose
             // 
-            this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Items.AddRange(new object[] {
-            "Trimble",
-            "Riegl",
-            "Pentax",
-            "Geoslam",
-            "DJI Enterprise",
-            "Spectra Precision"});
-            this.comboBoxCategoria.Location = new System.Drawing.Point(839, 75);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
-            this.comboBoxCategoria.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(836, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Categoria";
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1043, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(95, 35);
+            this.btnClose.TabIndex = 33;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // preRegistEquipoMantenimiento
             // 
@@ -454,6 +467,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1164, 603);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preRegistEquipoMantenimiento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "preRegistEquipoMantenimiento";
@@ -511,5 +525,6 @@
         private System.Windows.Forms.ComboBox comboBox_modelo;
         private System.Windows.Forms.ComboBox comboBoxCategoria;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnClose;
     }
 }

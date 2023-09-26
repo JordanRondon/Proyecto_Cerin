@@ -249,5 +249,10 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
                 datosRuc(txb_ruc_cliente.Text.Trim());
             }
         }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
