@@ -18,7 +18,7 @@ namespace CapaDato
         public static datCertificado GetInstancia => instancia;
         #endregion
 
-        public string GenerarCertificado(entEquipo equipo, DateTime fecha)
+        public string GenerarCertificado(entEquipo equipo, DateTime fecha,string src)
         {
             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
             entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId(categoria.id_documento); ;
@@ -29,12 +29,22 @@ namespace CapaDato
             if (doc != null)
             {
                 //guardamos certificado
+                if (src=="")
+                {
+                    if (!Directory.Exists(folder))
+                        Directory.CreateDirectory(folder);
+                    if (File.Exists(fullFilePah))
+                        File.Delete(fullFilePah);
+                    File.WriteAllBytes(fullFilePah, doc.Doc);
+                }
+                else
+                {
+                    if(File.Exists(fullFilePah))
+                        File.Delete(fullFilePah);
+                    File.WriteAllBytes(src,doc.Doc);
+                    fullFilePah = src;
+                }
                 
-                if (!Directory.Exists(folder))
-                    Directory.CreateDirectory(folder);
-                if (File.Exists(fullFilePah))
-                    File.Delete(fullFilePah);
-                File.WriteAllBytes(fullFilePah, doc.Doc);
 
                 // Cargar plantilla de Word
                 Word.Application wordApp = new Word.Application();
@@ -50,7 +60,7 @@ namespace CapaDato
                     plantilla.Content.Find.Execute(FindText: "<Modelo>", ReplaceWith: modelo.nombre);
                     plantilla.Content.Find.Execute(FindText: "<Serie>", ReplaceWith: equipo.SerieEquipo);
                     plantilla.Content.Find.Execute(FindText: "<Fecha>", ReplaceWith: fecha.Date.ToString("dd/MM/yyyy"));
-                    plantilla.Save();
+                    //plantilla.Save();
                     plantilla.Content.Find.Execute(FindText: "<Fin>", ReplaceWith: fin.Date.ToString("dd/MM/yyyy"));
                     plantilla.Save();
                 }

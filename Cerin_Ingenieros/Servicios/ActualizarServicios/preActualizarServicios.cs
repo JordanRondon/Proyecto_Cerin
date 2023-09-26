@@ -247,7 +247,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
 
-                logCertificado.GetInstancia.GenerarCerificado(equipo,DateTime.Now);
+                logCertificado.GetInstancia.GenerarCerificado(equipo,DateTime.Now,"");
             }
         }
     }

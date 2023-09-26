@@ -258,6 +258,7 @@
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.Size = new System.Drawing.Size(735, 122);
             this.dataGridView_equipos.TabIndex = 46;
+            this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
             // dataGridView_Accesorios

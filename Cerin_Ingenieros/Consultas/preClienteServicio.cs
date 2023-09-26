@@ -1,11 +1,14 @@
-﻿using CapaEntidad;
+﻿using CapaDato;
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,8 +61,10 @@ namespace Cerin_Ingenieros.Consultas
                 new DataGridViewTextBoxColumn { HeaderText = "Fecha de Registro" },
                 new DataGridViewTextBoxColumn { HeaderText = "Fecha de Entrega" },
                 new DataGridViewTextBoxColumn { HeaderText = "Tipo Servicio" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" }
+                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                new DataGridViewTextBoxColumn { HeaderText = "Comprobante"}
             );
+            dataGridView_servicios.Columns[0].Width = 60;
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_servicios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -69,7 +74,7 @@ namespace Cerin_Ingenieros.Consultas
                 new DataGridViewTextBoxColumn { HeaderText = "modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Accesorios Adicionales" }
+                new DataGridViewTextBoxColumn { HeaderText = "Certificado"}
             );
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -79,6 +84,7 @@ namespace Cerin_Ingenieros.Consultas
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
                 new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
             );
+            dataGridView_Accesorios.Columns[1].Width = 70;
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -102,7 +108,8 @@ namespace Cerin_Ingenieros.Consultas
                     item.FechaRegistro,
                     item.FechaEntrega,
                     logTipoServicio.GetInstancia.buscarTipoServicioId(item.IdTipoServicio).Nombre,
-                    estado
+                    estado,
+                    "Descargar"
                 );
             }
         }
@@ -137,7 +144,7 @@ namespace Cerin_Ingenieros.Consultas
                     modelo.nombre,
                     marca.Nombre,
                     estado,
-                    item.otrosaccesorios
+                    "DESCARGAR"
                 );
             }
         }
@@ -224,6 +231,51 @@ namespace Cerin_Ingenieros.Consultas
         {
             dataGridView_servicios.Rows.Clear();
             limpiarEntradas();
+        }
+
+        private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
+            {
+                string ruta=null;
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string carpetaSeleccionada = folderDialog.SelectedPath;
+                        ruta = carpetaSeleccionada;
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(ruta))
+                {
+                    DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                    string serieEquipo = Convert.ToString(filaActual.Cells[1].Value.ToString());
+                    entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+
+
+                    string nombreDocumento = serieEquipo+".docx"; // Cambia esto al nombre que desees
+                    string rutaCompleta = Path.Combine(ruta, nombreDocumento);
+
+                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+
+                    if (path != null)
+                    {
+                        //preViewCertificado preView = new preViewCertificado(file);
+                        //preView.Show();
+
+                        Process.Start(path);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                
+
+                
+            }
         }
     }
 }
