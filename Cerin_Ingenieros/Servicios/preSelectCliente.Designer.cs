@@ -85,6 +85,7 @@
             this.ClientSize = new System.Drawing.Size(1164, 603);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preSelectCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "preSelectCliente";

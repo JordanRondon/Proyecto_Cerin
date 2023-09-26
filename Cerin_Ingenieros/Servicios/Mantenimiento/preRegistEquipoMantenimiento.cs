@@ -414,5 +414,15 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             conficancel();
             listarEquipo();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
