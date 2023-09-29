@@ -54,7 +54,7 @@ namespace Cerin_Ingenieros.Consultas
             lb_modelo.Text = "Modelo";
             lb_estadoEquipo.Text = "Estado";
 
-            lb_nombreEmpleado.Text = "Nombre";
+            //lb_nombreEmpleado.Text = "Nombre";
 
             txb_serie_equipo.Text = "";
 
@@ -144,7 +144,7 @@ namespace Cerin_Ingenieros.Consultas
 
         private void mostrarDatosEmpleado(entEmpleado empleado)
         {
-            lb_nombreEmpleado.Text = empleado.Nombre + ' ' + empleado.Apellido;
+            //lb_nombreEmpleado.Text = empleado.Nombre + ' ' + empleado.Apellido;
         }
 
         private void mostrarDatosEquipo(entEquipo equipo)
@@ -176,7 +176,7 @@ namespace Cerin_Ingenieros.Consultas
             if (txb_serie_equipo.Text != null)
             {
                 limpiarDatosCliente();
-                lb_nombreEmpleado.Text = "Nombre";
+                //lb_nombreEmpleado.Text = "Nombre";
 
                 listarServicio();
                 listarAccesorios();

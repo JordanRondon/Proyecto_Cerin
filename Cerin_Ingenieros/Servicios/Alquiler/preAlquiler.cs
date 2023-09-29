@@ -2,6 +2,7 @@
 using CapaLogica;
 using Cerin_Ingenieros.Servicios.Alquiler;
 using Cerin_Ingenieros.Servicios.ViewCertificado;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
+using Task = Microsoft.Office.Interop.Word.Task;
+using Word = Microsoft.Office.Interop.Word;
 
 namespace Cerin_Ingenieros.Servicios
 {
@@ -25,7 +27,7 @@ namespace Cerin_Ingenieros.Servicios
         private string equipoSelecionado = "";
         bool prosesoCancelado = true;           //control de si el proseso se cancelo
 
-
+        //Word.Application wordApp;
 
         public preAlquiler()
         {
@@ -38,6 +40,7 @@ namespace Cerin_Ingenieros.Servicios
             listarEquipos();
             comboBox_empleado.DropDownStyle = ComboBoxStyle.DropDownList;//comboBox solo lectura
         }
+
         private void listarDatosComboBoxEmpleados()
         {
             comboBox_empleado.ValueMember = "id_empleado";

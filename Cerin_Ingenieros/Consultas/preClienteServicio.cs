@@ -257,7 +257,7 @@ namespace Cerin_Ingenieros.Consultas
                     DateTime date = servicioSelect.FechaRegistro;
 
 
-                    string nombreDocumento = serieEquipo+".docx"; // Cambia esto al nombre que desees
+                    string nombreDocumento = serieEquipo+".docx";
                     string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
                     string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, rutaCompleta);

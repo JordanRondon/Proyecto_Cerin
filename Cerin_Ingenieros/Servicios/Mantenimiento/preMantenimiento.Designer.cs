@@ -355,17 +355,18 @@
             // comboBox_empleado
             // 
             this.comboBox_empleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox_empleado.FormattingEnabled = true;
             this.comboBox_empleado.Location = new System.Drawing.Point(39, 471);
             this.comboBox_empleado.Name = "comboBox_empleado";
-            this.comboBox_empleado.Size = new System.Drawing.Size(276, 26);
+            this.comboBox_empleado.Size = new System.Drawing.Size(276, 24);
             this.comboBox_empleado.TabIndex = 22;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(117, 450);
+            this.label8.Location = new System.Drawing.Point(117, 447);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 20);
             this.label8.TabIndex = 21;

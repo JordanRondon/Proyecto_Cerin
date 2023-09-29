@@ -18,6 +18,7 @@ namespace Cerin_Ingenieros
     public partial class Principal : Form
     {
         //FUNCION PARA MOVIMIENTO DEL FORMULARIO
+        private bool isMinimized = false;
         private int m, mx, my;
         private Form FormActivo = null;
         private int rolUser;
@@ -30,6 +31,8 @@ namespace Cerin_Ingenieros
 
             rolUser = rol_user;
             BotonesSegunRol();
+
+            
         }
 
         private void BotonesSegunRol()
@@ -210,6 +213,26 @@ namespace Cerin_Ingenieros
         {
             AbrirFormHijo(new preHistorialEquipo());
         }
+
+        private void Principal_Load(object sender, EventArgs e)
+        {
+            this.Activated += PrincipalForm_Activated;
+        }
+
+        private void PrincipalForm_Activated(object sender, EventArgs e)
+        {
+            // Verifica si el formulario está minimizado y lo restaura si es necesario
+            if (isMinimized)
+            {
+                this.WindowState = FormWindowState.Normal;
+                isMinimized = false;
+            }
+            else
+            {
+                // Puedes realizar acciones adicionales cuando el formulario se maximiza aquí
+            }
+        }
+
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

@@ -44,6 +44,7 @@
             this.panelEmpleado = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.btnEmpleado = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panelEquipo = new System.Windows.Forms.Panel();
             this.panelNuevoModelo = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
@@ -107,6 +108,7 @@
             this.panelOpciones.Controls.Add(this.panelReportesPrincipal);
             this.panelOpciones.Controls.Add(this.panel2);
             this.panelOpciones.Controls.Add(this.panelEmpleado);
+            this.panelOpciones.Controls.Add(this.panel12);
             this.panelOpciones.Controls.Add(this.panelEquipo);
             this.panelOpciones.Controls.Add(this.panelEquipoPrincipal);
             this.panelOpciones.Controls.Add(this.panel6);
@@ -128,7 +130,7 @@
             this.panelReportes.Controls.Add(this.panelClienteServicio);
             this.panelReportes.Controls.Add(this.panelHistorialEquipo);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 623);
+            this.panelReportes.Location = new System.Drawing.Point(0, 633);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
@@ -208,7 +210,7 @@
             this.panelReportesPrincipal.Controls.Add(this.panel13);
             this.panelReportesPrincipal.Controls.Add(this.btnReportes);
             this.panelReportesPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 573);
+            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 583);
             this.panelReportesPrincipal.Name = "panelReportesPrincipal";
             this.panelReportesPrincipal.Size = new System.Drawing.Size(175, 50);
             this.panelReportesPrincipal.TabIndex = 111;
@@ -242,7 +244,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 563);
+            this.panel2.Location = new System.Drawing.Point(0, 573);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 10);
             this.panel2.TabIndex = 102;
@@ -252,7 +254,7 @@
             this.panelEmpleado.Controls.Add(this.panel14);
             this.panelEmpleado.Controls.Add(this.btnEmpleado);
             this.panelEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmpleado.Location = new System.Drawing.Point(0, 513);
+            this.panelEmpleado.Location = new System.Drawing.Point(0, 523);
             this.panelEmpleado.Name = "panelEmpleado";
             this.panelEmpleado.Size = new System.Drawing.Size(175, 50);
             this.panelEmpleado.TabIndex = 110;
@@ -283,6 +285,14 @@
             this.btnEmpleado.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEmpleado.UseVisualStyleBackColor = true;
             this.btnEmpleado.Click += new System.EventHandler(this.btnEmpleado_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 513);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(175, 10);
+            this.panel12.TabIndex = 102;
             // 
             // panelEquipo
             // 
@@ -770,5 +780,6 @@
         private System.Windows.Forms.Panel panelEmpleado;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnEmpleado;
+        private System.Windows.Forms.Panel panel12;
     }
 }

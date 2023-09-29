@@ -8,6 +8,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -250,11 +251,26 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
-                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-                string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
-                entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+                string ruta = null;
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string carpetaSeleccionada = folderDialog.SelectedPath;
+                        ruta = carpetaSeleccionada;
+                    }
+                }
+                if (!string.IsNullOrEmpty(ruta))
+                {
+                    DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                    string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                    entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
 
-                logCertificado.GetInstancia.GenerarCerificado(equipo,DateTime.Now,"");
+                    string nombreDocumento = serieEquipo + ".docx";
+                    string rutaCompleta = Path.Combine(ruta, nombreDocumento);
+
+                    logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+                }
             }
         }
     }

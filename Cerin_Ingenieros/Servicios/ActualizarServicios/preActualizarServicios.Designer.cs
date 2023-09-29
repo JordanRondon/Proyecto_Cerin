@@ -78,7 +78,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(60, 6);
+            this.groupBox1.Location = new System.Drawing.Point(48, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(466, 90);
             this.groupBox1.TabIndex = 35;
@@ -146,9 +146,9 @@
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.grb_observacionesFinales);
             this.panel1.Controls.Add(this.dataGridView_Accesorios);
-            this.panel1.Location = new System.Drawing.Point(12, 102);
+            this.panel1.Location = new System.Drawing.Point(0, 102);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1156, 456);
+            this.panel1.Size = new System.Drawing.Size(1180, 471);
             this.panel1.TabIndex = 40;
             // 
             // label2
@@ -156,7 +156,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 243);
+            this.label2.Location = new System.Drawing.Point(44, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 20);
             this.label2.TabIndex = 49;
@@ -191,11 +191,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView_equipos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_equipos.EnableHeadersVisualStyles = false;
-            this.dataGridView_equipos.Location = new System.Drawing.Point(48, 43);
+            this.dataGridView_equipos.Location = new System.Drawing.Point(48, 26);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_equipos.Size = new System.Drawing.Size(1071, 176);
+            this.dataGridView_equipos.Size = new System.Drawing.Size(1095, 208);
             this.dataGridView_equipos.TabIndex = 46;
             this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
@@ -204,7 +204,7 @@
             // 
             this.label_nombre_ruc_cliente.AutoSize = true;
             this.label_nombre_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(130, 20);
+            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(130, 3);
             this.label_nombre_ruc_cliente.Name = "label_nombre_ruc_cliente";
             this.label_nombre_ruc_cliente.Size = new System.Drawing.Size(214, 20);
             this.label_nombre_ruc_cliente.TabIndex = 48;
@@ -214,7 +214,7 @@
             // 
             this.label_tipo_Servicio.AutoSize = true;
             this.label_tipo_Servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_Servicio.Location = new System.Drawing.Point(901, 20);
+            this.label_tipo_Servicio.Location = new System.Drawing.Point(901, 3);
             this.label_tipo_Servicio.Name = "label_tipo_Servicio";
             this.label_tipo_Servicio.Size = new System.Drawing.Size(45, 20);
             this.label_tipo_Servicio.TabIndex = 45;
@@ -224,7 +224,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(737, 20);
+            this.label3.Location = new System.Drawing.Point(737, 3);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 20);
             this.label3.TabIndex = 44;
@@ -234,7 +234,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(44, 20);
+            this.label5.Location = new System.Drawing.Point(44, 3);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 20);
             this.label5.TabIndex = 47;
@@ -248,9 +248,9 @@
             this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
             this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(431, 266);
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(431, 240);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(688, 179);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(712, 220);
             this.grb_observacionesFinales.TabIndex = 43;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
@@ -259,7 +259,7 @@
             // 
             this.btn_editarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(569, 138);
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(611, 179);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
             this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_editarRecomendacion.TabIndex = 42;
@@ -271,18 +271,18 @@
             // 
             this.txb_Recomendaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 32);
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(25, 23);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(522, 141);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(580, 191);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(569, 32);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(611, 18);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -317,19 +317,19 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(48, 277);
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(48, 263);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 168);
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(360, 197);
             this.dataGridView_Accesorios.TabIndex = 41;
             // 
             // btn_FinalizarServicio
             // 
             this.btn_FinalizarServicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_FinalizarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_FinalizarServicio.Location = new System.Drawing.Point(60, 594);
+            this.btn_FinalizarServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_FinalizarServicio.Location = new System.Drawing.Point(48, 579);
             this.btn_FinalizarServicio.Name = "btn_FinalizarServicio";
-            this.btn_FinalizarServicio.Size = new System.Drawing.Size(95, 35);
+            this.btn_FinalizarServicio.Size = new System.Drawing.Size(150, 50);
             this.btn_FinalizarServicio.TabIndex = 39;
             this.btn_FinalizarServicio.Text = "Finalizar";
             this.btn_FinalizarServicio.UseVisualStyleBackColor = true;
@@ -338,10 +338,10 @@
             // btn_Cancelar
             // 
             this.btn_Cancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Cancelar.Location = new System.Drawing.Point(1036, 594);
+            this.btn_Cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Cancelar.Location = new System.Drawing.Point(993, 579);
             this.btn_Cancelar.Name = "btn_Cancelar";
-            this.btn_Cancelar.Size = new System.Drawing.Size(95, 35);
+            this.btn_Cancelar.Size = new System.Drawing.Size(150, 50);
             this.btn_Cancelar.TabIndex = 38;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
@@ -354,7 +354,7 @@
             this.lbHora.BackColor = System.Drawing.Color.Transparent;
             this.lbHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHora.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lbHora.Location = new System.Drawing.Point(1020, 8);
+            this.lbHora.Location = new System.Drawing.Point(1020, 4);
             this.lbHora.Name = "lbHora";
             this.lbHora.Size = new System.Drawing.Size(149, 39);
             this.lbHora.TabIndex = 44;
@@ -366,7 +366,7 @@
             this.lbFecha.BackColor = System.Drawing.Color.Transparent;
             this.lbFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbFecha.ForeColor = System.Drawing.Color.Gray;
-            this.lbFecha.Location = new System.Drawing.Point(770, 47);
+            this.lbFecha.Location = new System.Drawing.Point(770, 43);
             this.lbFecha.Name = "lbFecha";
             this.lbFecha.Size = new System.Drawing.Size(401, 29);
             this.lbFecha.TabIndex = 45;

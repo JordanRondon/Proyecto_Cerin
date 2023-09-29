@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvClientes2 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_cancelar_registro = new System.Windows.Forms.Button();
@@ -65,29 +65,29 @@
             this.dgvClientes2.AllowUserToResizeColumns = false;
             this.dgvClientes2.AllowUserToResizeRows = false;
             this.dgvClientes2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClientes2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvClientes2.EnableHeadersVisualStyles = false;
-            this.dgvClientes2.Location = new System.Drawing.Point(66, 324);
+            this.dgvClientes2.Location = new System.Drawing.Point(66, 252);
             this.dgvClientes2.Name = "dgvClientes2";
             this.dgvClientes2.RowHeadersVisible = false;
             this.dgvClientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes2.Size = new System.Drawing.Size(1047, 268);
+            this.dgvClientes2.Size = new System.Drawing.Size(1042, 291);
             this.dgvClientes2.TabIndex = 39;
             this.dgvClientes2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes2_CellContentDoubleClick);
             // 
@@ -98,7 +98,7 @@
             this.panel1.Controls.Add(this.btn_editar);
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Controls.Add(this.btn_nuevo);
-            this.panel1.Location = new System.Drawing.Point(30, 249);
+            this.panel1.Location = new System.Drawing.Point(30, 182);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1121, 54);
             this.panel1.TabIndex = 38;
@@ -161,7 +161,7 @@
             // btn_buscar
             // 
             this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(371, 39);
+            this.btn_buscar.Location = new System.Drawing.Point(371, 34);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(90, 23);
             this.btn_buscar.TabIndex = 7;
@@ -186,9 +186,9 @@
             this.groupBoxRegistrar.Controls.Add(this.label3);
             this.groupBoxRegistrar.Controls.Add(this.label1);
             this.groupBoxRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxRegistrar.Location = new System.Drawing.Point(66, 72);
+            this.groupBoxRegistrar.Location = new System.Drawing.Point(66, 11);
             this.groupBoxRegistrar.Name = "groupBoxRegistrar";
-            this.groupBoxRegistrar.Size = new System.Drawing.Size(1047, 161);
+            this.groupBoxRegistrar.Size = new System.Drawing.Size(985, 161);
             this.groupBoxRegistrar.TabIndex = 37;
             this.groupBoxRegistrar.TabStop = false;
             this.groupBoxRegistrar.Text = "DATOS CLIENTE";
@@ -197,7 +197,7 @@
             // 
             this.btnBuscarRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscarRuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarRuc.Location = new System.Drawing.Point(889, 39);
+            this.btnBuscarRuc.Location = new System.Drawing.Point(890, 34);
             this.btnBuscarRuc.Name = "btnBuscarRuc";
             this.btnBuscarRuc.Size = new System.Drawing.Size(90, 23);
             this.btnBuscarRuc.TabIndex = 19;
@@ -209,7 +209,7 @@
             // 
             this.txb_razonSocial_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_razonSocial_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_razonSocial_cliente.Location = new System.Drawing.Point(629, 83);
+            this.txb_razonSocial_cliente.Location = new System.Drawing.Point(630, 78);
             this.txb_razonSocial_cliente.Name = "txb_razonSocial_cliente";
             this.txb_razonSocial_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_razonSocial_cliente.TabIndex = 18;
@@ -219,7 +219,7 @@
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(538, 83);
+            this.label6.Location = new System.Drawing.Point(539, 78);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(91, 17);
             this.label6.TabIndex = 17;
@@ -228,7 +228,7 @@
             // txb_nombre_cliente
             // 
             this.txb_nombre_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_nombre_cliente.Location = new System.Drawing.Point(115, 132);
+            this.txb_nombre_cliente.Location = new System.Drawing.Point(115, 127);
             this.txb_nombre_cliente.Name = "txb_nombre_cliente";
             this.txb_nombre_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_nombre_cliente.TabIndex = 14;
@@ -237,7 +237,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 132);
+            this.label2.Location = new System.Drawing.Point(24, 127);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 17);
             this.label2.TabIndex = 12;
@@ -247,7 +247,7 @@
             // 
             this.txb_telefono_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_telefono_cliente.Location = new System.Drawing.Point(629, 132);
+            this.txb_telefono_cliente.Location = new System.Drawing.Point(630, 127);
             this.txb_telefono_cliente.Name = "txb_telefono_cliente";
             this.txb_telefono_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_telefono_cliente.TabIndex = 16;
@@ -257,7 +257,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(539, 132);
+            this.label5.Location = new System.Drawing.Point(540, 127);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 17);
             this.label5.TabIndex = 15;
@@ -267,7 +267,7 @@
             // 
             this.txb_ruc_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txb_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_ruc_cliente.Location = new System.Drawing.Point(629, 39);
+            this.txb_ruc_cliente.Location = new System.Drawing.Point(630, 34);
             this.txb_ruc_cliente.Name = "txb_ruc_cliente";
             this.txb_ruc_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_ruc_cliente.TabIndex = 13;
@@ -277,7 +277,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(539, 39);
+            this.label4.Location = new System.Drawing.Point(540, 34);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 17);
             this.label4.TabIndex = 11;
@@ -286,7 +286,7 @@
             // txb_apellidos_cliente
             // 
             this.txb_apellidos_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_apellidos_cliente.Location = new System.Drawing.Point(114, 83);
+            this.txb_apellidos_cliente.Location = new System.Drawing.Point(114, 78);
             this.txb_apellidos_cliente.Name = "txb_apellidos_cliente";
             this.txb_apellidos_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_apellidos_cliente.TabIndex = 10;
@@ -294,7 +294,7 @@
             // txb_dni_cliente
             // 
             this.txb_dni_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_dni_cliente.Location = new System.Drawing.Point(114, 39);
+            this.txb_dni_cliente.Location = new System.Drawing.Point(114, 34);
             this.txb_dni_cliente.Name = "txb_dni_cliente";
             this.txb_dni_cliente.Size = new System.Drawing.Size(241, 23);
             this.txb_dni_cliente.TabIndex = 6;
@@ -303,7 +303,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(24, 83);
+            this.label3.Location = new System.Drawing.Point(24, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(65, 17);
             this.label3.TabIndex = 2;
@@ -313,7 +313,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 39);
+            this.label1.Location = new System.Drawing.Point(24, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 17);
             this.label1.TabIndex = 0;
@@ -322,11 +322,11 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(1018, 12);
+            this.btn_cancelar.Location = new System.Drawing.Point(1057, 17);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_cancelar.TabIndex = 40;
-            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.Text = "Atras";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
@@ -335,7 +335,7 @@
             this.AcceptButton = this.btn_guardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1180, 642);
+            this.ClientSize = new System.Drawing.Size(1164, 568);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.dgvClientes2);
             this.Controls.Add(this.panel1);
