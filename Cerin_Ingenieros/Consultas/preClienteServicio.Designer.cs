@@ -53,8 +53,8 @@
             this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
             this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnLimpiar = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.btnLimpiar = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_servicios)).BeginInit();
@@ -218,6 +218,9 @@
             // dataGridView_servicios
             // 
             this.dataGridView_servicios.AllowUserToAddRows = false;
+            this.dataGridView_servicios.AllowUserToDeleteRows = false;
+            this.dataGridView_servicios.AllowUserToResizeColumns = false;
+            this.dataGridView_servicios.AllowUserToResizeRows = false;
             this.dataGridView_servicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -247,6 +250,7 @@
             this.dataGridView_servicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_servicios.Size = new System.Drawing.Size(1114, 132);
             this.dataGridView_servicios.TabIndex = 50;
+            this.dataGridView_servicios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_servicios_CellClick);
             this.dataGridView_servicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_servicios_CellDoubleClick);
             // 
             // txb_Observaciones
@@ -351,27 +355,6 @@
             this.label7.TabIndex = 43;
             this.label7.Text = "HISTORIAL DE CLIENTE";
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnLimpiar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnLimpiar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnLimpiar.BorderRadius = 0;
-            this.btnLimpiar.BorderSize = 0;
-            this.btnLimpiar.FlatAppearance.BorderSize = 0;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(947, 83);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(200, 40);
-            this.btnLimpiar.TabIndex = 47;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextColor = System.Drawing.Color.White;
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
             // btn_slect_cliente
             // 
             this.btn_slect_cliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -392,6 +375,27 @@
             this.btn_slect_cliente.TextColor = System.Drawing.Color.White;
             this.btn_slect_cliente.UseVisualStyleBackColor = false;
             this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLimpiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnLimpiar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnLimpiar.BorderRadius = 0;
+            this.btnLimpiar.BorderSize = 0;
+            this.btnLimpiar.FlatAppearance.BorderSize = 0;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Location = new System.Drawing.Point(947, 83);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(200, 40);
+            this.btnLimpiar.TabIndex = 47;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextColor = System.Drawing.Color.White;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // preClienteServicio
             // 

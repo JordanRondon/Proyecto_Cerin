@@ -211,7 +211,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     servicioActual.FechaEntrega = DateTime.Now;
                     servicioActual.estado = 'T';
 
-                    string file = logComprobante.GetInstancia.generarComprobante(servicioActual, clienteSelecionado, listaEquipos);
+                    string file = logComprobante.GetInstancia.generarComprobante(servicioActual, clienteSelecionado, listaEquipos,"");
 
                     if (logServicio.GetInstancia.ActualizarEntregaServicio(servicioActual))
                     {

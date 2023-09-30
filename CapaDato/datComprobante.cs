@@ -22,20 +22,26 @@ namespace CapaDato
         public static datComprobante GetInstancia => instancia;
         #endregion
 
-        public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos)
+        public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos,string path)
         {
             try
             {
                 //Buscamos el comprobante en la base de datos
                 entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorNombre("Comprobante");
                 //hacemos un guardado temporal 
-                string path = datDocumento.GetInstancia.GuardarDocumentoTemporal(doc);
+                string aux = path;
+                string path2 = datDocumento.GetInstancia.GuardarDocumentoTemporal(doc);
+                if (path != "")
+                {
+                    path += "\\" + doc.RealName;
+                }
+
 
                 // Cargar plantilla de Word
                 Word.Application wordApp = new Word.Application();
                 try
                 {
-                    Word.Document plantilla = wordApp.Documents.Open(path);
+                    Word.Document plantilla = wordApp.Documents.Open(path2);
                     try
                     {
                         entEmpleado empleado = datEmpleado.GetInstancia.BuscarEmpleadoId(servicio.IdEmpleado);
@@ -124,23 +130,28 @@ namespace CapaDato
                             plantilla.Content.Find.Execute(FindText: "<Cliente_nombre>", ReplaceWith: cliente.RazonSocial);
                         else
                             plantilla.Content.Find.Execute(FindText: "<Cliente_nombre>", ReplaceWith: cliente.Apellido + ", " + cliente.Nombre);
-
-                        // Guardar el documento Word como PDF
-                        string path2 = AppDomain.CurrentDomain.BaseDirectory;
-                        string folder = path2 + "temp2\\";
-                        string fullFilePath = folder + "Comprobante.pdf";
-
-                        if (Directory.Exists(folder))
-                            Directory.Delete(folder, true);
-                        Directory.CreateDirectory(folder);
-
-                        plantilla.SaveAs2(fullFilePath, Word.WdSaveFormat.wdFormatPDF);
+                        if (aux == "")
+                        {
+                            // Guardar el documento Word como PDF
+                            string path3 = AppDomain.CurrentDomain.BaseDirectory;
+                            string folder = path3 + "temp2\\";
+                            string fullFilePath = folder + "Comprobante.pdf";
+                            path = fullFilePath;
+                            if (Directory.Exists(folder))
+                                Directory.Delete(folder, true);
+                            Directory.CreateDirectory(folder);
+                        }
+                        else
+                        {
+                            path = Path.ChangeExtension(path, ".pdf");
+                        }
+                        plantilla.SaveAs2(path, Word.WdSaveFormat.wdFormatPDF);
 
                         // Cerrar Word
                         plantilla.Close(false);
                         wordApp.Quit();
 
-                        return fullFilePath;
+                        return path;
 
 
 

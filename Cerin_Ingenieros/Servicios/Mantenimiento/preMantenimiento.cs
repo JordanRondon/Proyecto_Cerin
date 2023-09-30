@@ -241,7 +241,7 @@ namespace Cerin_Ingenieros.Servicios
                     logEquipo.GetInstancia.editarEquipo(item);
                 }
 
-                string file = logComprobante.GetInstancia.generarComprobante(servicio, clienteSelecionado, equiposSelecionados);
+                string file = logComprobante.GetInstancia.generarComprobante(servicio, clienteSelecionado, equiposSelecionados, "");
 
                 if (file != null)
                 {

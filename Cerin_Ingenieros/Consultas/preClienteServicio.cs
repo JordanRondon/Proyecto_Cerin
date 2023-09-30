@@ -75,7 +75,7 @@ namespace Cerin_Ingenieros.Consultas
                 new DataGridViewTextBoxColumn { HeaderText = "Serie" },
                 new DataGridViewTextBoxColumn { HeaderText = "modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                //new DataGridViewTextBoxColumn { HeaderText = "Estado" },
                 new DataGridViewTextBoxColumn { HeaderText = "Certificado"}
             );
             //desabilitar que se pueda ordenar por columnas
@@ -125,27 +125,27 @@ namespace Cerin_Ingenieros.Consultas
             //insertar los datos 
             foreach (var item in listaEquipos)
             {
-                string estado = null;
+                //string estado = null;
                 entCategoria categoriaEquipo = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
-                switch (item.Estado)
-                {
-                    case 'D': estado = "Disponible"; break;
-                    case 'O': estado = "Ocupado"; break;
-                    case 'P': estado = "En Proceso"; break;
-                    case 'E': estado = "Entregado"; break;
-                    case 'S': estado = "Eliminado"; break;
-                    case 'U': estado = "En Uso"; break;
-                }
+                //switch (item.Estado)
+                //{
+                //    case 'D': estado = "Disponible"; break;
+                //    case 'O': estado = "Ocupado"; break;
+                //    case 'P': estado = "En Proceso"; break;
+                //    case 'E': estado = "Entregado"; break;
+                //    case 'S': estado = "Eliminado"; break;
+                //    case 'U': estado = "En Uso"; break;
+                //}
 
                 dataGridView_equipos.Rows.Add(
                     categoriaEquipo.Nombre,
                     item.SerieEquipo,
                     modelo.nombre,
                     marca.Nombre,
-                    estado,
+                    //estado,
                     "DESCARGAR"
                 );
             }
@@ -238,7 +238,7 @@ namespace Cerin_Ingenieros.Consultas
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             entTipoServicio tiposervicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioSelect.IdTipoServicio);
-            if (e.ColumnIndex == 5 && e.RowIndex >= 0 && servicioSelect.estado=='T' && tiposervicio.Nombre!="ALQUILER")
+            if (e.ColumnIndex == 4 && servicioSelect.estado=='T' && tiposervicio.Nombre!="ALQUILER")
             {
                 string ruta=null;
                 using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
@@ -250,18 +250,19 @@ namespace Cerin_Ingenieros.Consultas
                     }
                 }
 
-                if (!string.IsNullOrEmpty(ruta))
+                if (!string.IsNullOrEmpty(ruta) && servicioSelect.FechaEntrega!=null)
                 {
                     DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
                     string serieEquipo = Convert.ToString(filaActual.Cells[1].Value.ToString());
                     entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
-                    DateTime date = servicioSelect.FechaRegistro;
+                    DateTime fentrega = (DateTime)servicioSelect.FechaEntrega;
+                    DateTime date = fentrega;
 
 
-                    string nombreDocumento = serieEquipo+".docx";
-                    string rutaCompleta = Path.Combine(ruta, nombreDocumento);
+                    //string nombreDocumento = serieEquipo+".docx";
+                    //string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
-                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, rutaCompleta,servicioSelect.IdServicio);
+                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, ruta, servicioSelect.IdServicio);
 
                     if (path != null)
                     {
@@ -272,15 +273,44 @@ namespace Cerin_Ingenieros.Consultas
                 {
                     MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
-
-
             }
             else
             {
                 if (tiposervicio.Nombre == "ALQUILER" && e.ColumnIndex == 5) MessageBox.Show("No se puede, el servicio es de alquiler");
                 else if (servicioSelect.estado != 'T' && e.ColumnIndex == 5) MessageBox.Show("El servicio aun no termina");
+            }
+        }
+
+        private void dataGridView_servicios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 5)
+            {
+                DataGridViewRow filaActual = dataGridView_servicios.Rows[e.RowIndex];
+                id_servicio = int.Parse(filaActual.Cells[0].Value.ToString());
+
+                servicioSelect = logServicio.GetInstancia.buscarServicio(id_servicio);
+            }
+            if (e.ColumnIndex == 5)
+            {
+                string ruta = null;
+                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                {
+                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        string carpetaSeleccionada = folderDialog.SelectedPath;
+                        ruta = carpetaSeleccionada;
+                    }
+                }
+                if (!string.IsNullOrEmpty(ruta))
+                {
+                    List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioSelect.IdServicio);
+                    string src = logComprobante.GetInstancia.generarComprobante(servicioSelect, clienteSelecionado, equipos, ruta);
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
