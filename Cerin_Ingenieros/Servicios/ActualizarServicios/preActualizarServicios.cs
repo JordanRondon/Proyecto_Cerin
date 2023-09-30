@@ -48,6 +48,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             label_nombre_ruc_cliente.Text = "NOMBRE O RAZONSOCIAL";
             label_tipo_Servicio.Text = "TIPO";
             txb_Recomendaciones.Text = "";
+            txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) ;
             limpiarTablas();
             servicioActual = null;
             equipoServicio = null;
@@ -62,6 +63,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 equipoServicio = null;
                 grb_observacionesFinales.Enabled = false;
                 txb_Recomendaciones.Text = "";
+                
 
                 entCliente cliente = new entCliente();
                 entTipoServicio tipoServicio = new entTipoServicio();
@@ -74,6 +76,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     {
                         //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
                         txb_id_Servicio.Enabled = false;
+                        txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Servicio N° - " + txb_id_Servicio.Text + "\\";
 
                         cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                         tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
@@ -98,8 +101,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 new DataGridViewTextBoxColumn { HeaderText = "Serie" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" },
-                new DataGridViewTextBoxColumn { HeaderText = "Cerificado" }
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
             );
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -123,7 +125,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             //insertar los datos 
             foreach (var item in listaEquipos)
             {
-                string estado,certificado = "Descagar";
+                string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
 
@@ -133,8 +135,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     item.SerieEquipo,
                     modelo.nombre,
                     estado,
-                    marca.Nombre,
-                    certificado
+                    marca.Nombre
                 );
             }
         }
@@ -270,6 +271,17 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
                     logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+                }
+            }
+        }
+
+        private void btnUbicacion_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+            {
+                if (folderDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txbFile.Text = folderDialog.SelectedPath + "\\Servicio N° - " + txb_id_Servicio.Text + "\\";
                 }
             }
         }

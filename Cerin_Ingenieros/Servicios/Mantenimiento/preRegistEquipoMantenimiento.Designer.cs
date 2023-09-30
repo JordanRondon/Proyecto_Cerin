@@ -45,6 +45,7 @@
             this.groupBoxAccesorios = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnClose = new System.Windows.Forms.Button();
             this.dgvListaDeEquipoClientes = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,7 +62,6 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -110,11 +110,11 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(243, 15);
+            this.label7.Location = new System.Drawing.Point(20, 15);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(482, 31);
+            this.label7.Size = new System.Drawing.Size(237, 31);
             this.label7.TabIndex = 36;
-            this.label7.Text = "Selecionar  equipo para mantenimiento";
+            this.label7.Text = "Selecionar  equipo";
             // 
             // groupBoxEquipo
             // 
@@ -269,6 +269,17 @@
             this.tabPage2.Size = new System.Drawing.Size(1156, 566);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "REGISTRAR EQUIPO";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1043, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(95, 35);
+            this.btnClose.TabIndex = 33;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dgvListaDeEquipoClientes
             // 
@@ -448,17 +459,6 @@
             this.btnNuevoRegis.Text = "Nuevo";
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1043, 8);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(95, 35);
-            this.btnClose.TabIndex = 33;
-            this.btnClose.Text = "Cerrar";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // preRegistEquipoMantenimiento
             // 

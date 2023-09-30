@@ -61,6 +61,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.txbFile = new System.Windows.Forms.TextBox();
+            this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -195,7 +197,7 @@
             this.dataGridView_equipos.Name = "dataGridView_equipos";
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_equipos.Size = new System.Drawing.Size(1095, 208);
+            this.dataGridView_equipos.Size = new System.Drawing.Size(1107, 208);
             this.dataGridView_equipos.TabIndex = 46;
             this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
@@ -250,7 +252,7 @@
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grb_observacionesFinales.Location = new System.Drawing.Point(431, 240);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(712, 220);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(724, 220);
             this.grb_observacionesFinales.TabIndex = 43;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
@@ -259,7 +261,7 @@
             // 
             this.btn_editarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(611, 179);
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(623, 179);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
             this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_editarRecomendacion.TabIndex = 42;
@@ -275,14 +277,14 @@
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(580, 191);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(592, 191);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
             this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(611, 18);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(623, 18);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -403,6 +405,8 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnUbicacion);
+            this.panel4.Controls.Add(this.txbFile);
             this.panel4.Controls.Add(this.btn_FinalizarServicio);
             this.panel4.Controls.Add(this.btn_Cancelar);
             this.panel4.Controls.Add(this.groupBox1);
@@ -427,6 +431,36 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
             // 
+            // txbFile
+            // 
+            this.txbFile.Location = new System.Drawing.Point(605, 70);
+            this.txbFile.Name = "txbFile";
+            this.txbFile.ReadOnly = true;
+            this.txbFile.Size = new System.Drawing.Size(479, 20);
+            this.txbFile.TabIndex = 41;
+            this.txbFile.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // btnUbicacion
+            // 
+            this.btnUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUbicacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUbicacion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnUbicacion.BorderRadius = 0;
+            this.btnUbicacion.BorderSize = 0;
+            this.btnUbicacion.FlatAppearance.BorderSize = 0;
+            this.btnUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUbicacion.ForeColor = System.Drawing.Color.White;
+            this.btnUbicacion.Location = new System.Drawing.Point(1090, 70);
+            this.btnUbicacion.Name = "btnUbicacion";
+            this.btnUbicacion.Size = new System.Drawing.Size(65, 20);
+            this.btnUbicacion.TabIndex = 50;
+            this.btnUbicacion.Text = "iii";
+            this.btnUbicacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUbicacion.TextColor = System.Drawing.Color.White;
+            this.btnUbicacion.UseVisualStyleBackColor = false;
+            this.btnUbicacion.Click += new System.EventHandler(this.btnUbicacion_Click);
+            // 
             // preActualizarServicios
             // 
             this.AcceptButton = this.btn_FinalizarServicio;
@@ -450,6 +484,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -484,5 +519,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
+        private RecursosAdicionales.BotonesModernos.BTNModernos btnUbicacion;
+        private System.Windows.Forms.TextBox txbFile;
     }
 }

@@ -30,9 +30,16 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             btn_guardar.Enabled = false;
             btn_editar.Enabled = false;
             btn_cancelar_registro.Enabled = false;
-            groupBoxRegistrar.Enabled = false;
             btn_buscar.Enabled = false;
             btn_eliminar.Enabled = false;
+            btnBuscarRuc.Enabled = false;
+
+            txb_dni_cliente.Enabled = false;
+            txb_apellidos_cliente.Enabled = false;
+            txb_nombre_cliente.Enabled = false;
+            txb_ruc_cliente.Enabled = false;
+            txb_razonSocial_cliente.Enabled = false;
+            txb_telefono_cliente.Enabled = false;
         }
 
         private void configEditar()
@@ -41,15 +48,16 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             btn_guardar.Enabled = false;
             btn_editar.Enabled = true;
             btn_cancelar_registro.Enabled = true;
-            groupBoxRegistrar.Enabled = true;
             btn_buscar.Enabled = false;
             btn_eliminar.Enabled = true;
+            btnBuscarRuc.Enabled = true;
 
             txb_dni_cliente.Enabled = false;
             txb_apellidos_cliente.Enabled = false;
             txb_nombre_cliente.Enabled = false;
-            txb_ruc_cliente.Enabled = false;
-            txb_razonSocial_cliente.Enabled = false;
+            txb_ruc_cliente.Enabled = true;
+            txb_razonSocial_cliente.Enabled = true;
+            txb_telefono_cliente.Enabled = true;
         }
 
         private void LimpiarVariables()
@@ -68,14 +76,16 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             btn_guardar.Enabled = true;
             btn_editar.Enabled = false;
             btn_cancelar_registro.Enabled = true;
-            groupBoxRegistrar.Enabled = true;
             btn_buscar.Enabled = true;
             btn_eliminar.Enabled = false;
+            btnBuscarRuc.Enabled = true;
+
             txb_dni_cliente.Enabled = true;
             txb_apellidos_cliente.Enabled = true;
             txb_nombre_cliente.Enabled = true;
             txb_ruc_cliente.Enabled = true;
             txb_razonSocial_cliente.Enabled = true;
+            txb_telefono_cliente.Enabled = true;
 
             LimpiarVariables();
         }

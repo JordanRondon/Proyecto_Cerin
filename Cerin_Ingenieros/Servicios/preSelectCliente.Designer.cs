@@ -38,6 +38,7 @@
             // btnSeleciionarCliente
             // 
             this.btnSeleciionarCliente.BackColor = System.Drawing.Color.White;
+            this.btnSeleciionarCliente.FlatAppearance.BorderSize = 0;
             this.btnSeleciionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSeleciionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeleciionarCliente.Location = new System.Drawing.Point(0, 0);
@@ -50,6 +51,7 @@
             // 
             // btnRegistraCliente
             // 
+            this.btnRegistraCliente.FlatAppearance.BorderSize = 0;
             this.btnRegistraCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistraCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistraCliente.Location = new System.Drawing.Point(228, 0);
@@ -62,6 +64,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.btnSeleciionarCliente);
             this.panel2.Controls.Add(this.btnRegistraCliente);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;

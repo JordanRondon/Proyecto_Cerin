@@ -24,22 +24,22 @@ namespace Cerin_Ingenieros.Servicios
         {
             InitializeComponent();
             AbrirFormHijo(new preSeleccionarCliente());
-            btnSeleciionarCliente.BackColor = Color.AntiqueWhite;
-            btnRegistraCliente.BackColor = Color.DarkOrange;
+            btnSeleciionarCliente.BackColor = SystemColors.Control;
+            btnRegistraCliente.BackColor = Color.White;
         }
 
         private void btnSeleciionarCliente_Click(object sender, EventArgs e)
         {
-            btnSeleciionarCliente.BackColor = Color.AntiqueWhite;
-            btnRegistraCliente.BackColor = Color.DarkOrange;
+            btnSeleciionarCliente.BackColor = SystemColors.Control;
+            btnRegistraCliente.BackColor = Color.White;
 
             AbrirFormHijo(new preSeleccionarCliente());
         }
 
         private void btnRegistraCliente_Click(object sender, EventArgs e)
         {
-            btnSeleciionarCliente.BackColor = Color.DarkOrange;
-            btnRegistraCliente.BackColor = Color.AntiqueWhite;
+            btnSeleciionarCliente.BackColor = Color.White;
+            btnRegistraCliente.BackColor = SystemColors.Control;
             AbrirFormHijo(new preRegistrarCliente());
             
         }
