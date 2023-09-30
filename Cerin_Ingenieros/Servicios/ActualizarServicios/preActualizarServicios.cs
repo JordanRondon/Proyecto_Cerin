@@ -219,7 +219,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
                         limpiarEntradas();
                     }
-
+                    List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
                     if (file != null)
                     {
                         //preViewCertificado preView = new preViewCertificado(file);
