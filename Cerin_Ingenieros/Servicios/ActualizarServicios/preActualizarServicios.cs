@@ -76,7 +76,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     {
                         //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
                         txb_id_Servicio.Enabled = false;
-                        txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Servicio N° - " + txb_id_Servicio.Text + "\\";
+                        txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
                         cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                         tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
@@ -217,13 +217,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     {
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
                         logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
+                        List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
+
+                        foreach (var equipo in equipos)
+                        {
+                            logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, txbFile.Text,servicioActual.IdServicio);
+                        }
                         limpiarEntradas();
-                    }
-                    List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
-                    
-                    foreach (var equipo in equipos)
-                    {
-                        
                     }
                     
                     if (file != null)
@@ -276,7 +276,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     string nombreDocumento = serieEquipo + ".docx";
                     string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
-                    logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+                    //logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
                 }
             }
         }
@@ -287,7 +287,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             {
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
-                    txbFile.Text = folderDialog.SelectedPath + "\\Servicio N° - " + txb_id_Servicio.Text + "\\";
+                    txbFile.Text = folderDialog.SelectedPath;
                 }
             }
         }

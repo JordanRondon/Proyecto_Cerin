@@ -261,7 +261,7 @@ namespace Cerin_Ingenieros.Consultas
                     string nombreDocumento = serieEquipo+".docx";
                     string rutaCompleta = Path.Combine(ruta, nombreDocumento);
 
-                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, rutaCompleta);
+                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, rutaCompleta,servicioSelect.IdServicio);
 
                     if (path != null)
                     {

@@ -18,37 +18,33 @@ namespace CapaDato
         public static datCertificado GetInstancia => instancia;
         #endregion
 
-        public string GenerarCertificado(entEquipo equipo, DateTime fecha,string src)
+        public string GenerarCertificado(entEquipo equipo, DateTime fecha,string src,int id_servicio)
         {
             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
-            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId(categoria.id_documento); ;
+            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId(categoria.id_documento);
             DateTime fin = fecha.AddMonths(categoria.tiempo_certificado);
-            string folder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Certificados\\";
-            string fullFilePah = folder + equipo.SerieEquipo+".docx";
+            //string folder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Certificados\\";
+            //string fullFilePah = folder + equipo.SerieEquipo+".docx";
 
             if (doc != null)
             {
                 //guardamos certificado
-                if (src=="")
-                {
-                    if (!Directory.Exists(folder))
-                        Directory.CreateDirectory(folder);
-                    if (File.Exists(fullFilePah))
-                        File.Delete(fullFilePah);
-                    File.WriteAllBytes(fullFilePah, doc.Doc);
-                }
-                else
-                {
-                    if(File.Exists(fullFilePah))
-                        File.Delete(fullFilePah);
-                    File.WriteAllBytes(src,doc.Doc);
-                    fullFilePah = src;
-                }
-                
+                //Carpeta en documentos 
+                src += "\\LabCCI\\";
+                if (!Directory.Exists(src))
+                    Directory.CreateDirectory(src);
+                src += "\\Servicio N° " + id_servicio + "\\";
+                if (!Directory.Exists(src))
+                    Directory.CreateDirectory(src);
+                src += "Equipo - " + equipo.SerieEquipo + ".docx";
+                if (File.Exists(src))
+                    File.Delete(src);
+                File.WriteAllBytes(src, doc.Doc);
+
 
                 // Cargar plantilla de Word
                 Word.Application wordApp = new Word.Application();
-                Word.Document plantilla = wordApp.Documents.Open(fullFilePah);
+                Word.Document plantilla = wordApp.Documents.Open(src);
                 
                 try
                 {
@@ -77,7 +73,7 @@ namespace CapaDato
 
             }
             else return null;
-            return fullFilePah;
+            return src;
         }
     }
 }

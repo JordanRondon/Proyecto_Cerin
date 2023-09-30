@@ -14,9 +14,9 @@ namespace CapaDato
         public static logCertificado GetInstancia => instancia;
         #endregion
 
-        public string GenerarCerificado(entEquipo equipo, DateTime fecha,string src)
+        public string GenerarCerificado(entEquipo equipo, DateTime fecha,string src,int id_servicio)
         {
-            return datCertificado.GetInstancia.GenerarCertificado(equipo,fecha,src);
+            return datCertificado.GetInstancia.GenerarCertificado(equipo,fecha,src,id_servicio);
         }
     }
 }
