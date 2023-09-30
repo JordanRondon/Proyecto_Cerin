@@ -220,6 +220,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         limpiarEntradas();
                     }
                     List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
+                    
+                    foreach (var equipo in equipos)
+                    {
+                        
+                    }
+                    
                     if (file != null)
                     {
                         //preViewCertificado preView = new preViewCertificado(file);
