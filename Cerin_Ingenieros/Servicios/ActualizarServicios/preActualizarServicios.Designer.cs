@@ -59,10 +59,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.txbFile = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.txbFile = new System.Windows.Forms.TextBox();
-            this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
@@ -417,29 +417,6 @@
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
             // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Column1";
-            this.dataGridViewImageColumn1.Image = global::Cerin_Ingenieros.Properties.Resources.descagar2;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Cerificado";
-            this.dataGridViewImageColumn2.Image = global::Cerin_Ingenieros.Properties.Resources.agregar;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Visible = false;
-            // 
-            // txbFile
-            // 
-            this.txbFile.Location = new System.Drawing.Point(605, 70);
-            this.txbFile.Name = "txbFile";
-            this.txbFile.ReadOnly = true;
-            this.txbFile.Size = new System.Drawing.Size(479, 20);
-            this.txbFile.TabIndex = 41;
-            this.txbFile.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // btnUbicacion
             // 
             this.btnUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -461,9 +438,32 @@
             this.btnUbicacion.UseVisualStyleBackColor = false;
             this.btnUbicacion.Click += new System.EventHandler(this.btnUbicacion_Click);
             // 
+            // txbFile
+            // 
+            this.txbFile.Location = new System.Drawing.Point(605, 70);
+            this.txbFile.Name = "txbFile";
+            this.txbFile.ReadOnly = true;
+            this.txbFile.Size = new System.Drawing.Size(479, 20);
+            this.txbFile.TabIndex = 41;
+            this.txbFile.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Column1";
+            this.dataGridViewImageColumn1.Image = global::Cerin_Ingenieros.Properties.Resources.descagar2;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Cerificado";
+            this.dataGridViewImageColumn2.Image = global::Cerin_Ingenieros.Properties.Resources.agregar;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Visible = false;
+            // 
             // preActualizarServicios
             // 
-            this.AcceptButton = this.btn_FinalizarServicio;
+            this.AcceptButton = this.btn_Buscar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
