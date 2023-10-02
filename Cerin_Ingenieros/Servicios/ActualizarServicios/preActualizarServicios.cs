@@ -20,6 +20,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
     {
         private entServicio servicioActual = new entServicio();
         private entEquipo_Servicio equipoServicio = new entEquipo_Servicio();
+        //
 
         public preActualizarServicios()
         {
