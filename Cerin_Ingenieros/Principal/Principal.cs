@@ -239,7 +239,7 @@ namespace Cerin_Ingenieros
             int anchoPantalla = pantallaPrincipal.Bounds.Width;
             int altoPantalla = pantallaPrincipal.Bounds.Height;
 
-            if (anchoOriginal < anchoPantalla && altoOriginal < altoPantalla)
+            if (anchoPantalla>=1280 && altoPantalla>=720)
             {
                 // Establece el nuevo tamaño del formulario
                 this.Size = new Size((int)(anchoPantalla * porcAncho), (int)(altoPantalla * porcAlto));
