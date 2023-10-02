@@ -238,9 +238,13 @@ namespace Cerin_Ingenieros
             Screen pantallaPrincipal = Screen.PrimaryScreen;
             int anchoPantalla = pantallaPrincipal.Bounds.Width;
             int altoPantalla = pantallaPrincipal.Bounds.Height;
-            
-            // Establece el nuevo tamaño del formulario
-            this.Size = new Size((int)(anchoPantalla * porcAncho), (int)(altoPantalla * porcAlto));
+
+            if (anchoOriginal < anchoPantalla && altoOriginal < altoPantalla)
+            {
+                // Establece el nuevo tamaño del formulario
+                this.Size = new Size((int)(anchoPantalla * porcAncho), (int)(altoPantalla * porcAlto));
+            }
+            else this.Size = new Size(anchoPantalla,altoPantalla);
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
