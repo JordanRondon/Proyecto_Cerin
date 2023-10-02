@@ -33,7 +33,6 @@ namespace Cerin_Ingenieros
         }
         //---------------------------------------------------------------------
         //FUNCION PARA MOVIMIENTO DEL FORMULARIO
-        private bool isMinimized = false;
         private int m, mx, my;
         private Form FormActivo = null;
         private int rolUser;
@@ -229,25 +228,20 @@ namespace Cerin_Ingenieros
             AbrirFormHijo(new preHistorialEquipo());
         }
 
-        private void Principal_Load(object sender, EventArgs e)
+        private void Principal_Load_1(object sender, EventArgs e)
         {
-            this.Activated += PrincipalForm_Activated;
-        }
+            double anchoOriginal = this.Size.Width;
+            double altoOriginal = this.Size.Height;
+            double porcAncho = ((anchoOriginal * 100) / 1920) /100;
+            double porcAlto = ((altoOriginal * 100) / 1080) / 100;
 
-        private void PrincipalForm_Activated(object sender, EventArgs e)
-        {
-            // Verifica si el formulario está minimizado y lo restaura si es necesario
-            if (isMinimized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                isMinimized = false;
-            }
-            else
-            {
-                // Puedes realizar acciones adicionales cuando el formulario se maximiza aquí
-            }
+            Screen pantallaPrincipal = Screen.PrimaryScreen;
+            int anchoPantalla = pantallaPrincipal.Bounds.Width;
+            int altoPantalla = pantallaPrincipal.Bounds.Height;
+            
+            // Establece el nuevo tamaño del formulario
+            this.Size = new Size((int)(anchoPantalla * porcAncho), (int)(altoPantalla * porcAlto));
         }
-
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

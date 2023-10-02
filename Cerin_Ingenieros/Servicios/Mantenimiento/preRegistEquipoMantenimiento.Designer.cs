@@ -165,6 +165,8 @@
             this.dgvAcesorios.AllowUserToResizeColumns = false;
             this.dgvAcesorios.AllowUserToResizeRows = false;
             this.dgvAcesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAcesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvAcesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAcesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAcesorios.Location = new System.Drawing.Point(6, 27);
             this.dgvAcesorios.Name = "dgvAcesorios";
@@ -288,6 +290,8 @@
             this.dgvListaDeEquipoClientes.AllowUserToResizeColumns = false;
             this.dgvListaDeEquipoClientes.AllowUserToResizeRows = false;
             this.dgvListaDeEquipoClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvListaDeEquipoClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvListaDeEquipoClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
             this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";

@@ -707,6 +707,7 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CCI CONTROL DE SERVICIOS";
+            this.Load += new System.EventHandler(this.Principal_Load_1);
             this.panelOpciones.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
             this.panelClienteServicio.ResumeLayout(false);
