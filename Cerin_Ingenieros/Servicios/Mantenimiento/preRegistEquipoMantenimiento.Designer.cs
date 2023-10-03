@@ -38,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvAcesorios = new System.Windows.Forms.DataGridView();
             this.txbObservaciones = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBoxObservaciones = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -62,6 +61,8 @@
             this.btnCancelarRegist = new System.Windows.Forms.Button();
             this.btnguardarRegist = new System.Windows.Forms.Button();
             this.btnNuevoRegis = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBoxEquipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
@@ -73,13 +74,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaDeEquipoClientes)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.btnCancelarEquipo);
             this.panel1.Controls.Add(this.btn_guardar);
-            this.panel1.Location = new System.Drawing.Point(3, 450);
+            this.panel1.Location = new System.Drawing.Point(3, 479);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1088, 54);
             this.panel1.TabIndex = 22;
@@ -171,7 +173,7 @@
             this.dgvAcesorios.Location = new System.Drawing.Point(6, 27);
             this.dgvAcesorios.Name = "dgvAcesorios";
             this.dgvAcesorios.RowHeadersVisible = false;
-            this.dgvAcesorios.Size = new System.Drawing.Size(540, 228);
+            this.dgvAcesorios.Size = new System.Drawing.Size(540, 264);
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
             this.dgvAcesorios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellEndEdit);
@@ -179,33 +181,22 @@
             // txbObservaciones
             // 
             this.txbObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbObservaciones.Location = new System.Drawing.Point(29, 66);
+            this.txbObservaciones.Location = new System.Drawing.Point(6, 27);
             this.txbObservaciones.Multiline = true;
             this.txbObservaciones.Name = "txbObservaciones";
-            this.txbObservaciones.Size = new System.Drawing.Size(459, 189);
+            this.txbObservaciones.Size = new System.Drawing.Size(506, 108);
             this.txbObservaciones.TabIndex = 14;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(380, 17);
-            this.label2.TabIndex = 39;
-            this.label2.Text = "OBSERVACIONES / RECOMENDACIONES PRELIMINARES";
             // 
             // groupBoxObservaciones
             // 
             this.groupBoxObservaciones.Controls.Add(this.txbObservaciones);
-            this.groupBoxObservaciones.Controls.Add(this.label2);
             this.groupBoxObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxObservaciones.Location = new System.Drawing.Point(566, 165);
             this.groupBoxObservaciones.Name = "groupBoxObservaciones";
-            this.groupBoxObservaciones.Size = new System.Drawing.Size(518, 279);
+            this.groupBoxObservaciones.Size = new System.Drawing.Size(518, 142);
             this.groupBoxObservaciones.TabIndex = 40;
             this.groupBoxObservaciones.TabStop = false;
-            this.groupBoxObservaciones.Text = "Observaciones del equipo";
+            this.groupBoxObservaciones.Text = "OBSERVACIONES / RECOMENDACIONES PRELIMINARES";
             // 
             // tabControl1
             // 
@@ -223,6 +214,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBoxAccesorios);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.panel1);
@@ -242,7 +234,7 @@
             this.groupBoxAccesorios.Controls.Add(this.dgvAcesorios);
             this.groupBoxAccesorios.Location = new System.Drawing.Point(8, 165);
             this.groupBoxAccesorios.Name = "groupBoxAccesorios";
-            this.groupBoxAccesorios.Size = new System.Drawing.Size(552, 279);
+            this.groupBoxAccesorios.Size = new System.Drawing.Size(552, 309);
             this.groupBoxAccesorios.TabIndex = 41;
             this.groupBoxAccesorios.TabStop = false;
             this.groupBoxAccesorios.Text = "Accesorio";
@@ -467,6 +459,26 @@
             this.btnNuevoRegis.UseVisualStyleBackColor = true;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.txbOtrosAccesorios);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(566, 331);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(518, 142);
+            this.groupBox2.TabIndex = 42;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Otro accesorios";
+            // 
+            // txbOtrosAccesorios
+            // 
+            this.txbOtrosAccesorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbOtrosAccesorios.Location = new System.Drawing.Point(6, 27);
+            this.txbOtrosAccesorios.Multiline = true;
+            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(506, 108);
+            this.txbOtrosAccesorios.TabIndex = 14;
+            // 
             // preRegistEquipoMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,6 +506,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -507,7 +521,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvAcesorios;
         private System.Windows.Forms.TextBox txbObservaciones;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBoxObservaciones;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -533,5 +546,7 @@
         private System.Windows.Forms.ComboBox comboBoxCategoria;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txbOtrosAccesorios;
     }
 }

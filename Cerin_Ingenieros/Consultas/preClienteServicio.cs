@@ -221,6 +221,8 @@ namespace Cerin_Ingenieros.Consultas
             {
                 DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
                 listarAccesorios(filaActual);
+                string serieEquipo = filaActual.Cells[1].Value.ToString();
+                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(serieEquipo).otrosaccesorios;
             }
         }
 

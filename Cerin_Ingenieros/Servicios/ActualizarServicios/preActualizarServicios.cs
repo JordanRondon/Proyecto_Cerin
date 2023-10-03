@@ -181,7 +181,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
                 equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
-
+                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(serieEquipo).otrosaccesorios;
                 if (txb_Recomendaciones.Text != null)
                 {
                     txb_Recomendaciones.Enabled = false;

@@ -55,6 +55,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btnLimpiar = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_servicios)).BeginInit();
@@ -146,6 +148,8 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.txbOtrosAccesorios);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
@@ -176,7 +180,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(480, 313);
+            this.label5.Location = new System.Drawing.Point(324, 314);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(246, 20);
             this.label5.TabIndex = 54;
@@ -264,18 +268,18 @@
             this.txb_Observaciones.Name = "txb_Observaciones";
             this.txb_Observaciones.ReadOnly = true;
             this.txb_Observaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Observaciones.Size = new System.Drawing.Size(421, 148);
+            this.txb_Observaciones.Size = new System.Drawing.Size(312, 148);
             this.txb_Observaciones.TabIndex = 49;
             // 
             // txb_Recomendaciones
             // 
             this.txb_Recomendaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(446, 337);
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(323, 336);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ReadOnly = true;
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(414, 148);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(291, 148);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // dataGridView_equipos
@@ -407,6 +411,28 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(616, 313);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.TabIndex = 59;
+            this.label1.Text = "Otros accesorios";
+            // 
+            // txbOtrosAccesorios
+            // 
+            this.txbOtrosAccesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txbOtrosAccesorios.Location = new System.Drawing.Point(620, 336);
+            this.txbOtrosAccesorios.Multiline = true;
+            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
+            this.txbOtrosAccesorios.ReadOnly = true;
+            this.txbOtrosAccesorios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(240, 148);
+            this.txbOtrosAccesorios.TabIndex = 58;
+            // 
             // preClienteServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -457,5 +483,7 @@
         private System.Windows.Forms.Label label7;
         private RecursosAdicionales.BotonesModernos.BTNModernos btn_slect_cliente;
         private RecursosAdicionales.BotonesModernos.BTNModernos btnLimpiar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txbOtrosAccesorios;
     }
 }

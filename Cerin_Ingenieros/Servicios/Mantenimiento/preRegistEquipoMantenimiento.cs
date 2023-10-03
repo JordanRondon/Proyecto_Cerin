@@ -171,22 +171,6 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 );
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #endregion REGISTRAR
 
         public List<entEquipo> getEquipos() { return selecionado; }
@@ -371,6 +355,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
             //agregamos el equipo selecionado a la lsita de equipos
             temp.Estado = 'U';
+            temp.otrosaccesorios = txbOtrosAccesorios.Text;
             logEquipo.GetInstancia.editarEquipo(temp);
             selecionado.Add(temp);
 
