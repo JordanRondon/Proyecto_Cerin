@@ -19,6 +19,8 @@ namespace CapaLogica
         public List<entRol> listarRol() => datRol.GetInstancia.listarRol();
 
         public entRol buscarRolId(int id_rol) => datRol.GetInstancia.buscarRolId(id_rol);
+
+        public entRol buscarRolNombre(string name_rol) => datRol.GetInstancia.buscarRolNombre(name_rol);
         #endregion
     }
 }

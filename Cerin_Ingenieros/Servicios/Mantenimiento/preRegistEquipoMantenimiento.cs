@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +22,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         //selecionar equipos
         List<entEquipo_Servicio> list_equipo_servicio = new List<entEquipo_Servicio>();
+        private string registroSeleccionado = "";
 
         public preRegistEquipoMantenimiento()
         {
@@ -42,6 +44,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             comboBox_modelo.Enabled = false;
             comboBox_modelo.SelectedIndex = -1;
             comboBox_marca.Enabled = false;
+            comboBox_marca.SelectedIndex = -1;
+            comboBoxCategoria.SelectedIndex = -1;
+            comboBoxCategoria.Enabled = false;
 
             btnNuevoRegis.Enabled = true;
             btnguardarRegist.Enabled = false;
@@ -52,15 +57,17 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             txb_serie_equipo.Text = "";
             comboBox_modelo.SelectedIndex = 0;
+            comboBox_marca.SelectedIndex = 0;
+            comboBoxCategoria.SelectedIndex = 0;
 
             txb_serie_equipo.Enabled = true;
             comboBox_modelo.Enabled = true;
             comboBox_marca.Enabled = true;
+            comboBoxCategoria.Enabled = true;
 
             btnNuevoRegis.Enabled = false;
             btnguardarRegist.Enabled = true;
             btnCancelarRegist.Enabled = true;
-            BtnEditarRegist.Enabled = true;
         }
 
         private void listarDatosComboBox()
@@ -254,7 +261,33 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void BtnEditarRegist_Click(object sender, EventArgs e)
         {
+            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex != -1);
+            try
+            {
+                if (datosIngresados && registroSeleccionado!="")
+                {
+                    entEquipo equipo = new entEquipo();
 
+                    equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
+                    entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
+                    equipo.id_modelo = modeloSelec.id_modelo;
+                    equipo.Estado = 'E';//POR DEFECTO DISPONIBLE
+                    equipo.IdTipo = 2; //EQUIPO EXTERNO A LA EMPRESA
+                    entMarca marcaselect = (entMarca)comboBox_marca.SelectedItem;
+                    equipo.IdMarca = marcaselect.IdMarca;
+                    entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    equipo.id_categoria = categoria.id_categoria_equipo;
+                    equipo.otrosaccesorios = "";
+
+                    logEquipo.GetInstancia.editarEquipo(equipo);
+                    listarEquipo();
+                    configInitial();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Problemas para editar el equipo");
+            }
         }
 
         private void btnBuscarEquipo_Click(object sender, EventArgs e)
@@ -423,6 +456,140 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private int obtenerIndiceModeloSelec(DataGridViewRow filaActual)
+        {
+            List<entModelo> listaModelo = new List<entModelo>();
+
+            listaModelo = logModelo.GetInstancia.listarModelos();
+
+            entModelo modeloSeleccionado = new entModelo();
+
+            foreach (var i in listaModelo)
+            {
+                //obtenemos el registro mediante un ID especifico 
+                if (i.nombre == filaActual.Cells[1].Value.ToString())
+                {
+                    modeloSeleccionado = i;
+                    break;
+                }
+            }
+
+            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
+            int index = comboBox_modelo.FindString(modeloSeleccionado.nombre);
+
+            if (index != -1)
+                return index;
+            else
+                return -1;
+        }
+
+        private int obtenerIndiceMarcaSelec(DataGridViewRow filaActual)
+        {
+            List<entMarca> listaMarca = new List<entMarca>();
+
+            listaMarca = logMarca.GetInstancia.listarMarcas();
+
+            entMarca marcaSeleccionada = new entMarca();
+
+            foreach (var i in listaMarca)
+            {
+                //obtenemos el registro mediante un ID especifico 
+                if (i.Nombre == filaActual.Cells[3].Value.ToString())
+                {
+                    marcaSeleccionada = i;
+                    break;
+                }
+            }
+
+            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
+            int index = comboBox_marca.FindString(marcaSeleccionada.Nombre);
+
+            if (index != -1)
+                return index;
+            else
+                return -1;
+        }
+
+        private int obtenerIndiceCategoriaSelec(DataGridViewRow filaActual)
+        {
+            List<entCategoria> listacategoria = new List<entCategoria>();
+
+            listacategoria = logCategoria.GetInstancia.listarCategoriasEquipos();
+
+            entCategoria categoriaSeleccionada = new entCategoria();
+
+            foreach (var i in listacategoria)
+            {
+                //obtenemos el registro mediante un ID especifico 
+                if (i.Nombre == filaActual.Cells[4].Value.ToString())
+                {
+                    categoriaSeleccionada = i;
+                    break;
+                }
+            }
+
+            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
+            int index = comboBoxCategoria.FindString(categoriaSeleccionada.Nombre);
+
+            if (index != -1)
+                return index;
+            else
+                return -1;
+        }
+
+        private void habilitar_btn_modificacion()
+        {
+            btnNuevoRegis.Enabled = false;  
+            BtnEditarRegist.Enabled = true;
+            btnCancelarRegist.Enabled = true;
+            btnguardarRegist.Enabled = false;
+
+            txb_serie.Enabled = true;
+            comboBoxCategoria.Enabled = true;
+            comboBox_marca.Enabled = true;
+            comboBox_modelo.Enabled = true;
+        }
+
+        private void dgvListaDeEquipoClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>=0)
+            {
+                DataGridViewRow filaActual = dgvListaDeEquipoClientes.Rows[e.RowIndex];
+
+                registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                txb_serie_equipo.Text = registroSeleccionado;
+                //FALTA ACUTALIZAR EL ESTADO
+                comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
+                comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
+                comboBoxCategoria.SelectedIndex = obtenerIndiceCategoriaSelec(filaActual);
+
+                habilitar_btn_modificacion();
+
+                
+            }
+        }
+
+        private void dgvAcesorios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 2) 
+            {
+                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
+                string valor = textBoxCell.Value.ToString();
+                if (!Regex.IsMatch(valor, @"^\d+$"))
+                {
+                    MessageBox.Show("Ingrese solo numeros");
+                    textBoxCell.Value = "1";
+                }
+                else
+                {
+                    if (Convert.ToInt16(valor) <= 0)
+                        textBoxCell.Value = "1";
+                    else
+                        textBoxCell.Value = Convert.ToInt16(valor);
+                }
+            }
         }
     }
 }

@@ -391,6 +391,7 @@
             this.txb_contraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_contraseña.Location = new System.Drawing.Point(151, 90);
             this.txb_contraseña.Name = "txb_contraseña";
+            this.txb_contraseña.PasswordChar = '*';
             this.txb_contraseña.Size = new System.Drawing.Size(241, 23);
             this.txb_contraseña.TabIndex = 14;
             // 

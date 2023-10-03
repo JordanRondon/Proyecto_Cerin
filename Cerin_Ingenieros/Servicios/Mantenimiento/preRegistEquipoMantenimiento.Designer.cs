@@ -174,6 +174,7 @@
             this.dgvAcesorios.Size = new System.Drawing.Size(540, 228);
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
+            this.dgvAcesorios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellEndEdit);
             // 
             // txbObservaciones
             // 
@@ -295,9 +296,11 @@
             this.dgvListaDeEquipoClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaDeEquipoClientes.Location = new System.Drawing.Point(46, 289);
             this.dgvListaDeEquipoClientes.Name = "dgvListaDeEquipoClientes";
+            this.dgvListaDeEquipoClientes.ReadOnly = true;
             this.dgvListaDeEquipoClientes.RowHeadersVisible = false;
             this.dgvListaDeEquipoClientes.Size = new System.Drawing.Size(1052, 268);
             this.dgvListaDeEquipoClientes.TabIndex = 24;
+            this.dgvListaDeEquipoClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaDeEquipoClientes_CellDoubleClick);
             // 
             // label5
             // 

@@ -20,11 +20,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
     {
         private entServicio servicioActual = new entServicio();
         private entEquipo_Servicio equipoServicio = new entEquipo_Servicio();
-        //
+        private int rolUser;
 
-        public preActualizarServicios()
+        public preActualizarServicios(int rolUser)
         {
             InitializeComponent();
+            this.rolUser = rolUser;
             limpiarEntradas();
             ConfigCabecera();
             dataGridView_equipos.ReadOnly = true;
@@ -34,6 +35,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lbFecha.Text = DateTime.Now.ToLongDateString();
+
+            //Configuracion inicial
+            if (rolUser==3)
+            {
+                btn_FinalizarServicio.Enabled = false;
+                btnUbicacion.Enabled = false;
+            }
         }
 
         private void limpiarTablas()
@@ -87,6 +95,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                             label_nombre_ruc_cliente.Text = cliente.RazonSocial;
 
                         label_tipo_Servicio.Text = tipoServicio.Nombre;
+
+                        if (tipoServicio.Nombre == "ALQUILER")
+                        {
+                            txbFile.Visible = false;
+                            btnUbicacion.Visible = false;
+                        }
+
                         listarEquipos(servicioActual.IdServicio);
                     }
                     else MessageBox.Show("Proceso terminado");
@@ -218,12 +233,16 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     {
                         //cambia el estado de los equipos relacionados a un servicio a D -> DISPONIBLE
                         logServicio.GetInstancia.ActualizarEstadoEquipo(servicioActual);
-                        List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
 
-                        foreach (var equipo in equipos)
+                        if (logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio).Nombre!="ALQUILER")
                         {
-                            logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, txbFile.Text,servicioActual.IdServicio);
+                            List<entEquipo> equipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
+                            foreach (var equipo in equipos)
+                            {
+                                logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, txbFile.Text, servicioActual.IdServicio);
+                            }
                         }
+
                         limpiarEntradas();
                     }
                     
@@ -239,6 +258,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             catch (Exception ex)
             {
                 MessageBox.Show("Error.." + ex);
+            }
+            finally
+            {
+                btnUbicacion.Visible = true;
+                txbFile.Visible = true;
             }
         }
 

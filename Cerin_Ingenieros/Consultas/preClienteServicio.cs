@@ -27,9 +27,6 @@ namespace Cerin_Ingenieros.Consultas
         {
             InitializeComponent();
             ConfigCabecera();
-            dataGridView_servicios.ReadOnly = true;
-            dataGridView_equipos.ReadOnly = true;
-            dataGridView_Accesorios.ReadOnly = true;
         }
 
         private void limpiarTablas()
@@ -86,7 +83,7 @@ namespace Cerin_Ingenieros.Consultas
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
                 new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
             );
-            dataGridView_Accesorios.Columns[1].Width = 70;
+            dataGridView_Accesorios.Columns[1].Width = 80;
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
@@ -129,16 +126,13 @@ namespace Cerin_Ingenieros.Consultas
                 entCategoria categoriaEquipo = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
-
-                //switch (item.Estado)
-                //{
-                //    case 'D': estado = "Disponible"; break;
-                //    case 'O': estado = "Ocupado"; break;
-                //    case 'P': estado = "En Proceso"; break;
-                //    case 'E': estado = "Entregado"; break;
-                //    case 'S': estado = "Eliminado"; break;
-                //    case 'U': estado = "En Uso"; break;
-                //}
+                string certif = "";
+                if (logTipoServicio.GetInstancia.buscarTipoServicioId(servicioSelect.IdTipoServicio).Nombre != "ALQUILER")
+                {
+                    certif = "DESCARGAR";
+                }
+                else
+                    certif = "No disponible";
 
                 dataGridView_equipos.Rows.Add(
                     categoriaEquipo.Nombre,
@@ -146,7 +140,7 @@ namespace Cerin_Ingenieros.Consultas
                     modelo.nombre,
                     marca.Nombre,
                     //estado,
-                    "DESCARGAR"
+                    certif
                 );
             }
         }
@@ -175,6 +169,7 @@ namespace Cerin_Ingenieros.Consultas
 
         private void btn_slect_cliente_Click(object sender, EventArgs e)
         {
+            limpiarEntradas();
             preSeleccionarCliente preSeleccionarCliente = new preSeleccionarCliente();
             preSeleccionarCliente.ShowDialog();
 
@@ -237,47 +232,50 @@ namespace Cerin_Ingenieros.Consultas
 
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            entTipoServicio tiposervicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioSelect.IdTipoServicio);
-            if (e.ColumnIndex == 4 && servicioSelect.estado=='T' && tiposervicio.Nombre!="ALQUILER")
+            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
             {
-                string ruta=null;
-                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
+                entTipoServicio tiposervicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioSelect.IdTipoServicio);
+                if (servicioSelect.estado == 'T' && tiposervicio.Nombre != "ALQUILER")
                 {
-                    if (folderDialog.ShowDialog() == DialogResult.OK)
+                    string ruta = null;
+                    using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
                     {
-                        string carpetaSeleccionada = folderDialog.SelectedPath;
-                        ruta = carpetaSeleccionada;
+                        if (folderDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string carpetaSeleccionada = folderDialog.SelectedPath;
+                            ruta = carpetaSeleccionada;
+                        }
                     }
-                }
 
-                if (!string.IsNullOrEmpty(ruta) && servicioSelect.FechaEntrega!=null)
-                {
-                    DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-                    string serieEquipo = Convert.ToString(filaActual.Cells[1].Value.ToString());
-                    entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
-                    DateTime fentrega = (DateTime)servicioSelect.FechaEntrega;
-                    DateTime date = fentrega;
-
-
-                    //string nombreDocumento = serieEquipo+".docx";
-                    //string rutaCompleta = Path.Combine(ruta, nombreDocumento);
-
-                    string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, ruta, servicioSelect.IdServicio);
-
-                    if (path != null)
+                    if (!string.IsNullOrEmpty(ruta) && servicioSelect.FechaEntrega != null)
                     {
-                        Process.Start(path);
+                        DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                        string serieEquipo = Convert.ToString(filaActual.Cells[1].Value.ToString());
+                        entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+                        DateTime fentrega = (DateTime)servicioSelect.FechaEntrega;
+                        DateTime date = fentrega;
+
+
+                        //string nombreDocumento = serieEquipo+".docx";
+                        //string rutaCompleta = Path.Combine(ruta, nombreDocumento);
+
+                        string path = logCertificado.GetInstancia.GenerarCerificado(equipo, date, ruta, servicioSelect.IdServicio);
+
+                        if (path != null)
+                        {
+                            Process.Start(path);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, selecciona una carpeta antes de guardar el documento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (tiposervicio.Nombre == "ALQUILER" && e.ColumnIndex == 5) MessageBox.Show("No se puede, el servicio es de alquiler");
+                    else if (servicioSelect.estado != 'T' && e.ColumnIndex == 5) MessageBox.Show("El servicio aun no termina");
                 }
-            }
-            else
-            {
-                if (tiposervicio.Nombre == "ALQUILER" && e.ColumnIndex == 5) MessageBox.Show("No se puede, el servicio es de alquiler");
-                else if (servicioSelect.estado != 'T' && e.ColumnIndex == 5) MessageBox.Show("El servicio aun no termina");
             }
         }
 
@@ -290,7 +288,7 @@ namespace Cerin_Ingenieros.Consultas
 
                 servicioSelect = logServicio.GetInstancia.buscarServicio(id_servicio);
             }
-            if (e.ColumnIndex == 5)
+            if (e.ColumnIndex == 5 && e.RowIndex >= 0)
             {
                 string ruta = null;
                 using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())

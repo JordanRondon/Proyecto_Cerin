@@ -248,6 +248,7 @@
             this.dataGridView_servicios.EnableHeadersVisualStyles = false;
             this.dataGridView_servicios.Location = new System.Drawing.Point(4, 27);
             this.dataGridView_servicios.Name = "dataGridView_servicios";
+            this.dataGridView_servicios.ReadOnly = true;
             this.dataGridView_servicios.RowHeadersVisible = false;
             this.dataGridView_servicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_servicios.Size = new System.Drawing.Size(1114, 132);
@@ -261,6 +262,7 @@
             this.txb_Observaciones.Location = new System.Drawing.Point(5, 337);
             this.txb_Observaciones.Multiline = true;
             this.txb_Observaciones.Name = "txb_Observaciones";
+            this.txb_Observaciones.ReadOnly = true;
             this.txb_Observaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_Observaciones.Size = new System.Drawing.Size(421, 148);
             this.txb_Observaciones.TabIndex = 49;
@@ -271,6 +273,7 @@
             this.txb_Recomendaciones.Location = new System.Drawing.Point(446, 337);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.ReadOnly = true;
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_Recomendaciones.Size = new System.Drawing.Size(414, 148);
             this.txb_Recomendaciones.TabIndex = 41;
@@ -306,6 +309,7 @@
             this.dataGridView_equipos.EnableHeadersVisualStyles = false;
             this.dataGridView_equipos.Location = new System.Drawing.Point(4, 188);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
+            this.dataGridView_equipos.ReadOnly = true;
             this.dataGridView_equipos.RowHeadersVisible = false;
             this.dataGridView_equipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_equipos.Size = new System.Drawing.Size(856, 122);

@@ -1,4 +1,5 @@
-﻿using CapaLogica;
+﻿using CapaEntidad;
+using CapaLogica;
 using Cerin_Ingenieros.Consultas;
 using Cerin_Ingenieros.Mantenedor;
 using Cerin_Ingenieros.Servicios;
@@ -51,7 +52,10 @@ namespace Cerin_Ingenieros
 
         private void BotonesSegunRol()
         {
-            if (rolUser == 1)//admin
+            List<entRol> listA = new List<entRol>();
+
+
+            if (logRol.GetInstancia.buscarRolNombre("Administrador").id_rol == rolUser)//admin
             {
                 panelAlquiler.Visible = true;
                 panelCalibracion.Visible = true;
@@ -59,22 +63,31 @@ namespace Cerin_Ingenieros
                 panelEquipoPrincipal.Visible = true;
                 panelReportesPrincipal.Visible = true;
                 panelEmpleado.Visible = true;
-            }else if (rolUser == 2)//recepcionista
+            }else if (logRol.GetInstancia.buscarRolNombre("Recepcionista").id_rol == rolUser)//recepcionista
             {
                 panelAlquiler.Visible = true;
                 panelCalibracion.Visible = true;
                 panelActualizarServicio.Visible = true;
-                panelEquipoPrincipal.Visible = false;
+                panelEquipoPrincipal.Visible = true;
                 panelReportesPrincipal.Visible = true;
                 panelEmpleado.Visible = false;
+
+                panel12.Visible = false;
+                //panel2.Visible = false;
             }
-            else if(rolUser == 3)//laboratorio
+            else if(logRol.GetInstancia.buscarRolNombre("Laboratorio").id_rol == rolUser)//laboratorio
             {
                 panelAlquiler.Visible = false;
                 panelCalibracion.Visible = false;
                 panelActualizarServicio.Visible = true;
                 panelEquipoPrincipal.Visible = false;
                 panelReportesPrincipal.Visible = true;
+                panelEmpleado.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("No hay vista para el rol");
+                this.Close();
             }
         }
 
@@ -149,7 +162,7 @@ namespace Cerin_Ingenieros
 
         private void btn_actualizar_servicio_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new preActualizarServicios());
+            AbrirFormHijo(new preActualizarServicios(rolUser));
             LoadForm();
         }
 

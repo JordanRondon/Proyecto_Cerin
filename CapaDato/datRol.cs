@@ -92,6 +92,48 @@ namespace CapaDato
 
             return rol;
         }
+
+        public entRol buscarRolNombre(string name_rol)
+        {
+            SqlCommand cmd = null;
+            entRol rol = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("ps_buscarRolName", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre_rol", name_rol);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    rol = new entRol();
+
+                    rol.id_rol = Convert.ToInt32(dr["id_rol"]);
+                    rol.nombre = Convert.ToString(dr["nombre_rol"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return rol;
+        }
         #endregion
     }
 }

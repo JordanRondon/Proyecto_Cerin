@@ -55,7 +55,7 @@ namespace Cerin_Ingenieros.Servicios
             }
             else
             {
-                MessageBox.Show("Selecione un cliente");
+                MessageBox.Show("No se a selecionado Ningun cliente");
             }
         }
 
@@ -115,7 +115,9 @@ namespace Cerin_Ingenieros.Servicios
 
         private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //ver si se puede implementar
+            SlecionarCliente();
+            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(selecionado));
+            this.Close();
         }
     }
 }

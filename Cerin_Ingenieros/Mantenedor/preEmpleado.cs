@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 
 namespace Cerin_Ingenieros
 {
@@ -130,7 +131,6 @@ namespace Cerin_Ingenieros
                 new DataGridViewTextBoxColumn { HeaderText = "Correo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Teléfono" },
                 new DataGridViewTextBoxColumn { HeaderText = "UserName" },
-                new DataGridViewTextBoxColumn { HeaderText = "Contraseña" },
                 new DataGridViewTextBoxColumn { HeaderText = "Rol" }
             );
 
@@ -161,7 +161,6 @@ namespace Cerin_Ingenieros
                     item.Correo,
                     item.Telefono,
                     usuario.userName,
-                    usuario.password,
                     nombreRol
                 );
             }
@@ -182,8 +181,8 @@ namespace Cerin_Ingenieros
                 txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
 
                 txb_userNamer.Text = filaActual.Cells[7].Value.ToString();
-                txb_contraseña.Text = filaActual.Cells[8].Value.ToString();
-                int indiceRol = cmb_rol.FindString(filaActual.Cells[9].Value.ToString()); 
+                //txb_contraseña.Text = filaActual.Cells[8].Value.ToString();
+                int indiceRol = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
                 if (indiceRol != -1) cmb_rol.SelectedIndex = indiceRol;
                 else cmb_rol.SelectedIndex = -1;
 
@@ -205,11 +204,10 @@ namespace Cerin_Ingenieros
 
                 if (datosIngresados && datos_User)
                 {
-
                     entUsuario usuario = new entUsuario();
 
                     usuario.userName = txb_userNamer.Text.Trim();
-                    usuario.password = txb_contraseña.Text;
+                    usuario.password = classEncriptar.EncriptarContraseña(txb_contraseña.Text); ; //txb_contraseña.Text;
                     entRol rolSelec = (entRol)cmb_rol.SelectedItem;
                     usuario.id_rol = rolSelec.id_rol;
                     usuario.estado = 'A';
@@ -230,7 +228,11 @@ namespace Cerin_Ingenieros
                     
                 }
                 else
+                {
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                    
             }
             catch (Exception ex)
             {
@@ -247,7 +249,7 @@ namespace Cerin_Ingenieros
         private void btn_editar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
-            bool datos_User = txb_userNamer.Text != "" && txb_contraseña.Text != "" && cmb_rol.SelectedIndex != -1;
+            bool datos_User = txb_userNamer.Text != "" && cmb_rol.SelectedIndex != -1;
 
             try
             {

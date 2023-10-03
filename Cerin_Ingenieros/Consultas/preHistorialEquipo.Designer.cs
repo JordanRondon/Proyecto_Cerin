@@ -376,6 +376,7 @@
             this.txb_Observaciones.Location = new System.Drawing.Point(44, 379);
             this.txb_Observaciones.Multiline = true;
             this.txb_Observaciones.Name = "txb_Observaciones";
+            this.txb_Observaciones.ReadOnly = true;
             this.txb_Observaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_Observaciones.Size = new System.Drawing.Size(494, 148);
             this.txb_Observaciones.TabIndex = 49;
@@ -387,6 +388,7 @@
             this.txb_Recomendaciones.Location = new System.Drawing.Point(548, 384);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.ReadOnly = true;
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txb_Recomendaciones.Size = new System.Drawing.Size(593, 148);
             this.txb_Recomendaciones.TabIndex = 41;

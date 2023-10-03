@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros
@@ -81,7 +82,14 @@ namespace Cerin_Ingenieros
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            configNuevo();
+            if (comboBoxCategoria.Items.Count == 0)
+                MessageBox.Show("Registra una categoria");
+            else if(comboBox_marca.Items.Count == 0)
+                MessageBox.Show("Registra una marca");
+            else if(comboBox_modelo.Items.Count ==0)
+                MessageBox.Show("Registra un modelo");
+            else
+                configNuevo();
         }
         private void configNuevo()
         {
@@ -118,7 +126,7 @@ namespace Cerin_Ingenieros
             dgvAcesorios.Columns.AddRange(
                 new DataGridViewCheckBoxColumn { HeaderText = "Opcion" },
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre", ReadOnly = true },
-                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true }
+                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true, Name = "Cantidad" }
             );
             dgvAcesorios.Columns[0].Width = 50;
             dgvAcesorios.Columns[2].Width = 80;
@@ -554,15 +562,34 @@ namespace Cerin_Ingenieros
                 if (textBoxCell.Value.ToString() != "")
                 {
                     textBoxCell.ReadOnly = true;
-                    textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
+                    textBoxCell.Value = ""; 
                 }
                 else
                 {
                     textBoxCell.ReadOnly = false;
-                    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
+                    textBoxCell.Value = "1";
                 }
+            }
+        }
 
-
+        private void dgvAcesorios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.RowIndex >=0  && e.ColumnIndex == 2)
+            {
+                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
+                string cadena = textBoxCell.Value.ToString();
+                if (!Regex.IsMatch(cadena, @"^\d+$"))
+                {
+                    MessageBox.Show("Ingrese solo numeros");
+                    textBoxCell.Value = "1";
+                }
+                else
+                {
+                    if (Convert.ToInt16(cadena) <= 0)
+                        textBoxCell.Value = "1";
+                    else
+                        textBoxCell.Value = Convert.ToInt16(cadena);
+                }
             }
         }
     }

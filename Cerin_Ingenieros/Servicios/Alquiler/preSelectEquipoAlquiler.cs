@@ -48,7 +48,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
 
                 if (item.Estado == 'D') estado2 = "Disponible";
-                else if (item.Estado == 'U') estado2 = "Uso";
+                else if (item.Estado == 'U') estado2 = "SELECIONADO";
                 else estado2 = "Ocupado";
                 dataGridView_equipos.Rows.Add(
                     item.SerieEquipo,

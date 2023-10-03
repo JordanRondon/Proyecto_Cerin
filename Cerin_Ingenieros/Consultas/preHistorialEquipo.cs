@@ -173,15 +173,17 @@ namespace Cerin_Ingenieros.Consultas
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            if (txb_serie_equipo.Text != null)
+            if (!string.IsNullOrWhiteSpace(txb_serie_equipo.Text))
             {
                 limpiarDatosCliente();
                 //lb_nombreEmpleado.Text = "Nombre";
 
                 listarServicio();
                 listarAccesorios();
-                entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(txb_serie_equipo.Text);
-                mostrarDatosEquipo(equipo);
+                entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(txb_serie_equipo.Text.Replace(" ", ""));
+                if (equipo != null)
+                    mostrarDatosEquipo(equipo);
+                else MessageBox.Show("El equipo con serie " + txb_serie_equipo.Text.Replace(" ", "") + " no se encontro");
             }
             else MessageBox.Show("Ingrese la serie del Equipo");
         }

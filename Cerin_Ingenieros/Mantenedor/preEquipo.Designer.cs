@@ -347,6 +347,7 @@
             this.dgvAcesorios.Size = new System.Drawing.Size(554, 211);
             this.dgvAcesorios.TabIndex = 38;
             this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
+            this.dgvAcesorios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellEndEdit);
             // 
             // preEquipo
             // 

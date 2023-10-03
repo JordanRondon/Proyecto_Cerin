@@ -1,4 +1,5 @@
 ﻿using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -37,7 +38,7 @@ namespace Cerin_Ingenieros.Login
 
             if (user != null && contra != null)
             {
-                estado = logUser.GetInstancia.validarInicioSesion(user,contra);
+                estado = logUser.GetInstancia.validarInicioSesion(user,classEncriptar.EncriptarContraseña(contra));
             }
             else if (contra == "" && user == "") MessageBox.Show("complete los campos");
             else if (user == "") MessageBox.Show("Ingrese su usuario");
