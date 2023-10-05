@@ -15,7 +15,7 @@ using static iTextSharp.text.pdf.AcroFields;
 
 namespace CapaDato
 {
-    public class datComprobante//../../../Cerin_Ingenieros/Resources/Comprobante.docx
+    public class datComprobante
     {
         #region Singleton
         private static readonly datComprobante instancia = new datComprobante();
@@ -24,11 +24,13 @@ namespace CapaDato
 
         public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos,string path)
         {
+            int contadorLineas = 17;
             try
             {
                 //Buscamos el comprobante en la base de datos
                 entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorNombre("Comprobante");
-                //hacemos un guardado temporal 
+                //hacemos un guardado temporal del documento comprobante.docx
+
                 string aux = path;
                 string path2 = datDocumento.GetInstancia.GuardarDocumentoTemporal(doc);
                 if (path != "")
@@ -41,11 +43,13 @@ namespace CapaDato
                 Word.Application wordApp = new Word.Application();
                 try
                 {
+                    //abrid plantilla de documento de word
                     Word.Document plantilla = wordApp.Documents.Open(path2);
                     try
                     {
                         entEmpleado empleado = datEmpleado.GetInstancia.BuscarEmpleadoId(servicio.IdEmpleado);
 
+                        //Insertamos datos de cabecera
                         Dictionary<string, string> reemplazos = new Dictionary<string, string>
                         {
                             { "<codigo>", servicio.IdServicio.ToString() },
@@ -62,7 +66,10 @@ namespace CapaDato
                             plantilla.Content.Find.Execute(FindText: kvp.Key, ReplaceWith: kvp.Value);
                         }
 
-                        // Rellenar equipos
+                        // RELLENAR EQUIPO
+
+                        //Cantidad de equipos en el servicio por cada equipo se insertara un <DatEquiposCompletos>^p
+                        //y se remplazara en <Cuerpo del comprobante>
                         string cantequipos = "";
                         foreach (var item in equipos)
                         {
@@ -70,6 +77,8 @@ namespace CapaDato
                         }
                         plantilla.Content.Find.Execute(FindText: "<Cuerpo del comprobante>", ReplaceWith: cantequipos);
 
+
+                        //Insertar etiquetas para cada equipo e las que remplazaremos sus datos
                         foreach (var item in equipos)
                         {
                             string contenido = "<Datos equipo>^p";
@@ -78,24 +87,29 @@ namespace CapaDato
                             foreach (var ac in listAccesorios)
                             {
                                 contenido += "<Accesorio>^p";
+                                contadorLineas++;
                             }
 
                             contenido += "RECOMENDACIONES PRELIMINARES: <Preliminares>.^p";
                             contenido += "RECOMENDACIONES FINALES: <Finales>.^p";
-
+                            contadorLineas += 4;
                             plantilla.Content.Find.Execute(FindText: "<DatEquiposCompletos>", ReplaceWith: contenido);
                         }
 
+                        //remplazamos datos de cada uno de los equipos en las etiquetas generadas
+                        int contador= equipos.Count();
                         foreach (var equipo in equipos)
                         {
+                            contador--;
                             entMarca marca = datMarca.GetInstancia.BuscarMarcaPorId(equipo.IdMarca);
                             entModelo modelo = datModelo.GetInstancia.BuscarModeloPorId(equipo.id_modelo);
                             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
 
+                            //datos principales del equipo
                             string datosdelequipo = $"Equipo: {categoria.Nombre}    Modelo: {modelo.nombre}    Marca: {marca.Nombre}    Serie: {equipo.SerieEquipo}";
-
                             plantilla.Content.Find.Execute(FindText: "<Datos equipo>", ReplaceWith: datosdelequipo);
 
+                            //todos los accesorios de un equipo
                             string accesorios = "";
                             List<entEquipo_Accesorio> listAccesorios = datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(equipo.SerieEquipo);
                             foreach (var ac in listAccesorios)
@@ -105,8 +119,16 @@ namespace CapaDato
                                 plantilla.Content.Find.Execute(FindText: "<Accesorio>", ReplaceWith: accesorios);
                             }
 
+                            //Registramos las recomendaciones preliminares y finales
                             entEquipo_Servicio equiposervicio = datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(equipo.SerieEquipo, servicio.IdServicio);
                             plantilla.Content.Find.Execute(FindText: "<Preliminares>", ReplaceWith: equiposervicio.Observaciones_preliminares);
+                            if ((contadorLineas % 48) > 37 && contador == 0 )
+                            {
+                                int lineasFaltantes = contadorLineas%48;
+                                int limite = (48 - lineasFaltantes);
+                                for (int i = 0; i < limite; i++)
+                                    equiposervicio.observaciones_finales += "^p";
+                            }
                             plantilla.Content.Find.Execute(FindText: "<Finales>", ReplaceWith: equiposervicio.observaciones_finales);
                         }
 
