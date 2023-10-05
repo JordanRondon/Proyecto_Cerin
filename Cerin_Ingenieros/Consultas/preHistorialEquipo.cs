@@ -181,6 +181,7 @@ namespace Cerin_Ingenieros.Consultas
                 listarServicio();
                 listarAccesorios();
                 entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(txb_serie_equipo.Text.Replace(" ", ""));
+                //cualquier cosa
                 if (equipo != null)
                     mostrarDatosEquipo(equipo);
                 else MessageBox.Show("El equipo con serie " + txb_serie_equipo.Text.Replace(" ", "") + " no se encontro");
