@@ -290,7 +290,6 @@
     <EmbeddedResource Include="Servicios\ViewCertificado\preViewCertificado.resx">
       <DependentUpon>preViewCertificado.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Cerin_Ingenieros_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
