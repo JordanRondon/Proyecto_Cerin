@@ -133,6 +133,12 @@
     <Compile Include="Consultas\preHistorialEquipo.Designer.cs">
       <DependentUpon>preHistorialEquipo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultas\preVerServicios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultas\preVerServicios.Designer.cs">
+      <DependentUpon>preVerServicios.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\preLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Consultas\preHistorialEquipo.resx">
       <DependentUpon>preHistorialEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultas\preVerServicios.resx">
+      <DependentUpon>preVerServicios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\preLogin.resx">
       <DependentUpon>preLogin.cs</DependentUpon>
