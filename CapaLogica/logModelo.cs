@@ -16,7 +16,9 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entModelo> listarModelos() => datModelo.GetInstancia.listarModelo();
+        public List<entModelo> listarModelos(int id_marca) => datModelo.GetInstancia.listarModelo(id_marca);
+
+        public List<entModelo> listarTodoModelos() => datModelo.GetInstancia.listarTodosModelo();
 
         public bool insertaModelo(entModelo modelo) => datModelo.GetInstancia.insertarModelo(modelo);
 

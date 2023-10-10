@@ -391,6 +391,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LOGO-CCI.ico" />
+    <None Include="Resources\eliminar.png" />
+    <None Include="Resources\editar.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

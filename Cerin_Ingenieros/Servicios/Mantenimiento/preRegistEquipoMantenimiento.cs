@@ -78,7 +78,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
             comboBox_modelo.ValueMember = "id_modelo";
             comboBox_modelo.DisplayMember = "nombre";
-            comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
+            //comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
 
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
             comboBoxCategoria.DisplayMember = "nombre";
@@ -327,16 +327,17 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             txb_serie.Enabled = true;
             btnBuscarEquipo.Enabled = true;
-
+            
             txbObservaciones.Text = "";
             txb_serie.Text = "";
-
+            txbOtrosAccesorios.Text = "";
             //vaciamos la lista de accesorios
             listaaccesorios.Clear();
             CargarAccesorios();
 
             groupBoxAccesorios.Enabled = false;
             groupBoxObservaciones.Enabled = false;
+            groupBoxOtosAccesorios.Enabled = false;
             btn_guardar.Enabled = false;
             btnCancelarEquipo.Enabled = false;
         }
@@ -447,7 +448,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             List<entModelo> listaModelo = new List<entModelo>();
 
-            listaModelo = logModelo.GetInstancia.listarModelos();
+            //listaModelo = logModelo.GetInstancia.listarModelos();
 
             entModelo modeloSeleccionado = new entModelo();
 

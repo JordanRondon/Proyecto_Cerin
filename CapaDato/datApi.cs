@@ -25,7 +25,7 @@ namespace CapaDato
                 {
                     dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvcmRhbmFuZ2Vscm9uZG9ucG96b0BnbWFpbC5jb20ifQ._sY7Mt0qrxCqH2uZH745-57025MYCXrnIZeg-whqgFs");
 
-                    if (respuesta!=null)
+                    if (respuesta.success != false)
                     {
                         datos = new entApi();
                         datos.razonSocial = respuesta.razonSocial.ToString();
