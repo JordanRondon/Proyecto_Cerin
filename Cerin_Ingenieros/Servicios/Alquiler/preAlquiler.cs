@@ -341,39 +341,6 @@ namespace Cerin_Ingenieros.Servicios
                 textBox.Text = "Razon social";
                 textBox.ForeColor = SystemColors.GrayText; // Cambia el color de texto a gris
             }
-        }
-
-        private void dataGridView_list_equipos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                //Obtenemos la fila selecionada
-                DataGridViewRow filaActual = dataGridView_list_equipos.Rows[e.RowIndex];
-                equipoSelecionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
-
-                //Buscamos la lista de accesorios yla cantidad de un equipo X
-                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(equipoSelecionado);
-
-                dataGridView_Accesorios.Rows.Clear();
-
-                //mostramos el accesorio
-                foreach (var item in listaAccesorios)
-                {
-                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
-
-                    dataGridView_Accesorios.Rows.Add(
-                        accesorio.Nombre,
-                        item.cantidad
-                    );
-                }
-
-                txb_Recomendaciones.Enabled = true;
-                foreach (var item in listaDetalleEquiposServicios)
-                {
-                    if (item.serie_equipo == equipoSelecionado)
-                    {
-                        txb_Recomendaciones.Text = item.Observaciones_preliminares;
-                    }
                 }
                 btn_agregarRecomendacion.Enabled = true;
                 btn_cancelarObservacion.Enabled = true;
