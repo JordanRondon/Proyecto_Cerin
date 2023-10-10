@@ -22,7 +22,7 @@ namespace Cerin_Ingenieros.Servicios
     public partial class preAlquiler : Form
     {
         entCliente clienteSelecionado = null;   //Cliente selecionado para el servicio
-        List<entEquipo> equiposSelecionados;    //lista de equipoas para alquiler
+        List<entEquipo> equiposSelecionados;    //lista de equipos para alquiler
         List<entEquipo_Servicio> listaDetalleEquiposServicios = new List<entEquipo_Servicio>();     //lista de equipo_servicio
         private string equipoSelecionado = "";
         bool prosesoCancelado = true;           //control de si el proseso se cancelo
@@ -56,17 +56,24 @@ namespace Cerin_Ingenieros.Servicios
         private void ConfigCabecera()
         {
             dataGridView_list_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo", Name ="Serie"},
+                new DataGridViewImageColumn { HeaderText = "Editar", ImageLayout = DataGridViewImageCellLayout.Zoom, Name = "Editar"},
+                new DataGridViewImageColumn { HeaderText = "Eliminar",ImageLayout = DataGridViewImageCellLayout.Zoom,Name = "Eliminar"}
             );
+            dataGridView_list_equipos.Columns["Editar"].Width = 50;
+            dataGridView_list_equipos.Columns["Eliminar"].Width = 80;
+
+            foreach (DataGridViewColumn columna in dataGridView_list_equipos.Columns)
+            {
+                columna.HeaderCell.Style.Font = new System.Drawing.Font("Arial", 14);
+            }
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_list_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-            equiposSelecionados = logEquipo.GetInstancia.listarEquipoAlquiler();
             equiposSelecionados = new List<entEquipo>();
-
 
             dataGridView_Accesorios.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
@@ -85,17 +92,19 @@ namespace Cerin_Ingenieros.Servicios
             //insertar los datos 
             foreach (var item in equiposSelecionados)
             {
-                string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
-
-                if (item.Estado == 'D') estado = "Disponible";
-                else if (item.Estado == 'U') estado = "Usando ahora";
-                else estado = "Ocupado";
+                entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
+                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
+                // Obtener la imagen desde los recursos
+                Image imagenEditar = Properties.Resources.editar;
+                Image imagenElimnar = Properties.Resources.eliminar;
                 dataGridView_list_equipos.Rows.Add(
+                    categoria.Nombre,
+                    marca.Nombre,
+                    modelo.nombre,
                     item.SerieEquipo,
-                    item.id_modelo,
-                    estado,
-                    marca.Nombre
+                    imagenEditar,
+                    imagenElimnar
                 );
             }
         }
@@ -110,8 +119,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
-            //btn_editar.Enabled = false;
-            btn_Delete.Enabled = false;
             btn_cancelarObservacion.Enabled = false;
 
             lb_dni_ruc_cliente.Text = "DNI";
@@ -125,7 +132,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_agregar_equipo.Enabled = false;
             comboBox_empleado.Enabled = false;
             dataGridView_list_equipos.Enabled = false;
-            dataGridView_Accesorios.Enabled = false;
             txb_Recomendaciones.Enabled = false;
             btn_agregarRecomendacion.Enabled = false;
         }
@@ -281,6 +287,10 @@ namespace Cerin_Ingenieros.Servicios
                 lb_nombres_cliente.Text = "Nombres";
                 lb_telefono_cliente.Text = "Telefono";
 
+                txb_Recomendaciones.Text = "";
+
+                dataGridView_Accesorios.Rows.Clear();
+
 
                 listarEquipos();
                 ConfiguracionInicial();
@@ -341,13 +351,6 @@ namespace Cerin_Ingenieros.Servicios
                 textBox.Text = "Razon social";
                 textBox.ForeColor = SystemColors.GrayText; // Cambia el color de texto a gris
             }
-                }
-                btn_agregarRecomendacion.Enabled = true;
-                btn_cancelarObservacion.Enabled = true;
-                dataGridView_Accesorios.Enabled = true;
-                btn_Delete.Enabled = true;
-            }
-
         }
 
         private void btn_agregarRecomendacion_Click(object sender, EventArgs e)
@@ -366,12 +369,10 @@ namespace Cerin_Ingenieros.Servicios
         private void LimpiarObservaciones()
         {
             dataGridView_Accesorios.Rows.Clear();
-            dataGridView_Accesorios.Enabled = false;
             txb_Recomendaciones.Enabled = false;
             txb_Recomendaciones.Text = "";
             btn_agregarRecomendacion.Enabled = false;
             btn_cancelarObservacion.Enabled = false;
-            btn_Delete.Enabled = false;
             equipoSelecionado = "";
         }
 
@@ -382,26 +383,97 @@ namespace Cerin_Ingenieros.Servicios
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            foreach (var item in listaDetalleEquiposServicios)
+            if (listaDetalleEquiposServicios.Count > 0)
             {
-                if (item.serie_equipo == equipoSelecionado)
+                foreach (var item in listaDetalleEquiposServicios)
                 {
-                    listaDetalleEquiposServicios.Remove(item);
-                    break;
+                    if (item.serie_equipo == equipoSelecionado)
+                    {
+                        listaDetalleEquiposServicios.Remove(item);
+                        break;
+                    }
                 }
+                foreach (var item in equiposSelecionados)
+                {
+                    if (item.SerieEquipo == equipoSelecionado)
+                    {
+                        equiposSelecionados.Remove(item);
+                        item.Estado = 'D';
+                        logEquipo.GetInstancia.editarEquipo(item);
+                        break;
+                    }
+                }
+                LimpiarObservaciones();
+                listarEquipos();
             }
-            foreach (var item in equiposSelecionados)
+        }
+
+        private void dataGridView_list_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                if (item.SerieEquipo == equipoSelecionado)
+                //Obtenemos la fila selecionada
+                DataGridViewRow filaActual = dataGridView_list_equipos.Rows[e.RowIndex];
+                equipoSelecionado = Convert.ToString(filaActual.Cells["Serie"].Value.ToString());
+
+                if (e.ColumnIndex == 4)
                 {
-                    equiposSelecionados.Remove(item);
-                    item.Estado = 'D';
-                    logEquipo.GetInstancia.editarEquipo(item);
-                    break;
+                    txb_Recomendaciones.Enabled = true;
+
+                    btn_agregarRecomendacion.Enabled = true;
+                    btn_cancelarObservacion.Enabled = true;
+                }else if (e.ColumnIndex == 5)
+                {
+                    if (listaDetalleEquiposServicios.Count > 0)
+                    {
+                        foreach (var item in listaDetalleEquiposServicios)
+                        {
+                            if (item.serie_equipo == equipoSelecionado)
+                            {
+                                listaDetalleEquiposServicios.Remove(item);
+                                break;
+                            }
+                        }
+                        foreach (var item in equiposSelecionados)
+                        {
+                            if (item.SerieEquipo == equipoSelecionado)
+                            {
+                                equiposSelecionados.Remove(item);
+                                item.Estado = 'D';
+                                logEquipo.GetInstancia.editarEquipo(item);
+                                break;
+                            }
+                        }
+                        LimpiarObservaciones();
+                        listarEquipos();
+                        return;
+                    }
                 }
+
+                //Buscamos la lista de accesorios yla cantidad de un equipo X
+                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(equipoSelecionado);
+
+                dataGridView_Accesorios.Rows.Clear();
+
+                //mostramos el accesorio
+                foreach (var item in listaAccesorios)
+                {
+                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                    dataGridView_Accesorios.Rows.Add(
+                        accesorio.Nombre,
+                        item.cantidad
+                    );
+                }
+
+                foreach (var item in listaDetalleEquiposServicios)
+                {
+                    if (item.serie_equipo == equipoSelecionado)
+                    {
+                        txb_Recomendaciones.Text = item.Observaciones_preliminares;
+                    }
+                }                
             }
-            LimpiarObservaciones();
-            listarEquipos();
         }
     }
 }

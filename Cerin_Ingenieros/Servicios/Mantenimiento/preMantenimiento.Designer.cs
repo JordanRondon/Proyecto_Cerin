@@ -29,29 +29,52 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btn_Delete = new System.Windows.Forms.Button();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.dataGridView_lista_quipos = new System.Windows.Forms.DataGridView();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.dgvAcesorios = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
+            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
+            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.btn_cancelarObservacion = new System.Windows.Forms.Button();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
-            this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
-            this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
-            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
-            this.btn_agregar_equipo = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.dataGridView_lista_quipos = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txb_razon_social = new System.Windows.Forms.TextBox();
-            this.txb_ruc = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.btn_slect_cliente = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_dni_ruc_cliente = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_apellidos_cliente = new System.Windows.Forms.Label();
-            this.lb_telefono_cliente = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.lb_nombres_cliente = new System.Windows.Forms.Label();
-            this.comboBox_empleado = new System.Windows.Forms.ComboBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.lb_telefono_cliente = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.txb_ruc = new System.Windows.Forms.TextBox();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.txb_razon_social = new System.Windows.Forms.TextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
+            this.comboBox_empleado = new System.Windows.Forms.ComboBox();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
@@ -62,36 +85,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel14 = new System.Windows.Forms.Panel();
             this.groupBox3.SuspendLayout();
-            this.grb_observacionesFinales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).BeginInit();
+            this.panel13.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.grb_observacionesFinales.SuspendLayout();
+            this.panel14.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -108,12 +113,9 @@
             this.panel9.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             this.panel10.SuspendLayout();
-            this.tableLayoutPanel10.SuspendLayout();
-            this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.tableLayoutPanel11.SuspendLayout();
-            this.panel14.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -130,104 +132,37 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipo";
             // 
-            // btn_Delete
+            // tableLayoutPanel10
             // 
-            this.btn_Delete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(10, 6);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(153, 35);
-            this.btn_Delete.TabIndex = 50;
-            this.btn_Delete.Text = "Eliminar equipo";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
-            // 
-            // btn_cancelarObservacion
-            // 
-            this.btn_cancelarObservacion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_cancelarObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelarObservacion.Location = new System.Drawing.Point(678, 6);
-            this.btn_cancelarObservacion.Name = "btn_cancelarObservacion";
-            this.btn_cancelarObservacion.Size = new System.Drawing.Size(95, 35);
-            this.btn_cancelarObservacion.TabIndex = 47;
-            this.btn_cancelarObservacion.Text = "Cancelar";
-            this.btn_cancelarObservacion.UseVisualStyleBackColor = true;
-            this.btn_cancelarObservacion.Click += new System.EventHandler(this.btn_cancelarObservacion_Click);
-            // 
-            // btn_agregarRecomendacion
-            // 
-            this.btn_agregarRecomendacion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(293, 6);
-            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
-            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
-            this.btn_agregarRecomendacion.TabIndex = 46;
-            this.btn_agregarRecomendacion.Text = "Actualizar observaciones";
-            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
-            this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
-            // 
-            // grb_observacionesFinales
-            // 
-            this.grb_observacionesFinales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
-            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(394, 3);
-            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(386, 194);
-            this.grb_observacionesFinales.TabIndex = 49;
-            this.grb_observacionesFinales.TabStop = false;
-            this.grb_observacionesFinales.Text = "Observaciones preliminares";
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.panel11, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.panel12, 0, 1);
+            this.tableLayoutPanel10.Controls.Add(this.panel13, 0, 2);
+            this.tableLayoutPanel10.Controls.Add(this.panel14, 0, 3);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(6, 21);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 4;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(789, 527);
+            this.tableLayoutPanel10.TabIndex = 47;
             // 
-            // txb_Recomendaciones
+            // panel11
             // 
-            this.txb_Recomendaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txb_Recomendaciones.Location = new System.Drawing.Point(12, 24);
-            this.txb_Recomendaciones.Multiline = true;
-            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(356, 152);
-            this.txb_Recomendaciones.TabIndex = 41;
-            // 
-            // dataGridView_Accesorios
-            // 
-            this.dataGridView_Accesorios.AllowUserToAddRows = false;
-            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
-            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
-            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
-            this.dataGridView_Accesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Accesorios.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_Accesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView_Accesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
-            this.dataGridView_Accesorios.ReadOnly = true;
-            this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(385, 194);
-            this.dataGridView_Accesorios.TabIndex = 48;
+            this.panel11.Controls.Add(this.btn_agregar_equipo);
+            this.panel11.Location = new System.Drawing.Point(3, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(783, 59);
+            this.panel11.TabIndex = 0;
             // 
             // btn_agregar_equipo
             // 
@@ -249,6 +184,18 @@
             this.btn_agregar_equipo.UseVisualStyleBackColor = false;
             this.btn_agregar_equipo.Click += new System.EventHandler(this.btn_agregar_equipo_Click);
             // 
+            // panel12
+            // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.panel12.Controls.Add(this.dataGridView_lista_quipos);
+            this.panel12.Location = new System.Drawing.Point(3, 68);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(783, 200);
+            this.panel12.TabIndex = 1;
+            // 
             // dataGridView_lista_quipos
             // 
             this.dataGridView_lista_quipos.AllowUserToAddRows = false;
@@ -262,32 +209,174 @@
             this.dataGridView_lista_quipos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_lista_quipos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_lista_quipos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_lista_quipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_lista_quipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView_lista_quipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_lista_quipos.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_lista_quipos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_lista_quipos.EnableHeadersVisualStyles = false;
             this.dataGridView_lista_quipos.Location = new System.Drawing.Point(0, 3);
             this.dataGridView_lista_quipos.Name = "dataGridView_lista_quipos";
             this.dataGridView_lista_quipos.ReadOnly = true;
             this.dataGridView_lista_quipos.RowHeadersVisible = false;
+            this.dataGridView_lista_quipos.RowTemplate.Height = 28;
             this.dataGridView_lista_quipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_lista_quipos.Size = new System.Drawing.Size(780, 194);
             this.dataGridView_lista_quipos.TabIndex = 2;
-            this.dataGridView_lista_quipos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_lista_quipos_CellContentDoubleClick);
+            this.dataGridView_lista_quipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_lista_quipos_CellClick);
+            // 
+            // panel13
+            // 
+            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel13.Controls.Add(this.tableLayoutPanel11);
+            this.panel13.Location = new System.Drawing.Point(3, 274);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(783, 200);
+            this.panel13.TabIndex = 2;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.91188F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.60536F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.48276F));
+            this.tableLayoutPanel11.Controls.Add(this.dgvAcesorios, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.groupBox1, 2, 0);
+            this.tableLayoutPanel11.Controls.Add(this.grb_observacionesFinales, 1, 0);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(783, 200);
+            this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // dgvAcesorios
+            // 
+            this.dgvAcesorios.AllowUserToAddRows = false;
+            this.dgvAcesorios.AllowUserToDeleteRows = false;
+            this.dgvAcesorios.AllowUserToResizeColumns = false;
+            this.dgvAcesorios.AllowUserToResizeRows = false;
+            this.dgvAcesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAcesorios.BackgroundColor = System.Drawing.Color.White;
+            this.dgvAcesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvAcesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAcesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAcesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAcesorios.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAcesorios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvAcesorios.EnableHeadersVisualStyles = false;
+            this.dgvAcesorios.Location = new System.Drawing.Point(3, 3);
+            this.dgvAcesorios.Name = "dgvAcesorios";
+            this.dgvAcesorios.RowHeadersVisible = false;
+            this.dgvAcesorios.Size = new System.Drawing.Size(330, 194);
+            this.dgvAcesorios.TabIndex = 51;
+            this.dgvAcesorios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellContentClick);
+            this.dgvAcesorios.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAcesorios_CellEndEdit);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txb_Recomendaciones);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(515, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(265, 194);
+            this.groupBox1.TabIndex = 50;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Observaciones preliminares";
+            // 
+            // txb_Recomendaciones
+            // 
+            this.txb_Recomendaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txb_Recomendaciones.Location = new System.Drawing.Point(3, 20);
+            this.txb_Recomendaciones.Multiline = true;
+            this.txb_Recomendaciones.Name = "txb_Recomendaciones";
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(259, 171);
+            this.txb_Recomendaciones.TabIndex = 41;
+            // 
+            // grb_observacionesFinales
+            // 
+            this.grb_observacionesFinales.Controls.Add(this.txbOtrosAccesorios);
+            this.grb_observacionesFinales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(339, 3);
+            this.grb_observacionesFinales.Name = "grb_observacionesFinales";
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(170, 194);
+            this.grb_observacionesFinales.TabIndex = 49;
+            this.grb_observacionesFinales.TabStop = false;
+            this.grb_observacionesFinales.Text = "Otros accesorios";
+            // 
+            // txbOtrosAccesorios
+            // 
+            this.txbOtrosAccesorios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txbOtrosAccesorios.Location = new System.Drawing.Point(3, 20);
+            this.txbOtrosAccesorios.Multiline = true;
+            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(164, 171);
+            this.txbOtrosAccesorios.TabIndex = 41;
+            // 
+            // panel14
+            // 
+            this.panel14.Controls.Add(this.btn_cancelarObservacion);
+            this.panel14.Controls.Add(this.btn_agregarRecomendacion);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(3, 480);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(783, 44);
+            this.panel14.TabIndex = 3;
+            // 
+            // btn_cancelarObservacion
+            // 
+            this.btn_cancelarObservacion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_cancelarObservacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelarObservacion.Location = new System.Drawing.Point(678, 6);
+            this.btn_cancelarObservacion.Name = "btn_cancelarObservacion";
+            this.btn_cancelarObservacion.Size = new System.Drawing.Size(95, 35);
+            this.btn_cancelarObservacion.TabIndex = 47;
+            this.btn_cancelarObservacion.Text = "Cancelar";
+            this.btn_cancelarObservacion.UseVisualStyleBackColor = true;
+            this.btn_cancelarObservacion.Click += new System.EventHandler(this.btn_cancelarObservacion_Click);
+            // 
+            // btn_agregarRecomendacion
+            // 
+            this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(3, 6);
+            this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
+            this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
+            this.btn_agregarRecomendacion.TabIndex = 46;
+            this.btn_agregarRecomendacion.Text = "Actualizar observaciones";
+            this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
+            this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
             // 
             // groupBox2
             // 
@@ -302,29 +391,58 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cliente";
             // 
-            // txb_razon_social
+            // tableLayoutPanel2
             // 
-            this.txb_razon_social.Enabled = false;
-            this.txb_razon_social.Location = new System.Drawing.Point(3, 3);
-            this.txb_razon_social.Name = "txb_razon_social";
-            this.txb_razon_social.ReadOnly = true;
-            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
-            this.txb_razon_social.TabIndex = 29;
-            this.txb_razon_social.Tag = "Razon social";
-            this.txb_razon_social.Text = "Razon social";
-            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.panel8, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.panel9, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 7);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 21);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 8;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(355, 527);
+            this.tableLayoutPanel2.TabIndex = 24;
             // 
-            // txb_ruc
+            // panel3
             // 
-            this.txb_ruc.Enabled = false;
-            this.txb_ruc.Location = new System.Drawing.Point(3, 3);
-            this.txb_ruc.Name = "txb_ruc";
-            this.txb_ruc.ReadOnly = true;
-            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
-            this.txb_ruc.TabIndex = 28;
-            this.txb_ruc.Tag = "RUC";
-            this.txb_ruc.Text = "RUC";
-            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.tableLayoutPanel3);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(349, 59);
+            this.panel3.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.btn_slect_cliente, 0, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(68, 13);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(216, 41);
+            this.tableLayoutPanel3.TabIndex = 0;
             // 
             // btn_slect_cliente
             // 
@@ -346,6 +464,28 @@
             this.btn_slect_cliente.UseVisualStyleBackColor = false;
             this.btn_slect_cliente.Click += new System.EventHandler(this.btn_slect_cliente_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.tableLayoutPanel4);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 68);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(349, 59);
+            this.panel4.TabIndex = 1;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.lb_dni_ruc_cliente, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(35, 23);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(291, 20);
+            this.tableLayoutPanel4.TabIndex = 46;
+            // 
             // lb_dni_ruc_cliente
             // 
             this.lb_dni_ruc_cliente.BackColor = System.Drawing.SystemColors.Control;
@@ -356,6 +496,28 @@
             this.lb_dni_ruc_cliente.TabIndex = 26;
             this.lb_dni_ruc_cliente.Text = "DNI";
             this.lb_dni_ruc_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel5);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 133);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(349, 59);
+            this.panel5.TabIndex = 2;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.lb_apellidos_cliente, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(35, 22);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(291, 20);
+            this.tableLayoutPanel5.TabIndex = 47;
             // 
             // lb_apellidos_cliente
             // 
@@ -368,16 +530,28 @@
             this.lb_apellidos_cliente.Text = "Apellidos";
             this.lb_apellidos_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lb_telefono_cliente
+            // panel6
             // 
-            this.lb_telefono_cliente.BackColor = System.Drawing.SystemColors.Control;
-            this.lb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_telefono_cliente.Location = new System.Drawing.Point(3, 0);
-            this.lb_telefono_cliente.Name = "lb_telefono_cliente";
-            this.lb_telefono_cliente.Size = new System.Drawing.Size(280, 20);
-            this.lb_telefono_cliente.TabIndex = 24;
-            this.lb_telefono_cliente.Text = "Telefono";
-            this.lb_telefono_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel6.Controls.Add(this.tableLayoutPanel6);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 198);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(349, 59);
+            this.panel6.TabIndex = 3;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.lb_nombres_cliente, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(35, 22);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(291, 20);
+            this.tableLayoutPanel6.TabIndex = 48;
             // 
             // lb_nombres_cliente
             // 
@@ -390,17 +564,116 @@
             this.lb_nombres_cliente.Text = "Nombres";
             this.lb_nombres_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBox_empleado
+            // panel7
             // 
-            this.comboBox_empleado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox_empleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox_empleado.FormattingEnabled = true;
-            this.comboBox_empleado.Location = new System.Drawing.Point(35, 29);
-            this.comboBox_empleado.Name = "comboBox_empleado";
-            this.comboBox_empleado.Size = new System.Drawing.Size(276, 24);
-            this.comboBox_empleado.TabIndex = 22;
+            this.panel7.Controls.Add(this.tableLayoutPanel8);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 263);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(349, 59);
+            this.panel7.TabIndex = 4;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.lb_telefono_cliente, 0, 0);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(35, 22);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 1;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(291, 20);
+            this.tableLayoutPanel8.TabIndex = 50;
+            // 
+            // lb_telefono_cliente
+            // 
+            this.lb_telefono_cliente.BackColor = System.Drawing.SystemColors.Control;
+            this.lb_telefono_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_telefono_cliente.Location = new System.Drawing.Point(3, 0);
+            this.lb_telefono_cliente.Name = "lb_telefono_cliente";
+            this.lb_telefono_cliente.Size = new System.Drawing.Size(280, 20);
+            this.lb_telefono_cliente.TabIndex = 24;
+            this.lb_telefono_cliente.Text = "Telefono";
+            this.lb_telefono_cliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.tableLayoutPanel7);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 328);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(349, 59);
+            this.panel8.TabIndex = 5;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel7.ColumnCount = 1;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Controls.Add(this.txb_ruc, 0, 0);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(38, 18);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(285, 28);
+            this.tableLayoutPanel7.TabIndex = 49;
+            // 
+            // txb_ruc
+            // 
+            this.txb_ruc.Enabled = false;
+            this.txb_ruc.Location = new System.Drawing.Point(3, 3);
+            this.txb_ruc.Name = "txb_ruc";
+            this.txb_ruc.ReadOnly = true;
+            this.txb_ruc.Size = new System.Drawing.Size(276, 24);
+            this.txb_ruc.TabIndex = 28;
+            this.txb_ruc.Tag = "RUC";
+            this.txb_ruc.Text = "RUC";
+            this.txb_ruc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.tableLayoutPanel9);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 393);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(349, 59);
+            this.panel9.TabIndex = 6;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Controls.Add(this.txb_razon_social, 0, 0);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(38, 20);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(285, 28);
+            this.tableLayoutPanel9.TabIndex = 51;
+            // 
+            // txb_razon_social
+            // 
+            this.txb_razon_social.Enabled = false;
+            this.txb_razon_social.Location = new System.Drawing.Point(3, 3);
+            this.txb_razon_social.Name = "txb_razon_social";
+            this.txb_razon_social.ReadOnly = true;
+            this.txb_razon_social.Size = new System.Drawing.Size(276, 24);
+            this.txb_razon_social.TabIndex = 29;
+            this.txb_razon_social.Tag = "Razon social";
+            this.txb_razon_social.Text = "Razon social";
+            this.txb_razon_social.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel10
+            // 
+            this.panel10.Controls.Add(this.label8);
+            this.panel10.Controls.Add(this.comboBox_empleado);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel10.Location = new System.Drawing.Point(3, 458);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(349, 66);
+            this.panel10.TabIndex = 7;
             // 
             // label8
             // 
@@ -413,6 +686,18 @@
             this.label8.Size = new System.Drawing.Size(110, 20);
             this.label8.TabIndex = 21;
             this.label8.Text = "Recepcionista";
+            // 
+            // comboBox_empleado
+            // 
+            this.comboBox_empleado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox_empleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_empleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox_empleado.FormattingEnabled = true;
+            this.comboBox_empleado.Location = new System.Drawing.Point(35, 29);
+            this.comboBox_empleado.Name = "comboBox_empleado";
+            this.comboBox_empleado.Size = new System.Drawing.Size(276, 24);
+            this.comboBox_empleado.TabIndex = 22;
             // 
             // btn_cancelar
             // 
@@ -534,283 +819,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1180, 553);
             this.tableLayoutPanel1.TabIndex = 26;
             // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel4, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.panel8, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.panel9, 0, 6);
-            this.tableLayoutPanel2.Controls.Add(this.panel10, 0, 7);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(5, 21);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 8;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(355, 527);
-            this.tableLayoutPanel2.TabIndex = 24;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.tableLayoutPanel3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(349, 59);
-            this.panel3.TabIndex = 0;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Controls.Add(this.btn_slect_cliente, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(68, 13);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 1;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(216, 41);
-            this.tableLayoutPanel3.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.tableLayoutPanel4);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 68);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(349, 59);
-            this.panel4.TabIndex = 1;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.lb_dni_ruc_cliente, 0, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(35, 23);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(291, 20);
-            this.tableLayoutPanel4.TabIndex = 46;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.tableLayoutPanel5);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 133);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(349, 59);
-            this.panel5.TabIndex = 2;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.lb_apellidos_cliente, 0, 0);
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(35, 22);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 1;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(291, 20);
-            this.tableLayoutPanel5.TabIndex = 47;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.tableLayoutPanel6);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 198);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(349, 59);
-            this.panel6.TabIndex = 3;
-            // 
-            // tableLayoutPanel6
-            // 
-            this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel6.ColumnCount = 1;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Controls.Add(this.lb_nombres_cliente, 0, 0);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(35, 22);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(291, 20);
-            this.tableLayoutPanel6.TabIndex = 48;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.tableLayoutPanel8);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 263);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(349, 59);
-            this.panel7.TabIndex = 4;
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel8.ColumnCount = 1;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.lb_telefono_cliente, 0, 0);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(35, 22);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 1;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(291, 20);
-            this.tableLayoutPanel8.TabIndex = 50;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.tableLayoutPanel7);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 328);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(349, 59);
-            this.panel8.TabIndex = 5;
-            // 
-            // tableLayoutPanel7
-            // 
-            this.tableLayoutPanel7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel7.ColumnCount = 1;
-            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Controls.Add(this.txb_ruc, 0, 0);
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(38, 18);
-            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
-            this.tableLayoutPanel7.RowCount = 1;
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(285, 28);
-            this.tableLayoutPanel7.TabIndex = 49;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.tableLayoutPanel9);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(3, 393);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(349, 59);
-            this.panel9.TabIndex = 6;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel9.ColumnCount = 1;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Controls.Add(this.txb_razon_social, 0, 0);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(38, 20);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(285, 28);
-            this.tableLayoutPanel9.TabIndex = 51;
-            // 
-            // panel10
-            // 
-            this.panel10.Controls.Add(this.label8);
-            this.panel10.Controls.Add(this.comboBox_empleado);
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 458);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(349, 66);
-            this.panel10.TabIndex = 7;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.panel11, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.panel12, 0, 1);
-            this.tableLayoutPanel10.Controls.Add(this.panel13, 0, 2);
-            this.tableLayoutPanel10.Controls.Add(this.panel14, 0, 3);
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(6, 21);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 4;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(789, 527);
-            this.tableLayoutPanel10.TabIndex = 47;
-            // 
-            // panel11
-            // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel11.Controls.Add(this.btn_agregar_equipo);
-            this.panel11.Location = new System.Drawing.Point(3, 3);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(783, 59);
-            this.panel11.TabIndex = 0;
-            // 
-            // panel12
-            // 
-            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel12.BackColor = System.Drawing.Color.Transparent;
-            this.panel12.Controls.Add(this.dataGridView_lista_quipos);
-            this.panel12.Location = new System.Drawing.Point(3, 68);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(783, 200);
-            this.panel12.TabIndex = 1;
-            // 
-            // panel13
-            // 
-            this.panel13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel13.Controls.Add(this.tableLayoutPanel11);
-            this.panel13.Location = new System.Drawing.Point(3, 274);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(783, 200);
-            this.panel13.TabIndex = 2;
-            // 
-            // tableLayoutPanel11
-            // 
-            this.tableLayoutPanel11.ColumnCount = 2;
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Controls.Add(this.dataGridView_Accesorios, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.grb_observacionesFinales, 1, 0);
-            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
-            this.tableLayoutPanel11.RowCount = 1;
-            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel11.Size = new System.Drawing.Size(783, 200);
-            this.tableLayoutPanel11.TabIndex = 0;
-            // 
-            // panel14
-            // 
-            this.panel14.Controls.Add(this.btn_Delete);
-            this.panel14.Controls.Add(this.btn_cancelarObservacion);
-            this.panel14.Controls.Add(this.btn_agregarRecomendacion);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(3, 480);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(783, 44);
-            this.panel14.TabIndex = 3;
-            // 
             // preMantenimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -824,15 +832,19 @@
             this.Text = "Mantenimiento";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.preMantenimiento_FormClosing);
             this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel10.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAcesorios)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.grb_observacionesFinales.ResumeLayout(false);
             this.grb_observacionesFinales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_lista_quipos)).EndInit();
+            this.panel14.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
@@ -852,12 +864,10 @@
             this.tableLayoutPanel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.panel14.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -882,12 +892,10 @@
         private RecursosAdicionales.BotonesModernos.BTNModernos btn_agregar_equipo;
         private System.Windows.Forms.TextBox txb_razon_social;
         private System.Windows.Forms.TextBox txb_ruc;
-        private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_cancelarObservacion;
         private System.Windows.Forms.Button btn_agregarRecomendacion;
         private System.Windows.Forms.GroupBox grb_observacionesFinales;
-        private System.Windows.Forms.TextBox txb_Recomendaciones;
-        private System.Windows.Forms.DataGridView dataGridView_Accesorios;
+        private System.Windows.Forms.TextBox txbOtrosAccesorios;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
@@ -914,5 +922,8 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txb_Recomendaciones;
+        private System.Windows.Forms.DataGridView dgvAcesorios;
     }
 }

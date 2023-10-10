@@ -17,7 +17,7 @@ namespace CapaDato
         #endregion
 
         #region Metodos
-        public List<entModelo> listarModelo()
+        public List<entModelo> listarModelo(int id_marca)
         {
             SqlCommand cmd = null;
             List<entModelo> lista = new List<entModelo>();
@@ -27,6 +27,46 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
 
                 cmd = new SqlCommand("sp_listarModelo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id_marca", id_marca);
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entModelo modelo = new entModelo();
+
+                    modelo.id_modelo = Convert.ToInt32(dr["id_modelo"]);
+                    modelo.nombre = Convert.ToString(dr["nombre"]);
+                    modelo.estado = Convert.ToChar(dr["estado"]);
+                    modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+
+                    lista.Add(modelo);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return lista;
+        }
+
+        public List<entModelo> listarTodosModelo()
+        {
+            SqlCommand cmd = null;
+            List<entModelo> lista = new List<entModelo>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_listarTodosModelo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
 
@@ -39,6 +79,7 @@ namespace CapaDato
                     modelo.id_modelo = Convert.ToInt32(dr["id_modelo"]);
                     modelo.nombre = Convert.ToString(dr["nombre"]);
                     modelo.estado = Convert.ToChar(dr["estado"]);
+                    modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
 
                     lista.Add(modelo);
                 }
@@ -68,7 +109,7 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
-
+                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
                 cn.Open();
 
                 int i = cmd.ExecuteNonQuery();
@@ -103,7 +144,8 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@id_modelo", modelo.id_modelo);
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
-                cmd.Parameters.AddWithValue("@estado", modelo.estado);
+                cmd.Parameters.AddWithValue("@estado", modelo.estado); 
+                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
 
                 cn.Open();
 
@@ -138,6 +180,7 @@ namespace CapaDato
                 {
                     m.id_modelo = Convert.ToInt32(dr["id_modelo"]);
                     m.nombre = Convert.ToString(dr["nombre"]);
+                    m.IdMarca = Convert.ToInt16(dr["id_Marca"]);
                 }
             }
             catch (Exception e)

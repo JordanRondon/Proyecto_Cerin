@@ -78,12 +78,12 @@
             this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_cancelarObservacion = new System.Windows.Forms.Button();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_nuevo = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -657,7 +657,7 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView_list_equipos.DefaultCellStyle = dataGridViewCellStyle2;
@@ -666,10 +666,11 @@
             this.dataGridView_list_equipos.Name = "dataGridView_list_equipos";
             this.dataGridView_list_equipos.ReadOnly = true;
             this.dataGridView_list_equipos.RowHeadersVisible = false;
+            this.dataGridView_list_equipos.RowTemplate.Height = 28;
             this.dataGridView_list_equipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_list_equipos.Size = new System.Drawing.Size(759, 186);
             this.dataGridView_list_equipos.TabIndex = 2;
-            this.dataGridView_list_equipos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_equipos_CellContentDoubleClick);
+            this.dataGridView_list_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_list_equipos_CellClick);
             // 
             // panel13
             // 
@@ -763,7 +764,6 @@
             // 
             // panel14
             // 
-            this.panel14.Controls.Add(this.btn_Delete);
             this.panel14.Controls.Add(this.btn_cancelarObservacion);
             this.panel14.Controls.Add(this.btn_agregarRecomendacion);
             this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -771,18 +771,6 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(769, 44);
             this.panel14.TabIndex = 3;
-            // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Delete.Location = new System.Drawing.Point(7, 5);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(153, 35);
-            this.btn_Delete.TabIndex = 45;
-            this.btn_Delete.Text = "Eliminar equipo";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_cancelarObservacion
             // 
@@ -798,9 +786,9 @@
             // 
             // btn_agregarRecomendacion
             // 
-            this.btn_agregarRecomendacion.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(309, 6);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(7, 6);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(200, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -844,9 +832,15 @@
             this.btn_nuevo.UseVisualStyleBackColor = true;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "Column1";
+            this.dataGridViewImageColumn1.Image = global::Cerin_Ingenieros.Properties.Resources.editar;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 756;
+            // 
             // preAlquiler
             // 
-            this.AcceptButton = this.btn_guardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -916,7 +910,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_cancelarObservacion;
         private System.Windows.Forms.Button btn_agregarRecomendacion;
         private System.Windows.Forms.GroupBox grb_observacionesFinales;
@@ -948,5 +941,6 @@
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
     }
 }

@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -53,24 +54,34 @@ namespace Cerin_Ingenieros.Servicios
         private void ConfigCabecera()
         {
             dataGridView_lista_quipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Marca" },
                 new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
+                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo", Name = "Serie" },
+                new DataGridViewImageColumn { HeaderText = "Editar", ImageLayout = DataGridViewImageCellLayout.Zoom, Name = "Editar" },
+                new DataGridViewImageColumn { HeaderText = "Eliminar", ImageLayout = DataGridViewImageCellLayout.Zoom, Name = "Eliminar" }
             );
+            dataGridView_lista_quipos.Columns["Editar"].Width = 50;
+            dataGridView_lista_quipos.Columns["Eliminar"].Width = 80;
+
+            foreach (DataGridViewColumn columna in dataGridView_lista_quipos.Columns)
+            {
+                columna.HeaderCell.Style.Font = new System.Drawing.Font("Arial", 14);
+            }
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_lista_quipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
             equiposSelecionados = new List<entEquipo>();
-            listarEquipos();
 
-            dataGridView_Accesorios.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
+            dgvAcesorios.Columns.AddRange(
+                new DataGridViewCheckBoxColumn { HeaderText = "Opcion",Name="Opcion" },
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre", ReadOnly = true },
+                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true }
             );
-            dataGridView_Accesorios.Columns[1].Width = 90;
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvAcesorios.Columns[0].Width = 50;
+            dgvAcesorios.Columns[2].Width = 80;
+
+            foreach (DataGridViewColumn column in dgvAcesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
 
         }
 
@@ -81,24 +92,26 @@ namespace Cerin_Ingenieros.Servicios
             //insertar los datos 
             foreach (var item in equiposSelecionados)
             {
-                string estado;
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
-
-                if (item.Estado == 'D') estado = "Disponible";
-                else if (item.Estado == 'U') estado = "Usando ahora";
-                else estado = "Ocupado";
+                entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
+                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
+                // Obtener la imagen desde los recursos
+                Image imagenEditar = Properties.Resources.editar;
+                Image imagenElimnar = Properties.Resources.eliminar;
                 dataGridView_lista_quipos.Rows.Add(
+                    categoria.Nombre,
+                    marca.Nombre,
+                    modelo.nombre,
                     item.SerieEquipo,
-                    item.id_modelo,
-                    estado,
-                    marca.Nombre
+                    imagenEditar,
+                    imagenElimnar
                 );
             }
         }
         private void LimpiarDGV()
         {
-            dataGridView_Accesorios.Rows.Clear();
-            dataGridView_Accesorios.Columns.Clear();
+            dgvAcesorios.Rows.Clear();
+            dgvAcesorios.Columns.Clear();
 
             dataGridView_lista_quipos.Rows.Clear();
         }
@@ -112,8 +125,6 @@ namespace Cerin_Ingenieros.Servicios
             btn_nuevo.Enabled = true;
             btn_cancelar.Enabled = false;
             btn_guardar.Enabled = false;
-            //btn_editar.Enabled = false;
-            btn_Delete.Enabled = false;
             btn_cancelarObservacion.Enabled = false;
 
             lb_dni_ruc_cliente.Text = "DNI";
@@ -127,12 +138,10 @@ namespace Cerin_Ingenieros.Servicios
             btn_agregar_equipo.Enabled = false;
             comboBox_empleado.Enabled = false;
             dataGridView_lista_quipos.Enabled = false;
-            dataGridView_Accesorios.Enabled = false;
             txb_Recomendaciones.Enabled = false;
             btn_agregarRecomendacion.Enabled = false;
 
             LimpiarObservaciones();
-            dataGridView_Accesorios.Enabled = false;
         }
 
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
@@ -260,50 +269,16 @@ namespace Cerin_Ingenieros.Servicios
                 lb_nombres_cliente.Text = "Nombres";
                 lb_telefono_cliente.Text = "Telefono";
 
+                txb_Recomendaciones.Text = "";
+
+                dgvAcesorios.Rows.Clear();
+
                 ConfiguracionInicial();
                 listarEquipos();
             }
             else
             {
                 MessageBox.Show("Faltan campos por completar");
-            }
-        }
-
-        private void dataGridView_lista_quipos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                //Obtenemos la fila selecionada
-                DataGridViewRow filaActual = dataGridView_lista_quipos.Rows[e.RowIndex];
-                equipoSelecionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
-
-                //Buscamos la lista de accesorios yla cantidad de un equipo X
-                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(equipoSelecionado);
-
-                dataGridView_Accesorios.Rows.Clear();
-
-                //mostramos el accesorio
-                foreach (var item in listaAccesorios)
-                {
-                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
-
-                    dataGridView_Accesorios.Rows.Add(
-                        accesorio.Nombre,
-                        item.cantidad
-                    );
-                }
-                txb_Recomendaciones.Enabled = true;
-                foreach (var item in list_det_equipo_servicio)
-                {
-                    if (item.serie_equipo == equipoSelecionado)
-                    {
-                        txb_Recomendaciones.Text = item.Observaciones_preliminares;
-                    }
-                }
-                btn_agregarRecomendacion.Enabled = true;
-                btn_cancelarObservacion.Enabled = true;
-                dataGridView_Accesorios.Enabled = true;
-                btn_Delete.Enabled = true;
             }
         }
 
@@ -332,23 +307,98 @@ namespace Cerin_Ingenieros.Servicios
         }
         private void LimpiarObservaciones()
         {
-            dataGridView_Accesorios.Rows.Clear();
-            dataGridView_Accesorios.Enabled = false;
+            dgvAcesorios.Rows.Clear();
             txb_Recomendaciones.Enabled = false;
             txb_Recomendaciones.Text = "";
+            txbOtrosAccesorios.Enabled = false;
+            txbOtrosAccesorios.Text = "";
             btn_agregarRecomendacion.Enabled = false;
             btn_cancelarObservacion.Enabled = false;
-            btn_Delete.Enabled = false;
             equipoSelecionado = "";
         }
 
         private void btn_agregarRecomendacion_Click(object sender, EventArgs e)
         {
+            //ACTUALIZACION DE LAS OBSERVACIONES PRELIMINARES
             foreach (var item in list_det_equipo_servicio)
             {
                 if (item.serie_equipo == equipoSelecionado)
                 {
                     item.Observaciones_preliminares = txb_Recomendaciones.Text;
+                }
+            }
+            //ACTUALIZACION DE OTROS ACCESORIOS
+            foreach (var item in equiposSelecionados)
+            {
+                if (item.SerieEquipo == equipoSelecionado)
+                {
+                    item.otrosaccesorios = txbOtrosAccesorios.Text;
+                }
+            }
+            //ACTUALIZACION DE LOS ACCESORIOS
+            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
+
+            for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvAcesorios.Rows[i];
+                if (!row.IsNewRow)
+                {
+                    bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
+                    int cantidad = 0; //cantidad predeterminada 
+                    string name = "";
+
+                    DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
+                    estadoacesorio = (bool)checkBoxCell.Value;
+
+
+                    //nombre del accesorio
+                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
+                    name = Convert.ToString(textBoxCellName.Value);
+
+                    //buscar el id del accesorio
+                    int id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+
+                    //verificar si el accesorio es del equipo
+                    if (estadoacesorio)
+                    {
+
+                        //cantidad del accesorio
+                        DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                        cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+
+                        //bucar un equipoaccesorio
+                        entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipoSelecionado, id_accesorio);
+
+                        //verificar que si el equiop_accesorio esxiste en la base de datos
+                        if (det_equipo_Accesorio != null)
+                        {
+                            // el equipo_accesorio ya existe en la bd por lo tanto hay que editar la cantidad
+                            det_equipo_Accesorio.cantidad = cantidad;
+                            logEquipoAccesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
+                        }
+                        else
+                        {
+                            //registrar un euipo accesorio nuevo que no se encuentra en la bd
+                            det_equipo_Accesorio = new entEquipo_Accesorio();
+
+                            det_equipo_Accesorio.SerieEquipo = equipoSelecionado;
+                            det_equipo_Accesorio.id_accesorio = id_accesorio;
+                            det_equipo_Accesorio.cantidad = cantidad;
+                            logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
+
+                        }
+                    }
+                    else
+                    {
+                        foreach (var item in list_det_equipo_accesorio_)
+                        {
+                            if (item.SerieEquipo == equipoSelecionado && item.id_accesorio == id_accesorio)
+                            {
+                                bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(equipoSelecionado, id_accesorio);
+                                break;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -359,6 +409,169 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_cancelarObservacion_Click(object sender, EventArgs e)
         {
             LimpiarObservaciones();
+        }
+
+        private void dataGridView_lista_quipos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                //Obtenemos la fila selecionada
+                DataGridViewRow filaActual = dataGridView_lista_quipos.Rows[e.RowIndex];
+                equipoSelecionado = Convert.ToString(filaActual.Cells["Serie"].Value.ToString());
+                //Buscamos la lista de accesorios yla cantidad de un equipo X
+                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(equipoSelecionado);
+
+                if (e.ColumnIndex == 4)
+                {
+                    txb_Recomendaciones.Enabled = true;
+                    txbOtrosAccesorios.Enabled = true;
+                    btn_agregarRecomendacion.Enabled = true;
+                    btn_cancelarObservacion.Enabled = true;
+                    dgvAcesorios.Enabled = true;
+
+                    //EDITAR ACCESORIOS
+                    //obtenemos todos los accesorios
+                    List<entAccesorio> accesorios = logAccesorio.GetInstancia.listarAccesorio();
+                    dgvAcesorios.Rows.Clear();
+                    foreach (var item in accesorios)
+                    {
+                        string cantidad = "";
+                        bool estado = false;
+                        foreach (var ac in listaAccesorios)
+                        {
+                            if (item.IdAccesorio==ac.id_accesorio)
+                            {
+                                estado = true;
+                                cantidad = ac.cantidad.ToString();
+                                break;
+                            }
+                        }
+                        dgvAcesorios.Rows.Add(
+                            estado,
+                            item.Nombre,
+                            cantidad
+                        );
+                    }
+                    foreach (DataGridViewRow fila in dgvAcesorios.Rows)
+                    {
+                        DataGridViewCheckBoxCell checkBoxCell = fila.Cells[0] as DataGridViewCheckBoxCell;
+                        DataGridViewCell cantidadCell = fila.Cells[2];
+
+                        if (checkBoxCell.Value != null && (bool)checkBoxCell.Value)
+                        {
+                            cantidadCell.ReadOnly = false;
+                        }
+                        else
+                        {
+                            cantidadCell.ReadOnly = true;
+                        }
+                    }
+
+                    dgvAcesorios.Columns[0].Visible = true;
+
+                }
+                else if (e.ColumnIndex == 5)
+                {
+                    if (list_det_equipo_servicio.Count > 0)
+                    {
+                        foreach (var item in list_det_equipo_servicio)
+                        {
+                            if (item.serie_equipo == equipoSelecionado)
+                            {
+                                list_det_equipo_servicio.Remove(item);
+                                break;
+                            }
+                        }
+                        foreach (var item in equiposSelecionados)
+                        {
+                            if (item.SerieEquipo == equipoSelecionado)
+                            {
+                                equiposSelecionados.Remove(item);
+                                item.Estado = 'E';
+                                logEquipo.GetInstancia.editarEquipo(item);
+                                break;
+                            }
+                        }
+                        LimpiarObservaciones();
+                        listarEquipos();
+                        return;
+                    }
+                }
+                else
+                {
+                    dgvAcesorios.Rows.Clear();
+                    //mostramos el accesorio
+                    foreach (var item in listaAccesorios)
+                    {
+                        entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                        dgvAcesorios.Rows.Add(
+                            true,
+                            accesorio.Nombre,
+                            item.cantidad
+                        );
+                    }
+                    dgvAcesorios.Columns[0].Visible = false;
+                }                
+
+                foreach (var item in list_det_equipo_servicio)
+                {
+                    if (item.serie_equipo == equipoSelecionado)
+                    {
+                        txb_Recomendaciones.Text = item.Observaciones_preliminares;
+                    }
+                }
+
+                foreach (var item in equiposSelecionados)
+                {
+                    if (item.SerieEquipo == equipoSelecionado)
+                    {
+                        txbOtrosAccesorios.Text = item.otrosaccesorios;
+                    }
+                }
+            }
+        }
+
+        private void dgvAcesorios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0) // Verifica que el evento ocurrió en la primera columna
+            {
+                DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[0];
+                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
+
+                // Verifica el estado del checkbox y habilita o deshabilita la edición de la tercera columna
+                if (textBoxCell.Value.ToString() != "")
+                {
+                    textBoxCell.ReadOnly = true;
+                    textBoxCell.Value = ""; // aqui que asigne el valor null por defecto
+                }
+                else
+                {
+                    textBoxCell.ReadOnly = false;
+                    textBoxCell.Value = "1"; // aqui que asigne el valor 1 por defecto
+                }
+            }
+        }
+
+        private void dgvAcesorios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 2)
+            {
+                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
+                string valor = textBoxCell.Value.ToString();
+                if (!Regex.IsMatch(valor, @"^\d+$"))
+                {
+                    MessageBox.Show("Ingrese solo numeros");
+                    textBoxCell.Value = "1";
+                }
+                else
+                {
+                    if (Convert.ToInt16(valor) <= 0)
+                        textBoxCell.Value = "1";
+                    else
+                        textBoxCell.Value = Convert.ToInt16(valor);
+                }
+            }
         }
     }
 }

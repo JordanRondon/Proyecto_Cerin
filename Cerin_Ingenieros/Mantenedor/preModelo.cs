@@ -21,18 +21,30 @@ namespace Cerin_Ingenieros.Mantenedor
             deshablitar_btn();
             ConfigCabecera();
             listarModelos();
+            ComboBoxs();
+        }
+
+        private void ComboBoxs()
+        {
+            comboBox_marca.ValueMember = "id_Marca";
+            comboBox_marca.DisplayMember = "nombre";
+            comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
+            comboBox_marca.SelectedIndex = -1;
         }
 
         private void limpiar_entradas()
         {
             txb_codigo.Text = "";
             txb_nombre.Text = "";
+            comboBox_marca.Enabled = false;
+            comboBox_marca.SelectedIndex = -1;
         }
 
         private void deshablitar_entradas()
         {
             txb_codigo.Enabled = false;
             txb_nombre.Enabled = false;
+
         }
 
         private void deshablitar_btn()
@@ -52,16 +64,28 @@ namespace Cerin_Ingenieros.Mantenedor
             btn_editar.Enabled = true;
             btn_eliminar.Enabled = true;
             btn_cancelar.Enabled = true;
+
+            comboBox_marca .Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            txb_nombre.Enabled = true;
-            btn_nuevo.Enabled = false;
-            btn_guardar.Enabled = true;
-            btn_editar.Enabled = false;
-            btn_eliminar.Enabled = false;
-            btn_cancelar.Enabled = true;
+            if (comboBox_marca.Items.Count == 0) {
+                MessageBox.Show("Registra una marca");
+            }
+            else
+            {
+                txb_nombre.Enabled = true;
+                btn_nuevo.Enabled = false;
+                btn_guardar.Enabled = true;
+                btn_editar.Enabled = false;
+                btn_eliminar.Enabled = false;
+                btn_cancelar.Enabled = true;
+                comboBox_marca.Enabled = true;
+                comboBox_marca.SelectedIndex = 0;
+            }
+                
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -76,35 +100,30 @@ namespace Cerin_Ingenieros.Mantenedor
             dataGridView_modelos.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" }
+                new DataGridViewTextBoxColumn { HeaderText = "Marca"}
             );
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_modelos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
+            comboBox_marca.Enabled = false;
         }
 
         private void listarModelos()
         {
             //dataGridView_modelos.DataSource = logModelo.GetInstancia.listarModelos();
 
-            List<entModelo> listaModelos = logModelo.GetInstancia.listarModelos();
+            List<entModelo> listaModelos = logModelo.GetInstancia.listarTodoModelos();
 
             dataGridView_modelos.Rows.Clear();
 
             //insertar los datos 
             foreach (var item in listaModelos)
             {
-                string estado;
-                if (item.estado == 'D') 
-                    estado = "Disponible";
-                else 
-                    estado = "Eliminado";
-                
+                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
                 dataGridView_modelos.Rows.Add(
                     item.id_modelo,
                     item.nombre,
-                    estado
+                    marca.Nombre
                 );
             }
         }
@@ -117,11 +136,14 @@ namespace Cerin_Ingenieros.Mantenedor
                 {
                     entModelo modelo = new entModelo();
                     modelo.nombre = txb_nombre.Text.Trim();
+                    entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
+                    modelo.IdMarca = marcaSelec.IdMarca;
                     logModelo.GetInstancia.insertaModelo(modelo);
 
                     //Actualizar botones
                     deshablitar_btn();
-                    txb_nombre.Enabled = false;
+                    deshablitar_entradas();
+                    limpiar_entradas();
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -143,6 +165,7 @@ namespace Cerin_Ingenieros.Mantenedor
 
                 txb_codigo.Text = filaActual.Cells[0].Value.ToString();
                 txb_nombre.Text = filaActual.Cells[1].Value.ToString();
+                comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells[2].Value.ToString());
 
                 habilitar_btn_modificacion();
             }
@@ -159,6 +182,8 @@ namespace Cerin_Ingenieros.Mantenedor
                     modelo.id_modelo = int.Parse(txb_codigo.Text);
                     modelo.nombre = txb_nombre.Text.Trim();
                     modelo.estado = 'D';
+                    entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
+                    modelo.IdMarca = marcaSelec.IdMarca;
 
                     logModelo.GetInstancia.editarModelo(modelo);
                 }
