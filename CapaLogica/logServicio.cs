@@ -28,6 +28,8 @@ namespace CapaLogica
         public List<entServicio> listarServicioCliente(int id_cliente) => datServicio.GetInstancia.listarServicioCliente(id_cliente);
 
         public List<entServicio> listarServicioEquipo(string serie_equipo) => datServicio.GetInstancia.listarServicioEquipo(serie_equipo);
+
+        public List<entServicio> listarServicios() => datServicio.GetInstancia.listarServicios();
         #endregion
     }
 }

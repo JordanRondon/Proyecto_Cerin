@@ -245,6 +245,11 @@ namespace Cerin_Ingenieros
         {
         }
 
+        private void btnServicios_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preVerServicios());
+        }
+
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (m==1)

@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelOpciones = new System.Windows.Forms.Panel();
             this.panelReportes = new System.Windows.Forms.Panel();
+            this.panelHistorialServicios = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.btnHistorialServicio = new System.Windows.Forms.Button();
             this.panelClienteServicio = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btnClienteSercio = new System.Windows.Forms.Button();
@@ -58,10 +61,14 @@
             this.panelEquipoPrincipal = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.btn_equipo = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.panelActualizarServicio = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.btn_actualizar_servicio = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panelServicios = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.btnServicios = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panelCalibracion = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -81,6 +88,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelOpciones.SuspendLayout();
             this.panelReportes.SuspendLayout();
+            this.panelHistorialServicios.SuspendLayout();
             this.panelClienteServicio.SuspendLayout();
             this.panelHistorialEquipo.SuspendLayout();
             this.panelReportesPrincipal.SuspendLayout();
@@ -91,6 +99,7 @@
             this.panelnNuevaMarca.SuspendLayout();
             this.panelEquipoPrincipal.SuspendLayout();
             this.panelActualizarServicio.SuspendLayout();
+            this.panelServicios.SuspendLayout();
             this.panelCalibracion.SuspendLayout();
             this.panelAlquiler.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -111,8 +120,10 @@
             this.panelOpciones.Controls.Add(this.panel12);
             this.panelOpciones.Controls.Add(this.panelEquipo);
             this.panelOpciones.Controls.Add(this.panelEquipoPrincipal);
-            this.panelOpciones.Controls.Add(this.panel6);
+            this.panelOpciones.Controls.Add(this.panel16);
             this.panelOpciones.Controls.Add(this.panelActualizarServicio);
+            this.panelOpciones.Controls.Add(this.panel6);
+            this.panelOpciones.Controls.Add(this.panelServicios);
             this.panelOpciones.Controls.Add(this.panel8);
             this.panelOpciones.Controls.Add(this.panelCalibracion);
             this.panelOpciones.Controls.Add(this.panel4);
@@ -127,13 +138,48 @@
             // 
             // panelReportes
             // 
+            this.panelReportes.Controls.Add(this.panelHistorialServicios);
             this.panelReportes.Controls.Add(this.panelClienteServicio);
             this.panelReportes.Controls.Add(this.panelHistorialEquipo);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 633);
+            this.panelReportes.Location = new System.Drawing.Point(0, 693);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
+            // 
+            // panelHistorialServicios
+            // 
+            this.panelHistorialServicios.Controls.Add(this.panel18);
+            this.panelHistorialServicios.Controls.Add(this.btnHistorialServicio);
+            this.panelHistorialServicios.Location = new System.Drawing.Point(19, 121);
+            this.panelHistorialServicios.Name = "panelHistorialServicios";
+            this.panelHistorialServicios.Size = new System.Drawing.Size(156, 50);
+            this.panelHistorialServicios.TabIndex = 111;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel18.Location = new System.Drawing.Point(0, 0);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(10, 50);
+            this.panel18.TabIndex = 109;
+            // 
+            // btnHistorialServicio
+            // 
+            this.btnHistorialServicio.FlatAppearance.BorderSize = 0;
+            this.btnHistorialServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.btnHistorialServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnHistorialServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHistorialServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialServicio.ForeColor = System.Drawing.Color.White;
+            this.btnHistorialServicio.Location = new System.Drawing.Point(0, 0);
+            this.btnHistorialServicio.Name = "btnHistorialServicio";
+            this.btnHistorialServicio.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnHistorialServicio.Size = new System.Drawing.Size(156, 50);
+            this.btnHistorialServicio.TabIndex = 104;
+            this.btnHistorialServicio.Text = "HISTORIAL SERVICIOS";
+            this.btnHistorialServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialServicio.UseVisualStyleBackColor = true;
             // 
             // panelClienteServicio
             // 
@@ -210,7 +256,7 @@
             this.panelReportesPrincipal.Controls.Add(this.panel13);
             this.panelReportesPrincipal.Controls.Add(this.btnReportes);
             this.panelReportesPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 583);
+            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 643);
             this.panelReportesPrincipal.Name = "panelReportesPrincipal";
             this.panelReportesPrincipal.Size = new System.Drawing.Size(175, 50);
             this.panelReportesPrincipal.TabIndex = 111;
@@ -244,7 +290,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 573);
+            this.panel2.Location = new System.Drawing.Point(0, 633);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 10);
             this.panel2.TabIndex = 102;
@@ -254,7 +300,7 @@
             this.panelEmpleado.Controls.Add(this.panel14);
             this.panelEmpleado.Controls.Add(this.btnEmpleado);
             this.panelEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmpleado.Location = new System.Drawing.Point(0, 523);
+            this.panelEmpleado.Location = new System.Drawing.Point(0, 583);
             this.panelEmpleado.Name = "panelEmpleado";
             this.panelEmpleado.Size = new System.Drawing.Size(175, 50);
             this.panelEmpleado.TabIndex = 110;
@@ -289,7 +335,7 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 513);
+            this.panel12.Location = new System.Drawing.Point(0, 573);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(175, 10);
             this.panel12.TabIndex = 102;
@@ -300,7 +346,7 @@
             this.panelEquipo.Controls.Add(this.panelnuevoEquipo);
             this.panelEquipo.Controls.Add(this.panelnNuevaMarca);
             this.panelEquipo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEquipo.Location = new System.Drawing.Point(0, 338);
+            this.panelEquipo.Location = new System.Drawing.Point(0, 398);
             this.panelEquipo.Name = "panelEquipo";
             this.panelEquipo.Size = new System.Drawing.Size(175, 175);
             this.panelEquipo.TabIndex = 1;
@@ -415,7 +461,7 @@
             this.panelEquipoPrincipal.Controls.Add(this.panel11);
             this.panelEquipoPrincipal.Controls.Add(this.btn_equipo);
             this.panelEquipoPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEquipoPrincipal.Location = new System.Drawing.Point(0, 288);
+            this.panelEquipoPrincipal.Location = new System.Drawing.Point(0, 348);
             this.panelEquipoPrincipal.Name = "panelEquipoPrincipal";
             this.panelEquipoPrincipal.Size = new System.Drawing.Size(175, 50);
             this.panelEquipoPrincipal.TabIndex = 111;
@@ -446,20 +492,20 @@
             this.btn_equipo.UseVisualStyleBackColor = true;
             this.btn_equipo.Click += new System.EventHandler(this.btn_equipo_Click);
             // 
-            // panel6
+            // panel16
             // 
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(0, 278);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(175, 10);
-            this.panel6.TabIndex = 101;
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel16.Location = new System.Drawing.Point(0, 338);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(175, 10);
+            this.panel16.TabIndex = 102;
             // 
             // panelActualizarServicio
             // 
             this.panelActualizarServicio.Controls.Add(this.panel9);
             this.panelActualizarServicio.Controls.Add(this.btn_actualizar_servicio);
             this.panelActualizarServicio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelActualizarServicio.Location = new System.Drawing.Point(0, 228);
+            this.panelActualizarServicio.Location = new System.Drawing.Point(0, 288);
             this.panelActualizarServicio.Name = "panelActualizarServicio";
             this.panelActualizarServicio.Size = new System.Drawing.Size(175, 50);
             this.panelActualizarServicio.TabIndex = 111;
@@ -489,6 +535,50 @@
             this.btn_actualizar_servicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_actualizar_servicio.UseVisualStyleBackColor = true;
             this.btn_actualizar_servicio.Click += new System.EventHandler(this.btn_actualizar_servicio_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(0, 278);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(175, 10);
+            this.panel6.TabIndex = 101;
+            // 
+            // panelServicios
+            // 
+            this.panelServicios.Controls.Add(this.panel21);
+            this.panelServicios.Controls.Add(this.btnServicios);
+            this.panelServicios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelServicios.Location = new System.Drawing.Point(0, 228);
+            this.panelServicios.Name = "panelServicios";
+            this.panelServicios.Size = new System.Drawing.Size(175, 50);
+            this.panelServicios.TabIndex = 112;
+            // 
+            // panel21
+            // 
+            this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel21.Location = new System.Drawing.Point(0, 0);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(10, 50);
+            this.panel21.TabIndex = 109;
+            // 
+            // btnServicios
+            // 
+            this.btnServicios.FlatAppearance.BorderSize = 0;
+            this.btnServicios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.btnServicios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnServicios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnServicios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnServicios.ForeColor = System.Drawing.Color.White;
+            this.btnServicios.Location = new System.Drawing.Point(0, 0);
+            this.btnServicios.Name = "btnServicios";
+            this.btnServicios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnServicios.Size = new System.Drawing.Size(175, 50);
+            this.btnServicios.TabIndex = 106;
+            this.btnServicios.Text = "VER SERVICIOS";
+            this.btnServicios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnServicios.UseVisualStyleBackColor = true;
+            this.btnServicios.Click += new System.EventHandler(this.btnServicios_Click);
             // 
             // panel8
             // 
@@ -710,6 +800,7 @@
             this.Load += new System.EventHandler(this.Principal_Load_1);
             this.panelOpciones.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
+            this.panelHistorialServicios.ResumeLayout(false);
             this.panelClienteServicio.ResumeLayout(false);
             this.panelHistorialEquipo.ResumeLayout(false);
             this.panelReportesPrincipal.ResumeLayout(false);
@@ -720,6 +811,7 @@
             this.panelnNuevaMarca.ResumeLayout(false);
             this.panelEquipoPrincipal.ResumeLayout(false);
             this.panelActualizarServicio.ResumeLayout(false);
+            this.panelServicios.ResumeLayout(false);
             this.panelCalibracion.ResumeLayout(false);
             this.panelAlquiler.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -782,5 +874,12 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panelHistorialServicios;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Button btnHistorialServicio;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panelServicios;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Button btnServicios;
     }
 }
