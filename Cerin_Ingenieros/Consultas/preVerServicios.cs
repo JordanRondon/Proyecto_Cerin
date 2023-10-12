@@ -158,12 +158,6 @@ namespace Cerin_Ingenieros.Consultas
 
         private void dgvServicios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            {
-                string estadoPago = dgvServicios.Rows[e.RowIndex].Cells["Pago"].Value.ToString();
-                string estadoStiker = dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Value.ToString();
-                string estadoLab = dgvServicios.Rows[e.RowIndex].Cells["Laboratorio"].Value.ToString();
-                string estado = dgvServicios.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
 
                 Color colorCompleto = Color.LimeGreen;
                 Color colorParcial = Color.Yellow;
