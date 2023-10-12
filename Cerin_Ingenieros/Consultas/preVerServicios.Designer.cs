@@ -38,24 +38,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
             this.btnTodosTipos = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btnPendientes = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.btnFinalizados = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnSinSolucion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnTodosDias = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnHoy = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnUltimaSemana = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnUltimoMes = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -64,14 +52,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel10.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
             this.SuspendLayout();
@@ -141,15 +121,13 @@
             this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel2, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.panel3, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.panel9, 3, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
@@ -163,113 +141,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(107, 31);
+            this.panel1.Size = new System.Drawing.Size(145, 31);
             this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnPendientes);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(116, 3);
+            this.panel2.Location = new System.Drawing.Point(154, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(107, 31);
+            this.panel2.Size = new System.Drawing.Size(145, 31);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnFinalizados);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(229, 3);
+            this.panel3.Location = new System.Drawing.Point(305, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(107, 31);
+            this.panel3.Size = new System.Drawing.Size(147, 31);
             this.panel3.TabIndex = 2;
-            // 
-            // panel9
-            // 
-            this.panel9.Controls.Add(this.btnSinSolucion);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(342, 3);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(110, 31);
-            this.panel9.TabIndex = 3;
             // 
             // panel10
             // 
-            this.panel10.Controls.Add(this.groupBox2);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(484, 3);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(687, 88);
             this.panel10.TabIndex = 3;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.tableLayoutPanel4);
-            this.groupBox2.Location = new System.Drawing.Point(14, 14);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(667, 65);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel4.Controls.Add(this.panel4, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel5, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel6, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.panel7, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(6, 16);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 1;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(655, 40);
-            this.tableLayoutPanel4.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.btnTodosDias);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(157, 34);
-            this.panel4.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.btnHoy);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(166, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(157, 34);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.btnUltimaSemana);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(329, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(157, 34);
-            this.panel6.TabIndex = 2;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btnUltimoMes);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(492, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(160, 34);
-            this.panel7.TabIndex = 3;
             // 
             // groupBox3
             // 
@@ -337,7 +236,7 @@
             this.btnTodosTipos.ForeColor = System.Drawing.Color.White;
             this.btnTodosTipos.Location = new System.Drawing.Point(0, 0);
             this.btnTodosTipos.Name = "btnTodosTipos";
-            this.btnTodosTipos.Size = new System.Drawing.Size(107, 31);
+            this.btnTodosTipos.Size = new System.Drawing.Size(145, 31);
             this.btnTodosTipos.TabIndex = 0;
             this.btnTodosTipos.Text = "TODOS";
             this.btnTodosTipos.TextColor = System.Drawing.Color.White;
@@ -357,7 +256,7 @@
             this.btnPendientes.ForeColor = System.Drawing.Color.White;
             this.btnPendientes.Location = new System.Drawing.Point(0, 0);
             this.btnPendientes.Name = "btnPendientes";
-            this.btnPendientes.Size = new System.Drawing.Size(107, 31);
+            this.btnPendientes.Size = new System.Drawing.Size(145, 31);
             this.btnPendientes.TabIndex = 1;
             this.btnPendientes.Text = "PENDIENTES";
             this.btnPendientes.TextColor = System.Drawing.Color.White;
@@ -377,112 +276,12 @@
             this.btnFinalizados.ForeColor = System.Drawing.Color.White;
             this.btnFinalizados.Location = new System.Drawing.Point(0, 0);
             this.btnFinalizados.Name = "btnFinalizados";
-            this.btnFinalizados.Size = new System.Drawing.Size(107, 31);
+            this.btnFinalizados.Size = new System.Drawing.Size(147, 31);
             this.btnFinalizados.TabIndex = 1;
             this.btnFinalizados.Text = "FINALIZADO";
             this.btnFinalizados.TextColor = System.Drawing.Color.White;
             this.btnFinalizados.UseVisualStyleBackColor = false;
             this.btnFinalizados.Click += new System.EventHandler(this.btnFinalizados_Click);
-            // 
-            // btnSinSolucion
-            // 
-            this.btnSinSolucion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSinSolucion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnSinSolucion.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSinSolucion.BorderRadius = 0;
-            this.btnSinSolucion.BorderSize = 0;
-            this.btnSinSolucion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSinSolucion.FlatAppearance.BorderSize = 0;
-            this.btnSinSolucion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSinSolucion.ForeColor = System.Drawing.Color.White;
-            this.btnSinSolucion.Location = new System.Drawing.Point(0, 0);
-            this.btnSinSolucion.Name = "btnSinSolucion";
-            this.btnSinSolucion.Size = new System.Drawing.Size(110, 31);
-            this.btnSinSolucion.TabIndex = 1;
-            this.btnSinSolucion.Text = "SIN SOLUCION";
-            this.btnSinSolucion.TextColor = System.Drawing.Color.White;
-            this.btnSinSolucion.UseVisualStyleBackColor = false;
-            this.btnSinSolucion.Click += new System.EventHandler(this.btnSinSolucion_Click);
-            // 
-            // btnTodosDias
-            // 
-            this.btnTodosDias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnTodosDias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnTodosDias.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnTodosDias.BorderRadius = 0;
-            this.btnTodosDias.BorderSize = 0;
-            this.btnTodosDias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTodosDias.FlatAppearance.BorderSize = 0;
-            this.btnTodosDias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTodosDias.ForeColor = System.Drawing.Color.White;
-            this.btnTodosDias.Location = new System.Drawing.Point(0, 0);
-            this.btnTodosDias.Name = "btnTodosDias";
-            this.btnTodosDias.Size = new System.Drawing.Size(157, 34);
-            this.btnTodosDias.TabIndex = 1;
-            this.btnTodosDias.Text = "TODOS";
-            this.btnTodosDias.TextColor = System.Drawing.Color.White;
-            this.btnTodosDias.UseVisualStyleBackColor = false;
-            this.btnTodosDias.Click += new System.EventHandler(this.btnTodosDias_Click);
-            // 
-            // btnHoy
-            // 
-            this.btnHoy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnHoy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnHoy.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnHoy.BorderRadius = 0;
-            this.btnHoy.BorderSize = 0;
-            this.btnHoy.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnHoy.FlatAppearance.BorderSize = 0;
-            this.btnHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoy.ForeColor = System.Drawing.Color.White;
-            this.btnHoy.Location = new System.Drawing.Point(0, 0);
-            this.btnHoy.Name = "btnHoy";
-            this.btnHoy.Size = new System.Drawing.Size(157, 34);
-            this.btnHoy.TabIndex = 1;
-            this.btnHoy.Text = "HOY";
-            this.btnHoy.TextColor = System.Drawing.Color.White;
-            this.btnHoy.UseVisualStyleBackColor = false;
-            this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
-            // 
-            // btnUltimaSemana
-            // 
-            this.btnUltimaSemana.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUltimaSemana.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUltimaSemana.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnUltimaSemana.BorderRadius = 0;
-            this.btnUltimaSemana.BorderSize = 0;
-            this.btnUltimaSemana.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUltimaSemana.FlatAppearance.BorderSize = 0;
-            this.btnUltimaSemana.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUltimaSemana.ForeColor = System.Drawing.Color.White;
-            this.btnUltimaSemana.Location = new System.Drawing.Point(0, 0);
-            this.btnUltimaSemana.Name = "btnUltimaSemana";
-            this.btnUltimaSemana.Size = new System.Drawing.Size(157, 34);
-            this.btnUltimaSemana.TabIndex = 1;
-            this.btnUltimaSemana.Text = "ULTIMOS 7 DIAS";
-            this.btnUltimaSemana.TextColor = System.Drawing.Color.White;
-            this.btnUltimaSemana.UseVisualStyleBackColor = false;
-            this.btnUltimaSemana.Click += new System.EventHandler(this.btnUltimaSemana_Click);
-            // 
-            // btnUltimoMes
-            // 
-            this.btnUltimoMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUltimoMes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUltimoMes.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnUltimoMes.BorderRadius = 0;
-            this.btnUltimoMes.BorderSize = 0;
-            this.btnUltimoMes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUltimoMes.FlatAppearance.BorderSize = 0;
-            this.btnUltimoMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUltimoMes.ForeColor = System.Drawing.Color.White;
-            this.btnUltimoMes.Location = new System.Drawing.Point(0, 0);
-            this.btnUltimoMes.Name = "btnUltimoMes";
-            this.btnUltimoMes.Size = new System.Drawing.Size(160, 34);
-            this.btnUltimoMes.TabIndex = 1;
-            this.btnUltimoMes.Text = "ULTIMOS 30 DIAS";
-            this.btnUltimoMes.TextColor = System.Drawing.Color.White;
-            this.btnUltimoMes.UseVisualStyleBackColor = false;
-            this.btnUltimoMes.Click += new System.EventHandler(this.btnUltimoMes_Click);
             // 
             // preVerServicios
             // 
@@ -502,14 +301,6 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
             this.ResumeLayout(false);
@@ -520,11 +311,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -534,14 +320,7 @@
         private RecursosAdicionales.BotonesModernos.BTNModernos btnPendientes;
         private System.Windows.Forms.Panel panel3;
         private RecursosAdicionales.BotonesModernos.BTNModernos btnFinalizados;
-        private System.Windows.Forms.Panel panel9;
-        private RecursosAdicionales.BotonesModernos.BTNModernos btnSinSolucion;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private RecursosAdicionales.BotonesModernos.BTNModernos btnTodosDias;
-        private RecursosAdicionales.BotonesModernos.BTNModernos btnHoy;
-        private RecursosAdicionales.BotonesModernos.BTNModernos btnUltimaSemana;
-        private RecursosAdicionales.BotonesModernos.BTNModernos btnUltimoMes;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvServicios;
     }

@@ -36,6 +36,9 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@id_cliente", servicio.IdCliente);
                 cmd.Parameters.AddWithValue("@id_empleado", servicio.IdEmpleado);
                 cmd.Parameters.AddWithValue("@estado", servicio.estado);
+                cmd.Parameters.AddWithValue("@estadoPago", servicio.estadoPago);
+                cmd.Parameters.AddWithValue("@estadoStiker", servicio.estadoStikers);
+                cmd.Parameters.AddWithValue("@estadoLab", servicio.estadoLaboratorio);
 
                 SqlParameter outputParameter = new SqlParameter("@NuevoID", SqlDbType.Int);
                 outputParameter.Direction = ParameterDirection.Output;
@@ -126,6 +129,9 @@ namespace CapaDato
                     servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
                     servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
                     servicio.estado = Convert.ToChar(dr["estado"]);
+                    servicio.estadoStikers = Convert.ToChar(dr["estadoStikers"]);
+                    servicio.estadoPago = Convert.ToChar(dr["estadoPago"]);
+                    servicio.estadoLaboratorio = Convert.ToChar(dr["estadoLaboratorio"]);
                 }
             }
             catch (Exception ex)
@@ -270,6 +276,94 @@ namespace CapaDato
                 SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
 
                 cmd = new SqlCommand("ps_ListarServicios", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entServicio servicio = new entServicio();
+
+                    servicio.IdServicio = Convert.ToInt32(dr["id_servicio"]);
+                    if (dr["fecha_registro"] != DBNull.Value)
+                        servicio.FechaRegistro = Convert.ToDateTime((dr["fecha_registro"]));
+                    if (dr["fecha_entrega"] != DBNull.Value)
+                        servicio.FechaEntrega = Convert.ToDateTime((dr["fecha_entrega"]));
+                    servicio.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
+                    servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    servicio.estado = Convert.ToChar(dr["estado"]);
+                    servicio.estadoStikers = Convert.ToChar(dr["estadoStikers"]);
+                    servicio.estadoPago = Convert.ToChar(dr["estadoPago"]);
+                    servicio.estadoLaboratorio = Convert.ToChar(dr["estadoLaboratorio"]);
+
+                    lista.Add(servicio);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        public List<entServicio> listarServiciosPendientes()
+        {
+            SqlCommand cmd = null;
+            List<entServicio> lista = new List<entServicio>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("ps_ListarServiciosPendientes", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    entServicio servicio = new entServicio();
+
+                    servicio.IdServicio = Convert.ToInt32(dr["id_servicio"]);
+                    if (dr["fecha_registro"] != DBNull.Value)
+                        servicio.FechaRegistro = Convert.ToDateTime((dr["fecha_registro"]));
+                    if (dr["fecha_entrega"] != DBNull.Value)
+                        servicio.FechaEntrega = Convert.ToDateTime((dr["fecha_entrega"]));
+                    servicio.IdTipoServicio = Convert.ToInt32(dr["id_tipo_servicio"]);
+                    servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
+                    servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
+                    servicio.estado = Convert.ToChar(dr["estado"]);
+                    servicio.estadoStikers = Convert.ToChar(dr["estadoStikers"]);
+                    servicio.estadoPago = Convert.ToChar(dr["estadoPago"]);
+                    servicio.estadoLaboratorio = Convert.ToChar(dr["estadoLaboratorio"]);
+
+                    lista.Add(servicio);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return lista;
+        }
+
+        public List<entServicio> listarServiciosTerminados()
+        {
+            SqlCommand cmd = null;
+            List<entServicio> lista = new List<entServicio>();
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("ps_ListarServiciosTerminados", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cn.Open();

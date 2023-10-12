@@ -254,7 +254,7 @@ namespace Cerin_Ingenieros.Servicios
                     estado = 'P',
                     estadoLaboratorio = 'A',
                     estadoPago = 'R',
-                    estadoStikers = 'R'
+                    estadoStikers = 'A'
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = Convert.ToInt16(comboBox_empleado.SelectedValue);//temp.IdEmpleado;
