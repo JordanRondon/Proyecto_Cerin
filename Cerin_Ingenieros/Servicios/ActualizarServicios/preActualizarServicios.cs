@@ -31,6 +31,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             dataGridView_equipos.ReadOnly = true;
             dataGridView_Accesorios.ReadOnly = true;
             grb_observacionesFinales.Enabled = false;
+            inicializarEstados();
 
             //Configuracion de fecha y hora
             lbHora.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -316,5 +317,94 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 }
             }
         }
+
+        private void inicializarEstados()
+        {
+            //Estado Pagos
+            grb_Pagos.Text = "Pagos: Sin Inicial";
+            btn_PagosNada.BackColor = Color.Red;
+            btn_PagosParcial.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_PagosTodo.BackColor = Color.Green;//verde opaco
+            //------------
+            //Estado Stiker
+            grb_Stikers.Text = "Stikers: Nada";
+            btn_StikerNada.BackColor = Color.Red;
+            btn_StikerTerminado.BackColor = Color.Green;//verde opaco
+            //------------
+            //Estado Laboratorio
+            grb_Laboratorio.Text = "Laboratorio: Pendiente";
+            btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(255, 128, 0);
+            btn_LaboratorioTerminado.BackColor = Color.Green;//verde opaco
+            //------------
+        }
+
+        #region EstadosPagos
+        private void btn_PagosNada_Click(object sender, EventArgs e)
+        {
+            grb_Pagos.Text = "Pagos: Sin Inicial";
+            btn_PagosNada.BackColor = Color.Red;
+            btn_PagosParcial.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_PagosTodo.BackColor = Color.Green;//verde opaco
+        }
+
+        private void btn_PagosParcial_Click(object sender, EventArgs e)
+        {
+            grb_Pagos.Text = "Pagos: Parcial";
+            btn_PagosNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_PagosParcial.BackColor = Color.FromArgb(255, 128, 0);
+            btn_PagosTodo.BackColor = Color.Green;//verde opaco
+        }
+
+        private void btn_PagosTodo_Click(object sender, EventArgs e)
+        {
+            grb_Pagos.Text = "Pagos: Completo";
+            btn_PagosNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_PagosParcial.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_PagosTodo.BackColor = Color.FromArgb(0, 192, 0);
+        }
+        #endregion EstadosPagos
+
+        #region EstadosStikers
+        private void btn_StikerNada_Click(object sender, EventArgs e)
+        {
+            grb_Stikers.Text = "Stikers: Nada";
+            btn_StikerNada.BackColor = Color.Red;
+            btn_StikerTerminado.BackColor = Color.Green;//verde opaco
+        }
+
+        private void btn_StikerTerminado_Click(object sender, EventArgs e)
+        {
+            grb_Stikers.Text = "Stikers: Terminado";
+            btn_StikerNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_StikerTerminado.BackColor = Color.FromArgb(0, 192, 0);
+        }
+        #endregion EstadosStikers
+
+        #region EstadosLaboratorio
+        private void btn_LaboratorioSinSolucion_Click(object sender, EventArgs e)
+        {
+            grb_Laboratorio.Text = "Laboratorio: Sin Solición";
+            btn_LaboratorioSinSolucion.BackColor = Color.Red;
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_LaboratorioTerminado.BackColor = Color.Green;//verde opaco
+        }
+
+        private void btn_LaboratorioPendiente_Click(object sender, EventArgs e)
+        {
+            grb_Laboratorio.Text = "Laboratorio: Pendiente";
+            btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(255, 128, 0);
+            btn_LaboratorioTerminado.BackColor = Color.Green;//verde opaco
+        }
+
+        private void btn_LaboratorioTerminado_Click(object sender, EventArgs e)
+        {
+            grb_Laboratorio.Text = "Laboratorio: Terminado";
+            btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 192, 0);
+        }
+        #endregion EstadosLaboratorio
     }
 }
