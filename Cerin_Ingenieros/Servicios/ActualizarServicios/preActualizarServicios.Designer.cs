@@ -40,19 +40,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
-            this.label_nombre_ruc_cliente = new System.Windows.Forms.Label();
-            this.label_tipo_Servicio = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label_nombre_ruc_cliente = new System.Windows.Forms.Label();
+            this.dataGridView_equipos = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
             this.btn_editarRecomendacion = new System.Windows.Forms.Button();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
             this.btn_agregarRecomendacion = new System.Windows.Forms.Button();
-            this.dataGridView_Accesorios = new System.Windows.Forms.DataGridView();
+            this.label_tipo_Servicio = new System.Windows.Forms.Label();
             this.btn_FinalizarServicio = new System.Windows.Forms.Button();
             this.btn_Cancelar = new System.Windows.Forms.Button();
             this.lbHora = new System.Windows.Forms.Label();
@@ -61,29 +67,23 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.txbFile = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
-            this.grb_observacionesFinales.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.grb_observacionesFinales.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -155,44 +155,72 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Controls.Add(this.label_tipo_Servicio);
             this.panel1.Location = new System.Drawing.Point(0, 102);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1180, 471);
             this.panel1.TabIndex = 40;
             // 
-            // txbOtrosAccesorios
+            // tableLayoutPanel1
             // 
-            this.txbOtrosAccesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbOtrosAccesorios.Location = new System.Drawing.Point(3, 23);
-            this.txbOtrosAccesorios.Multiline = true;
-            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
-            this.txbOtrosAccesorios.ReadOnly = true;
-            this.txbOtrosAccesorios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbOtrosAccesorios.Size = new System.Drawing.Size(327, 190);
-            this.txbOtrosAccesorios.TabIndex = 51;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1143, 468);
+            this.tableLayoutPanel1.TabIndex = 52;
             // 
-            // label6
+            // panel2
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 20);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "OTROS ACCESORIOS";
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label_nombre_ruc_cliente);
+            this.panel2.Controls.Add(this.label_tipo_Servicio);
+            this.panel2.Controls.Add(this.dataGridView_equipos);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1137, 228);
+            this.panel2.TabIndex = 0;
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 20);
-            this.label2.TabIndex = 49;
-            this.label2.Text = "ACCESORIOS";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(13, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 20);
+            this.label5.TabIndex = 47;
+            this.label5.Text = "CLIENTE:";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(706, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "TIPO DE SERVICIO:";
+            // 
+            // label_nombre_ruc_cliente
+            // 
+            this.label_nombre_ruc_cliente.AutoSize = true;
+            this.label_nombre_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(99, 1);
+            this.label_nombre_ruc_cliente.Name = "label_nombre_ruc_cliente";
+            this.label_nombre_ruc_cliente.Size = new System.Drawing.Size(214, 20);
+            this.label_nombre_ruc_cliente.TabIndex = 48;
+            this.label_nombre_ruc_cliente.Text = "NOMBRE O RAZONSOCIAL";
             // 
             // dataGridView_equipos
             // 
@@ -234,47 +262,121 @@
             this.dataGridView_equipos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellClick);
             this.dataGridView_equipos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_equipos_CellDoubleClick);
             // 
-            // label_nombre_ruc_cliente
+            // tableLayoutPanel2
             // 
-            this.label_nombre_ruc_cliente.AutoSize = true;
-            this.label_nombre_ruc_cliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_nombre_ruc_cliente.Location = new System.Drawing.Point(99, 1);
-            this.label_nombre_ruc_cliente.Name = "label_nombre_ruc_cliente";
-            this.label_nombre_ruc_cliente.Size = new System.Drawing.Size(214, 20);
-            this.label_nombre_ruc_cliente.TabIndex = 48;
-            this.label_nombre_ruc_cliente.Text = "NOMBRE O RAZONSOCIAL";
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.58025F));
+            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 237);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1137, 228);
+            this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // label_tipo_Servicio
+            // panel5
             // 
-            this.label_tipo_Servicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_tipo_Servicio.AutoSize = true;
-            this.label_tipo_Servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tipo_Servicio.Location = new System.Drawing.Point(901, 3);
-            this.label_tipo_Servicio.Name = "label_tipo_Servicio";
-            this.label_tipo_Servicio.Size = new System.Drawing.Size(45, 20);
-            this.label_tipo_Servicio.TabIndex = 45;
-            this.label_tipo_Servicio.Text = "TIPO";
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Controls.Add(this.dataGridView_Accesorios);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(3, 3);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(343, 222);
+            this.panel5.TabIndex = 0;
             // 
-            // label3
+            // label2
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(706, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 20);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "TIPO DE SERVICIO:";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 20);
+            this.label2.TabIndex = 49;
+            this.label2.Text = "ACCESORIOS";
             // 
-            // label5
+            // dataGridView_Accesorios
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 20);
-            this.label5.TabIndex = 47;
-            this.label5.Text = "CLIENTE:";
+            this.dataGridView_Accesorios.AllowUserToAddRows = false;
+            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
+            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
+            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
+            this.dataGridView_Accesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView_Accesorios.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView_Accesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridView_Accesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
+            this.dataGridView_Accesorios.Location = new System.Drawing.Point(7, 23);
+            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
+            this.dataGridView_Accesorios.RowHeadersVisible = false;
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(333, 190);
+            this.dataGridView_Accesorios.TabIndex = 41;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.txbOtrosAccesorios);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(352, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(343, 222);
+            this.panel6.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(176, 20);
+            this.label6.TabIndex = 50;
+            this.label6.Text = "OTROS ACCESORIOS";
+            // 
+            // txbOtrosAccesorios
+            // 
+            this.txbOtrosAccesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txbOtrosAccesorios.Location = new System.Drawing.Point(3, 23);
+            this.txbOtrosAccesorios.Multiline = true;
+            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
+            this.txbOtrosAccesorios.ReadOnly = true;
+            this.txbOtrosAccesorios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(327, 190);
+            this.txbOtrosAccesorios.TabIndex = 51;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.grb_observacionesFinales);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(701, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(433, 222);
+            this.panel7.TabIndex = 2;
             // 
             // grb_observacionesFinales
             // 
@@ -328,42 +430,16 @@
             this.btn_agregarRecomendacion.UseVisualStyleBackColor = true;
             this.btn_agregarRecomendacion.Click += new System.EventHandler(this.btn_agregarRecomendacion_Click);
             // 
-            // dataGridView_Accesorios
+            // label_tipo_Servicio
             // 
-            this.dataGridView_Accesorios.AllowUserToAddRows = false;
-            this.dataGridView_Accesorios.AllowUserToDeleteRows = false;
-            this.dataGridView_Accesorios.AllowUserToResizeColumns = false;
-            this.dataGridView_Accesorios.AllowUserToResizeRows = false;
-            this.dataGridView_Accesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_Accesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView_Accesorios.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView_Accesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView_Accesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
-            this.dataGridView_Accesorios.Location = new System.Drawing.Point(7, 23);
-            this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
-            this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(333, 190);
-            this.dataGridView_Accesorios.TabIndex = 41;
+            this.label_tipo_Servicio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_tipo_Servicio.AutoSize = true;
+            this.label_tipo_Servicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tipo_Servicio.Location = new System.Drawing.Point(901, 3);
+            this.label_tipo_Servicio.Name = "label_tipo_Servicio";
+            this.label_tipo_Servicio.Size = new System.Drawing.Size(45, 20);
+            this.label_tipo_Servicio.TabIndex = 45;
+            this.label_tipo_Servicio.Text = "TIPO";
             // 
             // btn_FinalizarServicio
             // 
@@ -457,6 +533,28 @@
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
             // 
+            // btnUbicacion
+            // 
+            this.btnUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUbicacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnUbicacion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnUbicacion.BorderRadius = 0;
+            this.btnUbicacion.BorderSize = 0;
+            this.btnUbicacion.FlatAppearance.BorderSize = 0;
+            this.btnUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUbicacion.ForeColor = System.Drawing.Color.White;
+            this.btnUbicacion.Location = new System.Drawing.Point(1090, 70);
+            this.btnUbicacion.Name = "btnUbicacion";
+            this.btnUbicacion.Size = new System.Drawing.Size(65, 20);
+            this.btnUbicacion.TabIndex = 50;
+            this.btnUbicacion.Text = "iii";
+            this.btnUbicacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnUbicacion.TextColor = System.Drawing.Color.White;
+            this.btnUbicacion.UseVisualStyleBackColor = false;
+            this.btnUbicacion.Click += new System.EventHandler(this.btnUbicacion_Click);
+            // 
             // txbFile
             // 
             this.txbFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -481,104 +579,6 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1143, 468);
-            this.tableLayoutPanel1.TabIndex = 52;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label_nombre_ruc_cliente);
-            this.panel2.Controls.Add(this.dataGridView_equipos);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1137, 228);
-            this.panel2.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.58025F));
-            this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.panel7, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 237);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1137, 228);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Controls.Add(this.dataGridView_Accesorios);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(3, 3);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(343, 222);
-            this.panel5.TabIndex = 0;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.txbOtrosAccesorios);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(352, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(343, 222);
-            this.panel6.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.grb_observacionesFinales);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(701, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(433, 222);
-            this.panel7.TabIndex = 2;
-            // 
-            // btnUbicacion
-            // 
-            this.btnUbicacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUbicacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUbicacion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnUbicacion.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.btnUbicacion.BorderRadius = 0;
-            this.btnUbicacion.BorderSize = 0;
-            this.btnUbicacion.FlatAppearance.BorderSize = 0;
-            this.btnUbicacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUbicacion.ForeColor = System.Drawing.Color.White;
-            this.btnUbicacion.Location = new System.Drawing.Point(1090, 70);
-            this.btnUbicacion.Name = "btnUbicacion";
-            this.btnUbicacion.Size = new System.Drawing.Size(65, 20);
-            this.btnUbicacion.TabIndex = 50;
-            this.btnUbicacion.Text = "iii";
-            this.btnUbicacion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnUbicacion.TextColor = System.Drawing.Color.White;
-            this.btnUbicacion.UseVisualStyleBackColor = false;
-            this.btnUbicacion.Click += new System.EventHandler(this.btnUbicacion_Click);
-            // 
             // preActualizarServicios
             // 
             this.AcceptButton = this.btn_Buscar;
@@ -594,24 +594,23 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_equipos)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel7.ResumeLayout(false);
             this.grb_observacionesFinales.ResumeLayout(false);
             this.grb_observacionesFinales.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
