@@ -67,20 +67,24 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.txbFile = new System.Windows.Forms.TextBox();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.grb_Pagos = new System.Windows.Forms.GroupBox();
-            this.grb_Stikers = new System.Windows.Forms.GroupBox();
             this.grb_Laboratorio = new System.Windows.Forms.GroupBox();
-            this.btn_PagosNada = new System.Windows.Forms.Button();
-            this.btn_PagosParcial = new System.Windows.Forms.Button();
-            this.btn_PagosTodo = new System.Windows.Forms.Button();
-            this.btn_StikerNada = new System.Windows.Forms.Button();
-            this.btn_StikerTerminado = new System.Windows.Forms.Button();
             this.btn_LaboratorioTerminado = new System.Windows.Forms.Button();
             this.btn_LaboratorioPendiente = new System.Windows.Forms.Button();
             this.btn_LaboratorioSinSolucion = new System.Windows.Forms.Button();
+            this.grb_Stikers = new System.Windows.Forms.GroupBox();
+            this.btn_StikerTerminado = new System.Windows.Forms.Button();
+            this.btn_StikerNada = new System.Windows.Forms.Button();
+            this.grb_Pagos = new System.Windows.Forms.GroupBox();
+            this.btn_PagosTodo = new System.Windows.Forms.Button();
+            this.btn_PagosParcial = new System.Windows.Forms.Button();
+            this.btn_PagosNada = new System.Windows.Forms.Button();
+            this.txbFile = new System.Windows.Forms.TextBox();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -95,9 +99,10 @@
             this.grb_observacionesFinales.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.grb_Pagos.SuspendLayout();
-            this.grb_Stikers.SuspendLayout();
             this.grb_Laboratorio.SuspendLayout();
+            this.grb_Stikers.SuspendLayout();
+            this.grb_Pagos.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -535,9 +540,8 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.grb_Laboratorio);
-            this.panel4.Controls.Add(this.grb_Stikers);
-            this.panel4.Controls.Add(this.grb_Pagos);
+            this.panel4.Controls.Add(this.btnActualizar);
+            this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.btnUbicacion);
             this.panel4.Controls.Add(this.txbFile);
             this.panel4.Controls.Add(this.btn_FinalizarServicio);
@@ -549,6 +553,127 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
+            // 
+            // grb_Laboratorio
+            // 
+            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioTerminado);
+            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioPendiente);
+            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioSinSolucion);
+            this.grb_Laboratorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grb_Laboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grb_Laboratorio.Location = new System.Drawing.Point(355, 0);
+            this.grb_Laboratorio.Name = "grb_Laboratorio";
+            this.grb_Laboratorio.Size = new System.Drawing.Size(203, 55);
+            this.grb_Laboratorio.TabIndex = 53;
+            this.grb_Laboratorio.TabStop = false;
+            this.grb_Laboratorio.Text = "Laboratorio: Pendiente";
+            // 
+            // btn_LaboratorioTerminado
+            // 
+            this.btn_LaboratorioTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_LaboratorioTerminado.Location = new System.Drawing.Point(119, 27);
+            this.btn_LaboratorioTerminado.Name = "btn_LaboratorioTerminado";
+            this.btn_LaboratorioTerminado.Size = new System.Drawing.Size(23, 22);
+            this.btn_LaboratorioTerminado.TabIndex = 5;
+            this.btn_LaboratorioTerminado.UseVisualStyleBackColor = false;
+            this.btn_LaboratorioTerminado.Click += new System.EventHandler(this.btn_LaboratorioTerminado_Click);
+            // 
+            // btn_LaboratorioPendiente
+            // 
+            this.btn_LaboratorioPendiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_LaboratorioPendiente.Location = new System.Drawing.Point(78, 27);
+            this.btn_LaboratorioPendiente.Name = "btn_LaboratorioPendiente";
+            this.btn_LaboratorioPendiente.Size = new System.Drawing.Size(23, 22);
+            this.btn_LaboratorioPendiente.TabIndex = 4;
+            this.btn_LaboratorioPendiente.UseVisualStyleBackColor = false;
+            this.btn_LaboratorioPendiente.Click += new System.EventHandler(this.btn_LaboratorioPendiente_Click);
+            // 
+            // btn_LaboratorioSinSolucion
+            // 
+            this.btn_LaboratorioSinSolucion.BackColor = System.Drawing.Color.Red;
+            this.btn_LaboratorioSinSolucion.Location = new System.Drawing.Point(39, 27);
+            this.btn_LaboratorioSinSolucion.Name = "btn_LaboratorioSinSolucion";
+            this.btn_LaboratorioSinSolucion.Size = new System.Drawing.Size(23, 22);
+            this.btn_LaboratorioSinSolucion.TabIndex = 3;
+            this.btn_LaboratorioSinSolucion.UseVisualStyleBackColor = false;
+            this.btn_LaboratorioSinSolucion.Click += new System.EventHandler(this.btn_LaboratorioSinSolucion_Click);
+            // 
+            // grb_Stikers
+            // 
+            this.grb_Stikers.Controls.Add(this.btn_StikerTerminado);
+            this.grb_Stikers.Controls.Add(this.btn_StikerNada);
+            this.grb_Stikers.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grb_Stikers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grb_Stikers.Location = new System.Drawing.Point(0, 0);
+            this.grb_Stikers.Name = "grb_Stikers";
+            this.grb_Stikers.Size = new System.Drawing.Size(156, 55);
+            this.grb_Stikers.TabIndex = 52;
+            this.grb_Stikers.TabStop = false;
+            this.grb_Stikers.Text = "Stikers: Terminado";
+            // 
+            // btn_StikerTerminado
+            // 
+            this.btn_StikerTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_StikerTerminado.Location = new System.Drawing.Point(79, 29);
+            this.btn_StikerTerminado.Name = "btn_StikerTerminado";
+            this.btn_StikerTerminado.Size = new System.Drawing.Size(23, 22);
+            this.btn_StikerTerminado.TabIndex = 3;
+            this.btn_StikerTerminado.UseVisualStyleBackColor = false;
+            this.btn_StikerTerminado.Click += new System.EventHandler(this.btn_StikerTerminado_Click);
+            // 
+            // btn_StikerNada
+            // 
+            this.btn_StikerNada.BackColor = System.Drawing.Color.Red;
+            this.btn_StikerNada.Location = new System.Drawing.Point(34, 29);
+            this.btn_StikerNada.Name = "btn_StikerNada";
+            this.btn_StikerNada.Size = new System.Drawing.Size(23, 22);
+            this.btn_StikerNada.TabIndex = 1;
+            this.btn_StikerNada.UseVisualStyleBackColor = false;
+            this.btn_StikerNada.Click += new System.EventHandler(this.btn_StikerNada_Click);
+            // 
+            // grb_Pagos
+            // 
+            this.grb_Pagos.Controls.Add(this.btn_PagosTodo);
+            this.grb_Pagos.Controls.Add(this.btn_PagosParcial);
+            this.grb_Pagos.Controls.Add(this.btn_PagosNada);
+            this.grb_Pagos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grb_Pagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grb_Pagos.Location = new System.Drawing.Point(178, 0);
+            this.grb_Pagos.Name = "grb_Pagos";
+            this.grb_Pagos.Size = new System.Drawing.Size(155, 55);
+            this.grb_Pagos.TabIndex = 51;
+            this.grb_Pagos.TabStop = false;
+            this.grb_Pagos.Text = "Pagos: Sin Inicial";
+            // 
+            // btn_PagosTodo
+            // 
+            this.btn_PagosTodo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_PagosTodo.Location = new System.Drawing.Point(109, 27);
+            this.btn_PagosTodo.Name = "btn_PagosTodo";
+            this.btn_PagosTodo.Size = new System.Drawing.Size(23, 22);
+            this.btn_PagosTodo.TabIndex = 2;
+            this.btn_PagosTodo.UseVisualStyleBackColor = false;
+            this.btn_PagosTodo.Click += new System.EventHandler(this.btn_PagosTodo_Click);
+            // 
+            // btn_PagosParcial
+            // 
+            this.btn_PagosParcial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_PagosParcial.Location = new System.Drawing.Point(68, 27);
+            this.btn_PagosParcial.Name = "btn_PagosParcial";
+            this.btn_PagosParcial.Size = new System.Drawing.Size(23, 22);
+            this.btn_PagosParcial.TabIndex = 1;
+            this.btn_PagosParcial.UseVisualStyleBackColor = false;
+            this.btn_PagosParcial.Click += new System.EventHandler(this.btn_PagosParcial_Click);
+            // 
+            // btn_PagosNada
+            // 
+            this.btn_PagosNada.BackColor = System.Drawing.Color.Red;
+            this.btn_PagosNada.Location = new System.Drawing.Point(29, 27);
+            this.btn_PagosNada.Name = "btn_PagosNada";
+            this.btn_PagosNada.Size = new System.Drawing.Size(23, 22);
+            this.btn_PagosNada.TabIndex = 0;
+            this.btn_PagosNada.UseVisualStyleBackColor = false;
+            this.btn_PagosNada.Click += new System.EventHandler(this.btn_PagosNada_Click);
             // 
             // txbFile
             // 
@@ -574,123 +699,44 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
             // 
-            // grb_Pagos
+            // panel8
             // 
-            this.grb_Pagos.Controls.Add(this.btn_PagosTodo);
-            this.grb_Pagos.Controls.Add(this.btn_PagosParcial);
-            this.grb_Pagos.Controls.Add(this.btn_PagosNada);
-            this.grb_Pagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Pagos.Location = new System.Drawing.Point(537, 3);
-            this.grb_Pagos.Name = "grb_Pagos";
-            this.grb_Pagos.Size = new System.Drawing.Size(164, 61);
-            this.grb_Pagos.TabIndex = 51;
-            this.grb_Pagos.TabStop = false;
-            this.grb_Pagos.Text = "Pagos: Sin Inicial";
+            this.panel8.Controls.Add(this.grb_Laboratorio);
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.grb_Pagos);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.grb_Stikers);
+            this.panel8.Location = new System.Drawing.Point(607, 7);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(558, 55);
+            this.panel8.TabIndex = 51;
             // 
-            // grb_Stikers
+            // panel9
             // 
-            this.grb_Stikers.Controls.Add(this.btn_StikerTerminado);
-            this.grb_Stikers.Controls.Add(this.btn_StikerNada);
-            this.grb_Stikers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Stikers.Location = new System.Drawing.Point(719, 3);
-            this.grb_Stikers.Name = "grb_Stikers";
-            this.grb_Stikers.Size = new System.Drawing.Size(176, 61);
-            this.grb_Stikers.TabIndex = 52;
-            this.grb_Stikers.TabStop = false;
-            this.grb_Stikers.Text = "Stikers: Nada";
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(156, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(22, 55);
+            this.panel9.TabIndex = 54;
             // 
-            // grb_Laboratorio
+            // panel10
             // 
-            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioTerminado);
-            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioPendiente);
-            this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioSinSolucion);
-            this.grb_Laboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Laboratorio.Location = new System.Drawing.Point(913, 3);
-            this.grb_Laboratorio.Name = "grb_Laboratorio";
-            this.grb_Laboratorio.Size = new System.Drawing.Size(214, 61);
-            this.grb_Laboratorio.TabIndex = 53;
-            this.grb_Laboratorio.TabStop = false;
-            this.grb_Laboratorio.Text = "Laboratorio: Pendiente";
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel10.Location = new System.Drawing.Point(333, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(22, 55);
+            this.panel10.TabIndex = 55;
             // 
-            // btn_PagosNada
+            // btnActualizar
             // 
-            this.btn_PagosNada.BackColor = System.Drawing.Color.Red;
-            this.btn_PagosNada.Location = new System.Drawing.Point(33, 27);
-            this.btn_PagosNada.Name = "btn_PagosNada";
-            this.btn_PagosNada.Size = new System.Drawing.Size(23, 22);
-            this.btn_PagosNada.TabIndex = 0;
-            this.btn_PagosNada.UseVisualStyleBackColor = false;
-            this.btn_PagosNada.Click += new System.EventHandler(this.btn_PagosNada_Click);
-            // 
-            // btn_PagosParcial
-            // 
-            this.btn_PagosParcial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_PagosParcial.Location = new System.Drawing.Point(72, 27);
-            this.btn_PagosParcial.Name = "btn_PagosParcial";
-            this.btn_PagosParcial.Size = new System.Drawing.Size(23, 22);
-            this.btn_PagosParcial.TabIndex = 1;
-            this.btn_PagosParcial.UseVisualStyleBackColor = false;
-            this.btn_PagosParcial.Click += new System.EventHandler(this.btn_PagosParcial_Click);
-            // 
-            // btn_PagosTodo
-            // 
-            this.btn_PagosTodo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_PagosTodo.Location = new System.Drawing.Point(113, 27);
-            this.btn_PagosTodo.Name = "btn_PagosTodo";
-            this.btn_PagosTodo.Size = new System.Drawing.Size(23, 22);
-            this.btn_PagosTodo.TabIndex = 2;
-            this.btn_PagosTodo.UseVisualStyleBackColor = false;
-            this.btn_PagosTodo.Click += new System.EventHandler(this.btn_PagosTodo_Click);
-            // 
-            // btn_StikerNada
-            // 
-            this.btn_StikerNada.BackColor = System.Drawing.Color.Red;
-            this.btn_StikerNada.Location = new System.Drawing.Point(56, 29);
-            this.btn_StikerNada.Name = "btn_StikerNada";
-            this.btn_StikerNada.Size = new System.Drawing.Size(23, 22);
-            this.btn_StikerNada.TabIndex = 1;
-            this.btn_StikerNada.UseVisualStyleBackColor = false;
-            this.btn_StikerNada.Click += new System.EventHandler(this.btn_StikerNada_Click);
-            // 
-            // btn_StikerTerminado
-            // 
-            this.btn_StikerTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_StikerTerminado.Location = new System.Drawing.Point(101, 29);
-            this.btn_StikerTerminado.Name = "btn_StikerTerminado";
-            this.btn_StikerTerminado.Size = new System.Drawing.Size(23, 22);
-            this.btn_StikerTerminado.TabIndex = 3;
-            this.btn_StikerTerminado.UseVisualStyleBackColor = false;
-            this.btn_StikerTerminado.Click += new System.EventHandler(this.btn_StikerTerminado_Click);
-            // 
-            // btn_LaboratorioTerminado
-            // 
-            this.btn_LaboratorioTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_LaboratorioTerminado.Location = new System.Drawing.Point(140, 27);
-            this.btn_LaboratorioTerminado.Name = "btn_LaboratorioTerminado";
-            this.btn_LaboratorioTerminado.Size = new System.Drawing.Size(23, 22);
-            this.btn_LaboratorioTerminado.TabIndex = 5;
-            this.btn_LaboratorioTerminado.UseVisualStyleBackColor = false;
-            this.btn_LaboratorioTerminado.Click += new System.EventHandler(this.btn_LaboratorioTerminado_Click);
-            // 
-            // btn_LaboratorioPendiente
-            // 
-            this.btn_LaboratorioPendiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btn_LaboratorioPendiente.Location = new System.Drawing.Point(99, 27);
-            this.btn_LaboratorioPendiente.Name = "btn_LaboratorioPendiente";
-            this.btn_LaboratorioPendiente.Size = new System.Drawing.Size(23, 22);
-            this.btn_LaboratorioPendiente.TabIndex = 4;
-            this.btn_LaboratorioPendiente.UseVisualStyleBackColor = false;
-            this.btn_LaboratorioPendiente.Click += new System.EventHandler(this.btn_LaboratorioPendiente_Click);
-            // 
-            // btn_LaboratorioSinSolucion
-            // 
-            this.btn_LaboratorioSinSolucion.BackColor = System.Drawing.Color.Red;
-            this.btn_LaboratorioSinSolucion.Location = new System.Drawing.Point(60, 27);
-            this.btn_LaboratorioSinSolucion.Name = "btn_LaboratorioSinSolucion";
-            this.btn_LaboratorioSinSolucion.Size = new System.Drawing.Size(23, 22);
-            this.btn_LaboratorioSinSolucion.TabIndex = 3;
-            this.btn_LaboratorioSinSolucion.UseVisualStyleBackColor = false;
-            this.btn_LaboratorioSinSolucion.Click += new System.EventHandler(this.btn_LaboratorioSinSolucion_Click);
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(576, 579);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(150, 50);
+            this.btnActualizar.TabIndex = 52;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnUbicacion
             // 
@@ -746,9 +792,10 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.grb_Pagos.ResumeLayout(false);
-            this.grb_Stikers.ResumeLayout(false);
             this.grb_Laboratorio.ResumeLayout(false);
+            this.grb_Stikers.ResumeLayout(false);
+            this.grb_Pagos.ResumeLayout(false);
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -804,5 +851,9 @@
         private System.Windows.Forms.Button btn_LaboratorioTerminado;
         private System.Windows.Forms.Button btn_LaboratorioPendiente;
         private System.Windows.Forms.Button btn_LaboratorioSinSolucion;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
