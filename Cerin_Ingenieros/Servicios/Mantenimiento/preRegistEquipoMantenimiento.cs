@@ -72,17 +72,16 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void listarDatosComboBox()
         {
+            comboBoxCategoria.ValueMember = "id_categoria_equipo";
+            comboBoxCategoria.DisplayMember = "nombre";
+            comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
+
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
             comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
 
             comboBox_modelo.ValueMember = "id_modelo";
             comboBox_modelo.DisplayMember = "nombre";
-            //comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos();
-
-            comboBoxCategoria.ValueMember = "id_categoria_equipo";
-            comboBoxCategoria.DisplayMember = "nombre";
-            comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
         }
 
         private void btnCancelarRegist_Click(object sender, EventArgs e)
@@ -92,7 +91,33 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void btnNuevoRegis_Click(object sender, EventArgs e)
         {
-            configNuevo();
+            if (comboBoxCategoria.Items.Count == 0)
+            {
+                MessageBox.Show("Registra una categoria");
+            }
+            else
+            {
+                comboBoxCategoria.SelectedIndex = 0;
+                if (comboBox_marca.Items.Count == 0)
+                {
+                    MessageBox.Show("Registra una marca");
+                }
+                else
+                {
+                    comboBox_marca.SelectedIndex = 0;
+                    //entMarca marca = (entMarca)comboBox_marca.SelectedItem;
+                    //comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos(marca.IdMarca);
+                    if (comboBox_modelo.Items.Count == 0)
+                    {
+                        MessageBox.Show("Registra un modelo");
+                    }
+                    else
+                    {
+                        comboBox_modelo.SelectedIndex = 0;
+                        configNuevo();
+                    }
+                }
+            }
         }
 
         private void btnguardarRegist_Click(object sender, EventArgs e)
@@ -575,6 +600,20 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     else
                         textBoxCell.Value = Convert.ToInt16(valor);
                 }
+            }
+        }
+
+        private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            entMarca marca = (entMarca)comboBox_marca.SelectedValue;
+            if (marca != null)
+            {
+
+                // Consulta y llena comboBox_Modelo con modelos relacionados a la marca seleccionada
+                List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca);
+
+                // Llena comboBox_Modelo con los datos de los modelos
+                comboBox_modelo.DataSource = modelos;
             }
         }
     }
