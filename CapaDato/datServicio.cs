@@ -288,6 +288,9 @@ namespace CapaDato
                     servicio.IdCliente = Convert.ToInt32(dr["id_cliente"]);
                     servicio.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
                     servicio.estado = Convert.ToChar(dr["estado"]);
+                    servicio.estadoStikers = Convert.ToChar(dr["estadoStikers"]);
+                    servicio.estadoPago = Convert.ToChar(dr["estadoPago"]);
+                    servicio.estadoLaboratorio = Convert.ToChar(dr["estadoLaboratorio"]);
 
                     lista.Add(servicio);
                 }

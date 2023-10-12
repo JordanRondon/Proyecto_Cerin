@@ -227,11 +227,15 @@ namespace Cerin_Ingenieros.Servicios
                 {
                     FechaRegistro = DateTime.Now,
                     IdTipoServicio = logTipoServicio.GetInstancia.BuscarTipoPorNombre("CALIBRACION").IdTipoServicio,
-                    IdCliente = clienteSelecionado.IdCliente
+                    IdCliente = clienteSelecionado.IdCliente,
+                    estado = 'P',
+                    estadoLaboratorio = 'A',
+                    estadoPago = 'R',
+                    estadoStikers = 'R'
                 };
                 //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
                 servicio.IdEmpleado = Convert.ToInt16(comboBox_empleado.SelectedValue); //temp.IdEmpleado;
-                servicio.estado = 'P';//estado
+                
 
                 int idServicio = logServicio.GetInstancia.insertarServicio(servicio);
                 servicio.IdServicio = idServicio;

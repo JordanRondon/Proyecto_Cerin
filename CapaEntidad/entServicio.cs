@@ -22,5 +22,11 @@ namespace CapaEntidad
 
         public char estado { get; set; }
 
+        public char estadoPago { get; set; }
+
+        public char estadoStikers { get; set; }
+
+        public char estadoLaboratorio { get; set; }
+
     }
 }
