@@ -42,13 +42,14 @@ namespace Cerin_Ingenieros.Consultas
             dgvServicios.Columns["Tipo"].Width = 130;
             foreach (DataGridViewColumn column in dgvServicios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
+
         private void listarServicios(List<entServicio> lista)
         {
             dgvServicios.Rows.Clear();
             //insertar los datos 
             foreach (var item in lista)
             {
-                string estado,fechasalida;
+                string estado,estadodelPago,estadoStikers,estadoLab,fechasalida;
                 if (item.estado == 'P') estado = "Pendiente";
                 else estado = "Terminado";
                 if (item.FechaEntrega == null)
@@ -59,6 +60,22 @@ namespace Cerin_Ingenieros.Consultas
                     fechasalida = fechaaux.ToString("dd-MM-yyyy HH:mm");
                 }
 
+                if (item.estadoPago == 'V')
+                    estadodelPago = "Completo";
+                else if (item.estadoPago == 'A')
+                    estadodelPago = "Parcial";
+                else estadodelPago = "Pendiente";
+
+                if (item.estadoStikers == 'V')
+                    estadoStikers = "Completo";
+                else estadoStikers = "Pendiente";
+
+                if (item.estadoLaboratorio == 'V')
+                    estadoLab = "Terminado";
+                else if (item.estadoLaboratorio == 'A')
+                    estadoLab = "Pendiente";
+                else estadoLab = "Sin solucion";
+
                 entCliente cliente = logCliente.GetInstancia.buscarClienteId(item.IdCliente);
                 dgvServicios.Rows.Add(
                     item.IdServicio,
@@ -66,9 +83,9 @@ namespace Cerin_Ingenieros.Consultas
                     fechasalida,
                     logTipoServicio.GetInstancia.buscarTipoServicioId(item.IdTipoServicio).Nombre,
                     cliente.Apellido + ", " + cliente.Nombre,
-                    "",
-                    "",
-                    "",
+                    estadodelPago,
+                    estadoStikers,
+                    estadoLab,
                     estado
                 );
             }
@@ -137,6 +154,48 @@ namespace Cerin_Ingenieros.Consultas
             btnHoy.BackColor = Color.FromArgb(255, 128, 0);
             btnUltimaSemana.BackColor = Color.FromArgb(255, 128, 0);
             btnUltimoMes.BackColor = Color.DodgerBlue;
+        }
+
+        private void dgvServicios_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                string estadoPago = dgvServicios.Rows[e.RowIndex].Cells["Pago"].Value.ToString();
+                string estadoStiker = dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Value.ToString();
+                string estadoLab = dgvServicios.Rows[e.RowIndex].Cells["Laboratorio"].Value.ToString();
+                string estado = dgvServicios.Rows[e.RowIndex].Cells["Estado"].Value.ToString();
+
+                Color colorCompleto = Color.LimeGreen;
+                Color colorParcial = Color.Yellow;
+                Color colorPendiente = Color.Red;
+
+                //pago
+                if (estadoPago == "Completo")
+                    dgvServicios.Rows[e.RowIndex].Cells["Pago"].Style.BackColor = colorCompleto;
+                else if (estadoPago == "Parcial")
+                    dgvServicios.Rows[e.RowIndex].Cells["Pago"].Style.BackColor = colorParcial;
+                else
+                    dgvServicios.Rows[e.RowIndex].Cells["Pago"].Style.BackColor = colorPendiente;
+
+                //Stiker
+                if (estadoStiker == "Completo")
+                    dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Style.BackColor = colorCompleto;
+                else
+                    dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Style.BackColor = colorPendiente;
+
+                //Laboratorio
+                if (estadoLab == "Terminado")
+                    dgvServicios.Rows[e.RowIndex].Cells["Laboratorio"].Style.BackColor = colorCompleto;
+                else if (estadoLab == "Pendiente")
+                    dgvServicios.Rows[e.RowIndex].Cells["Laboratorio"].Style.BackColor = colorParcial;
+                else
+                    dgvServicios.Rows[e.RowIndex].Cells["Laboratorio"].Style.BackColor = colorPendiente;
+
+                if (estado == "Terminado")
+                    dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Style.BackColor = colorCompleto;
+                else
+                    dgvServicios.Rows[e.RowIndex].Cells["Stikers"].Style.BackColor = colorPendiente;
+            }
         }
     }
 }
