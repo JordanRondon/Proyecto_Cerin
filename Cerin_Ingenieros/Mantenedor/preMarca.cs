@@ -1,13 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros
@@ -20,7 +13,6 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
             deshablitar_btn();
             listarMarcas();
-            dataGridView_marcas.ReadOnly = true;
         }
 
         private void limpiar_entradas()
@@ -40,7 +32,6 @@ namespace Cerin_Ingenieros
             btn_nuevo.Enabled = true;
             btn_guardar.Enabled = false;
             btn_editar.Enabled = false;
-            //btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = false;
         }
 
@@ -50,7 +41,6 @@ namespace Cerin_Ingenieros
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = false;
             btn_editar.Enabled = true;
-            //btn_eliminar.Enabled = true;
             btn_cancelar.Enabled = true;
         }
 
@@ -60,7 +50,6 @@ namespace Cerin_Ingenieros
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_editar.Enabled = false;
-            //btn_eliminar.Enabled = false;
             btn_cancelar.Enabled = true;
         }
 
@@ -95,25 +84,25 @@ namespace Cerin_Ingenieros
             {
                 if (txb_nombre.Text != "")
                 {
-                    entMarca marca = new entMarca();
-                    marca.Nombre = txb_nombre.Text.Trim();
+                    entMarca marca = new entMarca
+                    {
+                        Nombre = txb_nombre.Text.Trim()
+                    };
                     logMarca.GetInstancia.insertaMarca(marca);
 
                     //Actualizar botones
                     deshablitar_btn();
-                    txb_nombre.Enabled = false;
+                    deshablitar_entradas();
+                    limpiar_entradas();
+                    listarMarcas();
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            limpiar_entradas();
-            listarMarcas();
-
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -122,12 +111,17 @@ namespace Cerin_Ingenieros
             {
                 if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
-                    entMarca marca = new entMarca();
-
-                    marca.IdMarca = int.Parse(txb_codigo.Text);
-                    marca.Nombre = txb_nombre.Text.Trim();
-
+                    entMarca marca = new entMarca
+                    {
+                        IdMarca = int.Parse(txb_codigo.Text),
+                        Nombre = txb_nombre.Text.Trim()
+                    };
                     logMarca.GetInstancia.editarMarca(marca);
+
+                    limpiar_entradas();
+                    listarMarcas();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
@@ -136,12 +130,8 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            limpiar_entradas();
-            listarMarcas();
-            deshablitar_btn();
-            deshablitar_entradas();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -150,11 +140,16 @@ namespace Cerin_Ingenieros
             {
                 if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
-                    entMarca marca = new entMarca();
-
-                    marca.IdMarca = int.Parse(txb_codigo.Text);
-
+                    entMarca marca = new entMarca
+                    {
+                        IdMarca = int.Parse(txb_codigo.Text)
+                    };
                     logMarca.GetInstancia.deshabilitarMarca(marca);
+
+                    limpiar_entradas();
+                    listarMarcas();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
@@ -163,12 +158,8 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            limpiar_entradas();
-            listarMarcas();
-            deshablitar_btn();
-            deshablitar_entradas();
         }
     }
 }

@@ -1,16 +1,7 @@
-﻿using CapaDato;
-using CapaEntidad;
-using CapaLogica;
+﻿using CapaEntidad;
 using Cerin_Ingenieros.Servicios.ClienteOpciones;
-using Microsoft.Office.Interop.Word;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Cerin_Ingenieros.Servicios.preSeleccionarCliente;
 
@@ -95,6 +86,4 @@ namespace Cerin_Ingenieros.Servicios
             return cliente;
         }
     }
-
-
 }

@@ -181,6 +181,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RecursosAdicionales\Clases\classEncriptar.cs" />
+    <Compile Include="RecursosAdicionales\Clases\ClassValidaciones.cs" />
     <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,10 +194,10 @@
     <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.Designer.cs">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\ClienteOpciones\preRegistrarCliente.cs">
+    <Compile Include="Mantenedor\Cliente\preRegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\ClienteOpciones\preRegistrarCliente.Designer.cs">
+    <Compile Include="Mantenedor\Cliente\preRegistrarCliente.Designer.cs">
       <DependentUpon>preRegistrarCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Mantenimiento\preMantenimiento.cs">
@@ -217,23 +218,17 @@
     <Compile Include="Servicios\Alquiler\preAlquiler.Designer.cs">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\ClienteOpciones\preSeleccionarCliente.cs">
+    <Compile Include="Mantenedor\Cliente\preSeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\ClienteOpciones\preSeleccionarCliente.Designer.cs">
+    <Compile Include="Mantenedor\Cliente\preSeleccionarCliente.Designer.cs">
       <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\preSelectCliente.cs">
+    <Compile Include="Mantenedor\Cliente\preSelectCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\preSelectCliente.Designer.cs">
+    <Compile Include="Mantenedor\Cliente\preSelectCliente.Designer.cs">
       <DependentUpon>preSelectCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Servicios\ViewCertificado\preViewCertificado.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Servicios\ViewCertificado\preViewCertificado.Designer.cs">
-      <DependentUpon>preViewCertificado.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Consultas\preClienteServicio.resx">
       <DependentUpon>preClienteServicio.cs</DependentUpon>
@@ -278,7 +273,7 @@
     <EmbeddedResource Include="Servicios\Alquiler\preSelectEquipoAlquiler.resx">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\ClienteOpciones\preRegistrarCliente.resx">
+    <EmbeddedResource Include="Mantenedor\Cliente\preRegistrarCliente.resx">
       <DependentUpon>preRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.resx">
@@ -290,14 +285,11 @@
     <EmbeddedResource Include="Servicios\Alquiler\preAlquiler.resx">
       <DependentUpon>preAlquiler.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\ClienteOpciones\preSeleccionarCliente.resx">
+    <EmbeddedResource Include="Mantenedor\Cliente\preSeleccionarCliente.resx">
       <DependentUpon>preSeleccionarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\preSelectCliente.resx">
+    <EmbeddedResource Include="Mantenedor\Cliente\preSelectCliente.resx">
       <DependentUpon>preSelectCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\ViewCertificado\preViewCertificado.resx">
-      <DependentUpon>preViewCertificado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

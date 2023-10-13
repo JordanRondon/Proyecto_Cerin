@@ -331,6 +331,7 @@
             this.dataGridView_empleados.EnableHeadersVisualStyles = false;
             this.dataGridView_empleados.Location = new System.Drawing.Point(30, 355);
             this.dataGridView_empleados.Name = "dataGridView_empleados";
+            this.dataGridView_empleados.ReadOnly = true;
             this.dataGridView_empleados.RowHeadersVisible = false;
             this.dataGridView_empleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_empleados.Size = new System.Drawing.Size(1116, 251);

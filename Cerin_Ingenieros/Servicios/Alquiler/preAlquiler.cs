@@ -1,21 +1,13 @@
 ﻿using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.Servicios.Alquiler;
-using Cerin_Ingenieros.Servicios.ViewCertificado;
-using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task = Microsoft.Office.Interop.Word.Task;
-using Word = Microsoft.Office.Interop.Word;
 
 namespace Cerin_Ingenieros.Servicios
 {

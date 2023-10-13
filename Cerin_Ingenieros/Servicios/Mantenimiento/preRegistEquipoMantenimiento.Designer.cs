@@ -54,9 +54,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.BtnEditarRegist = new System.Windows.Forms.Button();
@@ -83,7 +83,7 @@
             this.panel1.Controls.Add(this.btn_guardar);
             this.panel1.Location = new System.Drawing.Point(3, 479);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1088, 54);
+            this.panel1.Size = new System.Drawing.Size(1153, 54);
             this.panel1.TabIndex = 22;
             // 
             // btnCancelarEquipo
@@ -126,7 +126,7 @@
             this.groupBoxEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxEquipo.Location = new System.Drawing.Point(8, 62);
             this.groupBoxEquipo.Name = "groupBoxEquipo";
-            this.groupBoxEquipo.Size = new System.Drawing.Size(1088, 87);
+            this.groupBoxEquipo.Size = new System.Drawing.Size(1127, 87);
             this.groupBoxEquipo.TabIndex = 37;
             this.groupBoxEquipo.TabStop = false;
             this.groupBoxEquipo.Text = "Buscar equipo";
@@ -184,7 +184,7 @@
             this.txbObservaciones.Location = new System.Drawing.Point(6, 27);
             this.txbObservaciones.Multiline = true;
             this.txbObservaciones.Name = "txbObservaciones";
-            this.txbObservaciones.Size = new System.Drawing.Size(506, 108);
+            this.txbObservaciones.Size = new System.Drawing.Size(557, 108);
             this.txbObservaciones.TabIndex = 14;
             // 
             // groupBoxObservaciones
@@ -193,7 +193,7 @@
             this.groupBoxObservaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxObservaciones.Location = new System.Drawing.Point(566, 165);
             this.groupBoxObservaciones.Name = "groupBoxObservaciones";
-            this.groupBoxObservaciones.Size = new System.Drawing.Size(518, 142);
+            this.groupBoxObservaciones.Size = new System.Drawing.Size(569, 142);
             this.groupBoxObservaciones.TabIndex = 40;
             this.groupBoxObservaciones.TabStop = false;
             this.groupBoxObservaciones.Text = "OBSERVACIONES / RECOMENDACIONES PRELIMINARES";
@@ -235,7 +235,7 @@
             this.groupBoxOtosAccesorios.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxOtosAccesorios.Location = new System.Drawing.Point(566, 331);
             this.groupBoxOtosAccesorios.Name = "groupBoxOtosAccesorios";
-            this.groupBoxOtosAccesorios.Size = new System.Drawing.Size(518, 142);
+            this.groupBoxOtosAccesorios.Size = new System.Drawing.Size(569, 142);
             this.groupBoxOtosAccesorios.TabIndex = 42;
             this.groupBoxOtosAccesorios.TabStop = false;
             this.groupBoxOtosAccesorios.Text = "Otro accesorios";
@@ -246,7 +246,7 @@
             this.txbOtrosAccesorios.Location = new System.Drawing.Point(6, 27);
             this.txbOtrosAccesorios.Multiline = true;
             this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
-            this.txbOtrosAccesorios.Size = new System.Drawing.Size(506, 108);
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(557, 108);
             this.txbOtrosAccesorios.TabIndex = 14;
             // 
             // groupBoxAccesorios
@@ -262,7 +262,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1040, 6);
+            this.button3.Location = new System.Drawing.Point(1040, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 35);
             this.button3.TabIndex = 32;
@@ -288,7 +288,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1043, 8);
+            this.btnClose.Location = new System.Drawing.Point(1043, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(95, 35);
             this.btnClose.TabIndex = 33;
@@ -337,7 +337,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 55);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1156, 125);
+            this.groupBox1.Size = new System.Drawing.Size(1138, 125);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "CARACTERISTICAS DE EQUIPO";
@@ -387,16 +387,6 @@
             this.comboBox_marca.TabIndex = 13;
             this.comboBox_marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_marca_SelectedIndexChanged);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(256, 39);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(47, 17);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Marca";
-            // 
             // txb_serie_equipo
             // 
             this.txb_serie_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -414,6 +404,16 @@
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Modelo";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(256, 39);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 17);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Marca";
             // 
             // label4
             // 
@@ -433,7 +433,7 @@
             this.panel2.Controls.Add(this.btnNuevoRegis);
             this.panel2.Location = new System.Drawing.Point(18, 199);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1080, 54);
+            this.panel2.Size = new System.Drawing.Size(1138, 54);
             this.panel2.TabIndex = 21;
             // 
             // BtnEditarRegist

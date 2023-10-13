@@ -2,13 +2,6 @@
 using CapaLogica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 
@@ -16,21 +9,24 @@ namespace Cerin_Ingenieros
 {
     public partial class preEmpleado : Form
     {
-        int registroSeleccionado = -1;
+        private int registroSeleccionado = -1;
 
         public preEmpleado()
         {
             InitializeComponent();
-            listarDatosComboBoxRol();
+            InicializarFormulario();
+        }
+        private void InicializarFormulario()
+        {
+            ListarDatosComboBoxRol();
             ConfigCabecera();
-            deshablitar_entradas();
-            deshablitar_btn();
-            listarEmpleado();
-            dataGridView_empleados.ReadOnly = true;
+            Deshablitar_entradas();
+            ConfigInicialBtn();
+            ListarEmpleado();
             cmb_rol.SelectedIndex = -1;
         }
 
-        private void limpiar_entradas()
+        private void Limpiar_entradas()
         {
             txb_nombres_empleado.Text = "";
             txb_apellidos_empleado.Text = "";
@@ -38,14 +34,13 @@ namespace Cerin_Ingenieros
             txb_direccion_empleado.Text = "";
             txb_correo_empleado.Text = "";
             txb_telefono_empleado.Text = "";
-            registroSeleccionado = -1;
-
             txb_userNamer.Text = "";
             txb_contraseña.Text = "";
             cmb_rol.SelectedIndex = -1;
+            registroSeleccionado = -1;
         }
 
-        private void hablitar_entradas()
+        private void Hablitar_entradas()
         {
             txb_nombres_empleado.Enabled = true;
             txb_apellidos_empleado.Enabled = true;
@@ -53,14 +48,13 @@ namespace Cerin_Ingenieros
             txb_direccion_empleado.Enabled = true;
             txb_correo_empleado.Enabled = true;
             txb_telefono_empleado.Enabled = true;
-
             txb_userNamer.Enabled = true;
             txb_contraseña.Enabled = true;
             cmb_rol.Enabled = true;
             cmb_rol.SelectedIndex = 0;
         }
 
-        private void deshablitar_entradas()
+        private void Deshablitar_entradas()
         {
             txb_nombres_empleado.Enabled = false;
             txb_apellidos_empleado.Enabled = false;
@@ -68,13 +62,13 @@ namespace Cerin_Ingenieros
             txb_direccion_empleado.Enabled = false;
             txb_correo_empleado.Enabled = false;
             txb_telefono_empleado.Enabled = false;
-
             txb_userNamer.Enabled = false;
             txb_contraseña.Enabled = false;
             cmb_rol.Enabled = false;
+            cmb_rol.SelectedIndex = -1;
         }
 
-        private void deshablitar_btn()
+        private void ConfigInicialBtn()
         {
             btn_nuevo.Enabled = true;
             btn_guardar.Enabled = false;
@@ -84,9 +78,9 @@ namespace Cerin_Ingenieros
             btn_cancelar.Enabled = false;
         }
 
-        private void habilitar_btn_modificacion()
+        private void ConfigModificacionBtn()
         {
-            hablitar_entradas();
+            Hablitar_entradas();
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = false;
             btn_buscar.Enabled = true;
@@ -97,7 +91,7 @@ namespace Cerin_Ingenieros
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            hablitar_entradas();
+            Hablitar_entradas();
             btn_nuevo.Enabled = false;
             btn_guardar.Enabled = true;
             btn_buscar.Enabled = true;
@@ -108,19 +102,19 @@ namespace Cerin_Ingenieros
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            limpiar_entradas();
-            deshablitar_entradas();
-            deshablitar_btn();
+            Limpiar_entradas();
+            Deshablitar_entradas();
+            ConfigInicialBtn();
         }
 
-        private void listarDatosComboBoxRol()
+        private void ListarDatosComboBoxRol()
         {
             cmb_rol.ValueMember = "id_rol";
             cmb_rol.DisplayMember = "nombre";
             cmb_rol.DataSource = logRol.GetInstancia.listarRol();
         }
 
-            private void ConfigCabecera()
+        private void ConfigCabecera()
         {
             dataGridView_empleados.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Código" },
@@ -140,11 +134,9 @@ namespace Cerin_Ingenieros
             foreach (DataGridViewColumn column in dataGridView_empleados.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
-        private void listarEmpleado()
+        private void ListarEmpleado()
         {
             List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
-            
-
             dataGridView_empleados.Rows.Clear();
 
             //insertar los datos 
@@ -179,14 +171,15 @@ namespace Cerin_Ingenieros
                 txb_direccion_empleado.Text = filaActual.Cells[4].Value.ToString();
                 txb_correo_empleado.Text = filaActual.Cells[5].Value.ToString();
                 txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
-
                 txb_userNamer.Text = filaActual.Cells[7].Value.ToString();
-                //txb_contraseña.Text = filaActual.Cells[8].Value.ToString();
-                int indiceRol = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
-                if (indiceRol != -1) cmb_rol.SelectedIndex = indiceRol;
-                else cmb_rol.SelectedIndex = -1;
 
-                habilitar_btn_modificacion();
+                int indiceRol = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
+                if (indiceRol != -1) 
+                    cmb_rol.SelectedIndex = indiceRol;
+                else 
+                    cmb_rol.SelectedIndex = -1;
+
+                ConfigModificacionBtn();
 
                 txb_dniEmpleado.Enabled = false;
                 txb_apellidos_empleado.Enabled = false;
@@ -197,35 +190,39 @@ namespace Cerin_Ingenieros
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
-            bool datos_User = txb_userNamer.Text != "" && txb_contraseña.Text != "" && cmb_rol.SelectedIndex != -1;
+            bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_apellidos_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_dniEmpleado.Text);
+            bool datos_User = !string.IsNullOrWhiteSpace(txb_userNamer.Text) &&
+                             !string.IsNullOrWhiteSpace(txb_contraseña.Text) &&
+                             cmb_rol.SelectedIndex != -1;
+
             try
             {
-
                 if (datosIngresados && datos_User)
                 {
-                    entUsuario usuario = new entUsuario();
-
-                    usuario.userName = txb_userNamer.Text.Trim();
-                    usuario.password = classEncriptar.EncriptarContraseña(txb_contraseña.Text); ; //txb_contraseña.Text;
+                    entUsuario usuario = new entUsuario
+                    {
+                        userName = txb_userNamer.Text.Trim(),
+                        password = classEncriptar.EncriptarContraseña(txb_contraseña.Text)
+                    };
                     entRol rolSelec = (entRol)cmb_rol.SelectedItem;
                     usuario.id_rol = rolSelec.id_rol;
                     usuario.estado = 'A';
                     usuario.id_usuario =  logUser.GetInstancia.insertarUsuario(usuario);
 
-                    entEmpleado empleado = new entEmpleado();
-
-                    empleado.Nombre = txb_nombres_empleado.Text.Trim();
-                    empleado.Apellido = txb_apellidos_empleado.Text.Trim();
-                    empleado.Dni = txb_dniEmpleado.Text.Trim();
-                    empleado.Direccion = txb_direccion_empleado.Text.Trim();
-                    empleado.Correo = txb_correo_empleado.Text.Trim();
-                    empleado.Telefono = txb_telefono_empleado.Text.Trim();
-                    empleado.id_usuario = usuario.id_usuario;
+                    entEmpleado empleado = new entEmpleado
+                    {
+                        Nombre = txb_nombres_empleado.Text.Trim(),
+                        Apellido = txb_apellidos_empleado.Text.Trim(),
+                        Dni = txb_dniEmpleado.Text.Trim(),
+                        Direccion = txb_direccion_empleado.Text.Trim(),
+                        Correo = txb_correo_empleado.Text.Trim(),
+                        Telefono = txb_telefono_empleado.Text.Trim(),
+                        id_usuario = usuario.id_usuario
+                    };
 
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
-
-                    
                 }
                 else
                 {
@@ -236,41 +233,44 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            limpiar_entradas();
-            listarEmpleado();
-            txb_dniEmpleado.Enabled = true;
-            txb_apellidos_empleado.Enabled = true;
-            txb_nombres_empleado.Enabled = true;
+            Limpiar_entradas();
+            ListarEmpleado();
+            ConfigInicialBtn();
+            Deshablitar_entradas();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
-            bool datos_User = txb_userNamer.Text != "" && cmb_rol.SelectedIndex != -1;
+            bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_apellidos_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_dniEmpleado.Text);
+            bool datos_User = !string.IsNullOrWhiteSpace(txb_userNamer.Text) && cmb_rol.SelectedIndex != -1;
 
             try
             {
                 if (datosIngresados && datos_User && registroSeleccionado > -1)
                 {
-                    entEmpleado empleado = new entEmpleado();
-                    entUsuario usuario = new entUsuario();
-                    empleado.IdEmpleado = registroSeleccionado;
-                    empleado.Nombre = txb_nombres_empleado.Text.Trim();
-                    empleado.Apellido = txb_apellidos_empleado.Text.Trim();
-                    empleado.Dni = txb_dniEmpleado.Text.Trim();
-                    empleado.Direccion = txb_direccion_empleado.Text.Trim();
-                    empleado.Correo = txb_correo_empleado.Text.Trim();
-                    empleado.Telefono = txb_telefono_empleado.Text.Trim();
+                    entEmpleado empleado = new entEmpleado
+                    {
+                        IdEmpleado = registroSeleccionado,
+                        Nombre = txb_nombres_empleado.Text.Trim(),
+                        Apellido = txb_apellidos_empleado.Text.Trim(),
+                        Dni = txb_dniEmpleado.Text.Trim(),
+                        Direccion = txb_direccion_empleado.Text.Trim(),
+                        Correo = txb_correo_empleado.Text.Trim(),
+                        Telefono = txb_telefono_empleado.Text.Trim()
+                    };
                     empleado.id_usuario = logEmpleado.GetInstancia.BuscarEmpleadoDNI(empleado.Dni).id_usuario;
                     logEmpleado.GetInstancia.editarEmpleado(empleado);
 
-                    
-                    
-                    usuario.userName = txb_userNamer.Text.Trim();
-                    usuario.password = txb_contraseña.Text;
+                    entUsuario usuario = new entUsuario
+                    {
+                        userName = txb_userNamer.Text.Trim(),
+                        password = txb_contraseña.Text
+                    };
                     entRol rolSelec = (entRol)cmb_rol.SelectedItem;
                     usuario.id_rol = rolSelec.id_rol;
                     usuario.estado = 'A';
@@ -285,29 +285,35 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            limpiar_entradas();
-            listarEmpleado();
-            deshablitar_btn();
-            deshablitar_entradas();
+            Limpiar_entradas();
+            ListarEmpleado();
+            ConfigInicialBtn();
+            Deshablitar_entradas();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_nombres_empleado.Text != "" && txb_apellidos_empleado.Text != "" && txb_dniEmpleado.Text != "");
+            bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_apellidos_empleado.Text) &&
+                                    !string.IsNullOrWhiteSpace(txb_dniEmpleado.Text);
 
             try
             {
                 if (datosIngresados == true && registroSeleccionado > -1)
                 {
-                    entEmpleado empleado = new entEmpleado();
-                    empleado.IdEmpleado = registroSeleccionado;
+                    entEmpleado empleado = new entEmpleado
+                    {
+                        IdEmpleado = registroSeleccionado
+                    };
                     logEmpleado.GetInstancia.deshabilitarEmpleado(empleado);
 
-                    entUsuario usuario = new entUsuario();
-                    usuario.id_usuario = logUser.GetInstancia.buscarUsuario(empleado.IdEmpleado).id_usuario;
+                    entUsuario usuario = new entUsuario
+                    {
+                        id_usuario = logUser.GetInstancia.buscarUsuario(empleado.IdEmpleado).id_usuario
+                    };
                     logUser.GetInstancia.deshabilitarUsuario(usuario);
                 }
                 else
@@ -317,21 +323,18 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            limpiar_entradas();
-            listarEmpleado();
-            deshablitar_btn();
-            deshablitar_entradas();
+            Limpiar_entradas();
+            ListarEmpleado();
+            ConfigInicialBtn();
+            Deshablitar_entradas();
         }
 
         private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
-            {
-                e.Handled = true;
-            }
+            ClassValidaciones.ValidarNumero(sender, e);
         }
 
         private void btn_buscar_Click(object sender, EventArgs e)

@@ -2,14 +2,7 @@
 using CapaLogica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 using System.Windows.Forms;
 
@@ -84,25 +77,17 @@ namespace Cerin_Ingenieros
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             if (comboBoxCategoria.Items.Count == 0)
-            {
                 MessageBox.Show("Registra una categoria");
-            }
             else
             {
                 comboBoxCategoria.SelectedIndex = 0;
                 if (comboBox_marca.Items.Count == 0)
-                {
                     MessageBox.Show("Registra una marca");
-                }
                 else
                 {
                     comboBox_marca.SelectedIndex = 0;
-                    //entMarca marca = (entMarca)comboBox_marca.SelectedItem;
-                    //comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos(marca.IdMarca);
                     if (comboBox_modelo.Items.Count == 0)
-                    {
                         MessageBox.Show("Registra un modelo");
-                    }
                     else
                     {
                         comboBox_modelo.SelectedIndex = 0;
@@ -180,12 +165,10 @@ namespace Cerin_Ingenieros
 
         private void listarEquipo()
         {
-
             List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipoAlquiler();
-
             dataGridView_equipos.Rows.Clear();
 
-            //insertar los datos 
+            //insertar Equipos
             foreach (var item in listaEquipos)
             {
                 string estado;
@@ -226,60 +209,6 @@ namespace Cerin_Ingenieros
 
         }
 
-        private int obtenerIndiceMarcaSelec(DataGridViewRow filaActual)
-        {
-            List<entMarca> listaMarca = new List<entMarca>();
-
-            listaMarca = logMarca.GetInstancia.listarMarcas();
-
-            entMarca marcaSeleccionada = new entMarca();
-
-            foreach (var i in listaMarca)
-            {
-                //obtenemos el registro mediante un ID especifico 
-                if (i.Nombre == filaActual.Cells[3].Value.ToString())
-                {
-                    marcaSeleccionada = i;
-                    break;
-                }
-            }
-
-            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
-            int index = comboBox_marca.FindString(marcaSeleccionada.Nombre);
-
-            if (index != -1)
-                return index;
-            else
-                return -1;
-        }
-
-        private int obtenerIndiceCategoriaSelec(DataGridViewRow filaActual)
-        {
-            List<entCategoria> listacategoria = new List<entCategoria>();
-
-            listacategoria = logCategoria.GetInstancia.listarCategoriasEquipos();
-
-            entCategoria categoriaSeleccionada = new entCategoria();
-
-            foreach (var i in listacategoria)
-            {
-                //obtenemos el registro mediante un ID especifico 
-                if (i.Nombre == filaActual.Cells[4].Value.ToString())
-                {
-                    categoriaSeleccionada = i;
-                    break;
-                }
-            }
-
-            //obtenemos la poscion dentro del comboBox mediande el nombreMarca
-            int index = comboBoxCategoria.FindString(categoriaSeleccionada.Nombre);
-
-            if (index != -1)
-                return index;
-            else
-                return -1;
-        }
-
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>=0)
@@ -291,7 +220,7 @@ namespace Cerin_Ingenieros
 
                 registroSeleccionado = Convert.ToString(filaActual.Cells["Serie"].Value.ToString());
                 txb_serie_equipo.Text = registroSeleccionado;
-                //FALTA ACUTALIZAR EL ESTADO
+
                 comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells["Categoria"].Value.ToString());
                 comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells["Marca"].Value.ToString());
                 comboBox_modelo.SelectedIndex = comboBox_modelo.FindStringExact(filaActual.Cells["Modelo"].Value.ToString());
@@ -299,7 +228,6 @@ namespace Cerin_Ingenieros
                 habilitar_btn_modificacion();
 
                 //cargar accesorios del equipo actual
-
                 List<entEquipo_Accesorio> listAccesoriosDeX = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(registroSeleccionado);
 
                 foreach (var item in listAccesoriosDeX)
@@ -328,33 +256,35 @@ namespace Cerin_Ingenieros
             {
                 if (datosIngresados == true)
                 {
-                    entEquipo equipo = new entEquipo();
-
-                    equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
+                    entEquipo equipo = new entEquipo
+                    {
+                        SerieEquipo = txb_serie_equipo.Text.Trim(),
+                        Estado = 'D',//estado disponible
+                        IdTipo = 1, //tipo de servicio alquiler
+                        otrosaccesorios = ""
+                    };
                     entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
                     equipo.id_modelo = modeloSelec.id_modelo;
-                    equipo.Estado = 'D';//estado disponible
-                    equipo.IdTipo = 1; //tipo de servicio alquiler
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     equipo.IdMarca = marcaSelec.IdMarca;
                     entCategoria marcaCategoria = (entCategoria)comboBoxCategoria.SelectedItem;
                     equipo.id_categoria = marcaCategoria.id_categoria_equipo;
-                    equipo.otrosaccesorios = "";
 
                     string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);
 
                     //insertar los accesorios del equipo
-                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
-                    det_equipo_Accesorio.SerieEquipo = seri_selecionada;
-
+                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio
+                    {
+                        SerieEquipo = seri_selecionada
+                    };
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
                     {
                         DataGridViewRow row = dgvAcesorios.Rows[i];
                         if (!row.IsNewRow)
                         {
-                            bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
-                            int cantidad = 0; //cantidad predeterminada 
+                            bool estadoacesorio = false;
+                            int cantidad = 0; 
                             string name="";
 
                             DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
@@ -373,32 +303,29 @@ namespace Cerin_Ingenieros
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
                                 }
-                                /////// alidar por idaccesorio y acesorio
                             }
                         }
                     }
+                    limpiar_entradas();
+                    listarEquipo();
+                    configNuevo();
+
+                    //reiniciar el combobox al primer elemento 
+                    comboBox_marca.SelectedIndex = 0;
+                    comboBox_modelo.SelectedIndex = 0;
+                    comboBoxCategoria.SelectedIndex = 0;
 
                 }
-                else
+                else 
+                { 
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
-            }
-
-            limpiar_entradas();
-            listarEquipo();
-            configNuevo();
-            //listaaccesorios.Clear();
-
-            //reiniciar el combobox al primer elemento 
-            if (comboBox_marca.Items.Count >= 0 || comboBox_modelo.Items.Count >= 0 || comboBoxCategoria.Items.Count>=0)
-            {
-                comboBox_marca.SelectedIndex = 0;
-                comboBox_modelo.SelectedIndex = 0;
-                comboBoxCategoria.SelectedIndex = 0;
-            }  
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -426,10 +353,7 @@ namespace Cerin_Ingenieros
 
                     string serie_equipo = equipo.SerieEquipo;
 
-                    //EditarEquipoAccesorio
-                    //entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio();
-                    //det_equipo_Accesorio.id_equipo = id_equipo;
-
+                    //Editar accesorios
                     List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
@@ -437,13 +361,12 @@ namespace Cerin_Ingenieros
                         DataGridViewRow row = dgvAcesorios.Rows[i];
                         if (!row.IsNewRow)
                         {
-                            bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
-                            int cantidad = 0; //cantidad predeterminada 
+                            bool estadoacesorio = false; 
+                            int cantidad = 0;
                             string name = "";
 
                             DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
                             estadoacesorio = (bool)checkBoxCell.Value;
-
 
                             //nombre del accesorio
                             DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
@@ -495,36 +418,43 @@ namespace Cerin_Ingenieros
                             }
                         }
                     }
+                    limpiar_entradas();
+                    listarEquipo();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
                     MessageBox.Show("Casilla vacia", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            limpiar_entradas();
-            listarEquipo();
-            deshablitar_btn();
-            deshablitar_entradas();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex!=-1);
-
+            bool datosIngresados = (txb_serie_equipo.Text != "" && 
+                                    comboBox_modelo.SelectedIndex != -1 && 
+                                    comboBox_marca.SelectedIndex != -1 && 
+                                    comboBoxCategoria.SelectedIndex!=-1);
             try
             {
                 if (datosIngresados == true && registroSeleccionado !="")
                 {
-                    entEquipo equipo = new entEquipo();
-
-                    equipo.SerieEquipo = registroSeleccionado;
+                    entEquipo equipo = new entEquipo
+                    {
+                        SerieEquipo = registroSeleccionado
+                    };
 
                     logEquipo.GetInstancia.deshabilitarEquipo(equipo);
+                    limpiar_entradas();
+                    listarEquipo();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
@@ -533,24 +463,19 @@ namespace Cerin_Ingenieros
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            limpiar_entradas();
-            listarEquipo();
-            deshablitar_btn();
-            deshablitar_entradas();
+            
         }
 
         private void dgvAcesorios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && e.ColumnIndex == 0) // Verifica que el evento ocurrió en la primera columna
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0) 
             {
                 DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[0];
                 DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)dgvAcesorios.Rows[e.RowIndex].Cells[2];
 
                 // Verifica el estado del checkbox y habilita o deshabilita la edición de la tercera columna
-
                 if (textBoxCell.Value.ToString() != "")
                 {
                     textBoxCell.ReadOnly = true;
@@ -592,10 +517,10 @@ namespace Cerin_Ingenieros
             if (marca!=null)
             {
 
-                // Consulta y llena comboBox_Modelo con modelos relacionados a la marca seleccionada
+                // Buscar los modelos de una marca
                 List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca);
 
-                // Llena comboBox_Modelo con los datos de los modelos
+                // Llena con los datos de los modelos
                 comboBox_modelo.DataSource = modelos;
             }
         }

@@ -113,11 +113,11 @@
             // btn_cancelar
             // 
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancelar.Location = new System.Drawing.Point(1016, 23);
+            this.btn_cancelar.Location = new System.Drawing.Point(1016, -1);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_cancelar.TabIndex = 36;
-            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.Text = "Atras";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 

@@ -146,6 +146,7 @@
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
+            this.panelReportes.Visible = false;
             // 
             // panelHistorialServicios
             // 
@@ -350,6 +351,7 @@
             this.panelEquipo.Name = "panelEquipo";
             this.panelEquipo.Size = new System.Drawing.Size(175, 175);
             this.panelEquipo.TabIndex = 1;
+            this.panelEquipo.Visible = false;
             // 
             // panelNuevoModelo
             // 
@@ -797,7 +799,7 @@
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CCI CONTROL DE SERVICIOS";
-            this.Load += new System.EventHandler(this.Principal_Load_1);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.panelOpciones.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
             this.panelHistorialServicios.ResumeLayout(false);

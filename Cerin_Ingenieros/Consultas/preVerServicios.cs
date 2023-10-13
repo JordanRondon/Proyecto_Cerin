@@ -14,7 +14,6 @@ namespace Cerin_Ingenieros.Consultas
 {
     public partial class preVerServicios : Form
     {
-        private DataGridViewRow filaSeleccionadaAnterior;
         List<entServicio> listaServiciosGeneral = logServicio.GetInstancia.listarServicios();
         public preVerServicios()
         {

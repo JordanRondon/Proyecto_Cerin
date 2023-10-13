@@ -2,12 +2,6 @@
 using CapaLogica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Mantenedor
@@ -44,7 +38,6 @@ namespace Cerin_Ingenieros.Mantenedor
         {
             txb_codigo.Enabled = false;
             txb_nombre.Enabled = false;
-
         }
 
         private void deshablitar_btn()
@@ -64,7 +57,6 @@ namespace Cerin_Ingenieros.Mantenedor
             btn_editar.Enabled = true;
             btn_eliminar.Enabled = true;
             btn_cancelar.Enabled = true;
-
             comboBox_marca .Enabled = true;
         }
 
@@ -84,8 +76,6 @@ namespace Cerin_Ingenieros.Mantenedor
                 comboBox_marca.Enabled = true;
                 comboBox_marca.SelectedIndex = 0;
             }
-                
-
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -110,8 +100,6 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void listarModelos()
         {
-            //dataGridView_modelos.DataSource = logModelo.GetInstancia.listarModelos();
-
             List<entModelo> listaModelos = logModelo.GetInstancia.listarTodoModelos();
 
             dataGridView_modelos.Rows.Clear();
@@ -134,8 +122,10 @@ namespace Cerin_Ingenieros.Mantenedor
             {
                 if (txb_nombre.Text != "")
                 {
-                    entModelo modelo = new entModelo();
-                    modelo.nombre = txb_nombre.Text.Trim();
+                    entModelo modelo = new entModelo
+                    {
+                        nombre = txb_nombre.Text.Trim()
+                    };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     modelo.IdMarca = marcaSelec.IdMarca;
                     logModelo.GetInstancia.insertaModelo(modelo);
@@ -144,17 +134,15 @@ namespace Cerin_Ingenieros.Mantenedor
                     deshablitar_btn();
                     deshablitar_entradas();
                     limpiar_entradas();
+                    listarModelos();
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
-            }
-
-            limpiar_entradas();
-            listarModelos();
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void dataGridView_modelos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -177,15 +165,21 @@ namespace Cerin_Ingenieros.Mantenedor
             {
                 if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
-                    entModelo modelo = new entModelo();
-
-                    modelo.id_modelo = int.Parse(txb_codigo.Text);
-                    modelo.nombre = txb_nombre.Text.Trim();
-                    modelo.estado = 'D';
+                    entModelo modelo = new entModelo
+                    {
+                        id_modelo = int.Parse(txb_codigo.Text),
+                        nombre = txb_nombre.Text.Trim(),
+                        estado = 'D'
+                    };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     modelo.IdMarca = marcaSelec.IdMarca;
 
                     logModelo.GetInstancia.editarModelo(modelo);
+
+                    limpiar_entradas();
+                    listarModelos();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
@@ -194,12 +188,8 @@ namespace Cerin_Ingenieros.Mantenedor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            limpiar_entradas();
-            listarModelos();
-            deshablitar_btn();
-            deshablitar_entradas();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -208,13 +198,19 @@ namespace Cerin_Ingenieros.Mantenedor
             {
                 if (txb_codigo.Text != "" && txb_nombre.Text != "")
                 {
-                    entModelo modelo = new entModelo();
-
-                    modelo.id_modelo = int.Parse(txb_codigo.Text);
-                    modelo.nombre = txb_nombre.Text.Trim();
-                    modelo.estado = 'S';
+                    entModelo modelo = new entModelo
+                    {
+                        id_modelo = int.Parse(txb_codigo.Text),
+                        nombre = txb_nombre.Text.Trim(),
+                        estado = 'S'
+                    };
 
                     logModelo.GetInstancia.editarModelo(modelo);
+
+                    limpiar_entradas();
+                    listarModelos();
+                    deshablitar_btn();
+                    deshablitar_entradas();
                 }
                 else
                 {
@@ -223,12 +219,8 @@ namespace Cerin_Ingenieros.Mantenedor
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            limpiar_entradas();
-            listarModelos();
-            deshablitar_btn();
-            deshablitar_entradas();
         }
     }
 }
