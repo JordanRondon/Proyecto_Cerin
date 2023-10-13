@@ -581,3 +581,9 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/csharp,windows,vs
+/CapaDato/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/CapaEntidad/obj/Debug/CapaEntidad.csproj.AssemblyReference.cache
+/CapaEntidad/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/CapaLogica/obj/Debug/CapaLogica.csproj.AssemblyReference.cache
+/CapaLogica/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/Cerin_Ingenieros/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
