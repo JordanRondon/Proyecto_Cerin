@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.panelOpciones = new System.Windows.Forms.Panel();
             this.panelReportes = new System.Windows.Forms.Panel();
-            this.panelHistorialServicios = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.btnHistorialServicio = new System.Windows.Forms.Button();
             this.panelClienteServicio = new System.Windows.Forms.Panel();
             this.panel19 = new System.Windows.Forms.Panel();
             this.btnClienteSercio = new System.Windows.Forms.Button();
@@ -88,7 +85,6 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.panelOpciones.SuspendLayout();
             this.panelReportes.SuspendLayout();
-            this.panelHistorialServicios.SuspendLayout();
             this.panelClienteServicio.SuspendLayout();
             this.panelHistorialEquipo.SuspendLayout();
             this.panelReportesPrincipal.SuspendLayout();
@@ -138,7 +134,6 @@
             // 
             // panelReportes
             // 
-            this.panelReportes.Controls.Add(this.panelHistorialServicios);
             this.panelReportes.Controls.Add(this.panelClienteServicio);
             this.panelReportes.Controls.Add(this.panelHistorialEquipo);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
@@ -147,40 +142,6 @@
             this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
             this.panelReportes.Visible = false;
-            // 
-            // panelHistorialServicios
-            // 
-            this.panelHistorialServicios.Controls.Add(this.panel18);
-            this.panelHistorialServicios.Controls.Add(this.btnHistorialServicio);
-            this.panelHistorialServicios.Location = new System.Drawing.Point(19, 121);
-            this.panelHistorialServicios.Name = "panelHistorialServicios";
-            this.panelHistorialServicios.Size = new System.Drawing.Size(156, 50);
-            this.panelHistorialServicios.TabIndex = 111;
-            // 
-            // panel18
-            // 
-            this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel18.Location = new System.Drawing.Point(0, 0);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(10, 50);
-            this.panel18.TabIndex = 109;
-            // 
-            // btnHistorialServicio
-            // 
-            this.btnHistorialServicio.FlatAppearance.BorderSize = 0;
-            this.btnHistorialServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.btnHistorialServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnHistorialServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHistorialServicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHistorialServicio.ForeColor = System.Drawing.Color.White;
-            this.btnHistorialServicio.Location = new System.Drawing.Point(0, 0);
-            this.btnHistorialServicio.Name = "btnHistorialServicio";
-            this.btnHistorialServicio.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnHistorialServicio.Size = new System.Drawing.Size(156, 50);
-            this.btnHistorialServicio.TabIndex = 104;
-            this.btnHistorialServicio.Text = "HISTORIAL SERVICIOS";
-            this.btnHistorialServicio.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHistorialServicio.UseVisualStyleBackColor = true;
             // 
             // panelClienteServicio
             // 
@@ -802,7 +763,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Principal_FormClosing);
             this.panelOpciones.ResumeLayout(false);
             this.panelReportes.ResumeLayout(false);
-            this.panelHistorialServicios.ResumeLayout(false);
             this.panelClienteServicio.ResumeLayout(false);
             this.panelHistorialEquipo.ResumeLayout(false);
             this.panelReportesPrincipal.ResumeLayout(false);
@@ -876,9 +836,6 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnEmpleado;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panelHistorialServicios;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Button btnHistorialServicio;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panelServicios;
         private System.Windows.Forms.Panel panel21;
