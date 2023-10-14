@@ -45,18 +45,30 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (rolUser == 1)//admin
             {
                 btn_FinalizarServicio.Visible = true;
-                btnActualizar.Visible = false;
             }
             else if (rolUser == 2)//recepcionista
             {
                 btn_FinalizarServicio.Visible = true;
-                btnActualizar.Visible = false;
             }
             else if (rolUser == 3)//laboratorio
             {
                 btn_FinalizarServicio.Visible = false;
-                btnActualizar.Visible = true;
             }
+            ConfigEstadosInicial();
+        }
+
+        private void ConfigEstadosInicial()
+        {
+            btn_StikerNada.Enabled = true;
+            btn_StikerTerminado.Enabled = true;
+
+            btn_PagosNada.Enabled = true;
+            btn_PagosParcial.Enabled = true;
+            btn_PagosTodo.Enabled = true;
+
+            btn_LaboratorioPendiente.Enabled = true;
+            btn_LaboratorioSinSolucion.Enabled = true;
+            btn_LaboratorioTerminado.Enabled = true;
         }
 
         private void limpiarTablas()
@@ -93,7 +105,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 equipoServicio = null;
                 grb_observacionesFinales.Enabled = false;
                 txb_Recomendaciones.Text = "";
-                
+                ConfigEstadosInicial();
 
                 entCliente cliente = new entCliente();
                 entTipoServicio tipoServicio = new entTipoServicio();
@@ -433,9 +445,10 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void PagoNada()
         {
             grb_Pagos.Text = "Pago: Sin Inicial";
+            btn_PagosNada.Enabled = false;
             btn_PagosNada.BackColor = Color.Red;
-            btn_PagosParcial.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
-            btn_PagosTodo.BackColor = Color.Green;//verde opaco
+            btn_PagosParcial.BackColor = Color.FromArgb(210, 210, 0);//amarillo oscuro
+            btn_PagosTodo.BackColor = Color.FromArgb(0, 153, 30);//verde oscuro
         }
 
         private void btn_PagosParcial_Click(object sender, EventArgs e)
@@ -444,14 +457,19 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 PagoParcial();
+                servicioActual.estadoPago = 'A';
+                logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
+
             }                
         }
         private void PagoParcial()
         {
             grb_Pagos.Text = "Pago: Parcial";
+            btn_PagosNada.Enabled = false;
+            btn_PagosParcial.Enabled = false;
+            btn_PagosParcial.BackColor = Color.Yellow;
             btn_PagosNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
-            btn_PagosParcial.BackColor = Color.FromArgb(255, 128, 0);
-            btn_PagosTodo.BackColor = Color.Green;//verde opaco
+            btn_PagosTodo.BackColor = Color.FromArgb(0, 153, 30);//verde oscuro
         }
 
         private void btn_PagosTodo_Click(object sender, EventArgs e)
@@ -460,14 +478,19 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 pagoCompleto();
+                servicioActual.estadoPago = 'V';
+                logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
             }                
         }
 
         private void pagoCompleto()
         {
             grb_Pagos.Text = "Pago: Completo";
-            btn_PagosNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
-            btn_PagosParcial.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
+            btn_PagosNada.Enabled = false;
+            btn_PagosParcial.Enabled = false;
+            btn_PagosTodo.Enabled = false;
+            btn_PagosParcial.BackColor = Color.FromArgb(210, 210, 0);//amarillo oscuro
+            btn_PagosNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco;
             btn_PagosTodo.BackColor = Color.FromArgb(0, 192, 0);
         }
         #endregion EstadosPagos
@@ -481,8 +504,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void StikersNada()
         {
             grb_Stikers.Text = "Stikers: Pendiente";
+            btn_StikerNada.Enabled = false;
             btn_StikerNada.BackColor = Color.Red;
-            btn_StikerTerminado.BackColor = Color.Green;//verde opaco
+            btn_StikerTerminado.BackColor = Color.FromArgb(0, 153, 30);//verde oscuro
         }
 
         private void btn_StikerTerminado_Click(object sender, EventArgs e)
@@ -491,6 +515,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 StikersTerminado();
+                servicioActual.estadoStikers = 'V';
+                logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
             }
         }
 
@@ -498,7 +524,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             grb_Stikers.Text = "Stikers: Terminado";
             btn_StikerNada.Enabled = false;
+            btn_StikerTerminado.Enabled = false;
             btn_StikerTerminado.BackColor = Color.FromArgb(0, 192, 0);
+            btn_StikerNada.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco;
         }
         #endregion EstadosStikers
 
@@ -509,6 +537,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 LabSinSolucion();
+                servicioActual.estadoLaboratorio = 'R';
+                logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
             }
                 
         }
@@ -516,9 +546,13 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void LabSinSolucion()
         {
             grb_Laboratorio.Text = "Laboratorio: Sin Solición";
+            btn_LaboratorioSinSolucion.Enabled = false;
+            btn_LaboratorioPendiente.Enabled = false;
+            btn_LaboratorioTerminado.Enabled = false;
+
             btn_LaboratorioSinSolucion.BackColor = Color.Red;
-            btn_LaboratorioPendiente.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
-            btn_LaboratorioTerminado.BackColor = Color.Green;//verde opaco
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(210, 210, 0);
+            btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 153, 30);//verde oscuro
         }
 
         private void btn_LaboratorioPendiente_Click(object sender, EventArgs e)
@@ -529,9 +563,10 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         private void LabPendiente()
         {
             grb_Laboratorio.Text = "Laboratorio: Pendiente";
+            btn_LaboratorioPendiente.Enabled= false;
             btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
-            btn_LaboratorioPendiente.BackColor = Color.FromArgb(255, 128, 0);
-            btn_LaboratorioTerminado.BackColor = Color.Green;//verde opaco
+            btn_LaboratorioPendiente.BackColor = Color.Yellow;
+            btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 153, 30);//verde oscuro
         }
 
         private void btn_LaboratorioTerminado_Click(object sender, EventArgs e)
@@ -540,15 +575,21 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 LabTerminado();
+                servicioActual.estadoLaboratorio = 'v';
+                logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
             }
                 
         }
         private void LabTerminado()
         {
             grb_Laboratorio.Text = "Laboratorio: Terminado";
-            btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco
-            btn_LaboratorioPendiente.BackColor = Color.FromArgb(192, 64, 0);//naranja opaco
-            btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 192, 0);
+            btn_LaboratorioSinSolucion.Enabled = false;
+            btn_LaboratorioPendiente.Enabled = false;
+            btn_LaboratorioTerminado.Enabled = false;
+
+            btn_LaboratorioSinSolucion.BackColor = Color.FromArgb(192, 0, 0);//rojo opaco;
+            btn_LaboratorioPendiente.BackColor = Color.FromArgb(210,210, 0);//amarillo oscuro
+            btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 192, 0);//verde claro
         }
         #endregion EstadosLaboratorio
     }

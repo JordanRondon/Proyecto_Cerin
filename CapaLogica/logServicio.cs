@@ -21,6 +21,8 @@ namespace CapaLogica
 
         public bool ActualizarEntregaServicio(entServicio servicio) => datServicio.GetInstancia.ActualizarEntregaServicio(servicio);
 
+        public bool ActualizarEstadoServicio(entServicio servicio) => datServicio.GetInstancia.ActualizarEstadosServicio(servicio);
+
         public entServicio buscarServicio(int id_servicio) => datServicio.GetInstancia.buscarServicio(id_servicio);
 
         public bool ActualizarEstadoEquipo(entServicio id_servicio) => datServicio.GetInstancia.ActualizarEstadoEquipo(id_servicio);
