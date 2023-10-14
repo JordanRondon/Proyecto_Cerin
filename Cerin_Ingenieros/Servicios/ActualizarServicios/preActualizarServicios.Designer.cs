@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btn_Buscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,24 +67,23 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.grb_Laboratorio = new System.Windows.Forms.GroupBox();
             this.btn_LaboratorioTerminado = new System.Windows.Forms.Button();
             this.btn_LaboratorioPendiente = new System.Windows.Forms.Button();
             this.btn_LaboratorioSinSolucion = new System.Windows.Forms.Button();
-            this.grb_Stikers = new System.Windows.Forms.GroupBox();
-            this.btn_StikerTerminado = new System.Windows.Forms.Button();
-            this.btn_StikerNada = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
             this.grb_Pagos = new System.Windows.Forms.GroupBox();
             this.btn_PagosTodo = new System.Windows.Forms.Button();
             this.btn_PagosParcial = new System.Windows.Forms.Button();
             this.btn_PagosNada = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.grb_Stikers = new System.Windows.Forms.GroupBox();
+            this.btn_StikerTerminado = new System.Windows.Forms.Button();
+            this.btn_StikerNada = new System.Windows.Forms.Button();
             this.txbFile = new System.Windows.Forms.TextBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnUbicacion = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,10 +98,10 @@
             this.grb_observacionesFinales.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.grb_Laboratorio.SuspendLayout();
-            this.grb_Stikers.SuspendLayout();
-            this.grb_Pagos.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.grb_Laboratorio.SuspendLayout();
+            this.grb_Pagos.SuspendLayout();
+            this.grb_Stikers.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -265,23 +264,23 @@
             this.dataGridView_equipos.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_equipos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_equipos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_equipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_equipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView_equipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_equipos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_equipos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_equipos.EnableHeadersVisualStyles = false;
             this.dataGridView_equipos.Location = new System.Drawing.Point(17, 24);
             this.dataGridView_equipos.Name = "dataGridView_equipos";
@@ -342,23 +341,23 @@
             this.dataGridView_Accesorios.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_Accesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView_Accesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_Accesorios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView_Accesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_Accesorios.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView_Accesorios.EnableHeadersVisualStyles = false;
             this.dataGridView_Accesorios.Location = new System.Drawing.Point(7, 23);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
@@ -540,7 +539,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnActualizar);
             this.panel4.Controls.Add(this.panel8);
             this.panel4.Controls.Add(this.btnUbicacion);
             this.panel4.Controls.Add(this.txbFile);
@@ -554,14 +552,27 @@
             this.panel4.Size = new System.Drawing.Size(1180, 641);
             this.panel4.TabIndex = 47;
             // 
+            // panel8
+            // 
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel8.Controls.Add(this.grb_Laboratorio);
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.grb_Pagos);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.grb_Stikers);
+            this.panel8.Location = new System.Drawing.Point(607, 7);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(558, 55);
+            this.panel8.TabIndex = 51;
+            // 
             // grb_Laboratorio
             // 
             this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioTerminado);
             this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioPendiente);
             this.grb_Laboratorio.Controls.Add(this.btn_LaboratorioSinSolucion);
-            this.grb_Laboratorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grb_Laboratorio.Dock = System.Windows.Forms.DockStyle.Right;
             this.grb_Laboratorio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Laboratorio.Location = new System.Drawing.Point(355, 0);
+            this.grb_Laboratorio.Location = new System.Drawing.Point(0, 0);
             this.grb_Laboratorio.Name = "grb_Laboratorio";
             this.grb_Laboratorio.Size = new System.Drawing.Size(203, 55);
             this.grb_Laboratorio.TabIndex = 53;
@@ -570,7 +581,7 @@
             // 
             // btn_LaboratorioTerminado
             // 
-            this.btn_LaboratorioTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_LaboratorioTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(153)))), ((int)(((byte)(30)))));
             this.btn_LaboratorioTerminado.Location = new System.Drawing.Point(119, 27);
             this.btn_LaboratorioTerminado.Name = "btn_LaboratorioTerminado";
             this.btn_LaboratorioTerminado.Size = new System.Drawing.Size(23, 22);
@@ -580,7 +591,7 @@
             // 
             // btn_LaboratorioPendiente
             // 
-            this.btn_LaboratorioPendiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_LaboratorioPendiente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(0)))));
             this.btn_LaboratorioPendiente.Location = new System.Drawing.Point(78, 27);
             this.btn_LaboratorioPendiente.Name = "btn_LaboratorioPendiente";
             this.btn_LaboratorioPendiente.Size = new System.Drawing.Size(23, 22);
@@ -598,47 +609,22 @@
             this.btn_LaboratorioSinSolucion.UseVisualStyleBackColor = false;
             this.btn_LaboratorioSinSolucion.Click += new System.EventHandler(this.btn_LaboratorioSinSolucion_Click);
             // 
-            // grb_Stikers
+            // panel10
             // 
-            this.grb_Stikers.Controls.Add(this.btn_StikerTerminado);
-            this.grb_Stikers.Controls.Add(this.btn_StikerNada);
-            this.grb_Stikers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.grb_Stikers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Stikers.Location = new System.Drawing.Point(0, 0);
-            this.grb_Stikers.Name = "grb_Stikers";
-            this.grb_Stikers.Size = new System.Drawing.Size(156, 55);
-            this.grb_Stikers.TabIndex = 52;
-            this.grb_Stikers.TabStop = false;
-            this.grb_Stikers.Text = "Stikers: Terminado";
-            // 
-            // btn_StikerTerminado
-            // 
-            this.btn_StikerTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_StikerTerminado.Location = new System.Drawing.Point(79, 29);
-            this.btn_StikerTerminado.Name = "btn_StikerTerminado";
-            this.btn_StikerTerminado.Size = new System.Drawing.Size(23, 22);
-            this.btn_StikerTerminado.TabIndex = 3;
-            this.btn_StikerTerminado.UseVisualStyleBackColor = false;
-            this.btn_StikerTerminado.Click += new System.EventHandler(this.btn_StikerTerminado_Click);
-            // 
-            // btn_StikerNada
-            // 
-            this.btn_StikerNada.BackColor = System.Drawing.Color.Red;
-            this.btn_StikerNada.Location = new System.Drawing.Point(34, 29);
-            this.btn_StikerNada.Name = "btn_StikerNada";
-            this.btn_StikerNada.Size = new System.Drawing.Size(23, 22);
-            this.btn_StikerNada.TabIndex = 1;
-            this.btn_StikerNada.UseVisualStyleBackColor = false;
-            this.btn_StikerNada.Click += new System.EventHandler(this.btn_StikerNada_Click);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(203, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(22, 55);
+            this.panel10.TabIndex = 55;
             // 
             // grb_Pagos
             // 
             this.grb_Pagos.Controls.Add(this.btn_PagosTodo);
             this.grb_Pagos.Controls.Add(this.btn_PagosParcial);
             this.grb_Pagos.Controls.Add(this.btn_PagosNada);
-            this.grb_Pagos.Dock = System.Windows.Forms.DockStyle.Left;
+            this.grb_Pagos.Dock = System.Windows.Forms.DockStyle.Right;
             this.grb_Pagos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.grb_Pagos.Location = new System.Drawing.Point(178, 0);
+            this.grb_Pagos.Location = new System.Drawing.Point(225, 0);
             this.grb_Pagos.Name = "grb_Pagos";
             this.grb_Pagos.Size = new System.Drawing.Size(155, 55);
             this.grb_Pagos.TabIndex = 51;
@@ -675,6 +661,47 @@
             this.btn_PagosNada.UseVisualStyleBackColor = false;
             this.btn_PagosNada.Click += new System.EventHandler(this.btn_PagosNada_Click);
             // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel9.Location = new System.Drawing.Point(380, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(22, 55);
+            this.panel9.TabIndex = 54;
+            // 
+            // grb_Stikers
+            // 
+            this.grb_Stikers.Controls.Add(this.btn_StikerTerminado);
+            this.grb_Stikers.Controls.Add(this.btn_StikerNada);
+            this.grb_Stikers.Dock = System.Windows.Forms.DockStyle.Right;
+            this.grb_Stikers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grb_Stikers.Location = new System.Drawing.Point(402, 0);
+            this.grb_Stikers.Name = "grb_Stikers";
+            this.grb_Stikers.Size = new System.Drawing.Size(156, 55);
+            this.grb_Stikers.TabIndex = 52;
+            this.grb_Stikers.TabStop = false;
+            this.grb_Stikers.Text = "Stikers: Terminado";
+            // 
+            // btn_StikerTerminado
+            // 
+            this.btn_StikerTerminado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btn_StikerTerminado.Location = new System.Drawing.Point(79, 29);
+            this.btn_StikerTerminado.Name = "btn_StikerTerminado";
+            this.btn_StikerTerminado.Size = new System.Drawing.Size(23, 22);
+            this.btn_StikerTerminado.TabIndex = 3;
+            this.btn_StikerTerminado.UseVisualStyleBackColor = false;
+            this.btn_StikerTerminado.Click += new System.EventHandler(this.btn_StikerTerminado_Click);
+            // 
+            // btn_StikerNada
+            // 
+            this.btn_StikerNada.BackColor = System.Drawing.Color.Red;
+            this.btn_StikerNada.Location = new System.Drawing.Point(34, 29);
+            this.btn_StikerNada.Name = "btn_StikerNada";
+            this.btn_StikerNada.Size = new System.Drawing.Size(23, 22);
+            this.btn_StikerNada.TabIndex = 1;
+            this.btn_StikerNada.UseVisualStyleBackColor = false;
+            this.btn_StikerNada.Click += new System.EventHandler(this.btn_StikerNada_Click);
+            // 
             // txbFile
             // 
             this.txbFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -698,45 +725,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.grb_Laboratorio);
-            this.panel8.Controls.Add(this.panel10);
-            this.panel8.Controls.Add(this.grb_Pagos);
-            this.panel8.Controls.Add(this.panel9);
-            this.panel8.Controls.Add(this.grb_Stikers);
-            this.panel8.Location = new System.Drawing.Point(607, 7);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(558, 55);
-            this.panel8.TabIndex = 51;
-            // 
-            // panel9
-            // 
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel9.Location = new System.Drawing.Point(156, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(22, 55);
-            this.panel9.TabIndex = 54;
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel10.Location = new System.Drawing.Point(333, 0);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(22, 55);
-            this.panel10.TabIndex = 55;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.Location = new System.Drawing.Point(576, 579);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(150, 50);
-            this.btnActualizar.TabIndex = 52;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnUbicacion
             // 
@@ -792,10 +780,10 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            this.grb_Laboratorio.ResumeLayout(false);
-            this.grb_Stikers.ResumeLayout(false);
-            this.grb_Pagos.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.grb_Laboratorio.ResumeLayout(false);
+            this.grb_Pagos.ResumeLayout(false);
+            this.grb_Stikers.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -854,6 +842,5 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Button btnActualizar;
     }
 }

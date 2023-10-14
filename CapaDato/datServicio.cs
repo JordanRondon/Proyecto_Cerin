@@ -98,6 +98,40 @@ namespace CapaDato
             return edita;
         }
 
+        public bool ActualizarEstadosServicio(entServicio servicio)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("ps_ActualizarServicoEstados", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_servicio", servicio.IdServicio);
+                cmd.Parameters.AddWithValue("@estadoPago", servicio.estadoPago);
+                cmd.Parameters.AddWithValue("@estadoStiker", servicio.estadoStikers);
+                cmd.Parameters.AddWithValue("@estadoLab", servicio.estadoLaboratorio);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
         public entServicio buscarServicio(int id_servicio)
         {
             SqlCommand cmd = null;
