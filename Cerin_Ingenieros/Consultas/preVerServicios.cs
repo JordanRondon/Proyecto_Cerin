@@ -177,5 +177,36 @@ namespace Cerin_Ingenieros.Consultas
                     dgvServicios.Rows[e.RowIndex].Cells["Estado"].Style.BackColor = colorParcial;
             }
         }
+
+        private DataGridViewCellEventArgs anterior =null;
+
+        private void dgvServicios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex>=0 && e.ColumnIndex<5)
+            {
+                Color colorSelect = Color.FromArgb(255, 224, 192);
+                Color noSelect = Color.White;
+
+                if (anterior!=null)
+                {
+                    dgvServicios.Rows[anterior.RowIndex].Cells["ID"].Style.BackColor = noSelect;
+                    dgvServicios.Rows[anterior.RowIndex].Cells["FechaRegistro"].Style.BackColor = noSelect;
+                    dgvServicios.Rows[anterior.RowIndex].Cells["FechaEntrega"].Style.BackColor = noSelect;
+                    dgvServicios.Rows[anterior.RowIndex].Cells["Tipo"].Style.BackColor = noSelect;
+                    dgvServicios.Rows[anterior.RowIndex].Cells["Cliente"].Style.BackColor = noSelect;
+                }
+
+                anterior = e;
+                dgvServicios.Rows[e.RowIndex].Cells["ID"].Style.BackColor = colorSelect;
+                dgvServicios.Rows[e.RowIndex].Cells["FechaRegistro"].Style.BackColor = colorSelect;
+                dgvServicios.Rows[e.RowIndex].Cells["FechaEntrega"].Style.BackColor = colorSelect;
+                dgvServicios.Rows[e.RowIndex].Cells["Tipo"].Style.BackColor = colorSelect;
+                dgvServicios.Rows[e.RowIndex].Cells["Cliente"].Style.BackColor = colorSelect;
+            }else if(e.RowIndex>=0 && e.ColumnIndex >= 0)
+            {
+                dgvServicios.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
+                dgvServicios.Rows[e.RowIndex].Cells["ID"].Selected = true;
+            }
+        }
     }
 }
