@@ -592,7 +592,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (result == DialogResult.Yes)
             {
                 LabTerminado();
-                servicioActual.estadoLaboratorio = 'v';
+                servicioActual.estadoLaboratorio = 'V';
                 logServicio.GetInstancia.ActualizarEstadoServicio(servicioActual);
             }
                 
