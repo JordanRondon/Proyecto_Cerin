@@ -2,41 +2,29 @@
 using CapaLogica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Servicios
 {
     public partial class preSeleccionarCliente : Form
     {
-        //variables buscar cliente
-        private List<entCliente> lisClienteselect;
-        private entCliente selecionado = null;
+        private List<entCliente> listaTodosClientes;
+        private entCliente clienteSelecionado = null;
+
+
         public event EventHandler FormCerrado;
-
         public event EventHandler<ClienteSeleccionadoEventArgs> ClienteSeleccionado;
-
 
         public preSeleccionarCliente()
         {
             InitializeComponent();
+            listaTodosClientes = logCliente.GetInstancia.listarClientes();
             ListarClientes();
-        }
-
-        private void ListarClientes2()
-        {
-            dgvClientes.DataSource = lisClienteselect;
         }
 
         private void ListarClientes()
         {
-            List<entCliente> ls = logCliente.GetInstancia.listarClientes();
-            dgvClientes.DataSource = ls;
+            dgvClientes.DataSource = listaTodosClientes;
         }
 
         private void SlecionarCliente()
@@ -44,14 +32,14 @@ namespace Cerin_Ingenieros.Servicios
             if (dgvClientes.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvClientes.SelectedRows[0];
-                selecionado = new entCliente();
-                selecionado.IdCliente = Convert.ToInt32(selectedRow.Cells[0].Value);
-                selecionado.Nombre = Convert.ToString(selectedRow.Cells[1].Value);
-                selecionado.Apellido = Convert.ToString(selectedRow.Cells[2].Value);
-                selecionado.Dni = Convert.ToString(selectedRow.Cells[3].Value);
-                selecionado.Ruc = Convert.ToString(selectedRow.Cells[4].Value);
-                selecionado.RazonSocial = Convert.ToString(selectedRow.Cells[5].Value);
-                selecionado.Telefono = Convert.ToString(selectedRow.Cells[6].Value);
+                clienteSelecionado = new entCliente();
+                clienteSelecionado.IdCliente = Convert.ToInt32(selectedRow.Cells[0].Value);
+                clienteSelecionado.Nombre = Convert.ToString(selectedRow.Cells[1].Value);
+                clienteSelecionado.Apellido = Convert.ToString(selectedRow.Cells[2].Value);
+                clienteSelecionado.Dni = Convert.ToString(selectedRow.Cells[3].Value);
+                clienteSelecionado.Ruc = Convert.ToString(selectedRow.Cells[4].Value);
+                clienteSelecionado.RazonSocial = Convert.ToString(selectedRow.Cells[5].Value);
+                clienteSelecionado.Telefono = Convert.ToString(selectedRow.Cells[6].Value);
             }
             else
             {
@@ -59,12 +47,12 @@ namespace Cerin_Ingenieros.Servicios
             }
         }
 
-        public entCliente getCliente() { return selecionado; }
+        public entCliente getCliente() { return clienteSelecionado; }
 
         private void btnSelecionarCliente_Click_1(object sender, EventArgs e)
         {
             SlecionarCliente();
-            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(selecionado));
+            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(clienteSelecionado));
             this.Close();
         }
 
@@ -89,22 +77,22 @@ namespace Cerin_Ingenieros.Servicios
             {
                 if (rb_dni.Checked)
                 {
-                    lisClienteselect = logCliente.GetInstancia.listarClienteDni(txb_buscar_cliente.Text);
+                    listaTodosClientes = logCliente.GetInstancia.listarClienteDni(txb_buscar_cliente.Text);
                 }
                 else if (rb_nombre.Checked)
                 {
-                    lisClienteselect = logCliente.GetInstancia.listarClienteNombre(Convert.ToString(txb_buscar_cliente.Text));
+                    listaTodosClientes = logCliente.GetInstancia.listarClienteNombre(Convert.ToString(txb_buscar_cliente.Text));
                 }
                 else if (rb_RUC.Checked)
                 {
-                    lisClienteselect = logCliente.GetInstancia.listarClienteRuc(Convert.ToString(txb_buscar_cliente.Text));
+                    listaTodosClientes = logCliente.GetInstancia.listarClienteRuc(Convert.ToString(txb_buscar_cliente.Text));
                 }
             }
             else
             {
-                lisClienteselect = logCliente.GetInstancia.listarClientes();
+                listaTodosClientes = logCliente.GetInstancia.listarClientes();
             }
-            ListarClientes2();
+            ListarClientes();
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -116,7 +104,7 @@ namespace Cerin_Ingenieros.Servicios
         private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SlecionarCliente();
-            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(selecionado));
+            ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(clienteSelecionado));
             this.Close();
         }
     }

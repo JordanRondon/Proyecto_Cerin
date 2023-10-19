@@ -151,10 +151,10 @@
     <Compile Include="Mantenedor\preEmpleado.Designer.cs">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Mantenedor\preEquipo.cs">
+    <Compile Include="Mantenedor\Equipo\preEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Mantenedor\preEquipo.Designer.cs">
+    <Compile Include="Mantenedor\Equipo\preEquipo.Designer.cs">
       <DependentUpon>preEquipo.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenedor\preMarca.cs">
@@ -180,6 +180,7 @@
     <Compile Include="RecursosAdicionales\BotonesModernos\BTNModernos.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RecursosAdicionales\Clases\configColores.cs" />
     <Compile Include="RecursosAdicionales\Clases\classEncriptar.cs" />
     <Compile Include="RecursosAdicionales\Clases\ClassValidaciones.cs" />
     <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.cs">
@@ -188,10 +189,10 @@
     <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.Designer.cs">
       <DependentUpon>preActualizarServicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.cs">
+    <Compile Include="Mantenedor\Equipo\SelecionarEquipoAlquiler\preSelectEquipoAlquiler.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\Alquiler\preSelectEquipoAlquiler.Designer.cs">
+    <Compile Include="Mantenedor\Equipo\SelecionarEquipoAlquiler\preSelectEquipoAlquiler.Designer.cs">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </Compile>
     <Compile Include="Mantenedor\Cliente\preRegistrarCliente.cs">
@@ -206,10 +207,10 @@
     <Compile Include="Servicios\Mantenimiento\preMantenimiento.Designer.cs">
       <DependentUpon>preMantenimiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.cs">
+    <Compile Include="Mantenedor\Equipo\EquipoLaboratorio\preRegistEquipoMantenimiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.Designer.cs">
+    <Compile Include="Mantenedor\Equipo\EquipoLaboratorio\preRegistEquipoMantenimiento.Designer.cs">
       <DependentUpon>preRegistEquipoMantenimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Servicios\Alquiler\preAlquiler.cs">
@@ -245,7 +246,7 @@
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mantenedor\preEquipo.resx">
+    <EmbeddedResource Include="Mantenedor\Equipo\preEquipo.resx">
       <DependentUpon>preEquipo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preMarca.resx">
@@ -270,13 +271,13 @@
     <EmbeddedResource Include="Servicios\ActualizarServicios\preActualizarServicios.resx">
       <DependentUpon>preActualizarServicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\Alquiler\preSelectEquipoAlquiler.resx">
+    <EmbeddedResource Include="Mantenedor\Equipo\SelecionarEquipoAlquiler\preSelectEquipoAlquiler.resx">
       <DependentUpon>preSelectEquipoAlquiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\Cliente\preRegistrarCliente.resx">
       <DependentUpon>preRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Servicios\Mantenimiento\preRegistEquipoMantenimiento.resx">
+    <EmbeddedResource Include="Mantenedor\Equipo\EquipoLaboratorio\preRegistEquipoMantenimiento.resx">
       <DependentUpon>preRegistEquipoMantenimiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Servicios\Mantenimiento\preMantenimiento.resx">
@@ -392,6 +393,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LOGO-CCI.ico" />
+    <None Include="Resources\Verde.png" />
+    <None Include="Resources\Amarillo.png" />
+    <None Include="Resources\Rojo.png" />
     <None Include="Resources\eliminar.png" />
     <None Include="Resources\editar.png" />
   </ItemGroup>

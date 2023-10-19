@@ -65,6 +65,7 @@
             this.dgvClientes2.AllowUserToResizeColumns = false;
             this.dgvClientes2.AllowUserToResizeRows = false;
             this.dgvClientes2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes2.BackgroundColor = System.Drawing.Color.White;
             this.dgvClientes2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvClientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -108,68 +109,92 @@
             // 
             // btn_cancelar_registro
             // 
+            this.btn_cancelar_registro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_cancelar_registro.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar_registro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar_registro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar_registro.ForeColor = System.Drawing.Color.White;
             this.btn_cancelar_registro.Location = new System.Drawing.Point(789, 9);
             this.btn_cancelar_registro.Name = "btn_cancelar_registro";
             this.btn_cancelar_registro.Size = new System.Drawing.Size(90, 35);
             this.btn_cancelar_registro.TabIndex = 9;
             this.btn_cancelar_registro.Text = "Cancelar";
-            this.btn_cancelar_registro.UseVisualStyleBackColor = true;
+            this.btn_cancelar_registro.UseVisualStyleBackColor = false;
             this.btn_cancelar_registro.Click += new System.EventHandler(this.btn_cancelar_registro_Click);
             // 
             // btn_eliminar
             // 
+            this.btn_eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_eliminar.FlatAppearance.BorderSize = 0;
+            this.btn_eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_eliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
             this.btn_eliminar.Location = new System.Drawing.Point(647, 10);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(90, 35);
             this.btn_eliminar.TabIndex = 8;
             this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
+            this.btn_eliminar.UseVisualStyleBackColor = false;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_editar
             // 
+            this.btn_editar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_editar.FlatAppearance.BorderSize = 0;
+            this.btn_editar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_editar.ForeColor = System.Drawing.Color.White;
             this.btn_editar.Location = new System.Drawing.Point(525, 9);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(90, 35);
             this.btn_editar.TabIndex = 3;
             this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.UseVisualStyleBackColor = false;
             this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_guardar
             // 
+            this.btn_guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_guardar.FlatAppearance.BorderSize = 0;
+            this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Location = new System.Drawing.Point(407, 9);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(90, 35);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.UseVisualStyleBackColor = false;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_nuevo
             // 
+            this.btn_nuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_nuevo.FlatAppearance.BorderSize = 0;
+            this.btn_nuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_nuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.ForeColor = System.Drawing.Color.White;
             this.btn_nuevo.Location = new System.Drawing.Point(273, 9);
             this.btn_nuevo.Name = "btn_nuevo";
             this.btn_nuevo.Size = new System.Drawing.Size(90, 35);
             this.btn_nuevo.TabIndex = 0;
             this.btn_nuevo.Text = "Nuevo";
-            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.UseVisualStyleBackColor = false;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // btn_buscar
             // 
+            this.btn_buscar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_buscar.FlatAppearance.BorderSize = 0;
+            this.btn_buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_buscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_buscar.ForeColor = System.Drawing.Color.White;
             this.btn_buscar.Location = new System.Drawing.Point(371, 34);
             this.btn_buscar.Name = "btn_buscar";
             this.btn_buscar.Size = new System.Drawing.Size(90, 23);
             this.btn_buscar.TabIndex = 7;
             this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
+            this.btn_buscar.UseVisualStyleBackColor = false;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
             // 
             // groupBoxRegistrar
@@ -199,13 +224,17 @@
             // btnBuscarRuc
             // 
             this.btnBuscarRuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscarRuc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBuscarRuc.FlatAppearance.BorderSize = 0;
+            this.btnBuscarRuc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarRuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarRuc.ForeColor = System.Drawing.Color.White;
             this.btnBuscarRuc.Location = new System.Drawing.Point(890, 34);
             this.btnBuscarRuc.Name = "btnBuscarRuc";
             this.btnBuscarRuc.Size = new System.Drawing.Size(90, 23);
             this.btnBuscarRuc.TabIndex = 19;
             this.btnBuscarRuc.Text = "Buscar";
-            this.btnBuscarRuc.UseVisualStyleBackColor = true;
+            this.btnBuscarRuc.UseVisualStyleBackColor = false;
             this.btnBuscarRuc.Click += new System.EventHandler(this.btnBuscarRuc_Click);
             // 
             // txb_razonSocial_cliente
@@ -324,13 +353,17 @@
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_cancelar.Location = new System.Drawing.Point(1057, 17);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_cancelar.TabIndex = 40;
             this.btn_cancelar.Text = "Atras";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // preRegistrarCliente
@@ -338,6 +371,7 @@
             this.AcceptButton = this.btn_guardar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(239)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1164, 568);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.dgvClientes2);

@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,43 +20,71 @@ namespace Cerin_Ingenieros.Consultas
         {
             InitializeComponent();
             ConfigurarCabecera();
-            
-            listarServicios(listaServiciosGeneral);
-            btnTodosTipos.BackColor = Color.DodgerBlue;
+
+            btnTodosTipos_Click(this, EventArgs.Empty);
         }
         public void ConfigurarCabecera()
         {
             dgvServicios.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "ID" ,Name = "ID"},
-                new DataGridViewTextBoxColumn { HeaderText = "Fecha de Registro", Name = "FechaRegistro" },
-                new DataGridViewTextBoxColumn { HeaderText = "Fecha de Entrega", Name = "FechaEntrega" },
-                new DataGridViewTextBoxColumn { HeaderText = "Tipo Servicio", Name = "Tipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Fecha de registro", Name = "FechaRegistro" },
+                new DataGridViewTextBoxColumn { HeaderText = "Fecha de entrega", Name = "FechaEntrega" },
+                new DataGridViewTextBoxColumn { HeaderText = "Tipo servicio", Name = "Tipo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Cliente", Name = "Cliente" },
-                new DataGridViewTextBoxColumn { HeaderText = "Pago", Name = "Pago" },
-                new DataGridViewTextBoxColumn { HeaderText = "Stikers", Name = "Stikers" },
-                new DataGridViewTextBoxColumn { HeaderText = "Laboratorio", Name = "Laboratorio" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado", Name = "Estado" }
+                new DataGridViewImageColumn { HeaderText = "Pago", Name = "Pago",ImageLayout = DataGridViewImageCellLayout.Zoom },
+                new DataGridViewImageColumn { HeaderText = "Stikers", Name = "Stikers", ImageLayout = DataGridViewImageCellLayout.Zoom },
+                new DataGridViewImageColumn { HeaderText = "Laboratorio", Name = "Laboratorio", ImageLayout = DataGridViewImageCellLayout.Zoom },
+                new DataGridViewImageColumn { HeaderText = "Estado", Name = "Estado", ImageLayout = DataGridViewImageCellLayout.Zoom }
             );
-            dgvServicios.Columns["ID"].Width = 40;
-            dgvServicios.Columns["FechaRegistro"].Width = 75;
-            dgvServicios.Columns["FechaEntrega"].Width = 75;
-            dgvServicios.Columns["Tipo"].Width = 65;
-            dgvServicios.Columns["Pago"].Width = 40;
-            dgvServicios.Columns["Stikers"].Width = 40;
-            dgvServicios.Columns["Laboratorio"].Width = 50;
-            dgvServicios.Columns["Estado"].Width = 80;
-            foreach (DataGridViewColumn column in dgvServicios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            //TamColumnas();
+            //foreach (DataGridViewColumn column in dgvServicios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+        }
+        //private void TamColumnas()
+        //{
+        //    dgvServicios.Columns["ID"].Width = 40;
+        //    dgvServicios.Columns["FechaRegistro"].Width = 80;
+        //    dgvServicios.Columns["FechaEntrega"].Width = 80;
+        //    dgvServicios.Columns["Tipo"].Width = 85;
+        //    //dgvServicios.Columns["Pago"].Width = 80;
+        //    //dgvServicios.Columns["Stikers"].Width = 80;
+        //    //dgvServicios.Columns["Laboratorio"].Width = 80;
+        //    //dgvServicios.Columns["Estado"].Width = 80;
+        //}
+
+        private Image ObtenerEstadoEnImage(char estado, string columnName)
+        {
+            Dictionary<char, Image> EstadosImagenes = new Dictionary<char, Image>
+            {
+                {'V', Resources.Verde},
+                {'A', Resources.Amarillo},
+                {'R', Resources.Rojo},
+                {'P', Resources.Amarillo },
+                {'T', Resources.Verde},
+            };
+
+            Image image = Resources.Amarillo;
+
+            if (EstadosImagenes.ContainsKey(estado))
+            {
+                dgvServicios.Columns[columnName].Width = 120;
+                image = EstadosImagenes[estado];
+                if (estado == 'V' || estado == 'T') image.Tag = "Completo";
+                else if (estado == 'A' || estado == 'P') image.Tag = "Pendiente";
+                else if (estado == 'R' ) image.Tag = "Ausente";
+                return image;
+            }
+            return image;
         }
 
         private void listarServicios(List<entServicio> lista)
         {
             dgvServicios.Rows.Clear();
+
             //insertar los datos 
             foreach (var item in lista)
             {
-                string estado,estadodelPago,estadoStikers,estadoLab,fechasalida;
-                if (item.estado == 'P') estado = "Pendiente";
-                else estado = "Terminado";
+                string fechasalida;
+                
                 if (item.FechaEntrega == null)
                     fechasalida = "Pendiente";
                 else
@@ -64,21 +93,10 @@ namespace Cerin_Ingenieros.Consultas
                     fechasalida = fechaaux.ToString("dd-MM-yyyy HH:mm");
                 }
 
-                if (item.estadoPago == 'V')
-                    estadodelPago = "Completo";
-                else if (item.estadoPago == 'A')
-                    estadodelPago = "Parcial";
-                else estadodelPago = "Pendiente";
-
-                if (item.estadoStikers == 'V')
-                    estadoStikers = "Completo";
-                else estadoStikers = "Pendiente";
-
-                if (item.estadoLaboratorio == 'V')
-                    estadoLab = "Terminado";
-                else if (item.estadoLaboratorio == 'A')
-                    estadoLab = "Pendiente";
-                else estadoLab = "Sin solucion";
+                Image estadoPago = ObtenerEstadoEnImage(item.estadoPago, "Pago");
+                Image estadoStiker = ObtenerEstadoEnImage(item.estadoStikers, "Stikers");
+                Image estadoLab = ObtenerEstadoEnImage(item.estadoLaboratorio, "Laboratorio");
+                Image estado = ObtenerEstadoEnImage(item.estado, "Estado");
 
                 entCliente cliente = logCliente.GetInstancia.buscarClienteId(item.IdCliente);
                 dgvServicios.Rows.Add(
@@ -87,8 +105,8 @@ namespace Cerin_Ingenieros.Consultas
                     fechasalida,
                     logTipoServicio.GetInstancia.buscarTipoServicioId(item.IdTipoServicio).Nombre,
                     cliente.Apellido + ", " + cliente.Nombre,
-                    estadodelPago,
-                    estadoStikers,
+                    estadoPago,
+                    estadoStiker,
                     estadoLab,
                     estado
                 );
@@ -104,7 +122,7 @@ namespace Cerin_Ingenieros.Consultas
 
             dgvServicios.Rows.Clear();
             listarServicios(listaServiciosGeneral);
-
+            dgvServicios.Invalidate();
         }
 
         private void btnPendientes_Click(object sender, EventArgs e)
@@ -116,6 +134,7 @@ namespace Cerin_Ingenieros.Consultas
             dgvServicios.Rows.Clear();
             List<entServicio> lista = logServicio.GetInstancia.listarServiciosPendientes();
             listarServicios(lista);
+            dgvServicios.Invalidate();
         }
 
         private void btnFinalizados_Click(object sender, EventArgs e)
@@ -127,6 +146,7 @@ namespace Cerin_Ingenieros.Consultas
             dgvServicios.Rows.Clear();
             List<entServicio> lista = logServicio.GetInstancia.listarServiciosTerminados();
             listarServicios(lista);
+            dgvServicios.Invalidate();
         }
 
         private void btnSinSolucion_Click(object sender, EventArgs e)
@@ -177,5 +197,6 @@ namespace Cerin_Ingenieros.Consultas
                     dgvServicios.Rows[e.RowIndex].Cells["Estado"].Style.BackColor = colorParcial;
             }
         }
+
     }
 }

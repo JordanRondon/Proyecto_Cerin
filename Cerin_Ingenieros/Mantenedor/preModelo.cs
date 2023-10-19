@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -43,20 +44,30 @@ namespace Cerin_Ingenieros.Mantenedor
         private void deshablitar_btn()
         {
             btn_nuevo.Enabled = true;
+            btn_nuevo.BackColor = configColores.btnActivo;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = false;
+            btn_editar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = false;
+            btn_eliminar.BackColor = configColores.btDesactivado;
             btn_cancelar.Enabled = false;
+            btn_cancelar.BackColor = configColores.btDesactivado;
         }
 
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
             btn_nuevo.Enabled = false;
+            btn_nuevo.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = true;
+            btn_editar.BackColor = configColores.btnActivo;
             btn_eliminar.Enabled = true;
+            btn_eliminar.BackColor = configColores.btnActivo;
             btn_cancelar.Enabled = true;
+            btn_cancelar.BackColor = configColores.btnActivo;
             comboBox_marca .Enabled = true;
         }
 
@@ -69,12 +80,17 @@ namespace Cerin_Ingenieros.Mantenedor
             {
                 txb_nombre.Enabled = true;
                 btn_nuevo.Enabled = false;
-                btn_guardar.Enabled = true;
+                btn_nuevo.BackColor = configColores.btDesactivado;
                 btn_editar.Enabled = false;
+                btn_editar.BackColor = configColores.btDesactivado;
                 btn_eliminar.Enabled = false;
+                btn_eliminar.BackColor = configColores.btDesactivado;
                 btn_cancelar.Enabled = true;
-                comboBox_marca.Enabled = true;
+                btn_cancelar.BackColor = configColores.btnActivo;
+                btn_guardar.Enabled = true;
+                btn_guardar.BackColor = configColores.btnActivo;
                 comboBox_marca.SelectedIndex = 0;
+                comboBox_marca.Enabled = true;
             }
         }
 

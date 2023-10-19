@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using Cerin_Ingenieros.Servicios.Alquiler;
 using Cerin_Ingenieros.Servicios.Mantenimiento;
 using System;
@@ -123,9 +124,19 @@ namespace Cerin_Ingenieros.Servicios
 
             //Configuracion inicial
             btn_nuevo.Enabled = true;
+            btn_nuevo.BackColor = configColores.btnActivo;
             btn_cancelar.Enabled = false;
+            btn_cancelar.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_cancelarObservacion.Enabled = false;
+            btn_cancelarObservacion.BackColor = configColores.btDesactivado;
+            btn_slect_cliente.Enabled = false;
+            btn_slect_cliente.BackColor = configColores.btDesactivado;
+            btn_agregar_equipo.Enabled = false;
+            btn_agregar_equipo.BackColor = configColores.btDesactivado;
+            btn_agregarRecomendacion.Enabled = false;
+            btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
 
             lb_dni_ruc_cliente.Text = "DNI";
             lb_nombres_cliente.Text = "Nombres";
@@ -134,12 +145,9 @@ namespace Cerin_Ingenieros.Servicios
             txb_ruc.Text = "RUC";
             txb_razon_social.Text = "Razon Social";
 
-            btn_slect_cliente.Enabled = false;
-            btn_agregar_equipo.Enabled = false;
             comboBox_empleado.Enabled = false;
             dataGridView_lista_quipos.Enabled = false;
             txb_Recomendaciones.Enabled = false;
-            btn_agregarRecomendacion.Enabled = false;
 
             LimpiarObservaciones();
         }
@@ -148,6 +156,7 @@ namespace Cerin_Ingenieros.Servicios
         {
             preRegistEquipoMantenimiento preRegistEquipoMantenimiento = new preRegistEquipoMantenimiento();
             preRegistEquipoMantenimiento.ShowDialog();
+
 
             equiposSelecionados.AddRange(preRegistEquipoMantenimiento.getEquipos());
             list_det_equipo_servicio.AddRange(preRegistEquipoMantenimiento.getServicios());
@@ -208,13 +217,18 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             btn_slect_cliente.Enabled = true;
+            btn_slect_cliente.BackColor = configColores.btnActivo;
             btn_agregar_equipo.Enabled = true;
+            btn_agregar_equipo.BackColor = configColores.btnActivo;
+            btn_guardar.Enabled = true;
+            btn_guardar.BackColor = configColores.btnActivo;
+            btn_cancelar.Enabled = true;
+            btn_cancelar.BackColor = configColores.btnActivo;
+            btn_nuevo.Enabled = false;
+            btn_nuevo.BackColor = configColores.btDesactivado;
+
             comboBox_empleado.Enabled = true;
             dataGridView_lista_quipos.Enabled = true;
-
-            btn_nuevo.Enabled = false;
-            btn_guardar.Enabled = true;
-            btn_cancelar.Enabled = true;
             prosesoCancelado = true;
         }
 
@@ -317,7 +331,9 @@ namespace Cerin_Ingenieros.Servicios
             txbOtrosAccesorios.Enabled = false;
             txbOtrosAccesorios.Text = "";
             btn_agregarRecomendacion.Enabled = false;
+            btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
             btn_cancelarObservacion.Enabled = false;
+            btn_cancelarObservacion.BackColor = configColores.btDesactivado;
             equipoSelecionado = "";
         }
 
@@ -430,7 +446,9 @@ namespace Cerin_Ingenieros.Servicios
                     txb_Recomendaciones.Enabled = true;
                     txbOtrosAccesorios.Enabled = true;
                     btn_agregarRecomendacion.Enabled = true;
+                    btn_agregarRecomendacion.BackColor = configColores.btnActivo;
                     btn_cancelarObservacion.Enabled = true;
+                    btn_cancelarObservacion.BackColor = configColores.btnActivo;
                     dgvAcesorios.Enabled = true;
 
                     //EDITAR ACCESORIOS

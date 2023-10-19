@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,9 +50,13 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             comboBoxCategoria.Enabled = false;
 
             btnNuevoRegis.Enabled = true;
+            btnNuevoRegis.BackColor = configColores.btnActivo;
             btnguardarRegist.Enabled = false;
+            btnguardarRegist.BackColor = configColores.btDesactivado;
             btnCancelarRegist.Enabled = false;
+            btnCancelarRegist.BackColor = configColores.btDesactivado;
             BtnEditarRegist.Enabled = false;
+            BtnEditarRegist.BackColor = configColores.btDesactivado;
         }
         private void configNuevo()
         {
@@ -66,8 +71,11 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             comboBoxCategoria.Enabled = true;
 
             btnNuevoRegis.Enabled = false;
+            btnNuevoRegis.BackColor = configColores.btDesactivado;
             btnguardarRegist.Enabled = true;
+            btnguardarRegist.BackColor = configColores.btnActivo;
             btnCancelarRegist.Enabled = true;
+            btnCancelarRegist.BackColor = configColores.btnActivo;
         }
 
         private void listarDatosComboBox()
@@ -206,7 +214,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             groupBoxAccesorios.Enabled = false;
             groupBoxObservaciones.Enabled = false;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btnCancelarEquipo.Enabled = false;
+            btnCancelarEquipo.BackColor = configColores.btDesactivado;
         }
 
         private void CargarTodosLosAccesorios()
@@ -311,12 +321,16 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                         //Desactivamos las opciones de modificar el equipo selecionado
                         txb_serie.Enabled = false;
                         btnBuscarEquipo.Enabled = false;
+                        btnBuscarEquipo.BackColor = configColores.btDesactivado;
 
                         //activamos los accesorios y las observaciones
                         groupBoxAccesorios.Enabled = true;
+                        groupBoxOtosAccesorios.Enabled = true;
                         groupBoxObservaciones.Enabled = true;
                         btnCancelarEquipo.Enabled = true;
+                        btnCancelarEquipo.BackColor = configColores.btnActivo;
                         btn_guardar.Enabled = true;
+                        btn_guardar.BackColor = configColores.btnActivo;
 
                         //cargamos los accesorios y elejimos los accesorios del equipo
                         //con los cuales entra al laboratorio
@@ -352,7 +366,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             txb_serie.Enabled = true;
             btnBuscarEquipo.Enabled = true;
-            
+            btnBuscarEquipo.BackColor = configColores.btnActivo;
+
             txbObservaciones.Text = "";
             txb_serie.Text = "";
             txbOtrosAccesorios.Text = "";
@@ -364,7 +379,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             groupBoxObservaciones.Enabled = false;
             groupBoxOtosAccesorios.Enabled = false;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btnCancelarEquipo.Enabled = false;
+            btnCancelarEquipo.BackColor = configColores.btDesactivado;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -552,10 +569,14 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void habilitar_btn_modificacion()
         {
-            btnNuevoRegis.Enabled = false;  
-            BtnEditarRegist.Enabled = true;
-            btnCancelarRegist.Enabled = true;
+            btnNuevoRegis.Enabled = false;
+            btnNuevoRegis.BackColor = configColores.btDesactivado;
             btnguardarRegist.Enabled = false;
+            btnguardarRegist.BackColor = configColores.btDesactivado;
+            BtnEditarRegist.Enabled = true;
+            BtnEditarRegist.BackColor = configColores.btnActivo;
+            btnCancelarRegist.Enabled = true;
+            btnCancelarRegist.BackColor = configColores.btnActivo;
 
             txb_serie.Enabled = true;
             comboBoxCategoria.Enabled = true;

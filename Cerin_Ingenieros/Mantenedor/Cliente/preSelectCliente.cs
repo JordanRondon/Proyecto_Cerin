@@ -9,32 +9,44 @@ namespace Cerin_Ingenieros.Servicios
 {
     public partial class preSelectCliente : Form
     {
-        private Form FormActivo = null;
-        private entCliente cliente = null;
+
+        private Form FormActivo = null;         //Formulario activo
+        private entCliente cliente = null;      //Cliente selecionado
         public preSelectCliente()
         {
             InitializeComponent();
-            AbrirFormHijo(new preSeleccionarCliente());
-            btnSeleciionarCliente.BackColor = SystemColors.Control;
-            btnRegistraCliente.BackColor = Color.White;
+            SelecForCliente();
         }
 
+        #region EVENTOS BOTONES
         private void btnSeleciionarCliente_Click(object sender, EventArgs e)
         {
-            btnSeleciionarCliente.BackColor = SystemColors.Control;
-            btnRegistraCliente.BackColor = Color.White;
-
-            AbrirFormHijo(new preSeleccionarCliente());
+            SelecForCliente();
         }
 
         private void btnRegistraCliente_Click(object sender, EventArgs e)
         {
             btnSeleciionarCliente.BackColor = Color.White;
-            btnRegistraCliente.BackColor = SystemColors.Control;
+            btnRegistraCliente.BackColor = Color.FromArgb(255, 224, 192);
             AbrirFormHijo(new preRegistrarCliente());
             
         }
 
+        private void FormHijo_FormCerrado(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void SelecForCliente()
+        {
+            btnSeleciionarCliente.BackColor = Color.FromArgb(255, 224, 192);
+            btnRegistraCliente.BackColor = Color.White;
+
+            AbrirFormHijo(new preSeleccionarCliente());
+        }
+        #endregion EVENTOS BOTONES
+
+        #region MOSTRA FORMULARIOS
         private void AbrirFormHijo(Form formHijo)
         {
             if (FormActivo != null)
@@ -52,12 +64,10 @@ namespace Cerin_Ingenieros.Servicios
             formHijo.BringToFront();
             formHijo.Show();
 
-            // Suscribe al evento ClienteSeleccionado del formulario hijo actual (preSeleccionarCliente)
             if (formHijo is preSeleccionarCliente)
             {
                 ((preSeleccionarCliente)formHijo).ClienteSeleccionado += (s, args) =>
                 {
-                    // Aquí puedes manejar el evento y reenviarlo al formulario principal (preSelectCliente)
                     cliente = args.ClienteSeleccionado;
                     OnClienteSeleccionado(cliente);
                 };
@@ -65,25 +75,17 @@ namespace Cerin_Ingenieros.Servicios
 
             formHijo.FormClosed += FormHijo_FormCerrado;
         }
-
-        // Define un evento personalizado para notificar al formulario principal (preSelectCliente)
         public event EventHandler<ClienteSeleccionadoEventArgs> ClienteSeleccionado;
 
-        // Método para disparar el evento
         protected virtual void OnClienteSeleccionado(entCliente cliente)
         {
             ClienteSeleccionado?.Invoke(this, new ClienteSeleccionadoEventArgs(cliente));
-        }
-
-        private void FormHijo_FormCerrado(object sender, EventArgs e)
-        {
-            // Cuando se cierre el formulario hijo, también cierra el formulario principal
-            this.Close();
         }
 
         public entCliente getCliente()
         {
             return cliente;
         }
+        #endregion MOSTRA FORMULARIOS
     }
 }
