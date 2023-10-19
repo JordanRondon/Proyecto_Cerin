@@ -183,11 +183,14 @@ namespace Cerin_Ingenieros
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
+                panel_principal.Invalidate();
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
+                panel_principal.Invalidate();
             }
+            this.Invalidate();
         }
 
         private void btnModelo_Click(object sender, EventArgs e)

@@ -51,9 +51,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.comboBox_modelo = new System.Windows.Forms.ComboBox();
             this.comboBox_marca = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -88,24 +88,32 @@
             // 
             // btnCancelarEquipo
             // 
+            this.btnCancelarEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCancelarEquipo.FlatAppearance.BorderSize = 0;
+            this.btnCancelarEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarEquipo.ForeColor = System.Drawing.Color.White;
             this.btnCancelarEquipo.Location = new System.Drawing.Point(654, 12);
             this.btnCancelarEquipo.Name = "btnCancelarEquipo";
             this.btnCancelarEquipo.Size = new System.Drawing.Size(111, 35);
             this.btnCancelarEquipo.TabIndex = 2;
             this.btnCancelarEquipo.Text = "Cancelar";
-            this.btnCancelarEquipo.UseVisualStyleBackColor = true;
+            this.btnCancelarEquipo.UseVisualStyleBackColor = false;
             this.btnCancelarEquipo.Click += new System.EventHandler(this.btnCancelarEquipo_Click);
             // 
             // btn_guardar
             // 
+            this.btn_guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_guardar.FlatAppearance.BorderSize = 0;
+            this.btn_guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Location = new System.Drawing.Point(409, 12);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(169, 35);
             this.btn_guardar.TabIndex = 1;
             this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.UseVisualStyleBackColor = false;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // label7
@@ -133,13 +141,17 @@
             // 
             // btnBuscarEquipo
             // 
+            this.btnBuscarEquipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnBuscarEquipo.FlatAppearance.BorderSize = 0;
+            this.btnBuscarEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarEquipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarEquipo.ForeColor = System.Drawing.Color.White;
             this.btnBuscarEquipo.Location = new System.Drawing.Point(404, 34);
             this.btnBuscarEquipo.Name = "btnBuscarEquipo";
             this.btnBuscarEquipo.Size = new System.Drawing.Size(90, 35);
             this.btnBuscarEquipo.TabIndex = 7;
             this.btnBuscarEquipo.Text = "Buscar";
-            this.btnBuscarEquipo.UseVisualStyleBackColor = true;
+            this.btnBuscarEquipo.UseVisualStyleBackColor = false;
             this.btnBuscarEquipo.Click += new System.EventHandler(this.btnBuscarEquipo_Click);
             // 
             // txb_serie
@@ -167,6 +179,7 @@
             this.dgvAcesorios.AllowUserToResizeColumns = false;
             this.dgvAcesorios.AllowUserToResizeRows = false;
             this.dgvAcesorios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAcesorios.BackgroundColor = System.Drawing.Color.White;
             this.dgvAcesorios.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvAcesorios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvAcesorios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -213,7 +226,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.White;
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(239)))), ((int)(((byte)(225)))));
             this.tabPage1.Controls.Add(this.groupBoxOtosAccesorios);
             this.tabPage1.Controls.Add(this.groupBoxAccesorios);
             this.tabPage1.Controls.Add(this.button3);
@@ -261,18 +274,22 @@
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(1040, 0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(95, 35);
             this.button3.TabIndex = 32;
             this.button3.Text = "Cerrar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.White;
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(239)))), ((int)(((byte)(225)))));
             this.tabPage2.Controls.Add(this.btnClose);
             this.tabPage2.Controls.Add(this.dgvListaDeEquipoClientes);
             this.tabPage2.Controls.Add(this.label5);
@@ -287,13 +304,16 @@
             // 
             // btnClose
             // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Location = new System.Drawing.Point(1043, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(95, 35);
             this.btnClose.TabIndex = 33;
             this.btnClose.Text = "Cerrar";
-            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dgvListaDeEquipoClientes
@@ -327,9 +347,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.comboBoxCategoria);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.comboBox_modelo);
             this.groupBox1.Controls.Add(this.comboBox_marca);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txb_serie_equipo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label8);
@@ -353,26 +373,16 @@
             "Geoslam",
             "DJI Enterprise",
             "Spectra Precision"});
-            this.comboBoxCategoria.Location = new System.Drawing.Point(839, 75);
+            this.comboBoxCategoria.Location = new System.Drawing.Point(28, 75);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
             this.comboBoxCategoria.Size = new System.Drawing.Size(241, 26);
             this.comboBoxCategoria.TabIndex = 18;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(836, 39);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(69, 17);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Categoria";
             // 
             // comboBox_modelo
             // 
             this.comboBox_modelo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_modelo.FormattingEnabled = true;
-            this.comboBox_modelo.Location = new System.Drawing.Point(548, 75);
+            this.comboBox_modelo.Location = new System.Drawing.Point(618, 73);
             this.comboBox_modelo.Name = "comboBox_modelo";
             this.comboBox_modelo.Size = new System.Drawing.Size(241, 26);
             this.comboBox_modelo.TabIndex = 15;
@@ -381,16 +391,26 @@
             // 
             this.comboBox_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_marca.FormattingEnabled = true;
-            this.comboBox_marca.Location = new System.Drawing.Point(259, 73);
+            this.comboBox_marca.Location = new System.Drawing.Point(326, 75);
             this.comboBox_marca.Name = "comboBox_marca";
             this.comboBox_marca.Size = new System.Drawing.Size(241, 26);
             this.comboBox_marca.TabIndex = 13;
             this.comboBox_marca.SelectedIndexChanged += new System.EventHandler(this.comboBox_marca_SelectedIndexChanged);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(25, 39);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(69, 17);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Categoria";
+            // 
             // txb_serie_equipo
             // 
             this.txb_serie_equipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_serie_equipo.Location = new System.Drawing.Point(28, 78);
+            this.txb_serie_equipo.Location = new System.Drawing.Point(904, 75);
             this.txb_serie_equipo.Name = "txb_serie_equipo";
             this.txb_serie_equipo.Size = new System.Drawing.Size(176, 23);
             this.txb_serie_equipo.TabIndex = 6;
@@ -399,7 +419,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(545, 39);
+            this.label3.Location = new System.Drawing.Point(615, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 2;
@@ -409,7 +429,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(256, 39);
+            this.label8.Location = new System.Drawing.Point(323, 41);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 17);
             this.label8.TabIndex = 12;
@@ -419,7 +439,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(25, 42);
+            this.label4.Location = new System.Drawing.Point(901, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 17);
             this.label4.TabIndex = 0;
@@ -438,46 +458,62 @@
             // 
             // BtnEditarRegist
             // 
+            this.BtnEditarRegist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnEditarRegist.FlatAppearance.BorderSize = 0;
+            this.BtnEditarRegist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEditarRegist.ForeColor = System.Drawing.Color.White;
             this.BtnEditarRegist.Location = new System.Drawing.Point(495, 10);
             this.BtnEditarRegist.Name = "BtnEditarRegist";
             this.BtnEditarRegist.Size = new System.Drawing.Size(90, 35);
             this.BtnEditarRegist.TabIndex = 3;
             this.BtnEditarRegist.Text = "Editar";
-            this.BtnEditarRegist.UseVisualStyleBackColor = true;
+            this.BtnEditarRegist.UseVisualStyleBackColor = false;
             this.BtnEditarRegist.Click += new System.EventHandler(this.BtnEditarRegist_Click);
             // 
             // btnCancelarRegist
             // 
+            this.btnCancelarRegist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnCancelarRegist.FlatAppearance.BorderSize = 0;
+            this.btnCancelarRegist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarRegist.ForeColor = System.Drawing.Color.White;
             this.btnCancelarRegist.Location = new System.Drawing.Point(749, 9);
             this.btnCancelarRegist.Name = "btnCancelarRegist";
             this.btnCancelarRegist.Size = new System.Drawing.Size(90, 35);
             this.btnCancelarRegist.TabIndex = 2;
             this.btnCancelarRegist.Text = "Cancelar";
-            this.btnCancelarRegist.UseVisualStyleBackColor = true;
+            this.btnCancelarRegist.UseVisualStyleBackColor = false;
             this.btnCancelarRegist.Click += new System.EventHandler(this.btnCancelarRegist_Click);
             // 
             // btnguardarRegist
             // 
+            this.btnguardarRegist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnguardarRegist.FlatAppearance.BorderSize = 0;
+            this.btnguardarRegist.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardarRegist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardarRegist.ForeColor = System.Drawing.Color.White;
             this.btnguardarRegist.Location = new System.Drawing.Point(618, 9);
             this.btnguardarRegist.Name = "btnguardarRegist";
             this.btnguardarRegist.Size = new System.Drawing.Size(90, 35);
             this.btnguardarRegist.TabIndex = 1;
             this.btnguardarRegist.Text = "Guardar";
-            this.btnguardarRegist.UseVisualStyleBackColor = true;
+            this.btnguardarRegist.UseVisualStyleBackColor = false;
             this.btnguardarRegist.Click += new System.EventHandler(this.btnguardarRegist_Click);
             // 
             // btnNuevoRegis
             // 
+            this.btnNuevoRegis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnNuevoRegis.FlatAppearance.BorderSize = 0;
+            this.btnNuevoRegis.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevoRegis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevoRegis.ForeColor = System.Drawing.Color.White;
             this.btnNuevoRegis.Location = new System.Drawing.Point(355, 9);
             this.btnNuevoRegis.Name = "btnNuevoRegis";
             this.btnNuevoRegis.Size = new System.Drawing.Size(90, 35);
             this.btnNuevoRegis.TabIndex = 0;
             this.btnNuevoRegis.Text = "Nuevo";
-            this.btnNuevoRegis.UseVisualStyleBackColor = true;
+            this.btnNuevoRegis.UseVisualStyleBackColor = false;
             this.btnNuevoRegis.Click += new System.EventHandler(this.btnNuevoRegis_Click);
             // 
             // preRegistEquipoMantenimiento

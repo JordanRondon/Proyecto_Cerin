@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -58,20 +59,30 @@ namespace Cerin_Ingenieros
         private void deshablitar_btn()
         {
             btn_nuevo.Enabled = true;
+            btn_nuevo.BackColor = configColores.btnActivo;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = false;
+            btn_editar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = false;
+            btn_eliminar.BackColor = configColores.btDesactivado;
             btn_cancelar.Enabled = false;
+            btn_cancelar.BackColor = configColores.btDesactivado;
         }
 
         private void habilitar_btn_modificacion()
         {
             hablitar_entradas();
             btn_nuevo.Enabled = false;
+            btn_nuevo.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = true;
+            btn_editar.BackColor = configColores.btnActivo;
             btn_eliminar.Enabled = true;
+            btn_eliminar.BackColor = configColores.btnActivo;
             btn_cancelar.Enabled = true;
+            btn_cancelar.BackColor = configColores.btnActivo;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -100,14 +111,19 @@ namespace Cerin_Ingenieros
         {
             hablitar_entradas();
             btn_nuevo.Enabled = false;
+            btn_nuevo.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = true;
+            btn_guardar.BackColor = configColores.btnActivo;
             btn_editar.Enabled = false;
+            btn_editar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = false;
+            btn_eliminar.BackColor = configColores.btDesactivado;
             btn_cancelar.Enabled = true;
-            dgvAcesorios.Enabled = true;
-            
-            
-            
+            btn_cancelar.BackColor = configColores.btnActivo;
+
+
+
+            dgvAcesorios.Enabled = true;            
             cargarAccesorios();
         }
         private void cargarAccesorios()

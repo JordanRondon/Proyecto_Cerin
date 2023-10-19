@@ -49,6 +49,7 @@
             this.dgvClientes.AllowUserToResizeColumns = false;
             this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.White;
             this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -80,24 +81,32 @@
             // 
             // btnSelecionarCliente
             // 
+            this.btnSelecionarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnSelecionarCliente.FlatAppearance.BorderSize = 0;
+            this.btnSelecionarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSelecionarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelecionarCliente.ForeColor = System.Drawing.Color.White;
             this.btnSelecionarCliente.Location = new System.Drawing.Point(959, 77);
             this.btnSelecionarCliente.Name = "btnSelecionarCliente";
             this.btnSelecionarCliente.Size = new System.Drawing.Size(146, 43);
             this.btnSelecionarCliente.TabIndex = 38;
             this.btnSelecionarCliente.Text = "Selecionar cliente";
-            this.btnSelecionarCliente.UseVisualStyleBackColor = true;
+            this.btnSelecionarCliente.UseVisualStyleBackColor = false;
             this.btnSelecionarCliente.Click += new System.EventHandler(this.btnSelecionarCliente_Click_1);
             // 
             // btn_cancelar
             // 
+            this.btn_cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btn_cancelar.FlatAppearance.BorderSize = 0;
+            this.btn_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_cancelar.Location = new System.Drawing.Point(1010, 12);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(95, 35);
             this.btn_cancelar.TabIndex = 37;
             this.btn_cancelar.Text = "Regresar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.UseVisualStyleBackColor = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click_1);
             // 
             // groupBox1
@@ -160,6 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(239)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1164, 568);
             this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.btnSelecionarCliente);

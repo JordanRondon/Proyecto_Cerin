@@ -36,14 +36,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnTodosTipos = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPendientes = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnFinalizados = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.panel10 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
-            this.btnTodosTipos = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnPendientes = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
-            this.btnFinalizados = new Cerin_Ingenieros.RecursosAdicionales.BotonesModernos.BTNModernos();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -144,6 +144,26 @@
             this.panel1.Size = new System.Drawing.Size(145, 31);
             this.panel1.TabIndex = 0;
             // 
+            // btnTodosTipos
+            // 
+            this.btnTodosTipos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnTodosTipos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnTodosTipos.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTodosTipos.BorderRadius = 0;
+            this.btnTodosTipos.BorderSize = 0;
+            this.btnTodosTipos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnTodosTipos.FlatAppearance.BorderSize = 0;
+            this.btnTodosTipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTodosTipos.ForeColor = System.Drawing.Color.White;
+            this.btnTodosTipos.Location = new System.Drawing.Point(0, 0);
+            this.btnTodosTipos.Name = "btnTodosTipos";
+            this.btnTodosTipos.Size = new System.Drawing.Size(145, 31);
+            this.btnTodosTipos.TabIndex = 0;
+            this.btnTodosTipos.Text = "TODOS";
+            this.btnTodosTipos.TextColor = System.Drawing.Color.White;
+            this.btnTodosTipos.UseVisualStyleBackColor = false;
+            this.btnTodosTipos.Click += new System.EventHandler(this.btnTodosTipos_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnPendientes);
@@ -153,6 +173,26 @@
             this.panel2.Size = new System.Drawing.Size(145, 31);
             this.panel2.TabIndex = 1;
             // 
+            // btnPendientes
+            // 
+            this.btnPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPendientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnPendientes.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPendientes.BorderRadius = 0;
+            this.btnPendientes.BorderSize = 0;
+            this.btnPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPendientes.FlatAppearance.BorderSize = 0;
+            this.btnPendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPendientes.ForeColor = System.Drawing.Color.White;
+            this.btnPendientes.Location = new System.Drawing.Point(0, 0);
+            this.btnPendientes.Name = "btnPendientes";
+            this.btnPendientes.Size = new System.Drawing.Size(145, 31);
+            this.btnPendientes.TabIndex = 1;
+            this.btnPendientes.Text = "PENDIENTES";
+            this.btnPendientes.TextColor = System.Drawing.Color.White;
+            this.btnPendientes.UseVisualStyleBackColor = false;
+            this.btnPendientes.Click += new System.EventHandler(this.btnPendientes_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.btnFinalizados);
@@ -161,6 +201,26 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(147, 31);
             this.panel3.TabIndex = 2;
+            // 
+            // btnFinalizados
+            // 
+            this.btnFinalizados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFinalizados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFinalizados.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFinalizados.BorderRadius = 0;
+            this.btnFinalizados.BorderSize = 0;
+            this.btnFinalizados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnFinalizados.FlatAppearance.BorderSize = 0;
+            this.btnFinalizados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizados.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizados.Location = new System.Drawing.Point(0, 0);
+            this.btnFinalizados.Name = "btnFinalizados";
+            this.btnFinalizados.Size = new System.Drawing.Size(147, 31);
+            this.btnFinalizados.TabIndex = 1;
+            this.btnFinalizados.Text = "FINALIZADO";
+            this.btnFinalizados.TextColor = System.Drawing.Color.White;
+            this.btnFinalizados.UseVisualStyleBackColor = false;
+            this.btnFinalizados.Click += new System.EventHandler(this.btnFinalizados_Click);
             // 
             // panel10
             // 
@@ -197,7 +257,7 @@
             this.dgvServicios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -222,66 +282,6 @@
             this.dgvServicios.Size = new System.Drawing.Size(1138, 570);
             this.dgvServicios.TabIndex = 3;
             this.dgvServicios.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvServicios_CellFormatting);
-            // 
-            // btnTodosTipos
-            // 
-            this.btnTodosTipos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnTodosTipos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnTodosTipos.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnTodosTipos.BorderRadius = 0;
-            this.btnTodosTipos.BorderSize = 0;
-            this.btnTodosTipos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnTodosTipos.FlatAppearance.BorderSize = 0;
-            this.btnTodosTipos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTodosTipos.ForeColor = System.Drawing.Color.White;
-            this.btnTodosTipos.Location = new System.Drawing.Point(0, 0);
-            this.btnTodosTipos.Name = "btnTodosTipos";
-            this.btnTodosTipos.Size = new System.Drawing.Size(145, 31);
-            this.btnTodosTipos.TabIndex = 0;
-            this.btnTodosTipos.Text = "TODOS";
-            this.btnTodosTipos.TextColor = System.Drawing.Color.White;
-            this.btnTodosTipos.UseVisualStyleBackColor = false;
-            this.btnTodosTipos.Click += new System.EventHandler(this.btnTodosTipos_Click);
-            // 
-            // btnPendientes
-            // 
-            this.btnPendientes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnPendientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnPendientes.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnPendientes.BorderRadius = 0;
-            this.btnPendientes.BorderSize = 0;
-            this.btnPendientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPendientes.FlatAppearance.BorderSize = 0;
-            this.btnPendientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPendientes.ForeColor = System.Drawing.Color.White;
-            this.btnPendientes.Location = new System.Drawing.Point(0, 0);
-            this.btnPendientes.Name = "btnPendientes";
-            this.btnPendientes.Size = new System.Drawing.Size(145, 31);
-            this.btnPendientes.TabIndex = 1;
-            this.btnPendientes.Text = "PENDIENTES";
-            this.btnPendientes.TextColor = System.Drawing.Color.White;
-            this.btnPendientes.UseVisualStyleBackColor = false;
-            this.btnPendientes.Click += new System.EventHandler(this.btnPendientes_Click);
-            // 
-            // btnFinalizados
-            // 
-            this.btnFinalizados.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFinalizados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFinalizados.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnFinalizados.BorderRadius = 0;
-            this.btnFinalizados.BorderSize = 0;
-            this.btnFinalizados.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFinalizados.FlatAppearance.BorderSize = 0;
-            this.btnFinalizados.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizados.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizados.Location = new System.Drawing.Point(0, 0);
-            this.btnFinalizados.Name = "btnFinalizados";
-            this.btnFinalizados.Size = new System.Drawing.Size(147, 31);
-            this.btnFinalizados.TabIndex = 1;
-            this.btnFinalizados.Text = "FINALIZADO";
-            this.btnFinalizados.TextColor = System.Drawing.Color.White;
-            this.btnFinalizados.UseVisualStyleBackColor = false;
-            this.btnFinalizados.Click += new System.EventHandler(this.btnFinalizados_Click);
             // 
             // preVerServicios
             // 

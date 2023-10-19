@@ -1,13 +1,8 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Servicios.ClienteOpciones
@@ -24,15 +19,23 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             ConfiguracionInicial();
         }
 
+        #region CONFIGURACION DEL FORMULARIO
         private void ConfiguracionInicial()
         {
             btn_nuevo.Enabled = true;
+            btn_nuevo.BackColor = configColores.btnActivo;
             btn_guardar.Enabled = false;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = false;
+            btn_editar.BackColor = configColores.btDesactivado;
             btn_cancelar_registro.Enabled = false;
+            btn_cancelar_registro.BackColor = configColores.btDesactivado;
             btn_buscar.Enabled = false;
+            btn_buscar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = false;
+            btn_eliminar.BackColor = configColores.btDesactivado;
             btnBuscarRuc.Enabled = false;
+            btnBuscarRuc.BackColor = configColores.btDesactivado;
 
             txb_dni_cliente.Enabled = false;
             txb_apellidos_cliente.Enabled = false;
@@ -45,12 +48,19 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         private void configEditar()
         {
             btn_nuevo.Enabled = false;
+            btn_nuevo.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = false;
-            btn_editar.Enabled = true;
-            btn_cancelar_registro.Enabled = true;
+            btn_guardar.BackColor = configColores.btDesactivado;
             btn_buscar.Enabled = false;
+            btn_buscar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = true;
+            btn_eliminar.BackColor = configColores.btnActivo;
             btnBuscarRuc.Enabled = true;
+            btnBuscarRuc.BackColor = configColores.btnActivo;
+            btn_editar.Enabled = true;
+            btn_editar.BackColor = configColores.btnActivo;
+            btn_cancelar_registro.Enabled = true;
+            btn_cancelar_registro.BackColor = configColores.btnActivo;
 
             txb_dni_cliente.Enabled = false;
             txb_apellidos_cliente.Enabled = false;
@@ -73,12 +83,19 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         private void ConfigNuevo()
         {
             btn_nuevo.Enabled = false;
-            btn_guardar.Enabled = true;
+            btn_nuevo.BackColor = configColores.btDesactivado;
             btn_editar.Enabled = false;
-            btn_cancelar_registro.Enabled = true;
-            btn_buscar.Enabled = true;
+            btn_editar.BackColor = configColores.btDesactivado;
             btn_eliminar.Enabled = false;
+            btn_eliminar.BackColor = configColores.btDesactivado;
             btnBuscarRuc.Enabled = true;
+            btnBuscarRuc.BackColor = configColores.btnActivo;
+            btn_guardar.Enabled = true;
+            btn_guardar.BackColor = configColores.btnActivo;
+            btn_cancelar_registro.Enabled = true;
+            btn_cancelar_registro.BackColor = configColores.btnActivo;
+            btn_buscar.Enabled = true;
+            btn_buscar.BackColor = configColores.btnActivo;
 
             txb_dni_cliente.Enabled = true;
             txb_apellidos_cliente.Enabled = true;
@@ -95,7 +112,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             List<entCliente> ls = logCliente.GetInstancia.listarClientes();
             dgvClientes2.DataSource = ls;
         }
+        #endregion CONFIGURACION DEL FORMULARIO
 
+        #region API_DNI_RUC
         private void datosCliente(string DNI)
         {
             entApi clienteApi = logApi.GetInstancia.consultarDatosApi(DNI);
@@ -124,6 +143,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             else { MessageBox.Show("RUC no valida"); }
         }
 
+        #endregion API_DNI_RUC
+
+        #region eventos botones
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             ConfigNuevo();
@@ -264,5 +286,6 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         {
             this.Close();
         }
+        #endregion eventos botones
     }
 }

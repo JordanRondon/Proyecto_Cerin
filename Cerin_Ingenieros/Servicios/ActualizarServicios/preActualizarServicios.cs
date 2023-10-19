@@ -1,6 +1,7 @@
 ﻿using CapaDato;
 using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,14 +46,17 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             if (rolUser == 1)//admin
             {
                 btn_FinalizarServicio.Visible = true;
+                btn_FinalizarServicio.BackColor = configColores.btnActivo;
             }
             else if (rolUser == 2)//recepcionista
             {
                 btn_FinalizarServicio.Visible = true;
+                btn_FinalizarServicio.BackColor = configColores.btnActivo;
             }
             else if (rolUser == 3)//laboratorio
             {
                 btn_FinalizarServicio.Visible = false;
+                btn_FinalizarServicio.BackColor = configColores.btDesactivado;
             }
             ConfigEstadosInicial();
         }
@@ -87,6 +91,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) ;
             txbFile.Visible = false;
             btnUbicacion.Visible = false;
+            btnUbicacion.BackColor = configColores.btDesactivado;
             grb_Stikers.Visible = false;
             grb_Pagos.Visible = false;
             grb_Laboratorio.Visible = false;
@@ -95,6 +100,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             equipoServicio = null;
             grb_observacionesFinales.Enabled = false;
             btn_Buscar.Enabled = true;
+            btn_Buscar.BackColor = configColores.btnActivo;
+            btn_agregarRecomendacion.Enabled = false;
+            btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
+            btn_editarRecomendacion.Enabled |= false;
+            btn_editarRecomendacion.BackColor = configColores.btDesactivado;
         }
 
         private void btn_Buscar_Click(object sender, EventArgs e)
@@ -119,6 +129,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         //Desactivamos el txb de id servicio para evitar cambios al momento de guardar
                         txb_id_Servicio.Enabled = false;
                         btn_Buscar.Enabled = false;
+                        btn_Buscar.BackColor = configColores.btDesactivado;
                         if (rolUser == 1)
                         {
                             grb_Pagos.Visible = true;
@@ -285,7 +296,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 {
                     txb_Recomendaciones.Enabled = false;
                     btn_agregarRecomendacion.Enabled = false;
+                    btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
                     btn_editarRecomendacion.Enabled = true;
+                    btn_editarRecomendacion.BackColor = configColores.btnActivo;
                 }
 
             }
@@ -308,7 +321,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
                     txb_Recomendaciones.Enabled = false;
                     btn_agregarRecomendacion.Enabled = false;
+                    btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
                     btn_editarRecomendacion.Enabled=true;
+                    btn_editarRecomendacion.BackColor = configColores.btnActivo;
                 }
                 else MessageBox.Show("Campo de Texto vacío");
             }
@@ -375,7 +390,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             txb_Recomendaciones.Enabled = true;
             btn_agregarRecomendacion.Enabled = true;
+            btn_agregarRecomendacion.BackColor = configColores.btnActivo;
             btn_editarRecomendacion.Enabled = false;
+            btn_editarRecomendacion.BackColor = configColores.btDesactivado;
         }
 
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
