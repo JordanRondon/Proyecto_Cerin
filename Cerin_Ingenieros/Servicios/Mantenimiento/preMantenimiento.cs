@@ -356,7 +356,7 @@ namespace Cerin_Ingenieros.Servicios
                 }
             }
             //ACTUALIZACION DE LOS ACCESORIOS
-            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
+            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(equipoSelecionado);
 
             for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
             {

@@ -404,7 +404,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
             //Registramos los accesorios para el equipo
 
-            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
+            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(temp.SerieEquipo);
 
             for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
             {

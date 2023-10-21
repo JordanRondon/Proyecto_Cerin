@@ -370,7 +370,7 @@ namespace Cerin_Ingenieros
                     string serie_equipo = equipo.SerieEquipo;
 
                     //Editar accesorios
-                    List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar();
+                    List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(equipo.SerieEquipo);
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
                     {

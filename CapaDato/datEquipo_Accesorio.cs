@@ -156,7 +156,7 @@ namespace CapaDato
             return inserta;
         }
 
-        public List<entEquipo_Accesorio> Listar()
+        public List<entEquipo_Accesorio> Listar(string serie)
         {
             SqlCommand cmd = null;
             List<entEquipo_Accesorio> lista = new List<entEquipo_Accesorio>();
@@ -167,6 +167,7 @@ namespace CapaDato
 
                 cmd = new SqlCommand("sp_listarEquipoAccesorio", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@serie_equipo", serie);
                 cn.Open();
 
                 SqlDataReader dr = cmd.ExecuteReader();

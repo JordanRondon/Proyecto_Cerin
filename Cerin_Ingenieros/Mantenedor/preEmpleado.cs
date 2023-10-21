@@ -181,7 +181,7 @@ namespace Cerin_Ingenieros
             if (e.RowIndex>=0)
             {
                 DataGridViewRow filaActual = dataGridView_empleados.Rows[e.RowIndex];
-
+                ConfigModificacionBtn();
                 registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
                 txb_nombres_empleado.Text = filaActual.Cells[1].Value.ToString();
                 txb_apellidos_empleado.Text = filaActual.Cells[2].Value.ToString();
@@ -191,13 +191,8 @@ namespace Cerin_Ingenieros
                 txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
                 txb_userNamer.Text = filaActual.Cells[7].Value.ToString();
 
-                int indiceRol = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
-                if (indiceRol != -1) 
-                    cmb_rol.SelectedIndex = indiceRol;
-                else 
-                    cmb_rol.SelectedIndex = -1;
-
-                ConfigModificacionBtn();
+                cmb_rol.SelectedIndex = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
+                
 
                 txb_dniEmpleado.Enabled = false;
                 txb_apellidos_empleado.Enabled = false;

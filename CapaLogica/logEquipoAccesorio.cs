@@ -30,9 +30,9 @@ namespace CapaLogica
             return datEquipo_Accesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
         }
 
-        public List<entEquipo_Accesorio> listar()
+        public List<entEquipo_Accesorio> listar(string serie)
         {
-            return datEquipo_Accesorio.GetInstancia.Listar();
+            return datEquipo_Accesorio.GetInstancia.Listar(serie);
         }
 
         public bool EliminarDetalle(string serie, int id_accesorio)
