@@ -93,6 +93,7 @@ namespace Cerin_Ingenieros.Servicios
                 listaTodosClientes = logCliente.GetInstancia.listarClientes();
             }
             ListarClientes();
+
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
