@@ -12,6 +12,8 @@ using iTextSharp.text.pdf.draw;
 using Word = Microsoft.Office.Interop.Word;
 using System.Diagnostics;
 using static iTextSharp.text.pdf.AcroFields;
+using Microsoft.Office.Interop.Word;
+using static iTextSharp.text.pdf.codec.TiffWriter;
 
 namespace CapaDato
 {
@@ -24,7 +26,6 @@ namespace CapaDato
 
         public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos,string path)
         {
-            int contadorLineas = 17;
             try
             {
                 //Buscamos el comprobante en la base de datos
@@ -59,7 +60,7 @@ namespace CapaDato
                             { "<Cliente>", cliente.Ruc != "" ? cliente.RazonSocial : cliente.Apellido + ", " + cliente.Nombre },
                             { "<Telefono>", cliente.Telefono },
                             { "<Recepcionista>", empleado.Apellido + ", " + empleado.Nombre },
-                            
+
                         };
                         foreach (var kvp in reemplazos)
                         {
@@ -87,17 +88,15 @@ namespace CapaDato
                             foreach (var ac in listAccesorios)
                             {
                                 contenido += "<Accesorio>^p";
-                                contadorLineas++;
                             }
 
                             contenido += "RECOMENDACIONES PRELIMINARES: <Preliminares>.^p";
                             contenido += "RECOMENDACIONES FINALES: <Finales>.^p";
-                            contadorLineas += 4;
                             plantilla.Content.Find.Execute(FindText: "<DatEquiposCompletos>", ReplaceWith: contenido);
                         }
 
                         //remplazamos datos de cada uno de los equipos en las etiquetas generadas
-                        int contador= equipos.Count();
+                        int contador = equipos.Count();
                         foreach (var equipo in equipos)
                         {
                             contador--;
@@ -122,13 +121,6 @@ namespace CapaDato
                             //Registramos las recomendaciones preliminares y finales
                             entEquipo_Servicio equiposervicio = datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(equipo.SerieEquipo, servicio.IdServicio);
                             plantilla.Content.Find.Execute(FindText: "<Preliminares>", ReplaceWith: equiposervicio.Observaciones_preliminares);
-                            if ((contadorLineas % 48) > 37 && contador == 0 )
-                            {
-                                int lineasFaltantes = contadorLineas%48;
-                                int limite = (48 - lineasFaltantes);
-                                for (int i = 0; i < limite; i++)
-                                    equiposervicio.observaciones_finales += "^p";
-                            }
                             plantilla.Content.Find.Execute(FindText: "<Finales>", ReplaceWith: equiposervicio.observaciones_finales);
                         }
 

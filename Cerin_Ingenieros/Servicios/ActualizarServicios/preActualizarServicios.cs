@@ -30,6 +30,14 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             ConfiguracionInicical();
 
         }
+        public preActualizarServicios(int rolUser,string id_servicio)
+        {
+            InitializeComponent();
+            this.rolUser = rolUser;
+            ConfiguracionInicical();
+            txb_id_Servicio.Text = id_servicio;
+            btn_Buscar_Click(this, new EventArgs());
+        }
         public void ConfiguracionInicical()
         {
             limpiarEntradas();
@@ -91,7 +99,6 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) ;
             txbFile.Visible = false;
             btnUbicacion.Visible = false;
-            btnUbicacion.BackColor = configColores.btDesactivado;
             grb_Stikers.Visible = false;
             grb_Pagos.Visible = false;
             grb_Laboratorio.Visible = false;
@@ -210,6 +217,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         {
                             txbFile.Visible = false;
                             btnUbicacion.Visible = false;
+                        }
+                        else
+                        {
+                            txbFile.Visible = true;
+                            btnUbicacion.Visible = true;
                         }
 
                         listarEquipos(servicioActual.IdServicio);
@@ -334,7 +346,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
         {
             try
             {
-                if (servicioActual != null)
+                if (servicioActual != null && (servicioActual.estadoLaboratorio == 'V' || servicioActual.estadoLaboratorio == 'R') && servicioActual.estadoStikers=='V' && servicioActual.estadoPago=='V')
                 {
                     List<entEquipo> listaEquipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioActual.IdServicio);
                     entCliente clienteSelecionado = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
@@ -362,21 +374,21 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                     
                     if (file != null)
                     {
-                        //preViewCertificado preView = new preViewCertificado(file);
-                        //preView.Show();
-
                         Process.Start(file);
                     }
-                } else MessageBox.Show("Ingresa el Código del Servicio");
+                }
+                else
+                {
+                    if (servicioActual == null) MessageBox.Show("Servicio no encontrado");
+                    else if(servicioActual.estadoLaboratorio == 'A' ) MessageBox.Show("Aun no sale de laboratorio");
+                    else if(servicioActual.estadoStikers != 'V') MessageBox.Show("Stikers pendientes aun");
+                    else if(servicioActual.estadoPago != 'V') MessageBox.Show("Pagos pendientes");
+                }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error.." + ex);
-            }
-            finally
-            {
-                btnUbicacion.Visible = true;
-                txbFile.Visible = true;
             }
         }
 

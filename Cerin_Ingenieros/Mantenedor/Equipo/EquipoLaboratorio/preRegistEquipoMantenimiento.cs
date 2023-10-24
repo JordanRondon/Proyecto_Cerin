@@ -41,6 +41,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         #region REGISTRAR
         private void configInitial()
         {
+            
             txb_serie_equipo.Enabled = false;
             comboBox_modelo.Enabled = false;
             comboBox_modelo.SelectedIndex = -1;
@@ -166,11 +167,11 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void ConfigCabecera()
         {
             dgvListaDeEquipoClientes.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
+                new DataGridViewTextBoxColumn { HeaderText = "Categoria" },
                 new DataGridViewTextBoxColumn { HeaderText = "Marca" },
-                new DataGridViewTextBoxColumn { HeaderText = "Categoria" }
+                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
+                new DataGridViewTextBoxColumn { HeaderText = "Estado" }
             );
 
             //desabilitar que se pueda ordenar por columnas
@@ -196,11 +197,11 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 else if (item.Estado == 'U') estado = "En uso";
                 else estado = "En proceso";
                 dgvListaDeEquipoClientes.Rows.Add(
-                    item.SerieEquipo,
-                    modelo.nombre,
-                    estado,
+                    categoria.Nombre,
                     marca.Nombre,
-                    categoria.Nombre
+                    modelo.nombre,
+                    item.SerieEquipo,
+                    estado
                 );
             }
         }
@@ -351,7 +352,13 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 }
                 else
                 {
-                    MessageBox.Show("La serie no es valida");
+                    DialogResult result = MessageBox.Show("El equipo no se encuentra. ¿Registrasr equipo?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        tabControl1.SelectedTab = tabPage2;
+                        btnNuevoRegis_Click(this,EventArgs.Empty);
+                        txb_serie_equipo.Text = txb_serie.Text;
+                    }
                 }
             }
 

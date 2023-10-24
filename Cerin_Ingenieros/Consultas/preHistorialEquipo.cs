@@ -176,7 +176,6 @@ namespace Cerin_Ingenieros.Consultas
             if (!string.IsNullOrWhiteSpace(txb_serie_equipo.Text))
             {
                 limpiarDatosCliente();
-                //lb_nombreEmpleado.Text = "Nombre";
 
                 listarServicio();
                 listarAccesorios();
@@ -185,7 +184,6 @@ namespace Cerin_Ingenieros.Consultas
                     mostrarDatosEquipo(equipo);
                 else MessageBox.Show("El equipo con serie " + txb_serie_equipo.Text.Replace(" ", "") + " no se encontro");
             }
-            else MessageBox.Show("Ingrese la serie del Equipo");
         }
 
         private void dataGridView_servicios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -205,6 +203,7 @@ namespace Cerin_Ingenieros.Consultas
 
                 txb_Observaciones.Text = equipoServicio.Observaciones_preliminares;
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(txb_serie_equipo.Text).otrosaccesorios;
             }
         }
     }
