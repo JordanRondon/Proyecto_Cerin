@@ -183,6 +183,7 @@
     <Compile Include="RecursosAdicionales\Clases\configColores.cs" />
     <Compile Include="RecursosAdicionales\Clases\classEncriptar.cs" />
     <Compile Include="RecursosAdicionales\Clases\ClassValidaciones.cs" />
+    <Compile Include="RecursosAdicionales\Clases\dgvConfiguracion.cs" />
     <Compile Include="Servicios\ActualizarServicios\preActualizarServicios.cs">
       <SubType>Form</SubType>
     </Compile>

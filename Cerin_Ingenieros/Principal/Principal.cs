@@ -30,6 +30,7 @@ namespace Cerin_Ingenieros
 
             //establecer area de maximizacion
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            BtnPantallaCom_Click(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -236,7 +237,14 @@ namespace Cerin_Ingenieros
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
-            AbrirFormHijo(new preVerServicios());
+            preVerServicios VerServicios = new preVerServicios();
+            VerServicios.pasado += new preVerServicios.pasar(Ejecutar);
+            AbrirFormHijo(VerServicios);
+        }
+
+        public void Ejecutar(string id_servicio)
+        {
+            AbrirFormHijo(new preActualizarServicios(RolUser,id_servicio));
         }
 
         private void Principal_FormClosing(object sender, FormClosingEventArgs e)
