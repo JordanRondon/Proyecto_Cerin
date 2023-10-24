@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace Cerin_Ingenieros.RecursosAdicionales.Clases
 {
     public static class Mensajes
@@ -15,7 +9,7 @@ namespace Cerin_Ingenieros.RecursosAdicionales.Clases
         }
         public static void MensajeGeneral(string mensaje)
         {
-            MessageBox.Show(mensaje,"Error",MessageBoxButtons.OK);
+            MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK);
         }
     }
 }
