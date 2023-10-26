@@ -16,10 +16,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 {
     public partial class preRegistEquipoMantenimiento : Form
     {
-        ////private List<entEquipo> lisEquiposelect;
-        private List<entEquipo> selecionado = new List<entEquipo>();
-        private entEquipo temp = new entEquipo();
-        List<entAccesorio> listaaccesorios;
+        private List<entEquipo> listaEquiposSelecionados;
+        private entEquipo EquipoSelecionaTemporal = new entEquipo();
+        private List<entAccesorio> listaaccesorios;
 
         //selecionar equipos
         List<entEquipo_Servicio> list_equipo_servicio = new List<entEquipo_Servicio>();
@@ -30,36 +29,36 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             InitializeComponent();
             //registrar
             listarDatosComboBox();
-            configInitial();
+            ConfigInitial();
             ConfigCabecera();
             comboBox_modelo.SelectedIndex = -1;
 
             //selecionar
             ConfigInicial();
+            listaEquiposSelecionados = new List<entEquipo>();
         }
 
         #region REGISTRAR
-        private void configInitial()
+        private void ConfigInitial()
         {
             
             txb_serie_equipo.Enabled = false;
             comboBox_modelo.Enabled = false;
-            comboBox_modelo.SelectedIndex = -1;
             comboBox_marca.Enabled = false;
-            comboBox_marca.SelectedIndex = -1;
-            comboBoxCategoria.SelectedIndex = -1;
             comboBoxCategoria.Enabled = false;
 
-            btnNuevoRegis.Enabled = true;
-            btnNuevoRegis.BackColor = configColores.btnActivo;
-            btnguardarRegist.Enabled = false;
-            btnguardarRegist.BackColor = configColores.btDesactivado;
-            btnCancelarRegist.Enabled = false;
-            btnCancelarRegist.BackColor = configColores.btDesactivado;
-            BtnEditarRegist.Enabled = false;
-            BtnEditarRegist.BackColor = configColores.btDesactivado;
+            comboBox_marca.SelectedIndex = -1;
+            comboBoxCategoria.SelectedIndex = -1;
+            comboBox_modelo.SelectedIndex = -1;
+
+
+            configColores.EstsblecerPropiedadesBoton(btnNuevoRegis,true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btnguardarRegist, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btnCancelarRegist, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(BtnEditarRegist, false, configColores.btDesactivado);
+            
         }
-        private void configNuevo()
+        private void ConfigNuevo()
         {
             txb_serie_equipo.Text = "";
             comboBox_modelo.SelectedIndex = 0;
@@ -71,12 +70,9 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             comboBox_marca.Enabled = true;
             comboBoxCategoria.Enabled = true;
 
-            btnNuevoRegis.Enabled = false;
-            btnNuevoRegis.BackColor = configColores.btDesactivado;
-            btnguardarRegist.Enabled = true;
-            btnguardarRegist.BackColor = configColores.btnActivo;
-            btnCancelarRegist.Enabled = true;
-            btnCancelarRegist.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btnNuevoRegis, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btnguardarRegist, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btnCancelarRegist, true, configColores.btnActivo);
         }
 
         private void listarDatosComboBox()
@@ -95,7 +91,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
         private void btnCancelarRegist_Click(object sender, EventArgs e)
         {
-            configInitial();
+            ConfigInitial();
         }
 
         private void btnNuevoRegis_Click(object sender, EventArgs e)
@@ -123,7 +119,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     else
                     {
                         comboBox_modelo.SelectedIndex = 0;
-                        configNuevo();
+                        ConfigNuevo();
                     }
                 }
             }
@@ -161,7 +157,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
 
             listarEquipo();
-            configNuevo();
+            ConfigNuevo();
         }
 
         private void ConfigCabecera()
@@ -207,7 +203,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         }
         #endregion REGISTRAR
 
-        public List<entEquipo> getEquipos() { return selecionado; }
+        public List<entEquipo> getEquipos() { return listaEquiposSelecionados; }
         public List<entEquipo_Servicio> getServicios() { return list_equipo_servicio; }
 
         private void ConfigInicial()
@@ -301,7 +297,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
                     listarEquipo();
-                    configInitial();
+                    ConfigInitial();
                 }
             }
             catch (Exception)
@@ -336,7 +332,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                         //cargamos los accesorios y elejimos los accesorios del equipo
                         //con los cuales entra al laboratorio
                         CargarTodosLosAccesorios();
-                        temp = equipo;
+                        EquipoSelecionaTemporal = equipo;
                     }
                     else
                     {
@@ -404,14 +400,14 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             list_equipo_servicio.Add(equipo_Servicio);
 
             //agregamos el equipo selecionado a la lsita de equipos
-            temp.Estado = 'U';
-            temp.otrosaccesorios = txbOtrosAccesorios.Text;
-            logEquipo.GetInstancia.editarEquipo(temp);
-            selecionado.Add(temp);
+            EquipoSelecionaTemporal.Estado = 'U';
+            EquipoSelecionaTemporal.otrosaccesorios = txbOtrosAccesorios.Text;
+            logEquipo.GetInstancia.editarEquipo(EquipoSelecionaTemporal);
+            listaEquiposSelecionados.Add(EquipoSelecionaTemporal);
 
             //Registramos los accesorios para el equipo
 
-            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(temp.SerieEquipo);
+            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(EquipoSelecionaTemporal.SerieEquipo);
 
             for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
             {

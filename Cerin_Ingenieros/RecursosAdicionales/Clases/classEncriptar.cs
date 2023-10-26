@@ -1,4 +1,7 @@
 ﻿
+using System.Security.Cryptography;
+using System.Text;
+
 namespace Cerin_Ingenieros.RecursosAdicionales.Clases
 {
     public static class classEncriptar

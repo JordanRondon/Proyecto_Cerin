@@ -83,6 +83,16 @@ namespace Cerin_Ingenieros.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Amarillo_parcial {
+            get {
+                object obj = ResourceManager.GetObject("Amarillo_parcial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap descagar2 {
             get {
                 object obj = ResourceManager.GetObject("descagar2", resourceCulture);
@@ -226,6 +236,16 @@ namespace Cerin_Ingenieros.Properties {
         internal static System.Drawing.Bitmap Rojo {
             get {
                 object obj = ResourceManager.GetObject("Rojo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Rojo_sin_inicial {
+            get {
+                object obj = ResourceManager.GetObject("Rojo_sin_inicial", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

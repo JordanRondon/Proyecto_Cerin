@@ -22,20 +22,14 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         #region CONFIGURACION DEL FORMULARIO
         private void ConfiguracionInicial()
         {
-            btn_nuevo.Enabled = true;
-            btn_nuevo.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_cancelar_registro.Enabled = false;
-            btn_cancelar_registro.BackColor = configColores.btDesactivado;
-            btn_buscar.Enabled = false;
-            btn_buscar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btnBuscarRuc.Enabled = false;
-            btnBuscarRuc.BackColor = configColores.btDesactivado;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar_registro, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btnBuscarRuc, false, configColores.btDesactivado);
+
 
             txb_dni_cliente.Enabled = false;
             txb_apellidos_cliente.Enabled = false;
@@ -47,20 +41,13 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void configEditar()
         {
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_buscar.Enabled = false;
-            btn_buscar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = true;
-            btn_eliminar.BackColor = configColores.btnActivo;
-            btnBuscarRuc.Enabled = true;
-            btnBuscarRuc.BackColor = configColores.btnActivo;
-            btn_editar.Enabled = true;
-            btn_editar.BackColor = configColores.btnActivo;
-            btn_cancelar_registro.Enabled = true;
-            btn_cancelar_registro.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar_registro, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btnBuscarRuc, true, configColores.btnActivo);
 
             txb_dni_cliente.Enabled = false;
             txb_apellidos_cliente.Enabled = false;
@@ -82,20 +69,13 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void ConfigNuevo()
         {
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btnBuscarRuc.Enabled = true;
-            btnBuscarRuc.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = true;
-            btn_guardar.BackColor = configColores.btnActivo;
-            btn_cancelar_registro.Enabled = true;
-            btn_cancelar_registro.BackColor = configColores.btnActivo;
-            btn_buscar.Enabled = true;
-            btn_buscar.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar_registro, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btnBuscarRuc, true, configColores.btnActivo);
 
             txb_dni_cliente.Enabled = true;
             txb_apellidos_cliente.Enabled = true;
@@ -115,7 +95,11 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         #endregion CONFIGURACION DEL FORMULARIO
 
         #region API_DNI_RUC
-        private void datosCliente(string DNI)
+        /// <summary>
+        /// Consulta los datos del cliente por DNI y muestra la información en los controles.
+        /// </summary>
+        /// <param name="DNI">Número de DNI a consultar.</param>
+        private void DatosCliente(string DNI)
         {
             entApi clienteApi = logApi.GetInstancia.consultarDatosApi(DNI);
             if (clienteApi != null)
@@ -130,7 +114,11 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             else { MessageBox.Show("DNI no valida"); }
         }
 
-        private void datosRuc(string RUC)
+        /// <summary>
+        /// Consulta los datos del cliente por RUC y muestra la información en los controles.
+        /// </summary>
+        /// <param name="RUC">Número de RUC a consultar.</param>
+        private void DatosRuc(string RUC)
         {
             entApi clienteApi = logApi.GetInstancia.consultarDatosApi(txb_ruc_cliente.Text.Trim());
             if (clienteApi != null)
@@ -153,22 +141,21 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void btn_buscar_Click(object sender, EventArgs e)
         {
-            // verificar que la cadena tenga 8 caracteres, no esta vacia
             if (txb_dni_cliente.Text.Length == 8)
             {
-                datosCliente(txb_dni_cliente.Text.Trim());
+                DatosCliente(txb_dni_cliente.Text.Trim());
             }
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            bool band1 = (txb_apellidos_cliente.Text !="" && txb_nombre_cliente.Text !="" && txb_dni_cliente.Text!="") || (txb_razonSocial_cliente.Text != "" && txb_razonSocial_cliente.Text!="");
-            bool band2 = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
+            bool hayDatosMinimos = (txb_apellidos_cliente.Text !="" && txb_nombre_cliente.Text !="" && txb_dni_cliente.Text!="") || (txb_razonSocial_cliente.Text != "" && txb_razonSocial_cliente.Text!="");
+            bool DatoUnico = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
             try
             {
-                if (band2)
+                if (DatoUnico)
                 {
-                    if (band1)
+                    if (hayDatosMinimos)
                     {
                         entCliente cliente = new entCliente();
 
@@ -180,6 +167,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
                         cliente.Telefono = txb_telefono_cliente.Text.Trim();
 
                         logCliente.GetInstancia.insertarCliente(cliente);
+
+                        ListarClientes();
+                        ConfigNuevo();
                     }
                     else
                         MessageBox.Show("Casillas vacias", "Error");
@@ -190,25 +180,26 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             catch (Exception ex)
             {
                 MessageBox.Show("Error.." + ex);
-            }
-
-            ListarClientes();
-            ConfigNuevo();
+            }            
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
             try
             {
-                entCliente cliente = new entCliente();
+                bool hayDatosMinimos = (txb_apellidos_cliente.Text != "" && txb_nombre_cliente.Text != "" && txb_dni_cliente.Text != "") || (txb_razonSocial_cliente.Text != "" && txb_razonSocial_cliente.Text != "");
+                bool DatoUnico = (logCliente.GetInstancia.ValidarDniUnica(txb_dni_cliente.Text.Trim()) || logCliente.GetInstancia.ValidarRucUnica(txb_ruc_cliente.Text.Trim()));
 
-                cliente.IdCliente = id_Temporal;
-                cliente.Nombre = txb_nombre_cliente.Text.Trim();
-                cliente.Apellido = txb_apellidos_cliente.Text.Trim();
-                cliente.Dni = txb_dni_cliente.Text.Trim();
-                cliente.Ruc = txb_ruc_cliente.Text.Trim();
-                cliente.RazonSocial = txb_razonSocial_cliente.Text.Trim();
-                cliente.Telefono = txb_telefono_cliente.Text.Trim();
+                entCliente cliente = new entCliente
+                {
+                    IdCliente = id_Temporal,
+                    Nombre = txb_nombre_cliente.Text.Trim(),
+                    Apellido = txb_apellidos_cliente.Text.Trim(),
+                    Dni = txb_dni_cliente.Text.Trim(),
+                    Ruc = txb_ruc_cliente.Text.Trim(),
+                    RazonSocial = txb_razonSocial_cliente.Text.Trim(),
+                    Telefono = txb_telefono_cliente.Text.Trim()
+                };
 
                 logCliente.GetInstancia.editarCliente(cliente);
             }
@@ -216,18 +207,17 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             {
                 MessageBox.Show("Error.." + ex);
             }
-
-            ListarClientes();
-            ConfiguracionInicial();
-            LimpiarVariables();
-            id_Temporal = -1;
+            finally
+            {
+                ListarClientes();
+                ConfiguracionInicial();
+                LimpiarVariables();
+                id_Temporal = -1;
+            }
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-
-            bool datosIngresados = (txb_nombre_cliente.Text != "" && txb_apellidos_cliente.Text != "" && txb_dni_cliente.Text != "");
-
             try
             {
                 if (id_Temporal>=0)
@@ -243,11 +233,14 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             {
                 MessageBox.Show("Error.." + ex);
             }
+            finally
+            {
+                ListarClientes();
+                ConfiguracionInicial();
+                LimpiarVariables();
+                id_Temporal = -1;
+            }
 
-            ListarClientes();
-            ConfiguracionInicial();
-            LimpiarVariables();
-            id_Temporal = -1;
         }
 
         private void btn_cancelar_registro_Click(object sender, EventArgs e)
@@ -278,7 +271,7 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         {
             if (txb_ruc_cliente.Text.Length == 11)
             {
-                datosRuc(txb_ruc_cliente.Text.Trim());
+                DatosRuc(txb_ruc_cliente.Text.Trim());
             }
         }
 

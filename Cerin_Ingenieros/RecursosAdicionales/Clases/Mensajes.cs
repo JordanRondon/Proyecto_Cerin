@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Cerin_Ingenieros.RecursosAdicionales.Clases
 {
     public static class Mensajes
