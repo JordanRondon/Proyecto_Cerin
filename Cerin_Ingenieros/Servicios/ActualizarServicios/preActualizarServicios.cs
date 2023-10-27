@@ -128,8 +128,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                 entTipoServicio tipoServicio = new entTipoServicio();
 
                 limpiarTablas();
-
-                if (txb_id_Servicio.Text != "" && servicioActual != null)
+                if (servicioActual != null)
                 {
                     if (servicioActual.FechaEntrega == null)
                     {
@@ -140,9 +139,9 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         if (rolUser == 1)
                         {
                             grb_Pagos.Visible = true;
-                            grb_Stikers.Visible = true;
+                            if (servicioActual.IdTipoServicio != 1) grb_Stikers.Visible = true;
                         }
-                        else if(rolUser==3)
+                        else if (rolUser == 3 && servicioActual.IdTipoServicio != 1)
                         {
                             grb_Laboratorio.Visible = true;
                         }
@@ -157,7 +156,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                             label_nombre_ruc_cliente.Text = cliente.RazonSocial;
 
                         label_tipo_Servicio.Text = tipoServicio.Nombre;
-                        
+
                         //cargando estados
                         if (servicioActual.estadoLaboratorio == 'V')
                         {
@@ -169,8 +168,8 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         else if (servicioActual.estadoLaboratorio == 'R')
                         {
                             grb_Laboratorio.Text = "Laboratorio: Sin solucion";
-                            btn_LaboratorioPendiente.Enabled=false;
-                            btn_LaboratorioTerminado.Enabled=false;
+                            btn_LaboratorioPendiente.Enabled = false;
+                            btn_LaboratorioTerminado.Enabled = false;
                             LabSinSolucion();
                         }
                         else

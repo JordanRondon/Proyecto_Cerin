@@ -233,6 +233,16 @@ namespace Cerin_Ingenieros.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap neutro {
+            get {
+                object obj = ResourceManager.GetObject("neutro", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rojo {
             get {
                 object obj = ResourceManager.GetObject("Rojo", resourceCulture);

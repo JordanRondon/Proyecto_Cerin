@@ -395,6 +395,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LOGO-CCI.ico" />
+    <None Include="Resources\neutro.png" />
     <None Include="Resources\Rojo_sin_inicial.png" />
     <None Include="Resources\Amarillo_parcial.png" />
     <None Include="Resources\Verde.png" />

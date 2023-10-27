@@ -82,13 +82,24 @@ namespace Cerin_Ingenieros.Consultas
             {
                 string fechasalida = item.FechaEntrega == null ? "Pendiente" : ((DateTime)item.FechaEntrega).ToString("dd-MM-yyyy HH:mm");
 
-                Image estadoPago = ObtenerEstadoEnImage(item.estadoPago, "Pago");
-                Image estadoStiker = ObtenerEstadoEnImage(item.estadoStikers, "Stikers");
-                Image estadoLab = ObtenerEstadoEnImage(item.estadoLaboratorio, "Laboratorio");
-                Image estado = ObtenerEstadoEnImage(item.estado, "Estado");
-                entCliente cliente = logCliente.GetInstancia.buscarClienteId(item.IdCliente);
                 entTipoServicio tipoServicio = listaTipoServicios.FirstOrDefault(tipo => tipo.IdTipoServicio == item.IdTipoServicio);
 
+                Image estadoPago = ObtenerEstadoEnImage(item.estadoPago, "Pago");
+                Image estadoStiker;
+                Image estadoLab;
+                if (tipoServicio.Nombre!="ALQUILER")
+                {
+                    estadoStiker = ObtenerEstadoEnImage(item.estadoStikers, "Stikers");
+                    estadoLab = ObtenerEstadoEnImage(item.estadoLaboratorio, "Laboratorio");
+                }
+                else
+                {
+                    estadoStiker = Resources.neutro;
+                    estadoLab = Resources.neutro;
+                }
+                
+                Image estado = ObtenerEstadoEnImage(item.estado, "Estado");
+                entCliente cliente = logCliente.GetInstancia.buscarClienteId(item.IdCliente);
                 dgvServicios.Rows.Add(
                     item.IdServicio,
                     item.FechaRegistro.ToString("dd-MM-yyyy HH:mm"),
