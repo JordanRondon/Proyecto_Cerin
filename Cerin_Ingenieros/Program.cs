@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cerin_Ingenieros.Consultas;
+using System;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros
@@ -13,7 +14,7 @@ namespace Cerin_Ingenieros
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal(3));
+            Application.Run(new preCargarCertificado());
         }
     }
 }

@@ -55,6 +55,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txb_RecomendacionesPreliminares = new System.Windows.Forms.TextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.grb_observacionesFinales = new System.Windows.Forms.GroupBox();
             this.btn_editarRecomendacion = new System.Windows.Forms.Button();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
@@ -95,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Accesorios)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.grb_observacionesFinales.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -297,13 +301,15 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.70988F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.58025F));
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel2.Controls.Add(this.panel5, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel6, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.panel7, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.panel11, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 237);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -319,7 +325,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 3);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(343, 222);
+            this.panel5.Size = new System.Drawing.Size(278, 222);
             this.panel5.TabIndex = 0;
             // 
             // label2
@@ -366,7 +372,7 @@
             this.dataGridView_Accesorios.Location = new System.Drawing.Point(7, 23);
             this.dataGridView_Accesorios.Name = "dataGridView_Accesorios";
             this.dataGridView_Accesorios.RowHeadersVisible = false;
-            this.dataGridView_Accesorios.Size = new System.Drawing.Size(333, 190);
+            this.dataGridView_Accesorios.Size = new System.Drawing.Size(268, 190);
             this.dataGridView_Accesorios.TabIndex = 41;
             // 
             // panel6
@@ -374,18 +380,18 @@
             this.panel6.Controls.Add(this.label6);
             this.panel6.Controls.Add(this.txbOtrosAccesorios);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(352, 3);
+            this.panel6.Location = new System.Drawing.Point(287, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(343, 222);
+            this.panel6.Size = new System.Drawing.Size(221, 222);
             this.panel6.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(176, 20);
+            this.label6.Size = new System.Drawing.Size(165, 18);
             this.label6.TabIndex = 50;
             this.label6.Text = "OTROS ACCESORIOS";
             // 
@@ -399,17 +405,50 @@
             this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
             this.txbOtrosAccesorios.ReadOnly = true;
             this.txbOtrosAccesorios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbOtrosAccesorios.Size = new System.Drawing.Size(327, 190);
+            this.txbOtrosAccesorios.Size = new System.Drawing.Size(215, 195);
             this.txbOtrosAccesorios.TabIndex = 51;
             // 
             // panel7
             // 
-            this.panel7.Controls.Add(this.grb_observacionesFinales);
+            this.panel7.Controls.Add(this.label8);
+            this.panel7.Controls.Add(this.txb_RecomendacionesPreliminares);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(701, 3);
+            this.panel7.Location = new System.Drawing.Point(514, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(433, 222);
+            this.panel7.Size = new System.Drawing.Size(221, 222);
             this.panel7.TabIndex = 2;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(7, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(249, 18);
+            this.label8.TabIndex = 52;
+            this.label8.Text = "OBSERVACIONES PRELIMINARES";
+            // 
+            // txb_RecomendacionesPreliminares
+            // 
+            this.txb_RecomendacionesPreliminares.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txb_RecomendacionesPreliminares.Location = new System.Drawing.Point(5, 28);
+            this.txb_RecomendacionesPreliminares.Multiline = true;
+            this.txb_RecomendacionesPreliminares.Name = "txb_RecomendacionesPreliminares";
+            this.txb_RecomendacionesPreliminares.ReadOnly = true;
+            this.txb_RecomendacionesPreliminares.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txb_RecomendacionesPreliminares.Size = new System.Drawing.Size(210, 190);
+            this.txb_RecomendacionesPreliminares.TabIndex = 53;
+            // 
+            // panel11
+            // 
+            this.panel11.Controls.Add(this.grb_observacionesFinales);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(741, 3);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(393, 222);
+            this.panel11.TabIndex = 3;
             // 
             // grb_observacionesFinales
             // 
@@ -420,9 +459,9 @@
             this.grb_observacionesFinales.Controls.Add(this.txb_Recomendaciones);
             this.grb_observacionesFinales.Controls.Add(this.btn_agregarRecomendacion);
             this.grb_observacionesFinales.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grb_observacionesFinales.Location = new System.Drawing.Point(3, 3);
+            this.grb_observacionesFinales.Location = new System.Drawing.Point(0, 0);
             this.grb_observacionesFinales.Name = "grb_observacionesFinales";
-            this.grb_observacionesFinales.Size = new System.Drawing.Size(427, 210);
+            this.grb_observacionesFinales.Size = new System.Drawing.Size(386, 210);
             this.grb_observacionesFinales.TabIndex = 43;
             this.grb_observacionesFinales.TabStop = false;
             this.grb_observacionesFinales.Text = "OBSERVACIONES FINALES";
@@ -435,7 +474,7 @@
             this.btn_editarRecomendacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_editarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_editarRecomendacion.ForeColor = System.Drawing.Color.White;
-            this.btn_editarRecomendacion.Location = new System.Drawing.Point(326, 169);
+            this.btn_editarRecomendacion.Location = new System.Drawing.Point(285, 169);
             this.btn_editarRecomendacion.Name = "btn_editarRecomendacion";
             this.btn_editarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_editarRecomendacion.TabIndex = 42;
@@ -452,18 +491,18 @@
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(314, 180);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(374, 139);
             this.txb_Recomendaciones.TabIndex = 41;
             // 
             // btn_agregarRecomendacion
             // 
-            this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_agregarRecomendacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_agregarRecomendacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btn_agregarRecomendacion.FlatAppearance.BorderSize = 0;
             this.btn_agregarRecomendacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_agregarRecomendacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_agregarRecomendacion.ForeColor = System.Drawing.Color.White;
-            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(326, 19);
+            this.btn_agregarRecomendacion.Location = new System.Drawing.Point(6, 169);
             this.btn_agregarRecomendacion.Name = "btn_agregarRecomendacion";
             this.btn_agregarRecomendacion.Size = new System.Drawing.Size(95, 35);
             this.btn_agregarRecomendacion.TabIndex = 39;
@@ -794,6 +833,8 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel11.ResumeLayout(false);
             this.grb_observacionesFinales.ResumeLayout(false);
             this.grb_observacionesFinales.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -816,21 +857,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_Buscar;
         private System.Windows.Forms.DataGridView dataGridView_Accesorios;
-        private System.Windows.Forms.GroupBox grb_observacionesFinales;
         private System.Windows.Forms.Label label_tipo_Servicio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView_equipos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label_nombre_ruc_cliente;
         private System.Windows.Forms.Button btn_Cancelar;
-        private System.Windows.Forms.Button btn_agregarRecomendacion;
         private System.Windows.Forms.Button btn_FinalizarServicio;
-        private System.Windows.Forms.TextBox txb_Recomendaciones;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbHora;
         private System.Windows.Forms.Label lbFecha;
         private System.Windows.Forms.Timer fechaHora;
-        private System.Windows.Forms.Button btn_editarRecomendacion;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel4;
@@ -847,7 +884,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.GroupBox grb_Laboratorio;
         private System.Windows.Forms.GroupBox grb_Stikers;
         private System.Windows.Forms.GroupBox grb_Pagos;
@@ -862,5 +898,13 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txb_RecomendacionesPreliminares;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.GroupBox grb_observacionesFinales;
+        private System.Windows.Forms.Button btn_editarRecomendacion;
+        private System.Windows.Forms.TextBox txb_Recomendaciones;
+        private System.Windows.Forms.Button btn_agregarRecomendacion;
     }
 }

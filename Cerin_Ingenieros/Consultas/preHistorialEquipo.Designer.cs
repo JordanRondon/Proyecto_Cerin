@@ -69,9 +69,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.txb_Recomendaciones = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbOtrosAccesorios = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txb_serie_equipo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -92,7 +89,6 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -492,13 +488,11 @@
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.ColumnCount = 3;
+            this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.80663F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.88582F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.12339F));
             this.tableLayoutPanel5.Controls.Add(this.panel4, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.panel6, 1, 0);
-            this.tableLayoutPanel5.Controls.Add(this.panel7, 2, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 270);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
@@ -513,7 +507,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(372, 180);
+            this.panel4.Size = new System.Drawing.Size(544, 180);
             this.panel4.TabIndex = 0;
             // 
             // panel5
@@ -523,7 +517,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(372, 180);
+            this.panel5.Size = new System.Drawing.Size(544, 180);
             this.panel5.TabIndex = 0;
             // 
             // label4
@@ -546,7 +540,7 @@
             this.txb_Observaciones.Name = "txb_Observaciones";
             this.txb_Observaciones.ReadOnly = true;
             this.txb_Observaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Observaciones.Size = new System.Drawing.Size(362, 154);
+            this.txb_Observaciones.Size = new System.Drawing.Size(534, 154);
             this.txb_Observaciones.TabIndex = 49;
             // 
             // panel6
@@ -554,9 +548,9 @@
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.txb_Recomendaciones);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(381, 3);
+            this.panel6.Location = new System.Drawing.Point(553, 3);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(362, 180);
+            this.panel6.Size = new System.Drawing.Size(530, 180);
             this.panel6.TabIndex = 1;
             // 
             // label5
@@ -579,41 +573,8 @@
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";
             this.txb_Recomendaciones.ReadOnly = true;
             this.txb_Recomendaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txb_Recomendaciones.Size = new System.Drawing.Size(351, 154);
+            this.txb_Recomendaciones.Size = new System.Drawing.Size(519, 154);
             this.txb_Recomendaciones.TabIndex = 41;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label1);
-            this.panel7.Controls.Add(this.txbOtrosAccesorios);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(749, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(334, 180);
-            this.panel7.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Otros accesorios";
-            // 
-            // txbOtrosAccesorios
-            // 
-            this.txbOtrosAccesorios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txbOtrosAccesorios.Location = new System.Drawing.Point(3, 23);
-            this.txbOtrosAccesorios.Multiline = true;
-            this.txbOtrosAccesorios.Name = "txbOtrosAccesorios";
-            this.txbOtrosAccesorios.ReadOnly = true;
-            this.txbOtrosAccesorios.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbOtrosAccesorios.Size = new System.Drawing.Size(328, 154);
-            this.txbOtrosAccesorios.TabIndex = 63;
             // 
             // label7
             // 
@@ -720,8 +681,6 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,8 +720,6 @@
         private System.Windows.Forms.Label lb_modelo;
         private System.Windows.Forms.TextBox txb_serie_equipo;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbOtrosAccesorios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -773,6 +730,5 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
     }
 }

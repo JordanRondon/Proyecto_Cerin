@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -19,12 +20,36 @@ namespace Cerin_Ingenieros.Servicios
         {
             InitializeComponent();
             listaTodosClientes = logCliente.GetInstancia.listarClientes();
+            ConfigCabecera();
             ListarClientes();
+        }
+
+        private void ConfigCabecera()
+        {
+            dgvConfiguracion.ConfigurarColumnas(dgvClientes,
+                new string[] { "Id", "Nombre", "Apellido", "DNI", "RUC", "Razon social", "Telefono" });
+            dgvClientes.Columns["Id"].Width = 50;
+            dgvClientes.Columns["DNI"].Width = 80;
+            dgvClientes.Columns["RUC"].Width = 100;
+            dgvClientes.Columns["Telefono"].Width = 90;
         }
 
         private void ListarClientes()
         {
-            dgvClientes.DataSource = listaTodosClientes;
+            List<entCliente> ls = listaTodosClientes;
+
+            foreach (var item in ls)
+            {
+                dgvClientes.Rows.Add(
+                    item.IdCliente,
+                    item.Nombre,
+                    item.Apellido,
+                    item.Dni,
+                    item.Ruc,
+                    item.RazonSocial,
+                    item.Telefono
+                );
+            }
         }
 
         private void SlecionarCliente()

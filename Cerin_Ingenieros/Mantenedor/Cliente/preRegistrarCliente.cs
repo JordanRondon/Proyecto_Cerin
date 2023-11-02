@@ -15,11 +15,22 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         public preRegistrarCliente()
         {
             InitializeComponent();
-            ListarClientes();
             ConfiguracionInicial();
+            ConfigCabecera();
+            ListarClientes();
         }
 
         #region CONFIGURACION DEL FORMULARIO
+        private void ConfigCabecera()
+        {
+            dgvConfiguracion.ConfigurarColumnas(dgvClientes,
+                new string[] { "Id", "Nombre", "Apellido", "DNI", "RUC", "Razon social", "Telefono" });
+            dgvClientes.Columns["Id"].Width = 50;
+            dgvClientes.Columns["DNI"].Width = 80;
+            dgvClientes.Columns["RUC"].Width = 100;
+            dgvClientes.Columns["Telefono"].Width = 90;
+        }
+
         private void ConfiguracionInicial()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -90,7 +101,19 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         private void ListarClientes()
         {
             List<entCliente> ls = logCliente.GetInstancia.listarClientes();
-            dgvClientes2.DataSource = ls;
+
+            foreach (var item in ls)
+            {
+                dgvClientes.Rows.Add(
+                    item.IdCliente,
+                    item.Nombre,
+                    item.Apellido,
+                    item.Dni,
+                    item.Ruc,
+                    item.RazonSocial,
+                    item.Telefono
+                );
+            }
         }
         #endregion CONFIGURACION DEL FORMULARIO
 
@@ -174,7 +197,12 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
                     else
                         MessageBox.Show("Casillas vacias", "Error");
                 }
-                else MessageBox.Show("Valores ya registrados");
+                else 
+                {
+                    MessageBox.Show("Valores ya registrados");
+                    ListarClientes();
+                    ConfigNuevo();
+                }
                 
             }
             catch (Exception ex)
@@ -253,7 +281,7 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow filaActual = dgvClientes2.Rows[e.RowIndex];
+                DataGridViewRow filaActual = dgvClientes.Rows[e.RowIndex];
 
                 id_Temporal = int.Parse(filaActual.Cells[0].Value.ToString());
                 txb_nombre_cliente.Text = filaActual.Cells[1].Value.ToString();
