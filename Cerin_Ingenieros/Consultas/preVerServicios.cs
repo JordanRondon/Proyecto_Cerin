@@ -97,15 +97,15 @@ namespace Cerin_Ingenieros.Consultas
                     estadoStiker = Resources.neutro;
                     estadoLab = Resources.neutro;
                 }
-                
                 Image estado = ObtenerEstadoEnImage(item.estado, "Estado");
                 entCliente cliente = logCliente.GetInstancia.buscarClienteId(item.IdCliente);
+                string nameCliente = cliente.Ruc!=""?cliente.RazonSocial: cliente.Apellido + ", " + cliente.Nombre;
                 dgvServicios.Rows.Add(
                     item.IdServicio,
                     item.FechaRegistro.ToString("dd-MM-yyyy HH:mm"),
                     fechasalida,
                     tipoServicio.Nombre,
-                    cliente.Apellido + ", " + cliente.Nombre,
+                    nameCliente,
                     estadoPago,
                     estadoStiker,
                     estadoLab,

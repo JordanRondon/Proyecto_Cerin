@@ -4,15 +4,9 @@ using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Text;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Servicios.ActualizarServicios
@@ -150,10 +144,11 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
                         cliente = logCliente.GetInstancia.buscarClienteId(servicioActual.IdCliente);
                         tipoServicio = logTipoServicio.GetInstancia.buscarTipoServicioId(servicioActual.IdTipoServicio);
-                        if (cliente.Nombre != "")
-                            label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
-                        else
+                        if (cliente.Ruc != "")
                             label_nombre_ruc_cliente.Text = cliente.RazonSocial;
+                        else
+                            label_nombre_ruc_cliente.Text = cliente.Apellido + ", " + cliente.Nombre;
+
 
                         label_tipo_Servicio.Text = tipoServicio.Nombre;
 
@@ -234,23 +229,12 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void ConfigCabecera()
         {
-            dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Serie" },
-                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
-            );
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_equipos,
+                new string[] { "Serie", "Modelo", "Estado", "Marca"});
 
-
-            dataGridView_Accesorios.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
-            );
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_Accesorios,
+                new string[] { "Nombre", "Cantidad" });
+            dataGridView_Accesorios.Columns["Cantidad"].Width = 80;
         }
 
         private void listarEquipos(int id_servicio)
@@ -302,6 +286,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
                 equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+                txb_RecomendacionesPreliminares.Text = equipoServicio.Observaciones_preliminares;
                 txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(serieEquipo).otrosaccesorios;
                 if (txb_Recomendaciones.Text != null)
                 {

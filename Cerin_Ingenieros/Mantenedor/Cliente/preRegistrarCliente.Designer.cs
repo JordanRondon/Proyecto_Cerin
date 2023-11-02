@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvClientes2 = new System.Windows.Forms.DataGridView();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_cancelar_registro = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
@@ -53,21 +53,21 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_cancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBoxRegistrar.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dgvClientes2
+            // dgvClientes
             // 
-            this.dgvClientes2.AllowUserToAddRows = false;
-            this.dgvClientes2.AllowUserToDeleteRows = false;
-            this.dgvClientes2.AllowUserToResizeColumns = false;
-            this.dgvClientes2.AllowUserToResizeRows = false;
-            this.dgvClientes2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvClientes2.BackgroundColor = System.Drawing.Color.White;
-            this.dgvClientes2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvClientes2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToResizeColumns = false;
+            this.dgvClientes.AllowUserToResizeRows = false;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClientes.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -75,8 +75,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClientes2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -84,16 +84,16 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClientes2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClientes2.EnableHeadersVisualStyles = false;
-            this.dgvClientes2.Location = new System.Drawing.Point(66, 252);
-            this.dgvClientes2.Name = "dgvClientes2";
-            this.dgvClientes2.ReadOnly = true;
-            this.dgvClientes2.RowHeadersVisible = false;
-            this.dgvClientes2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClientes2.Size = new System.Drawing.Size(1042, 291);
-            this.dgvClientes2.TabIndex = 39;
-            this.dgvClientes2.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes2_CellContentDoubleClick);
+            this.dgvClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClientes.EnableHeadersVisualStyles = false;
+            this.dgvClientes.Location = new System.Drawing.Point(66, 252);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClientes.Size = new System.Drawing.Size(1042, 291);
+            this.dgvClientes.TabIndex = 39;
+            this.dgvClientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes2_CellContentDoubleClick);
             // 
             // panel1
             // 
@@ -374,13 +374,13 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(239)))), ((int)(((byte)(225)))));
             this.ClientSize = new System.Drawing.Size(1164, 568);
             this.Controls.Add(this.btn_cancelar);
-            this.Controls.Add(this.dgvClientes2);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBoxRegistrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "preRegistrarCliente";
             this.Text = "preRegistrarCliente";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBoxRegistrar.ResumeLayout(false);
             this.groupBoxRegistrar.PerformLayout();
@@ -390,7 +390,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgvClientes2;
+        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_cancelar_registro;
         private System.Windows.Forms.Button btn_eliminar;

@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,23 +65,12 @@ namespace Cerin_Ingenieros.Consultas
 
         private void ConfigCabecera()
         {
-            dataGridView_servicios.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Código" },
-                new DataGridViewTextBoxColumn { HeaderText = "Fecha de Registro" },
-                new DataGridViewTextBoxColumn { HeaderText = "Fecha de Entrega" },
-                new DataGridViewTextBoxColumn { HeaderText = "Tipo Servicio" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" }
-            );
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_servicios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_servicios,
+                new string[] { "Código", "cha de Registro", "Fecha de Entrega", "Tipo Servicio", "Estado" });
 
-            dataGridView_Accesorios.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Cantidad" }
-            );
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_Accesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_Accesorios,
+                new string[] { "Nombre", "Cantidad" });
+            dataGridView_Accesorios.Columns["Cantidad"].Width = 80;
         }
 
         private void listarServicio()
@@ -203,7 +193,6 @@ namespace Cerin_Ingenieros.Consultas
 
                 txb_Observaciones.Text = equipoServicio.Observaciones_preliminares;
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
-                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(txb_serie_equipo.Text).otrosaccesorios;
             }
         }
     }
