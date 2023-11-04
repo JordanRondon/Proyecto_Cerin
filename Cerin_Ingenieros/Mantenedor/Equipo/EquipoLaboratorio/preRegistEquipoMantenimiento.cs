@@ -137,7 +137,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                     equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
                     entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
                     equipo.id_modelo = modeloSelec.id_modelo;
-                    equipo.Estado = 'E';//POR DEFECTO DISPONIBLE
+                    equipo.Estado = 'E';//POR DEFECTO ENTREGADO
                     equipo.IdTipo = 2; //EQUIPO EXTERNO A LA EMPRESA
                     entMarca marcaselect = (entMarca)comboBox_marca.SelectedItem;
                     equipo.IdMarca = marcaselect.IdMarca;
@@ -493,14 +493,15 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         {
             List<entModelo> listaModelo = new List<entModelo>();
 
-            //listaModelo = logModelo.GetInstancia.listarModelos();
+            entMarca marca = (entMarca)comboBox_marca.SelectedItem;
+            listaModelo = logModelo.GetInstancia.listarModelos(marca.IdMarca);
 
             entModelo modeloSeleccionado = new entModelo();
 
             foreach (var i in listaModelo)
             {
                 //obtenemos el registro mediante un ID especifico 
-                if (i.nombre == filaActual.Cells[1].Value.ToString())
+                if (i.nombre == filaActual.Cells[2].Value.ToString())
                 {
                     modeloSeleccionado = i;
                     break;
@@ -527,7 +528,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             foreach (var i in listaMarca)
             {
                 //obtenemos el registro mediante un ID especifico 
-                if (i.Nombre == filaActual.Cells[3].Value.ToString())
+                if (i.Nombre == filaActual.Cells[1].Value.ToString())
                 {
                     marcaSeleccionada = i;
                     break;
@@ -554,7 +555,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             foreach (var i in listacategoria)
             {
                 //obtenemos el registro mediante un ID especifico 
-                if (i.Nombre == filaActual.Cells[4].Value.ToString())
+                if (i.Nombre == filaActual.Cells[0].Value.ToString())
                 {
                     categoriaSeleccionada = i;
                     break;
@@ -593,12 +594,12 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             {
                 DataGridViewRow filaActual = dgvListaDeEquipoClientes.Rows[e.RowIndex];
 
-                registroSeleccionado = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                registroSeleccionado = Convert.ToString(filaActual.Cells[3].Value.ToString());
                 txb_serie_equipo.Text = registroSeleccionado;
                 //FALTA ACUTALIZAR EL ESTADO
-                comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
-                comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
                 comboBoxCategoria.SelectedIndex = obtenerIndiceCategoriaSelec(filaActual);
+                comboBox_marca.SelectedIndex = obtenerIndiceMarcaSelec(filaActual);
+                comboBox_modelo.SelectedIndex = obtenerIndiceModeloSelec(filaActual);
 
                 habilitar_btn_modificacion();
 

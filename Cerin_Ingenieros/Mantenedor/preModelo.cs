@@ -221,6 +221,9 @@ namespace Cerin_Ingenieros.Mantenedor
                         estado = 'S'
                     };
 
+                    entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
+                    modelo.IdMarca = marcaSelec.IdMarca;
+
                     logModelo.GetInstancia.editarModelo(modelo);
 
                     limpiar_entradas();

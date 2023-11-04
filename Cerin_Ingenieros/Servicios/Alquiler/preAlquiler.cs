@@ -236,7 +236,7 @@ namespace Cerin_Ingenieros.Servicios
         private void btn_guardar_Click(object sender, EventArgs e)
         {
 
-            if (clienteSelecionado != null && equiposSelecionados.Count > 0)
+            if (clienteSelecionado != null && equiposSelecionados.Count > 0 && comboBox_empleado.SelectedIndex!=-1)
             {
                 //REGISTRAR EL SERVICIO
                 entServicio servicio = new entServicio

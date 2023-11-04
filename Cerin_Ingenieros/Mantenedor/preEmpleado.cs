@@ -225,6 +225,12 @@ namespace Cerin_Ingenieros
                     usuario.estado = 'A';
                     usuario.id_usuario =  logUser.GetInstancia.insertarUsuario(usuario);
 
+                    if (usuario.id_usuario <= 0)
+                    {
+                        MessageBox.Show("El usuario ya esta registrado, cambia de USERNAME");
+                        return;
+                    }
+
                     entEmpleado empleado = new entEmpleado
                     {
                         Nombre = txb_nombres_empleado.Text.Trim(),
@@ -370,6 +376,11 @@ namespace Cerin_Ingenieros
                     MessageBox.Show("DNI no valida");
                 }
             }            
+        }
+
+        private void txb_userNamer_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
