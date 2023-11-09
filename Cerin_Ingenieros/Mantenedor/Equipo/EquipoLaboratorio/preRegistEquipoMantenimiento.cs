@@ -494,7 +494,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             List<entModelo> listaModelo = new List<entModelo>();
 
             entMarca marca = (entMarca)comboBox_marca.SelectedItem;
-            listaModelo = logModelo.GetInstancia.listarModelos(marca.IdMarca);
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
+            listaModelo = logModelo.GetInstancia.listarModelos(marca.IdMarca, categoria.id_categoria_equipo);
 
             entModelo modeloSeleccionado = new entModelo();
 
@@ -631,11 +632,12 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
         {
             entMarca marca = (entMarca)comboBox_marca.SelectedValue;
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
             if (marca != null)
             {
 
                 // Consulta y llena comboBox_Modelo con modelos relacionados a la marca seleccionada
-                List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca);
+                List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca, categoria.id_categoria_equipo);
 
                 // Llena comboBox_Modelo con los datos de los modelos
                 comboBox_modelo.DataSource = modelos;

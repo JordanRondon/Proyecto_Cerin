@@ -17,7 +17,7 @@ namespace CapaDato
         #endregion
 
         #region Metodos
-        public List<entModelo> listarModelo(int id_marca)
+        public List<entModelo> listarModelo(int id_marca, int id_categoria)
         {
             SqlCommand cmd = null;
             List<entModelo> lista = new List<entModelo>();
@@ -29,6 +29,7 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_listarModelo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id_marca", id_marca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", id_categoria);
                 cn.Open();
 
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -41,6 +42,7 @@ namespace CapaDato
                     modelo.nombre = Convert.ToString(dr["nombre"]);
                     modelo.estado = Convert.ToChar(dr["estado"]);
                     modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    modelo.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
 
                     lista.Add(modelo);
                 }
@@ -80,6 +82,7 @@ namespace CapaDato
                     modelo.nombre = Convert.ToString(dr["nombre"]);
                     modelo.estado = Convert.ToChar(dr["estado"]);
                     modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    modelo.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
 
                     lista.Add(modelo);
                 }
@@ -110,6 +113,7 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
                 cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo);
                 cn.Open();
 
                 int i = cmd.ExecuteNonQuery();
@@ -146,6 +150,7 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
                 cmd.Parameters.AddWithValue("@estado", modelo.estado); 
                 cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo);
 
                 cn.Open();
 
@@ -181,6 +186,7 @@ namespace CapaDato
                     m.id_modelo = Convert.ToInt32(dr["id_modelo"]);
                     m.nombre = Convert.ToString(dr["nombre"]);
                     m.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    m.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
                 }
             }
             catch (Exception e)

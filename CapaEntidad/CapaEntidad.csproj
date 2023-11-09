@@ -86,6 +86,7 @@
     <Compile Include="entEquipo_Accesorio.cs" />
     <Compile Include="entEquipo_Servicio.cs" />
     <Compile Include="entMarca.cs" />
+    <Compile Include="entMarcaCategoria.cs" />
     <Compile Include="entModelo.cs" />
     <Compile Include="entRol.cs" />
     <Compile Include="entServicio.cs" />
