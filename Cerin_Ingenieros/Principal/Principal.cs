@@ -224,6 +224,11 @@ namespace Cerin_Ingenieros
             AbrirFormHijo(new preModelo());
         }
 
+        private void btnNuevaCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormHijo(new preCategoria());
+        }
+
         private void btnEmpleado_Click(object sender, EventArgs e)
         {
             AbrirFormHijo(new preEmpleado());

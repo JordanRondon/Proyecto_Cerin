@@ -15,7 +15,7 @@ namespace Cerin_Ingenieros
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new preLogin());
+            Application.Run(new Principal(1));
         }
     }
 }
