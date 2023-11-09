@@ -14,6 +14,7 @@ using System.Diagnostics;
 using static iTextSharp.text.pdf.AcroFields;
 using Microsoft.Office.Interop.Word;
 using static iTextSharp.text.pdf.codec.TiffWriter;
+using System.Reflection;
 
 namespace CapaDato
 {
@@ -24,7 +25,7 @@ namespace CapaDato
         public static datComprobante GetInstancia => instancia;
         #endregion
 
-        public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos,string path)
+        public string generarComprobante(entServicio servicio, entCliente cliente, List<entEquipo> equipos, string path)
         {
             try
             {
@@ -187,6 +188,6 @@ namespace CapaDato
                 Console.WriteLine("Error al generar el comprobante: " + ex.Message);
                 return null;
             }
-        }        
+        }
     }
 }

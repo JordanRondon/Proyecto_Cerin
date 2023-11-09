@@ -96,7 +96,11 @@ namespace Cerin_Ingenieros
         private void AbrirFormHijo(Form formhijo)
         {
             if (FormActivo != null)
+            {
+                if (FormActivo.GetType() == formhijo.GetType())
+                    return;
                 FormActivo.Close();
+            }
             FormActivo = formhijo;
             formhijo.TopLevel = false;
             formhijo.FormBorderStyle = FormBorderStyle.None;
@@ -104,6 +108,7 @@ namespace Cerin_Ingenieros
             panel_principal.Controls.Add(formhijo);
             panel_principal.Tag = formhijo;
             formhijo.BringToFront();
+            formhijo.Size = panel_principal.Size;
             formhijo.Show();
         }
         /// <summary>

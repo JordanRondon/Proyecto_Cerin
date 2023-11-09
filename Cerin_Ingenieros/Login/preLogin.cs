@@ -1,9 +1,11 @@
-﻿using CapaLogica;
+﻿using CapaEntidad;
+using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,6 +20,19 @@ namespace Cerin_Ingenieros.Login
         public preLogin()
         {
             InitializeComponent();
+
+            List<entEquipo> equiposSelecionados = new List<entEquipo>();
+            equiposSelecionados.Add(logEquipo.GetInstancia.buscarEquipo("1"));
+            entCliente clienteSelecionado = logCliente.GetInstancia.buscarClienteId(1);
+            entServicio servicio = logServicio.GetInstancia.buscarServicio(1);
+            string file = logComprobante.GetInstancia.generarComprobante(servicio, clienteSelecionado, equiposSelecionados, "");
+            if (file != null)
+            {
+                //preViewCertificado preView = new preViewCertificado(file);
+                //preView.Show();
+
+                Process.Start(file);
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
