@@ -30,7 +30,7 @@ namespace CapaDato
                     //---cuenta empresa---
                     //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
                     //---cuenta prueba---
-                    dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InlvYmVyLmxhMTRAZ21haWwuY29tIn0.Cton-xCh8ie6-OAktNyU8mLg3TpIIqEl9gShxZTeXG4");
+                    dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
 
                     if (respuesta.success != false)
                     {
@@ -47,7 +47,7 @@ namespace CapaDato
                     //---cuenta empresa---
                     //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
                     //---cuenta prueba---
-                    dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InlvYmVyLmxhMTRAZ21haWwuY29tIn0.Cton-xCh8ie6-OAktNyU8mLg3TpIIqEl9gShxZTeXG4");
+                    dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
 
                     if (respuesta.success == true)
                     {
