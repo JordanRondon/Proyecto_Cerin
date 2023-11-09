@@ -145,6 +145,12 @@
     <Compile Include="Login\preLogin.Designer.cs">
       <DependentUpon>preLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mantenedor\preCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mantenedor\preCategoria.Designer.cs">
+      <DependentUpon>preCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mantenedor\preEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login\preLogin.resx">
       <DependentUpon>preLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mantenedor\preCategoria.resx">
+      <DependentUpon>preCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mantenedor\preEmpleado.resx">
       <DependentUpon>preEmpleado.cs</DependentUpon>
