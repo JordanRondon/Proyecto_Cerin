@@ -130,7 +130,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         txb_id_Servicio.Enabled = false;
                         btn_Buscar.Enabled = false;
                         btn_Buscar.BackColor = configColores.btDesactivado;
-                        if (rolUser == 1)
+                        /*if (rolUser == 1)
                         {
                             grb_Pagos.Visible = true;
                             if (servicioActual.IdTipoServicio != 1) grb_Stikers.Visible = true;
@@ -138,6 +138,26 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
                         else if (rolUser == 3 && servicioActual.IdTipoServicio != 1)
                         {
                             grb_Laboratorio.Visible = true;
+                        }*/
+
+                        switch (rolUser)
+                        {
+                            case 1:
+                                grb_Pagos.Visible = true;
+                                if (servicioActual.IdTipoServicio != 1)
+                                    grb_Stikers.Visible = true;
+                                break;
+                            case 2:
+                                if (servicioActual.IdTipoServicio != 1)
+                                    grb_Stikers.Visible = true;
+                                break;
+                            case 3:
+                                if (servicioActual.IdTipoServicio != 1)
+                                {
+                                    grb_Stikers.Visible = true;
+                                    grb_Laboratorio.Visible = true;
+                                }
+                                break;
                         }
 
                         txbFile.Text = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
