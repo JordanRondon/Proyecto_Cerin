@@ -47,6 +47,9 @@
             this.btnEmpleado = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panelEquipo = new System.Windows.Forms.Panel();
+            this.panelNuevaCategoria = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.btnNuevaCategoria = new System.Windows.Forms.Button();
             this.panelNuevoModelo = new System.Windows.Forms.Panel();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btnNuevoModelo = new System.Windows.Forms.Button();
@@ -85,9 +88,6 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.btnNuevaCategoria = new System.Windows.Forms.Button();
             this.panelOpciones.SuspendLayout();
             this.panelReportes.SuspendLayout();
             this.panelClienteServicio.SuspendLayout();
@@ -95,6 +95,7 @@
             this.panelReportesPrincipal.SuspendLayout();
             this.panelEmpleado.SuspendLayout();
             this.panelEquipo.SuspendLayout();
+            this.panelNuevaCategoria.SuspendLayout();
             this.panelNuevoModelo.SuspendLayout();
             this.panelnuevoEquipo.SuspendLayout();
             this.panelnNuevaMarca.SuspendLayout();
@@ -107,7 +108,6 @@
             this.panel_principal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel18.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelOpciones
@@ -143,7 +143,7 @@
             this.panelReportes.Controls.Add(this.panelClienteServicio);
             this.panelReportes.Controls.Add(this.panelHistorialEquipo);
             this.panelReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportes.Location = new System.Drawing.Point(0, 755);
+            this.panelReportes.Location = new System.Drawing.Point(0, 760);
             this.panelReportes.Name = "panelReportes";
             this.panelReportes.Size = new System.Drawing.Size(175, 175);
             this.panelReportes.TabIndex = 2;
@@ -224,7 +224,7 @@
             this.panelReportesPrincipal.Controls.Add(this.panel13);
             this.panelReportesPrincipal.Controls.Add(this.btnReportes);
             this.panelReportesPrincipal.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 705);
+            this.panelReportesPrincipal.Location = new System.Drawing.Point(0, 710);
             this.panelReportesPrincipal.Name = "panelReportesPrincipal";
             this.panelReportesPrincipal.Size = new System.Drawing.Size(175, 50);
             this.panelReportesPrincipal.TabIndex = 111;
@@ -258,7 +258,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 695);
+            this.panel2.Location = new System.Drawing.Point(0, 700);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 10);
             this.panel2.TabIndex = 102;
@@ -268,7 +268,7 @@
             this.panelEmpleado.Controls.Add(this.panel14);
             this.panelEmpleado.Controls.Add(this.btnEmpleado);
             this.panelEmpleado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelEmpleado.Location = new System.Drawing.Point(0, 645);
+            this.panelEmpleado.Location = new System.Drawing.Point(0, 650);
             this.panelEmpleado.Name = "panelEmpleado";
             this.panelEmpleado.Size = new System.Drawing.Size(175, 50);
             this.panelEmpleado.TabIndex = 110;
@@ -303,29 +303,64 @@
             // panel12
             // 
             this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 635);
+            this.panel12.Location = new System.Drawing.Point(0, 640);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(175, 10);
             this.panel12.TabIndex = 102;
             // 
             // panelEquipo
             // 
-            this.panelEquipo.Controls.Add(this.panel18);
+            this.panelEquipo.Controls.Add(this.panelNuevaCategoria);
             this.panelEquipo.Controls.Add(this.panelNuevoModelo);
             this.panelEquipo.Controls.Add(this.panelnuevoEquipo);
             this.panelEquipo.Controls.Add(this.panelnNuevaMarca);
             this.panelEquipo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelEquipo.Location = new System.Drawing.Point(0, 410);
             this.panelEquipo.Name = "panelEquipo";
-            this.panelEquipo.Size = new System.Drawing.Size(175, 225);
+            this.panelEquipo.Size = new System.Drawing.Size(175, 230);
             this.panelEquipo.TabIndex = 1;
             this.panelEquipo.Visible = false;
+            // 
+            // panelNuevaCategoria
+            // 
+            this.panelNuevaCategoria.Controls.Add(this.panel20);
+            this.panelNuevaCategoria.Controls.Add(this.btnNuevaCategoria);
+            this.panelNuevaCategoria.Location = new System.Drawing.Point(19, 64);
+            this.panelNuevaCategoria.Name = "panelNuevaCategoria";
+            this.panelNuevaCategoria.Size = new System.Drawing.Size(156, 50);
+            this.panelNuevaCategoria.TabIndex = 112;
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.panel20.Location = new System.Drawing.Point(0, 0);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(10, 50);
+            this.panel20.TabIndex = 109;
+            // 
+            // btnNuevaCategoria
+            // 
+            this.btnNuevaCategoria.FlatAppearance.BorderSize = 0;
+            this.btnNuevaCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
+            this.btnNuevaCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnNuevaCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevaCategoria.ForeColor = System.Drawing.Color.White;
+            this.btnNuevaCategoria.Location = new System.Drawing.Point(0, 0);
+            this.btnNuevaCategoria.Name = "btnNuevaCategoria";
+            this.btnNuevaCategoria.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnNuevaCategoria.Size = new System.Drawing.Size(156, 50);
+            this.btnNuevaCategoria.TabIndex = 6;
+            this.btnNuevaCategoria.Text = "NUEVA CATEGORIA";
+            this.btnNuevaCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaCategoria.UseVisualStyleBackColor = true;
+            this.btnNuevaCategoria.Click += new System.EventHandler(this.btnNuevaCategoria_Click);
             // 
             // panelNuevoModelo
             // 
             this.panelNuevoModelo.Controls.Add(this.panel25);
             this.panelNuevoModelo.Controls.Add(this.btnNuevoModelo);
-            this.panelNuevoModelo.Location = new System.Drawing.Point(19, 120);
+            this.panelNuevoModelo.Location = new System.Drawing.Point(19, 176);
             this.panelNuevoModelo.Name = "panelNuevoModelo";
             this.panelNuevoModelo.Size = new System.Drawing.Size(156, 50);
             this.panelNuevoModelo.TabIndex = 111;
@@ -395,7 +430,7 @@
             // 
             this.panelnNuevaMarca.Controls.Add(this.panel17);
             this.panelnNuevaMarca.Controls.Add(this.btnNuevaMarca);
-            this.panelnNuevaMarca.Location = new System.Drawing.Point(19, 64);
+            this.panelnNuevaMarca.Location = new System.Drawing.Point(19, 120);
             this.panelnNuevaMarca.Name = "panelnNuevaMarca";
             this.panelnNuevaMarca.Size = new System.Drawing.Size(156, 50);
             this.panelnNuevaMarca.TabIndex = 111;
@@ -759,40 +794,6 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // panel18
-            // 
-            this.panel18.Controls.Add(this.panel20);
-            this.panel18.Controls.Add(this.btnNuevaCategoria);
-            this.panel18.Location = new System.Drawing.Point(19, 175);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(156, 50);
-            this.panel18.TabIndex = 112;
-            // 
-            // panel20
-            // 
-            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel20.Location = new System.Drawing.Point(0, 0);
-            this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(10, 50);
-            this.panel20.TabIndex = 109;
-            // 
-            // btnNuevaCategoria
-            // 
-            this.btnNuevaCategoria.FlatAppearance.BorderSize = 0;
-            this.btnNuevaCategoria.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(55)))), ((int)(((byte)(70)))));
-            this.btnNuevaCategoria.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnNuevaCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevaCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaCategoria.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaCategoria.Location = new System.Drawing.Point(0, 0);
-            this.btnNuevaCategoria.Name = "btnNuevaCategoria";
-            this.btnNuevaCategoria.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnNuevaCategoria.Size = new System.Drawing.Size(156, 50);
-            this.btnNuevaCategoria.TabIndex = 6;
-            this.btnNuevaCategoria.Text = "NUEVA CATEGORIA";
-            this.btnNuevaCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevaCategoria.UseVisualStyleBackColor = true;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -815,6 +816,7 @@
             this.panelReportesPrincipal.ResumeLayout(false);
             this.panelEmpleado.ResumeLayout(false);
             this.panelEquipo.ResumeLayout(false);
+            this.panelNuevaCategoria.ResumeLayout(false);
             this.panelNuevoModelo.ResumeLayout(false);
             this.panelnuevoEquipo.ResumeLayout(false);
             this.panelnNuevaMarca.ResumeLayout(false);
@@ -827,7 +829,6 @@
             this.panel_principal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -889,7 +890,7 @@
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Button btnServicios;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.Panel panelNuevaCategoria;
         private System.Windows.Forms.Panel panel20;
         private System.Windows.Forms.Button btnNuevaCategoria;
     }
