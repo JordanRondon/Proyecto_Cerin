@@ -1,8 +1,12 @@
-﻿using CapaEntidad;
+﻿using CapaDato;
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
+using System.Collections.Generic;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using CheckBox = System.Windows.Forms.CheckBox;
 
 namespace Cerin_Ingenieros
 {
@@ -14,6 +18,22 @@ namespace Cerin_Ingenieros
             deshablitar_entradas();
             deshablitar_btn();
             listarMarcas();
+            MostrarChecks();
+        }
+
+        private void MostrarChecks()
+        {
+            List<entCategoria> opciones = logCategoria.GetInstancia.listarCategoriasEquipos() ;
+
+            foreach (var opcion in opciones)
+            {
+                CheckBox checkbox = new CheckBox();
+                checkbox.Text = opcion.Nombre;
+                checkbox.Size = new System.Drawing.Size(150, 20);
+                checkbox.Tag = opcion.id_categoria_equipo;
+                checkbox.Name = "chk_" + opcion.id_categoria_equipo;  // Asigna un nombre único
+                panelContenedor.Controls.Add(checkbox);
+            }
         }
 
         private void limpiar_entradas()
@@ -87,8 +107,35 @@ namespace Cerin_Ingenieros
                 txb_codigo.Text = filaActual.Cells[0].Value.ToString();
                 txb_nombre.Text = filaActual.Cells[1].Value.ToString();
 
+                List<entMarcaCategoria> lista = logMarca.GetInstancia.ListaDetalleMarcaCategoria(Convert.ToInt16(txb_codigo.Text));
+
+                foreach (entMarcaCategoria marcaCategoria in lista)
+                {
+                    foreach (Control control in panelContenedor.Controls)
+                    {
+                        if (control is CheckBox && ((CheckBox)control).Tag.ToString() == marcaCategoria.id_categoria_equipo.ToString())
+                        {
+                            ((CheckBox)control).Checked = true;
+                        }
+                    }
+                }
+
                 habilitar_btn_modificacion();
             }
+        }
+
+        public List<int> Verificar()
+        {
+            List<int> idsCategoriasMarcadas = new List<int>();
+            foreach (Control control in panelContenedor.Controls)
+            {
+                if (control is CheckBox && ((CheckBox)control).Checked)
+                {
+                    int idCategoria = (int)control.Tag;
+                    idsCategoriasMarcadas.Add(idCategoria);
+                }
+            }
+            return idsCategoriasMarcadas;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -101,7 +148,15 @@ namespace Cerin_Ingenieros
                     {
                         Nombre = txb_nombre.Text.Trim()
                     };
-                    logMarca.GetInstancia.insertaMarca(marca);
+                    //REGISTRAR LA MARCA Y TAMBIEN MARCA_CATEGORIA
+                    int id_marca = logMarca.GetInstancia.insertaMarca(marca);
+
+                    List<int> idsCategoriasMarcadas = Verificar();
+
+                    foreach(int id_categoria in idsCategoriasMarcadas)
+                    {
+                        logMarca.GetInstancia.InsertarMarcaCategoria(id_marca, id_categoria);
+                    }
 
                     //Actualizar botones
                     deshablitar_btn();
@@ -130,6 +185,15 @@ namespace Cerin_Ingenieros
                         Nombre = txb_nombre.Text.Trim()
                     };
                     logMarca.GetInstancia.editarMarca(marca);
+
+                    //elimino los detalles marca categoria
+                    logMarca.GetInstancia.eliminarMarcaCategoria(marca.IdMarca);
+
+                    List<int> idsCategoriasMarcadas = Verificar();
+                    foreach (int id_categoria in idsCategoriasMarcadas)
+                    {
+                        logMarca.GetInstancia.InsertarMarcaCategoria(marca.IdMarca, id_categoria);
+                    }
 
                     limpiar_entradas();
                     listarMarcas();

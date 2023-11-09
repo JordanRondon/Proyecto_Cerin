@@ -21,9 +21,14 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void ComboBoxs()
         {
+            comboBoxCategoria.ValueMember = "id_categoria_equipo";
+            comboBoxCategoria.DisplayMember = "nombre";
+            List<entCategoria> lista =  logCategoria.GetInstancia.listarCategoriasEquipos();
+            comboBoxCategoria.DataSource = lista;
+            comboBoxCategoria.SelectedIndex = -1;
+
             comboBox_marca.ValueMember = "id_Marca";
             comboBox_marca.DisplayMember = "nombre";
-            comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
             comboBox_marca.SelectedIndex = -1;
         }
 
@@ -33,6 +38,9 @@ namespace Cerin_Ingenieros.Mantenedor
             txb_nombre.Text = "";
             comboBox_marca.Enabled = false;
             comboBox_marca.SelectedIndex = -1;
+
+            comboBoxCategoria.Enabled = false;
+            comboBoxCategoria.SelectedIndex = -1;
         }
 
         private void deshablitar_entradas()
@@ -69,6 +77,7 @@ namespace Cerin_Ingenieros.Mantenedor
             btn_cancelar.Enabled = true;
             btn_cancelar.BackColor = configColores.btnActivo;
             comboBox_marca .Enabled = true;
+            comboBoxCategoria .Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -91,6 +100,9 @@ namespace Cerin_Ingenieros.Mantenedor
                 btn_guardar.BackColor = configColores.btnActivo;
                 comboBox_marca.SelectedIndex = 0;
                 comboBox_marca.Enabled = true;
+                comboBoxCategoria.SelectedIndex = 0;
+                comboBoxCategoria.Enabled = true;
+
             }
         }
 
@@ -106,12 +118,14 @@ namespace Cerin_Ingenieros.Mantenedor
             dataGridView_modelos.Columns.AddRange(
                 new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
                 new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca"}
+                new DataGridViewTextBoxColumn { HeaderText = "Marca"},
+                new DataGridViewTextBoxColumn { HeaderText = "Categoria" }
             );
 
             //desabilitar que se pueda ordenar por columnas
             foreach (DataGridViewColumn column in dataGridView_modelos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
             comboBox_marca.Enabled = false;
+            comboBoxCategoria.Enabled = false;
         }
 
         private void listarModelos()
@@ -124,10 +138,12 @@ namespace Cerin_Ingenieros.Mantenedor
             foreach (var item in listaModelos)
             {
                 entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.IdCategoriaEquipo);
                 dataGridView_modelos.Rows.Add(
                     item.id_modelo,
                     item.nombre,
-                    marca.Nombre
+                    marca.Nombre,
+                    categoria.Nombre
                 );
             }
         }
@@ -144,6 +160,10 @@ namespace Cerin_Ingenieros.Mantenedor
                     };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     modelo.IdMarca = marcaSelec.IdMarca;
+
+                    entCategoria catSelec = (entCategoria)comboBoxCategoria.SelectedItem;
+                    modelo.IdCategoriaEquipo = catSelec.id_categoria_equipo;
+
                     logModelo.GetInstancia.insertaModelo(modelo);
 
                     //Actualizar botones
@@ -169,7 +189,9 @@ namespace Cerin_Ingenieros.Mantenedor
 
                 txb_codigo.Text = filaActual.Cells[0].Value.ToString();
                 txb_nombre.Text = filaActual.Cells[1].Value.ToString();
+
                 comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells[2].Value.ToString());
+                comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells[3].Value.ToString());
 
                 habilitar_btn_modificacion();
             }
@@ -189,6 +211,9 @@ namespace Cerin_Ingenieros.Mantenedor
                     };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     modelo.IdMarca = marcaSelec.IdMarca;
+
+                    entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    modelo.IdCategoriaEquipo = categoria.id_categoria_equipo;
 
                     logModelo.GetInstancia.editarModelo(modelo);
 
@@ -224,6 +249,9 @@ namespace Cerin_Ingenieros.Mantenedor
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     modelo.IdMarca = marcaSelec.IdMarca;
 
+                    entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+                    modelo.IdCategoriaEquipo = categoria.id_categoria_equipo;
+
                     logModelo.GetInstancia.editarModelo(modelo);
 
                     limpiar_entradas();
@@ -239,6 +267,16 @@ namespace Cerin_Ingenieros.Mantenedor
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
+            if (categoria != null)
+            {
+                List<entMarca>marcas = logMarca.GetInstancia.listarMarcasPorCategoria(categoria.id_categoria_equipo);
+                comboBox_marca.DataSource = marcas;
             }
         }
     }

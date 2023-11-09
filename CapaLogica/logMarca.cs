@@ -18,13 +18,36 @@ namespace CapaLogica
         #region Metodos
         public List<entMarca> listarMarcas() => datMarca.GetInstancia.listarMarcas();
 
-        public bool insertaMarca(entMarca marca) => datMarca.GetInstancia.insertarMarca(marca);
+        public List<entMarca> listarMarcasPorCategoria(int idcategoria)
+        {
+            return datMarca.GetInstancia.listarMarcasPorCategoria(idcategoria);
+        }
+
+        public int insertaMarca(entMarca marca)
+        {
+            return datMarca.GetInstancia.insertarMarca(marca);
+        }
+
+        public List<entMarcaCategoria> ListaDetalleMarcaCategoria(int idmarca)
+        {
+            return datMarca.GetInstancia.ListarDetalleMarca(idmarca);
+        }
 
         public bool editarMarca(entMarca marca) => datMarca.GetInstancia.editarMarca(marca);
 
         public bool deshabilitarMarca(entMarca marca) => datMarca.GetInstancia.deshabilitarMarca(marca);
 
         public entMarca BuscarMarcaPorId(int idMarca) => datMarca.GetInstancia.BuscarMarcaPorId(idMarca);
+
+        public void InsertarMarcaCategoria(int id_marca,int id_categoria)
+        {
+            datMarca.GetInstancia.InsertarMarcaCategoria(id_marca,id_categoria);
+        }
+
+        public void eliminarMarcaCategoria(int idMarca)
+        {
+            datMarca.eliminarMarcaCategoria(idMarca);
+        }
 
         #endregion
     }

@@ -529,12 +529,13 @@ namespace Cerin_Ingenieros
         private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            entMarca marca = (entMarca)comboBox_marca.SelectedValue;
+            entMarca marca = (entMarca)comboBox_marca.SelectedValue;    
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
             if (marca!=null)
             {
 
                 // Buscar los modelos de una marca
-                List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca);
+                List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca,categoria.id_categoria_equipo);
 
                 // Llena con los datos de los modelos
                 comboBox_modelo.DataSource = modelos;

@@ -21,7 +21,7 @@ namespace CapaLogica
 
         public entCategoria buscarCategoriaId(int id) => datCategoria.GetInstancia.buscarCategoriaId(id);
 
-        public List<entCategoria> listarCategoriasEquipos() => datCategoria.GetInstancia.listarCategoria();
+        public List<entCategoria> listarCategoriasEquipos() { return datCategoria.GetInstancia.listarCategoria(); }
 
         #endregion Metodos
     }
