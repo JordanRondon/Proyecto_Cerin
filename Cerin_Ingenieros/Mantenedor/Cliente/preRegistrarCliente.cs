@@ -100,6 +100,7 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         private void ListarClientes()
         {
+            dgvClientes.Rows.Clear();
             List<entCliente> ls = logCliente.GetInstancia.listarClientes();
 
             foreach (var item in ls)
