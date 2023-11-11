@@ -22,13 +22,12 @@ namespace Cerin_Ingenieros.Mantenedor
         private void ComboBoxs()
         {
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
-            comboBoxCategoria.DisplayMember = "nombre";
-            List<entCategoria> lista =  logCategoria.GetInstancia.listarCategoriasEquipos();
-            comboBoxCategoria.DataSource = lista;
+            comboBoxCategoria.DisplayMember = "Nombre";
+            comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
             comboBoxCategoria.SelectedIndex = -1;
 
-            comboBox_marca.ValueMember = "id_Marca";
-            comboBox_marca.DisplayMember = "nombre";
+            comboBox_marca.ValueMember = "idMarca";
+            comboBox_marca.DisplayMember = "Nombre";
             comboBox_marca.SelectedIndex = -1;
         }
 
@@ -82,27 +81,36 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            if (comboBox_marca.Items.Count == 0) {
-                MessageBox.Show("Registra una marca");
+            if (comboBoxCategoria.Items.Count == 0)
+            {
+                MessageBox.Show("Registre una categoria");
             }
             else
             {
-                txb_nombre.Enabled = true;
-                btn_nuevo.Enabled = false;
-                btn_nuevo.BackColor = configColores.btDesactivado;
-                btn_editar.Enabled = false;
-                btn_editar.BackColor = configColores.btDesactivado;
-                btn_eliminar.Enabled = false;
-                btn_eliminar.BackColor = configColores.btDesactivado;
-                btn_cancelar.Enabled = true;
-                btn_cancelar.BackColor = configColores.btnActivo;
-                btn_guardar.Enabled = true;
-                btn_guardar.BackColor = configColores.btnActivo;
-                comboBox_marca.SelectedIndex = 0;
-                comboBox_marca.Enabled = true;
                 comboBoxCategoria.SelectedIndex = 0;
-                comboBoxCategoria.Enabled = true;
+                if (comboBox_marca.Items.Count == 0)
+                {
+                    MessageBox.Show("Registra una marca");
+                }
+                else
+                {
+                    txb_nombre.Enabled = true;
+                    btn_nuevo.Enabled = false;
+                    btn_nuevo.BackColor = configColores.btDesactivado;
+                    btn_editar.Enabled = false;
+                    btn_editar.BackColor = configColores.btDesactivado;
+                    btn_eliminar.Enabled = false;
+                    btn_eliminar.BackColor = configColores.btDesactivado;
+                    btn_cancelar.Enabled = true;
+                    btn_cancelar.BackColor = configColores.btnActivo;
+                    btn_guardar.Enabled = true;
+                    btn_guardar.BackColor = configColores.btnActivo;
+                    comboBox_marca.SelectedIndex = 0;
+                    comboBox_marca.Enabled = true;
+                    comboBoxCategoria.SelectedIndex = 0;
+                    comboBoxCategoria.Enabled = true;
 
+                }
             }
         }
 
@@ -159,12 +167,18 @@ namespace Cerin_Ingenieros.Mantenedor
                         nombre = txb_nombre.Text.Trim()
                     };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    modelo.IdMarca = marcaSelec.IdMarca;
-
                     entCategoria catSelec = (entCategoria)comboBoxCategoria.SelectedItem;
-                    modelo.IdCategoriaEquipo = catSelec.id_categoria_equipo;
+                    if(marcaSelec!=null && catSelec != null)
+                    {
+                        modelo.IdCategoriaEquipo = catSelec.id_categoria_equipo;
+                        modelo.IdMarca = marcaSelec.IdMarca;
 
-                    logModelo.GetInstancia.insertaModelo(modelo);
+                        logModelo.GetInstancia.insertaModelo(modelo);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se detecto un problema");
+                    }                    
 
                     //Actualizar botones
                     deshablitar_btn();
@@ -270,12 +284,13 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
-        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxCategoria_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+
             if (categoria != null)
             {
-                List<entMarca>marcas = logMarca.GetInstancia.listarMarcasPorCategoria(categoria.id_categoria_equipo);
+                List<entMarca> marcas = logMarca.GetInstancia.listarMarcasPorCategoria(categoria.id_categoria_equipo);
                 comboBox_marca.DataSource = marcas;
             }
         }
