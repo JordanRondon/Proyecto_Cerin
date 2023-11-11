@@ -84,29 +84,6 @@ namespace Cerin_Ingenieros
             btn_cancelar.Enabled = true;
             btn_cancelar.BackColor = configColores.btnActivo;
         }
-
-        private void btn_nuevo_Click(object sender, EventArgs e)
-        {
-            if (comboBoxCategoria.Items.Count == 0)
-                MessageBox.Show("Registra una categoria");
-            else
-            {
-                comboBoxCategoria.SelectedIndex = 0;
-                if (comboBox_marca.Items.Count == 0)
-                    MessageBox.Show("Registra una marca");
-                else
-                {
-                    comboBox_marca.SelectedIndex = 0;
-                    if (comboBox_modelo.Items.Count == 0)
-                        MessageBox.Show("Registra un modelo");
-                    else
-                    {
-                        comboBox_modelo.SelectedIndex = 0;
-                        configNuevo();
-                    }
-                }
-            }                
-        }
         private void configNuevo()
         {
             hablitar_entradas();
@@ -213,12 +190,11 @@ namespace Cerin_Ingenieros
         private void listarDatosComboBox()
         {
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
-            comboBoxCategoria.DisplayMember = "nombre";
+            comboBoxCategoria.DisplayMember = "Nombre";
             comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
 
-            comboBox_marca.ValueMember = "id_Marca";
-            comboBox_marca.DisplayMember = "nombre";
-            comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
+            comboBox_marca.ValueMember = "IdMarca";
+            comboBox_marca.DisplayMember = "Nombre";
 
             comboBox_modelo.ValueMember = "id_modelo";
             comboBox_modelo.DisplayMember = "nombre";
@@ -526,19 +502,52 @@ namespace Cerin_Ingenieros
             }
         }
 
+        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+
+            if (categoria != null)
+            {
+                List<entMarca> marcas = logMarca.GetInstancia.listarMarcasPorCategoria(categoria.id_categoria_equipo);
+                comboBox_marca.DataSource = marcas;
+                if(marcas.Count>0)
+                    comboBox_marca.SelectedIndex = 0;
+                else
+                    comboBox_modelo.DataSource = null;
+            }
+        }
+
         private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            entMarca marca = (entMarca)comboBox_marca.SelectedValue;    
-            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
-            if (marca!=null)
+            entMarca marca = (entMarca)comboBox_marca.SelectedItem;
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+            if (marca != null && categoria!=null)
             {
-
-                // Buscar los modelos de una marca
                 List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca,categoria.id_categoria_equipo);
-
-                // Llena con los datos de los modelos
                 comboBox_modelo.DataSource = modelos;
+            }
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            if (comboBoxCategoria.Items.Count == 0)
+                MessageBox.Show("Registra una categoria");
+            else
+            {
+                comboBoxCategoria.SelectedIndex = 0;
+                if (comboBox_marca.Items.Count == 0)
+                    MessageBox.Show("Registra una marca");
+                else
+                {
+                    comboBox_marca.SelectedIndex = 0;
+                    if (comboBox_modelo.Items.Count == 0)
+                        MessageBox.Show("Registra un modelo");
+                    else
+                    {
+                        comboBox_modelo.SelectedIndex = 0;
+                        configNuevo();
+                    }
+                }
             }
         }
     }
