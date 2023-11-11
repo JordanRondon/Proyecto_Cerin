@@ -78,12 +78,11 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void listarDatosComboBox()
         {
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
-            comboBoxCategoria.DisplayMember = "nombre";
+            comboBoxCategoria.DisplayMember = "Nombre";
             comboBoxCategoria.DataSource = logCategoria.GetInstancia.listarCategoriasEquipos();
 
-            comboBox_marca.ValueMember = "id_Marca";
-            comboBox_marca.DisplayMember = "nombre";
-            comboBox_marca.DataSource = logMarca.GetInstancia.listarMarcas();
+            comboBox_marca.ValueMember = "IdMarca";
+            comboBox_marca.DisplayMember = "Nombre";
 
             comboBox_modelo.ValueMember = "id_modelo";
             comboBox_modelo.DisplayMember = "nombre";
@@ -110,8 +109,6 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 else
                 {
                     comboBox_marca.SelectedIndex = 0;
-                    //entMarca marca = (entMarca)comboBox_marca.SelectedItem;
-                    //comboBox_modelo.DataSource = logModelo.GetInstancia.listarModelos(marca.IdMarca);
                     if (comboBox_modelo.Items.Count == 0)
                     {
                         MessageBox.Show("Registra un modelo");
@@ -629,17 +626,28 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             }
         }
 
+        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+
+            if (categoria != null)
+            {
+                List<entMarca> marcas = logMarca.GetInstancia.listarMarcasPorCategoria(categoria.id_categoria_equipo);
+                comboBox_marca.DataSource = marcas;
+                if (marcas.Count > 0)
+                    comboBox_marca.SelectedIndex = 0;
+                else
+                    comboBox_modelo.DataSource = null;
+            }
+        }
+
         private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            entMarca marca = (entMarca)comboBox_marca.SelectedValue;
-            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedValue;
-            if (marca != null)
+            entMarca marca = (entMarca)comboBox_marca.SelectedItem;
+            entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+            if (marca != null && categoria != null)
             {
-
-                // Consulta y llena comboBox_Modelo con modelos relacionados a la marca seleccionada
                 List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca, categoria.id_categoria_equipo);
-
-                // Llena comboBox_Modelo con los datos de los modelos
                 comboBox_modelo.DataSource = modelos;
             }
         }
