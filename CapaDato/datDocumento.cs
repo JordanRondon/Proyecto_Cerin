@@ -111,5 +111,78 @@ namespace CapaDato
 
             return fullFilePah;
         }
+
+        public bool insertarDocumento(string nombre, string archivo, byte[] file)
+        {
+            SqlCommand cmd = null;
+            bool inserta = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_insertarArchivo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre", nombre);
+                cmd.Parameters.AddWithValue("@archivo", archivo);
+                cmd.Parameters.AddWithValue("@file", file);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    inserta = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return inserta;
+        }
+
+        public bool editarDocumento(entDocumento documento)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_editarArchivo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", documento.Id);
+                cmd.Parameters.AddWithValue("@nombre", documento.Nombre);
+                cmd.Parameters.AddWithValue("@archivo", documento.RealName);
+                cmd.Parameters.AddWithValue("@file", documento.Doc);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+
+            return edita;
+        }
     }
 }

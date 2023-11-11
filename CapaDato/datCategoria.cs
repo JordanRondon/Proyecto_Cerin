@@ -38,6 +38,8 @@ namespace CapaDato
 
                     c.id_categoria_equipo= Convert.ToInt32(dr["id_categoria_equipo"]);
                     c.Nombre = Convert.ToString(dr["nombre"]);
+                    c.id_documento = Convert.ToInt32(dr["id_documento"]);
+                    c.tiempo_certificado= Convert.ToInt32(dr["tiempo_certificado"]);
 
                     lista.Add(c);
                 }
@@ -122,6 +124,74 @@ namespace CapaDato
 
             return cat;
         }
+
+        public bool insertarCategoria(entCategoria categoria)
+        {
+            SqlCommand cmd = null;
+            bool insert = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_insertarCategoriaEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                cmd.Parameters.AddWithValue("@id_documento", categoria.id_documento);
+                cmd.Parameters.AddWithValue("@tiempo_certificado", categoria.tiempo_certificado);
+
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+
+                if (i > 0)
+                {
+                    insert = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return insert;
+        }
+
+        public bool editarCategoria(entCategoria categoria)
+        {
+            SqlCommand cmd = null;
+            bool edita = false;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+
+                cmd = new SqlCommand("sp_editarCategoriaEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", categoria.id_categoria_equipo);
+                cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
+                cmd.Parameters.AddWithValue("@id_documentoe", categoria.id_documento);
+                cmd.Parameters.AddWithValue("@tiempo_certificado", categoria.tiempo_certificado);
+
+                cn.Open();
+
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    edita = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally { cmd.Connection.Close(); }
+
+            return edita;
+        }
+
         #endregion Metodos
     }
 }
