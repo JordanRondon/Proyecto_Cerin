@@ -2,19 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.draw;
 using Word = Microsoft.Office.Interop.Word;
-using System.Diagnostics;
-using static iTextSharp.text.pdf.AcroFields;
-using Microsoft.Office.Interop.Word;
-using static iTextSharp.text.pdf.codec.TiffWriter;
-using System.Reflection;
 
 namespace CapaDato
 {
@@ -29,9 +17,7 @@ namespace CapaDato
         {
             try
             {
-                //Buscamos el comprobante en la base de datos
                 entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorNombre("Comprobante");
-                //hacemos un guardado temporal del documento comprobante.docx
 
                 string aux = path;
                 string path2 = datDocumento.GetInstancia.GuardarDocumentoTemporal(doc);
@@ -41,7 +27,6 @@ namespace CapaDato
                 }
 
 
-                // Cargar plantilla de Word
                 Word.Application wordApp = new Word.Application();
                 try
                 {
@@ -68,62 +53,45 @@ namespace CapaDato
                             plantilla.Content.Find.Execute(FindText: kvp.Key, ReplaceWith: kvp.Value);
                         }
 
-                        // RELLENAR EQUIPO
+                        Word.Table nuevaTabla = plantilla.Tables[3];
 
-                        //Cantidad de equipos en el servicio por cada equipo se insertara un <DatEquiposCompletos>^p
-                        //y se remplazara en <Cuerpo del comprobante>
-                        string cantequipos = "";
-                        foreach (var item in equipos)
-                        {
-                            cantequipos += "<DatEquiposCompletos>^p";
-                        }
-                        plantilla.Content.Find.Execute(FindText: "<Cuerpo del comprobante>", ReplaceWith: cantequipos);
-
-
-                        //Insertar etiquetas para cada equipo e las que remplazaremos sus datos
-                        foreach (var item in equipos)
-                        {
-                            string contenido = "<Datos equipo>^p";
-
-                            List<entEquipo_Accesorio> listAccesorios = datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(item.SerieEquipo);
-                            foreach (var ac in listAccesorios)
-                            {
-                                contenido += "<Accesorio>^p";
-                            }
-
-                            contenido += "RECOMENDACIONES PRELIMINARES: <Preliminares>.^p";
-                            contenido += "RECOMENDACIONES FINALES: <Finales>.^p";
-                            plantilla.Content.Find.Execute(FindText: "<DatEquiposCompletos>", ReplaceWith: contenido);
-                        }
-
-                        //remplazamos datos de cada uno de los equipos en las etiquetas generadas
-                        int contador = equipos.Count();
+                        // Llenar la tabla con los datos de los equipos
                         foreach (var equipo in equipos)
                         {
-                            contador--;
                             entMarca marca = datMarca.GetInstancia.BuscarMarcaPorId(equipo.IdMarca);
                             entModelo modelo = datModelo.GetInstancia.BuscarModeloPorId(equipo.id_modelo);
                             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
 
-                            //datos principales del equipo
-                            string datosdelequipo = $"Equipo: {categoria.Nombre}    Modelo: {modelo.nombre}    Marca: {marca.Nombre}    Serie: {equipo.SerieEquipo}";
-                            plantilla.Content.Find.Execute(FindText: "<Datos equipo>", ReplaceWith: datosdelequipo);
+                            string datosEquipo = categoria.Nombre + "\n" +
+                                                 marca.Nombre + "\n" +
+                                                 modelo.nombre + "\n" +
+                                                equipo.SerieEquipo;
 
-                            //todos los accesorios de un equipo
                             string accesorios = "";
                             List<entEquipo_Accesorio> listAccesorios = datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(equipo.SerieEquipo);
                             foreach (var ac in listAccesorios)
                             {
                                 entAccesorio accesorio = datAccesorio.GetInstancia.BuscarAccesorioId(ac.id_accesorio);
-                                accesorios = $"    - {accesorio.Nombre} ({ac.cantidad}).";
-                                plantilla.Content.Find.Execute(FindText: "<Accesorio>", ReplaceWith: accesorios);
+                                accesorios += $"- {accesorio.Nombre} ({ac.cantidad}).\n";
                             }
 
-                            //Registramos las recomendaciones preliminares y finales
                             entEquipo_Servicio equiposervicio = datEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(equipo.SerieEquipo, servicio.IdServicio);
-                            plantilla.Content.Find.Execute(FindText: "<Preliminares>", ReplaceWith: equiposervicio.Observaciones_preliminares);
-                            plantilla.Content.Find.Execute(FindText: "<Finales>", ReplaceWith: equiposervicio.observaciones_finales);
+
+                            Word.Row newRow = nuevaTabla.Rows.Add();
+                            newRow.Cells[1].Range.Text = datosEquipo;
+                            newRow.Cells[2].Range.Text = accesorios;
+                            newRow.Cells[3].Range.Text = equiposervicio.Observaciones_preliminares;
+                            newRow.Cells[4].Range.Text = equiposervicio.observaciones_finales;
+
+                            foreach (Word.Cell cell in newRow.Cells)
+                            {
+                                cell.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphLeft;
+                                cell.Range.Font.Bold = 0; // Sin negrita
+                                cell.Range.Font.Size = 11; // Tamaño de fuente
+                            }
+
                         }
+
 
                         // Verificar si está terminado y generar fecha final
                         if (servicio.estado == 'T')
