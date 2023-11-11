@@ -23,6 +23,9 @@ namespace CapaLogica
 
         public List<entCategoria> listarCategoriasEquipos() { return datCategoria.GetInstancia.listarCategoria(); }
 
+        public bool insertarCategoria(entCategoria categoria) => datCategoria.GetInstancia.insertarCategoria(categoria);
+
+        public bool editarCategoria(entCategoria categoria) => datCategoria.GetInstancia.editarCategoria(categoria);
         #endregion Metodos
     }
 }
