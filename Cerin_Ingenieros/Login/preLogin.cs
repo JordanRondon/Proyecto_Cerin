@@ -16,23 +16,19 @@ namespace Cerin_Ingenieros.Login
 {
     public partial class preLogin : Form
     {
-        private int m, mx, my;
+        private readonly string messageUserDefect = "Usuario";
+        private readonly string messagePasswordDefect = "Contraseña";
+
+        private readonly Color colorMessage = Color.FromArgb(144, 144, 144);
+        private readonly Color colorText = Color.White;
+
         public preLogin()
         {
             InitializeComponent();
-
-            List<entEquipo> equiposSelecionados = new List<entEquipo>();
-            equiposSelecionados.Add(logEquipo.GetInstancia.buscarEquipo("1"));
-            entCliente clienteSelecionado = logCliente.GetInstancia.buscarClienteId(1);
-            entServicio servicio = logServicio.GetInstancia.buscarServicio(1);
-            string file = logComprobante.GetInstancia.generarComprobante(servicio, clienteSelecionado, equiposSelecionados, "");
-            if (file != null)
-            {
-                //preViewCertificado preView = new preViewCertificado(file);
-                //preView.Show();
-
-                Process.Start(file);
-            }
+            txbUser.Text = messageUserDefect;
+            txbUser.ForeColor = colorMessage;
+            txbContra.Text = messagePasswordDefect;
+            txbContra.ForeColor = colorMessage;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -70,24 +66,52 @@ namespace Cerin_Ingenieros.Login
                 MessageBox.Show("Contraseña o usuario no validos");
             }
         }
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void btnCerrar_Click_1(object sender, EventArgs e)
         {
-            m = 1;
-            mx = e.X;
-            my = e.Y;
+            this.Close();
         }
 
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        private void btnMinimizar_Click_1(object sender, EventArgs e)
         {
-            if (m == 1)
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void txbUser_Enter(object sender, EventArgs e)
+        {
+            if (txbUser.Text == messageUserDefect)
             {
-                this.SetDesktopLocation(MousePosition.X - mx, MousePosition.Y - my);
+                txbUser.Text = "";
+                txbUser.ForeColor = colorText;
             }
         }
 
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        private void txbUser_Leave(object sender, EventArgs e)
         {
-            m = 0;
+            if (string.IsNullOrWhiteSpace(txbUser.Text))
+            {
+                txbUser.Text = messageUserDefect;
+                txbUser.ForeColor = colorMessage;
+            }
+        }
+
+        private void txbContra_Enter(object sender, EventArgs e)
+        {
+            if (txbContra.Text == messagePasswordDefect)
+            {
+                txbContra.Text = "";
+                txbContra.ForeColor = colorText;
+                txbContra.PasswordChar = '*';
+            }
+        }
+
+        private void txbContra_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txbContra.Text))
+            {
+                txbContra.Text = messagePasswordDefect;
+                txbContra.ForeColor = colorMessage;
+                txbContra.PasswordChar = '\0';
+            }
         }
     }
 }

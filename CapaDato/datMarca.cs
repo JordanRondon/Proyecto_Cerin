@@ -286,7 +286,7 @@ namespace CapaDato
             }
         }
 
-        public static void eliminarMarcaCategoria(int idMarca)
+        public void eliminarMarcaCategoria(int idMarca)
         {
             SqlCommand cmd = null;
 

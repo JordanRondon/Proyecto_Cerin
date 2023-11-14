@@ -46,7 +46,7 @@ namespace CapaLogica
 
         public void eliminarMarcaCategoria(int idMarca)
         {
-            datMarca.eliminarMarcaCategoria(idMarca);
+            datMarca.GetInstancia.eliminarMarcaCategoria(idMarca);
         }
 
         #endregion

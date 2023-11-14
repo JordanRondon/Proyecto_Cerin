@@ -247,7 +247,7 @@ namespace Cerin_Ingenieros
 
         private void btnServicios_Click(object sender, EventArgs e)
         {
-            preVerServicios VerServicios = new preVerServicios();
+            preVerServicios VerServicios = new preVerServicios(RolUser);
             VerServicios.pasado += new preVerServicios.pasar(Ejecutar);
             AbrirFormHijo(VerServicios);
         }

@@ -439,7 +439,6 @@
             this.txb_userNamer.Name = "txb_userNamer";
             this.txb_userNamer.Size = new System.Drawing.Size(241, 23);
             this.txb_userNamer.TabIndex = 12;
-            this.txb_userNamer.Leave += new System.EventHandler(this.txb_userNamer_Leave);
             // 
             // label8
             // 

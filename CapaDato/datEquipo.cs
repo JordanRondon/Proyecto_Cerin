@@ -18,6 +18,7 @@ namespace CapaDato
         #endregion
 
         #region Metodos
+        
         public List<entEquipo> listarEquipoAlquiler()
         {
             SqlCommand cmd = null;
@@ -186,11 +187,9 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@serie_equipo", equipo.SerieEquipo);
                 cmd.Parameters.AddWithValue("@id_modelo", equipo.id_modelo);
-                cmd.Parameters.AddWithValue("@estado", equipo.Estado);
-                cmd.Parameters.AddWithValue("@id_tipo", equipo.IdTipo);
                 cmd.Parameters.AddWithValue("@id_Marca", equipo.IdMarca);
                 cmd.Parameters.AddWithValue("@id_categoria_equipo", equipo.id_categoria);
-                cmd.Parameters.AddWithValue("@otros_accesorios", equipo.otrosaccesorios);
+                cmd.Parameters.AddWithValue("@otrosAccesorios", equipo.otrosaccesorios);
 
                 cn.Open();
 
@@ -362,6 +361,57 @@ namespace CapaDato
             return lista;
         }
 
+        public (entCategoria, entMarca, entModelo) datosCompledoDeEquipoPorId(string serie_equipo)
+        {
+            SqlCommand cmd = null;
+            entCategoria categoria= null;
+            entMarca marca = null;
+            entModelo modelo = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_BuscarDatosEquipo", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@serie_equipo", serie_equipo);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    categoria = new entCategoria();
+                    categoria.id_categoria_equipo = Convert.ToInt16(dr["id_categoria_equipo"]);
+                    categoria.Nombre = Convert.ToString(dr["nameCategoria"]);
+
+                    marca = new entMarca();
+                    marca.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    marca.Nombre = Convert.ToString(dr["nameMarca"]);
+
+                    modelo = new entModelo();
+                    modelo.id_modelo = Convert.ToInt16(dr["id_modelo"]);
+                    modelo.nombre = Convert.ToString(dr["nameModelo"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return (categoria,marca,modelo);
+        }
+
         public entEquipo buscarEquipo(string serie_equipo)
         {
             SqlCommand cmd = null;
@@ -407,6 +457,33 @@ namespace CapaDato
             }
 
             return equipo;
+        }
+
+        public void EliminarequipoAccesorio(string serie_equipo)
+        {
+            SqlCommand cmd = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; //singleton
+
+                cmd = new SqlCommand("sp_eliminarEquipoAccesorio", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@serie_equipo", serie_equipo);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
         }
         #endregion
     }

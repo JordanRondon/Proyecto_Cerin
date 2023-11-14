@@ -12,19 +12,18 @@ namespace Cerin_Ingenieros
     public partial class preEquipo : Form
     {
         private string registroSeleccionado = "";
-        private List<entAccesorio> listaaccesorios;
+        private readonly List<entAccesorio> listaaccesorios;
 
         public preEquipo()
         {
             InitializeComponent();
+            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
             deshablitar_entradas();
             deshablitar_btn();
             ConfigCabecera();
             listarEquipo();
             listarDatosComboBox();
-            comboBoxCategoria.SelectedIndex = -1;
-            comboBox_marca.SelectedIndex = -1;
-            comboBox_modelo.SelectedIndex = -1;
+            limpiar_entradas();
         }
 
         private void limpiar_entradas()
@@ -34,9 +33,7 @@ namespace Cerin_Ingenieros
             comboBox_modelo.SelectedIndex = -1;
             comboBoxCategoria.SelectedIndex = -1;
             registroSeleccionado = "";
-            listaaccesorios.Clear();
-            CargarAccesorios();
-            //dgvAcesorios.Enabled = false;
+            dgvAcesorios.Rows.Clear();
         }
 
         private void hablitar_entradas()
@@ -58,55 +55,32 @@ namespace Cerin_Ingenieros
 
         private void deshablitar_btn()
         {
-            btn_nuevo.Enabled = true;
-            btn_nuevo.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = false;
-            btn_cancelar.BackColor = configColores.btDesactivado;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
         }
 
         private void habilitar_btn_modificacion()
         {
             hablitar_entradas();
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = true;
-            btn_editar.BackColor = configColores.btnActivo;
-            btn_eliminar.Enabled = true;
-            btn_eliminar.BackColor = configColores.btnActivo;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
         private void configNuevo()
         {
             hablitar_entradas();
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = true;
-            btn_guardar.BackColor = configColores.btnActivo;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
-
-
-
-            dgvAcesorios.Enabled = true;            
-            cargarAccesorios();
-        }
-        private void cargarAccesorios()
-        {
-            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
-            CargarAccesorios();
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
+            dgvAcesorios.Enabled = true;
+            CargarAccesorios(); 
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -119,23 +93,12 @@ namespace Cerin_Ingenieros
         {
             dgvAcesorios.Enabled=true;
             dgvAcesorios.Rows.Clear();
-            dgvAcesorios.Columns.Clear();
-
-            dgvAcesorios.Columns.AddRange(
-                new DataGridViewCheckBoxColumn { HeaderText = "Opcion" },
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre", ReadOnly = true },
-                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true, Name = "Cantidad" }
-            );
-            dgvAcesorios.Columns[0].Width = 50;
-            dgvAcesorios.Columns[2].Width = 80;
-
-            foreach (DataGridViewColumn column in dgvAcesorios.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            foreach (var item in listaaccesorios)
+            
+            foreach (var accesorio in listaaccesorios)
             {
                 dgvAcesorios.Rows.Add(
                     false,
-                    item.Nombre,
+                    accesorio.Nombre,
                     ""
                 );
             }
@@ -143,17 +106,16 @@ namespace Cerin_Ingenieros
         }
         private void ConfigCabecera()
         {
-            dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Categira equipo" , Name = "Categoria" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" , Name = "Marca" },
-                new DataGridViewTextBoxColumn { HeaderText = "Modelo", Name = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo",Name ="Serie" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado",Name = "Estado" }
+            dgvAcesorios.Columns.AddRange(
+                new DataGridViewCheckBoxColumn { HeaderText = "opcion" },
+                new DataGridViewTextBoxColumn { HeaderText = "Nombre", ReadOnly = true },
+                new DataGridViewTextBoxColumn { HeaderText = "Cantidad", ReadOnly = true, Name = "Cantidad" }
             );
+            dgvAcesorios.Columns[0].Width = 40;
+            dgvAcesorios.Columns[2].Width = 60;
 
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
-
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_equipos, 
+                        new string[] { "Categira equipo", "Marca", "Modelo", "Serie del equipo", "Estado" });
         }
 
         private void listarEquipo()
@@ -162,14 +124,16 @@ namespace Cerin_Ingenieros
             dataGridView_equipos.Rows.Clear();
 
             //insertar Equipos
-            foreach (var item in listaEquipos)
+            foreach (var equipo in listaEquipos)
             {
                 string estado;
-                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
-                entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
-                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
+                entMarca marca ;
+                entModelo modelo ;
+                entCategoria categoria;
 
-                switch (item.Estado)
+                (categoria, marca, modelo) = logEquipo.GetInstancia.datosCompledoDeEquipoPorId(equipo.SerieEquipo);
+
+                switch (equipo.Estado)
                 {
                     case 'D': estado = "Disponible"; break;
                     case 'U': estado = "En Uso"; break;
@@ -181,7 +145,7 @@ namespace Cerin_Ingenieros
                     categoria.Nombre,
                     marca.Nombre,
                     modelo.nombre,
-                    item.SerieEquipo,
+                    equipo.SerieEquipo,
                     estado
                 );
             }
@@ -206,14 +170,14 @@ namespace Cerin_Ingenieros
             if (e.RowIndex>=0)
             {
                 //LIMPIAR EQUIPO ACESORIO
-                cargarAccesorios();
+                CargarAccesorios();
 
                 DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
 
-                registroSeleccionado = Convert.ToString(filaActual.Cells["Serie"].Value.ToString());
+                registroSeleccionado = Convert.ToString(filaActual.Cells["Serie del equipo"].Value.ToString());
                 txb_serie_equipo.Text = registroSeleccionado;
 
-                comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells["Categoria"].Value.ToString());
+                comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells["Categira equipo"].Value.ToString());
                 comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells["Marca"].Value.ToString());
                 comboBox_modelo.SelectedIndex = comboBox_modelo.FindStringExact(filaActual.Cells["Modelo"].Value.ToString());
 
@@ -248,19 +212,20 @@ namespace Cerin_Ingenieros
             {
                 if (datosIngresados == true)
                 {
+
+                    entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
+                    entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
+                    entCategoria marcaCategoria = (entCategoria)comboBoxCategoria.SelectedItem;
                     entEquipo equipo = new entEquipo
                     {
                         SerieEquipo = txb_serie_equipo.Text.Trim(),
                         Estado = 'D',//estado disponible
                         IdTipo = 1, //tipo de servicio alquiler
-                        otrosaccesorios = ""
+                        otrosaccesorios = "",
+                        id_modelo = modeloSelec.id_modelo,
+                        IdMarca = marcaSelec.IdMarca,
+                        id_categoria = marcaCategoria.id_categoria_equipo
                     };
-                    entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
-                    equipo.id_modelo = modeloSelec.id_modelo;
-                    entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    equipo.IdMarca = marcaSelec.IdMarca;
-                    entCategoria marcaCategoria = (entCategoria)comboBoxCategoria.SelectedItem;
-                    equipo.id_categoria = marcaCategoria.id_categoria_equipo;
 
                     string seri_selecionada = logEquipo.GetInstancia.insertaEquipo(equipo);
 
@@ -291,7 +256,7 @@ namespace Cerin_Ingenieros
 
                                     cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
                                     name = Convert.ToString(textBoxCellName.Value);
-                                    det_equipo_Accesorio.id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
+                                    det_equipo_Accesorio.id_accesorio = BuscarAccesorio(name).IdAccesorio;
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
                                 }
@@ -301,8 +266,6 @@ namespace Cerin_Ingenieros
                     limpiar_entradas();
                     listarEquipo();
                     configNuevo();
-
-                    //reiniciar el combobox al primer elemento 
                     comboBox_marca.SelectedIndex = 0;
                     comboBox_modelo.SelectedIndex = 0;
                     comboBoxCategoria.SelectedIndex = 0;
@@ -320,6 +283,16 @@ namespace Cerin_Ingenieros
             }            
         }
 
+        private entAccesorio BuscarAccesorio(string nombre)
+        {
+            foreach(entAccesorio accesorio in listaaccesorios)
+            {
+                if (accesorio.Nombre == nombre)
+                    return accesorio;
+            }
+            return null;
+        }
+
         private void btn_editar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex != -1);
@@ -329,83 +302,52 @@ namespace Cerin_Ingenieros
                 if (datosIngresados == true && registroSeleccionado !="")
                 {
                     entEquipo equipo = new entEquipo();
-
-                    equipo.SerieEquipo = txb_serie_equipo.Text.Trim();
                     entModelo modeloSelec = (entModelo)comboBox_modelo.SelectedItem;
-                    equipo.id_modelo = modeloSelec.id_modelo;
-                    equipo.Estado = 'D';//estado disponible
-                    equipo.IdTipo = 1; //tipo de servicio alquiler
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    equipo.IdMarca = marcaSelec.IdMarca ;
                     entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
+
+                    equipo.SerieEquipo = txb_serie_equipo.Text.Trim();                    
+                    equipo.id_modelo = modeloSelec.id_modelo;
+                    equipo.IdMarca = marcaSelec.IdMarca ;
                     equipo.id_categoria = categoria.id_categoria_equipo;
-                    equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
 
                     string serie_equipo = equipo.SerieEquipo;
 
-                    //Editar accesorios
-                    List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(equipo.SerieEquipo);
+                    //ELIMINAR DE LA BD EQUIPOACCESORIOS
+                    logEquipo.GetInstancia.EliminarequipoAccesorio(serie_equipo);
+
+                    //Volver a registrar equipo accesorio
+                    entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio
+                    {
+                        SerieEquipo = serie_equipo
+                    };
 
                     for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
                     {
                         DataGridViewRow row = dgvAcesorios.Rows[i];
                         if (!row.IsNewRow)
                         {
-                            bool estadoacesorio = false; 
+                            bool estadoacesorio = false;
                             int cantidad = 0;
                             string name = "";
 
                             DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
-                            estadoacesorio = (bool)checkBoxCell.Value;
 
-                            //nombre del accesorio
-                            DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
-                            name = Convert.ToString(textBoxCellName.Value);
-
-                            //buscar el id del accesorio
-                            int id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
-
-                            //verificar si el accesorio es del equipo
-                            if (estadoacesorio)
+                            if (!row.IsNewRow)
                             {
-
-                                //cantidad del accesorio
-                                DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
-                                cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
-
-                                //bucar un equipoaccesorio
-                                entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipo.SerieEquipo, id_accesorio);
-
-                                //verificar que si el equiop_accesorio esxiste en la base de datos
-                                if (det_equipo_Accesorio!=null)
+                                estadoacesorio = (bool)checkBoxCell.Value;
+                                if (estadoacesorio)
                                 {
-                                    // el equipo_accesorio ya existe en la bd por lo tanto hay que editar la cantidad
-                                    det_equipo_Accesorio.cantidad = cantidad;
-                                    logEquipoAccesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
-                                }
-                                else
-                                {
-                                    //registrar un euipo accesorio nuevo que no se encuentra en la bd
-                                    det_equipo_Accesorio = new entEquipo_Accesorio();
+                                    DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
 
-                                    det_equipo_Accesorio.SerieEquipo = serie_equipo;
-                                    det_equipo_Accesorio.id_accesorio = id_accesorio;
+                                    cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+                                    name = Convert.ToString(textBoxCellName.Value);
+                                    det_equipo_Accesorio.id_accesorio = BuscarAccesorio(name).IdAccesorio;
                                     det_equipo_Accesorio.cantidad = cantidad;
                                     logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
-
-                                }
-                            }
-                            else
-                            {
-                                foreach (var item in list_det_equipo_accesorio_)
-                                {
-                                    if (item.SerieEquipo==serie_equipo && item.id_accesorio==id_accesorio)
-                                    {
-                                        bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(serie_equipo,id_accesorio);
-                                        break;
-                                    }
                                 }
                             }
                         }

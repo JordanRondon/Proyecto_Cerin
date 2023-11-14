@@ -64,15 +64,15 @@ namespace Cerin_Ingenieros.Consultas
             List<entServicio> listaServicios = logServicio.GetInstancia.listarServicioCliente(clienteSeleccionado.IdCliente);
             dataGridView_servicios.Rows.Clear();            
 
-            foreach (var item in listaServicios)
+            foreach (var servicio in listaServicios)
             {
-                string estado = (item.estado == 'P') ? "Pendiente" : "Terminado";
-                entTipoServicio tipoServicio = listaTipoServicios.FirstOrDefault(tipo => tipo.IdTipoServicio == item.IdTipoServicio);
+                string estado = (servicio.estado == 'P') ? "Pendiente" : "Terminado";
+                entTipoServicio tipoServicio = listaTipoServicios.FirstOrDefault(tipo => tipo.IdTipoServicio == servicio.IdTipoServicio);
 
                 dataGridView_servicios.Rows.Add(
-                    item.IdServicio,
-                    item.FechaRegistro,
-                    item.FechaEntrega,
+                    servicio.IdServicio,
+                    servicio.FechaRegistro,
+                    servicio.FechaEntrega,
                     tipoServicio.Nombre,
                     estado,
                     "Descargar"
@@ -85,18 +85,20 @@ namespace Cerin_Ingenieros.Consultas
             List<entEquipo> listaEquipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioId);
             dataGridView_equipos.Rows.Clear();
  
-            foreach (var item in listaEquipos)
+            foreach (var equipo in listaEquipos)
             {
-                entCategoria categoriaEquipo = logCategoria.GetInstancia.buscarCategoriaId(item.id_categoria);
-                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
-                entModelo modelo = logModelo.GetInstancia.BuscarModeloPorId(item.id_modelo);
+                entMarca marca;
+                entModelo modelo;
+                entCategoria categoria;
+
+                (categoria, marca, modelo) = logEquipo.GetInstancia.datosCompledoDeEquipoPorId(equipo.SerieEquipo);
 
                 entTipoServicio tipoServicio = listaTipoServicios.FirstOrDefault(tipo => tipo.IdTipoServicio == servicioSelecccionado.IdTipoServicio);
                 string certif = (tipoServicio.Nombre != "ALQUILER") ? "DESCARGAR" : "No disponible";
 
                 dataGridView_equipos.Rows.Add(
-                    categoriaEquipo.Nombre,
-                    item.SerieEquipo,
+                    categoria.Nombre,
+                    equipo.SerieEquipo,
                     modelo.nombre,
                     marca.Nombre,
                     certif

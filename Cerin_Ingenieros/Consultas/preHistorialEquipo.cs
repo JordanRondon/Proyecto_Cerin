@@ -15,9 +15,12 @@ namespace Cerin_Ingenieros.Consultas
 {
     public partial class preHistorialEquipo : Form
     {
+
+        private readonly List<entAccesorio> listaaccesorios;
         public preHistorialEquipo()
         {
             InitializeComponent();
+            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
             ConfigCabecera();
             dataGridView_servicios.ReadOnly = true;
             dataGridView_Accesorios.ReadOnly = true;
@@ -98,13 +101,13 @@ namespace Cerin_Ingenieros.Consultas
 
         public void listarAccesorios()
         {
-            List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(txb_serie_equipo.Text);
+            List<entEquipo_Accesorio> listaDetalleAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(txb_serie_equipo.Text);
 
             dataGridView_Accesorios.Rows.Clear();
 
-            foreach (var item in listaAccesorios)
+            foreach (var item in listaDetalleAccesorios)
             {
-                entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+                entAccesorio accesorio = listaaccesorios.FirstOrDefault(tipo => tipo.IdAccesorio == item.id_accesorio);
 
                 dataGridView_Accesorios.Rows.Add(
                     accesorio.Nombre,
@@ -130,11 +133,6 @@ namespace Cerin_Ingenieros.Consultas
                 lb_dni_ruc.Text = cliente.Ruc.ToString();
             }
             lb_telefono.Text = cliente.Telefono.ToString();
-        }
-
-        private void mostrarDatosEmpleado(entEmpleado empleado)
-        {
-            //lb_nombreEmpleado.Text = empleado.Nombre + ' ' + empleado.Apellido;
         }
 
         private void mostrarDatosEquipo(entEquipo equipo)
@@ -189,7 +187,6 @@ namespace Cerin_Ingenieros.Consultas
                 entEmpleado empleado = logEmpleado.GetInstancia.BuscarEmpleadoId(servicio.IdEmpleado);
 
                 mostrarDatosCliente(cliente);
-                mostrarDatosEmpleado(empleado);
 
                 txb_Observaciones.Text = equipoServicio.Observaciones_preliminares;
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;

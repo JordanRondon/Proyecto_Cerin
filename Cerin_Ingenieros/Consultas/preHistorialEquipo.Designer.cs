@@ -535,6 +535,7 @@
             this.txb_Observaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txb_Observaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_Observaciones.Location = new System.Drawing.Point(7, 23);
             this.txb_Observaciones.Multiline = true;
             this.txb_Observaciones.Name = "txb_Observaciones";
@@ -568,6 +569,7 @@
             this.txb_Recomendaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txb_Recomendaciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txb_Recomendaciones.Location = new System.Drawing.Point(3, 23);
             this.txb_Recomendaciones.Multiline = true;
             this.txb_Recomendaciones.Name = "txb_Recomendaciones";

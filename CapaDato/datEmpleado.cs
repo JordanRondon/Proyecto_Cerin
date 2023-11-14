@@ -183,9 +183,12 @@ namespace CapaDato
                     empleado = new entEmpleado();
 
                     empleado.IdEmpleado = Convert.ToInt32(dr["id_empleado"]);
-                    empleado.Apellido = Convert.ToString(dr["nombre"]); ;
-                    empleado.Nombre = Convert.ToString(dr["apellido"]); ;
-                    empleado.Dni = Convert.ToString(dr["dni"]); ;
+                    empleado.Apellido = Convert.ToString(dr["nombre"]); 
+                    empleado.Nombre = Convert.ToString(dr["apellido"]); 
+                    empleado.Dni = Convert.ToString(dr["dni"]);
+                    empleado.Direccion = Convert.ToString(dr["direccion"]);
+                    empleado.Correo = Convert.ToString(dr["correo"]);
+                    empleado.Telefono = Convert.ToString(dr["telefono"]);
                 }
             }
             catch (Exception ex)
@@ -250,6 +253,53 @@ namespace CapaDato
             }
 
             return empleado;
+        }
+
+        public (entUsuario, entRol) ObtenerDatosEmpleadoId(int id)
+        {
+            SqlCommand cmd = null;
+            entUsuario usuario= null;
+            entRol rol = null;
+
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar; // Singleton
+
+                cmd = new SqlCommand("sp_ObtenerDatosEmpleadoPorID", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id_empleado", id);
+
+                cn.Open();
+
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    usuario = new entUsuario();
+                    rol = new entRol();
+
+                    usuario.id_usuario = Convert.ToInt32(dr["id_usuario"]);
+                    usuario.userName = Convert.ToString(dr["nombre_usuario"]);
+
+                    rol.id_rol = Convert.ToInt32(dr["id_rol"]);
+                    rol.nombre = Convert.ToString(dr["nombre_rol"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                    cmd.Dispose();
+                }
+            }
+
+            return (usuario,rol);
         }
 
         #endregion

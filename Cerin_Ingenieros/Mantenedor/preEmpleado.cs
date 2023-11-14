@@ -70,52 +70,35 @@ namespace Cerin_Ingenieros
 
         private void ConfigInicialBtn()
         {
-            btn_nuevo.Enabled = true;
-            btn_nuevo.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_buscar.Enabled = false;
-            btn_buscar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = false;
-            btn_cancelar.BackColor = configColores.btDesactivado;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
+
         }
 
         private void ConfigModificacionBtn()
         {
             Hablitar_entradas();
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_buscar.Enabled = true;
-            btn_buscar.BackColor = configColores.btnActivo;
-            btn_editar.Enabled = true;
-            btn_editar.BackColor = configColores.btnActivo;
-            btn_eliminar.Enabled = true;
-            btn_eliminar.BackColor = configColores.btnActivo;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             Hablitar_entradas();
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = true;
-            btn_guardar.BackColor = configColores.btnActivo;
-            btn_buscar.Enabled = true;
-            btn_buscar.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_buscar, true, configColores.btnActivo);
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -134,44 +117,33 @@ namespace Cerin_Ingenieros
 
         private void ConfigCabecera()
         {
-            dataGridView_empleados.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Código" },
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Apellido" },
-                new DataGridViewTextBoxColumn { HeaderText = "DNI" },
-                new DataGridViewTextBoxColumn { HeaderText = "Dirreccion" },
-                new DataGridViewTextBoxColumn { HeaderText = "Correo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Teléfono" },
-                new DataGridViewTextBoxColumn { HeaderText = "UserName" },
-                new DataGridViewTextBoxColumn { HeaderText = "Rol" }
-            );
-
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_empleados,new string[] { "Código", "Nombre", "Apellido", "DNI", "Dirreccion", "Correo", "Teléfono", "UserName", "Rol"});
             dataGridView_empleados.Columns[0].Width = 60;
-
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_empleados.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
         private void ListarEmpleado()
         {
             List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
+
             dataGridView_empleados.Rows.Clear();
 
             //insertar los datos 
-            foreach (var item in listaEmpleado)
+            foreach (var empleado in listaEmpleado)
             {
-                entUsuario usuario = logUser.GetInstancia.buscarUsuario(item.id_usuario);
-                string nombreRol = logRol.GetInstancia.buscarRolId(usuario.id_rol).nombre;
+                entUsuario usuario;
+                entRol rol;
+
+                (usuario, rol) = logEmpleado.GetInstancia.ObtenerDatosEmpleadoId(empleado.IdEmpleado);
                 dataGridView_empleados.Rows.Add(
-                    item.IdEmpleado,
-                    item.Nombre,
-                    item.Apellido,
-                    item.Dni,
-                    item.Direccion,
-                    item.Correo,
-                    item.Telefono,
+                    empleado.IdEmpleado,
+                    empleado.Nombre,
+                    empleado.Apellido,
+                    empleado.Dni,
+                    empleado.Direccion,
+                    empleado.Correo,
+                    empleado.Telefono,
                     usuario.userName,
-                    nombreRol
+                    rol.nombre
                 );
             }
         }
@@ -182,16 +154,15 @@ namespace Cerin_Ingenieros
             {
                 DataGridViewRow filaActual = dataGridView_empleados.Rows[e.RowIndex];
                 ConfigModificacionBtn();
-                registroSeleccionado = int.Parse(filaActual.Cells[0].Value.ToString());
-                txb_nombres_empleado.Text = filaActual.Cells[1].Value.ToString();
-                txb_apellidos_empleado.Text = filaActual.Cells[2].Value.ToString();
-                txb_dniEmpleado.Text = filaActual.Cells[3].Value.ToString();
-                txb_direccion_empleado.Text = filaActual.Cells[4].Value.ToString();
-                txb_correo_empleado.Text = filaActual.Cells[5].Value.ToString();
-                txb_telefono_empleado.Text = filaActual.Cells[6].Value.ToString();
-                txb_userNamer.Text = filaActual.Cells[7].Value.ToString();
-
-                cmb_rol.SelectedIndex = cmb_rol.FindString(filaActual.Cells[8].Value.ToString()); 
+                registroSeleccionado = int.Parse(filaActual.Cells["Código"].Value.ToString());
+                txb_nombres_empleado.Text = filaActual.Cells["Nombre"].Value.ToString();
+                txb_apellidos_empleado.Text = filaActual.Cells["Apellido"].Value.ToString();
+                txb_dniEmpleado.Text = filaActual.Cells["DNI"].Value.ToString();
+                txb_direccion_empleado.Text = filaActual.Cells["Dirreccion"].Value.ToString();
+                txb_correo_empleado.Text = filaActual.Cells["Correo"].Value.ToString();
+                txb_telefono_empleado.Text = filaActual.Cells["Teléfono"].Value.ToString();
+                txb_userNamer.Text = filaActual.Cells["UserName"].Value.ToString();
+                cmb_rol.SelectedIndex = cmb_rol.FindString(filaActual.Cells["Rol"].Value.ToString()); 
                 
 
                 txb_dniEmpleado.Enabled = false;
@@ -210,7 +181,6 @@ namespace Cerin_Ingenieros
             bool datos_User = !string.IsNullOrWhiteSpace(txb_userNamer.Text) &&
                              !string.IsNullOrWhiteSpace(txb_contraseña.Text) &&
                              cmb_rol.SelectedIndex != -1;
-
             try
             {
                 if (datosIngresados && datos_User)
@@ -227,7 +197,7 @@ namespace Cerin_Ingenieros
 
                     if (usuario.id_usuario <= 0)
                     {
-                        MessageBox.Show("El usuario ya esta registrado, cambia de USERNAME");
+                        MessageBox.Show("El \"USERNAME\" ya esta registrado, cambia de USERNAME");
                         return;
                     }
 
@@ -241,7 +211,6 @@ namespace Cerin_Ingenieros
                         Telefono = txb_telefono_empleado.Text.Trim(),
                         id_usuario = usuario.id_usuario
                     };
-
                     logEmpleado.GetInstancia.insertaEmpleado(empleado);
                 }
                 else
@@ -376,11 +345,6 @@ namespace Cerin_Ingenieros
                     MessageBox.Show("DNI no valida");
                 }
             }            
-        }
-
-        private void txb_userNamer_Leave(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -12,19 +12,21 @@ namespace Cerin_Ingenieros
 {
     public partial class preMarca : Form
     {
+        private List<entCategoria> opciones;
         public preMarca()
         {
             InitializeComponent();
             deshablitar_entradas();
             deshablitar_btn();
             listarMarcas();
+
+            opciones = logCategoria.GetInstancia.listarCategoriasEquipos();
             MostrarChecks();
         }
 
         private void MostrarChecks()
         {
-            List<entCategoria> opciones = logCategoria.GetInstancia.listarCategoriasEquipos() ;
-
+            panelContenedor.Controls.Clear();
             foreach (var opcion in opciones)
             {
                 CheckBox checkbox = new CheckBox();
@@ -32,6 +34,7 @@ namespace Cerin_Ingenieros
                 checkbox.Size = new System.Drawing.Size(150, 20);
                 checkbox.Tag = opcion.id_categoria_equipo;
                 checkbox.Name = "chk_" + opcion.id_categoria_equipo;  // Asigna un nombre único
+                checkbox.Checked = false;
                 panelContenedor.Controls.Add(checkbox);
             }
         }
@@ -46,44 +49,36 @@ namespace Cerin_Ingenieros
         {
             txb_codigo.Enabled = false;
             txb_nombre.Enabled = false;
+            panelContenedor.Enabled = false;
         }
 
         private void deshablitar_btn()
         {
-            btn_nuevo.Enabled = true;
-            btn_nuevo.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = false;
-            btn_cancelar.BackColor = configColores.btDesactivado;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
         }
 
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = true;
-            btn_editar.BackColor = configColores.btnActivo;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
+            panelContenedor.Enabled=true;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
+            panelContenedor.Enabled = true;
             txb_nombre.Enabled = true;
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = true;
-            btn_guardar.BackColor = configColores.btnActivo;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
+            MostrarChecks();
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -91,6 +86,7 @@ namespace Cerin_Ingenieros
             limpiar_entradas();
             deshablitar_entradas();
             deshablitar_btn();
+            MostrarChecks();
         }
 
         private void listarMarcas()
@@ -108,7 +104,7 @@ namespace Cerin_Ingenieros
                 txb_nombre.Text = filaActual.Cells[1].Value.ToString();
 
                 List<entMarcaCategoria> lista = logMarca.GetInstancia.ListaDetalleMarcaCategoria(Convert.ToInt16(txb_codigo.Text));
-
+                MostrarChecks();
                 foreach (entMarcaCategoria marcaCategoria in lista)
                 {
                     foreach (Control control in panelContenedor.Controls)
@@ -163,6 +159,7 @@ namespace Cerin_Ingenieros
                     deshablitar_entradas();
                     limpiar_entradas();
                     listarMarcas();
+                    MostrarChecks();
                 }
                 else
                     MessageBox.Show("Casillas vacias", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -199,6 +196,7 @@ namespace Cerin_Ingenieros
                     listarMarcas();
                     deshablitar_btn();
                     deshablitar_entradas();
+                    MostrarChecks();
                 }
                 else
                 {

@@ -50,66 +50,50 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void deshablitar_btn()
         {
-            btn_nuevo.Enabled = true;
-            btn_nuevo.BackColor = configColores.btnActivo;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = false;
-            btn_editar.BackColor = configColores.btDesactivado;
-            btn_eliminar.Enabled = false;
-            btn_eliminar.BackColor = configColores.btDesactivado;
-            btn_cancelar.Enabled = false;
-            btn_cancelar.BackColor = configColores.btDesactivado;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
+
         }
 
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
-            btn_nuevo.Enabled = false;
-            btn_nuevo.BackColor = configColores.btDesactivado;
-            btn_guardar.Enabled = false;
-            btn_guardar.BackColor = configColores.btDesactivado;
-            btn_editar.Enabled = true;
-            btn_editar.BackColor = configColores.btnActivo;
-            btn_eliminar.Enabled = true;
-            btn_eliminar.BackColor = configColores.btnActivo;
-            btn_cancelar.Enabled = true;
-            btn_cancelar.BackColor = configColores.btnActivo;
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
             comboBox_marca .Enabled = true;
             comboBoxCategoria .Enabled = true;
+        }
+
+        private void configBtnNuevo()
+        {
+            configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_guardar, true, configColores.btnActivo);
+            configColores.EstsblecerPropiedadesBoton(btn_editar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_eliminar, false, configColores.btDesactivado);
+            configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
+            comboBox_marca.Enabled = true;
+            comboBoxCategoria.Enabled = true;
+            txb_nombre.Enabled = true;
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             if (comboBoxCategoria.Items.Count == 0)
-            {
                 MessageBox.Show("Registre una categoria");
-            }
             else
             {
                 comboBoxCategoria.SelectedIndex = 0;
                 if (comboBox_marca.Items.Count == 0)
-                {
                     MessageBox.Show("Registra una marca");
-                }
                 else
                 {
-                    txb_nombre.Enabled = true;
-                    btn_nuevo.Enabled = false;
-                    btn_nuevo.BackColor = configColores.btDesactivado;
-                    btn_editar.Enabled = false;
-                    btn_editar.BackColor = configColores.btDesactivado;
-                    btn_eliminar.Enabled = false;
-                    btn_eliminar.BackColor = configColores.btDesactivado;
-                    btn_cancelar.Enabled = true;
-                    btn_cancelar.BackColor = configColores.btnActivo;
-                    btn_guardar.Enabled = true;
-                    btn_guardar.BackColor = configColores.btnActivo;
-                    comboBox_marca.SelectedIndex = 0;
-                    comboBox_marca.Enabled = true;
-                    comboBoxCategoria.SelectedIndex = 0;
-                    comboBoxCategoria.Enabled = true;
-
+                    configBtnNuevo();
                 }
             }
         }
@@ -123,15 +107,7 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void ConfigCabecera()
         {
-            dataGridView_modelos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Codigo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Nombre" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca"},
-                new DataGridViewTextBoxColumn { HeaderText = "Categoria" }
-            );
-
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_modelos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_modelos, new string[] { "Codigo", "Nombre", "Marca", "Categoria"});
             comboBox_marca.Enabled = false;
             comboBoxCategoria.Enabled = false;
         }
@@ -143,15 +119,13 @@ namespace Cerin_Ingenieros.Mantenedor
             dataGridView_modelos.Rows.Clear();
 
             //insertar los datos 
-            foreach (var item in listaModelos)
+            foreach (var modelo in listaModelos)
             {
-                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
-                entCategoria categoria = logCategoria.GetInstancia.buscarCategoriaId(item.IdCategoriaEquipo);
                 dataGridView_modelos.Rows.Add(
-                    item.id_modelo,
-                    item.nombre,
-                    marca.Nombre,
-                    categoria.Nombre
+                    modelo.id_modelo,
+                    modelo.nombre,
+                    modelo.IdMarca.Nombre,
+                    modelo.IdCategoriaEquipo.Nombre
                 );
             }
         }
@@ -168,22 +142,24 @@ namespace Cerin_Ingenieros.Mantenedor
                     };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
                     entCategoria catSelec = (entCategoria)comboBoxCategoria.SelectedItem;
+
                     if(marcaSelec!=null && catSelec != null)
                     {
-                        modelo.IdCategoriaEquipo = catSelec.id_categoria_equipo;
-                        modelo.IdMarca = marcaSelec.IdMarca;
+                        modelo.IdCategoriaEquipo = new entCategoria();
+                        modelo.IdCategoriaEquipo.id_categoria_equipo = catSelec.id_categoria_equipo;
+                        modelo.IdMarca = new entMarca();
+                        modelo.IdMarca.IdMarca = marcaSelec.IdMarca;
 
                         logModelo.GetInstancia.insertaModelo(modelo);
                     }
                     else
                     {
                         MessageBox.Show("Se detecto un problema");
-                    }                    
+                    }
 
                     //Actualizar botones
-                    deshablitar_btn();
-                    deshablitar_entradas();
-                    limpiar_entradas();
+                    txb_nombre.Text = "";
+                    configBtnNuevo();
                     listarModelos();
                 }
                 else
@@ -201,11 +177,11 @@ namespace Cerin_Ingenieros.Mantenedor
             {
                 DataGridViewRow filaActual = dataGridView_modelos.Rows[e.RowIndex];
 
-                txb_codigo.Text = filaActual.Cells[0].Value.ToString();
-                txb_nombre.Text = filaActual.Cells[1].Value.ToString();
+                txb_codigo.Text = filaActual.Cells["Codigo"].Value.ToString();
+                txb_nombre.Text = filaActual.Cells["Nombre"].Value.ToString();
 
-                comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells[2].Value.ToString());
-                comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells[3].Value.ToString());
+                comboBox_marca.SelectedIndex = comboBox_marca.FindStringExact(filaActual.Cells["Marca"].Value.ToString());
+                comboBoxCategoria.SelectedIndex = comboBoxCategoria.FindStringExact(filaActual.Cells["Categoria"].Value.ToString());
 
                 habilitar_btn_modificacion();
             }
@@ -224,11 +200,16 @@ namespace Cerin_Ingenieros.Mantenedor
                         estado = 'D'
                     };
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    modelo.IdMarca = marcaSelec.IdMarca;
-
                     entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
-                    modelo.IdCategoriaEquipo = categoria.id_categoria_equipo;
 
+                    if(marcaSelec==null  && categoria == null)
+                    {
+                        MessageBox.Show("Se presento un problema");
+                        return;
+                    }
+
+                    modelo.IdMarca = marcaSelec;
+                    modelo.IdCategoriaEquipo = categoria;
                     logModelo.GetInstancia.editarModelo(modelo);
 
                     limpiar_entradas();
@@ -261,11 +242,16 @@ namespace Cerin_Ingenieros.Mantenedor
                     };
 
                     entMarca marcaSelec = (entMarca)comboBox_marca.SelectedItem;
-                    modelo.IdMarca = marcaSelec.IdMarca;
-
                     entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
-                    modelo.IdCategoriaEquipo = categoria.id_categoria_equipo;
 
+                    if(marcaSelec == null && categoria == null)
+                    {
+                        MessageBox.Show("Se presento un error");
+                        return;
+                    }
+
+                    modelo.IdMarca = marcaSelec;
+                    modelo.IdCategoriaEquipo = categoria;
                     logModelo.GetInstancia.editarModelo(modelo);
 
                     limpiar_entradas();

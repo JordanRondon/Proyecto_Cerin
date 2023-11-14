@@ -30,13 +30,12 @@ namespace CapaDato
                 Word.Application wordApp = new Word.Application();
                 try
                 {
-                    //abrid plantilla de documento de word
                     Word.Document plantilla = wordApp.Documents.Open(path2);
                     try
                     {
+                        //SE PUEDE AHORAR TIEMPO
                         entEmpleado empleado = datEmpleado.GetInstancia.BuscarEmpleadoId(servicio.IdEmpleado);
 
-                        //Insertamos datos de cabecera
                         Dictionary<string, string> reemplazos = new Dictionary<string, string>
                         {
                             { "<codigo>", servicio.IdServicio.ToString() },
@@ -58,9 +57,11 @@ namespace CapaDato
                         // Llenar la tabla con los datos de los equipos
                         foreach (var equipo in equipos)
                         {
-                            entMarca marca = datMarca.GetInstancia.BuscarMarcaPorId(equipo.IdMarca);
-                            entModelo modelo = datModelo.GetInstancia.BuscarModeloPorId(equipo.id_modelo);
-                            entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
+                            entMarca marca = null;
+                            entModelo modelo = null;
+                            entCategoria categoria = null;
+
+                            (categoria, marca, modelo) = datEquipo.GetInstancia.datosCompledoDeEquipoPorId(equipo.SerieEquipo);
 
                             string datosEquipo = categoria.Nombre + "\n" +
                                                  marca.Nombre + "\n" +
@@ -91,8 +92,6 @@ namespace CapaDato
                             }
 
                         }
-
-
                         // Verificar si está terminado y generar fecha final
                         if (servicio.estado == 'T')
                         {

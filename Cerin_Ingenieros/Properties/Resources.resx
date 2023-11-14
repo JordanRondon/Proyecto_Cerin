@@ -139,17 +139,14 @@
   <data name="LOGO celeste ( sin fondo)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LOGO celeste ( sin fondo).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="descargar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\descargar4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Amarillo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Amarillo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LOGOS plomo ( sin fondo)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGOS plomo ( sin fondo).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="descargar3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\descargar3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,8 +157,8 @@
   <data name="eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LOGOS PRIORITARIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOGOS PRIORITARIO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="agregar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\agregar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icono Maximizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icono Maximizar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +166,8 @@
   <data name="Verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LOGOS plomo ( sin fondo)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LOGOS plomo ( sin fondo).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="descargar4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\descargar4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Amarillo_parcial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Amarillo_parcial.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -180,5 +177,14 @@
   </data>
   <data name="neutro" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\neutro.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LOGOS PRIORITARIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LOGOS PRIORITARIO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pasword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pasword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

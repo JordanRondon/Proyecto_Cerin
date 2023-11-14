@@ -4,28 +4,26 @@ using Cerin_Ingenieros.Properties;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Consultas
 {
     public partial class preVerServicios : Form
     {
-        private List<entServicio> listaServiciosGeneral = logServicio.GetInstancia.listarServicios();
-        private List<entTipoServicio> listaTipoServicios = logTipoServicio.GetInstancia.listarTipoServicios();
+        private readonly List<entServicio> listaServiciosGeneral = logServicio.GetInstancia.listarServicios();
+        private readonly List<entTipoServicio> listaTipoServicios = logTipoServicio.GetInstancia.listarTipoServicios();
         public delegate void pasar(string id_servicio);
         public event pasar pasado;
+        private readonly int rolUser;
 
 
-        public preVerServicios()
+        public preVerServicios(int rolUser)
         {
             InitializeComponent();
             ConfigurarCabecera();
+            this.rolUser = rolUser;
 
             btnTodosTipos_Click(this, EventArgs.Empty);
         }
@@ -80,6 +78,7 @@ namespace Cerin_Ingenieros.Consultas
 
             foreach (var item in lista)
             {
+                if (rolUser == 3 && item.IdTipoServicio == 1) continue;
                 string fechasalida = item.FechaEntrega == null ? "Pendiente" : ((DateTime)item.FechaEntrega).ToString("dd-MM-yyyy HH:mm");
 
                 entTipoServicio tipoServicio = listaTipoServicios.FirstOrDefault(tipo => tipo.IdTipoServicio == item.IdTipoServicio);
@@ -155,8 +154,12 @@ namespace Cerin_Ingenieros.Consultas
         {
             if (e.RowIndex>=0)
             {
-                string cadena = dgvServicios.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-                pasado(cadena);
+                string fechaSalida = dgvServicios.Rows[e.RowIndex].Cells["Fecha de entrega"].Value.ToString();
+                if (fechaSalida=="Pendiente")
+                {
+                    string cadena = dgvServicios.Rows[e.RowIndex].Cells["ID"].Value.ToString();
+                    pasado(cadena);
+                }
             }
         }
     }
