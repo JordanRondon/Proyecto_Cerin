@@ -35,6 +35,16 @@ namespace CapaLogica
         public List<entEquipo> listarEquipoMarca(string marca) => datEquipo.GetInstancia.listarEquipoMarca(marca);
 
         public entEquipo buscarEquipo(string serie_equipo) => datEquipo.GetInstancia.buscarEquipo(serie_equipo);
+
+        public (entCategoria, entMarca, entModelo) datosCompledoDeEquipoPorId(string serie_equipo)
+        {
+            return datEquipo.GetInstancia.datosCompledoDeEquipoPorId(serie_equipo);
+        }
+
+        public void EliminarequipoAccesorio(string serie_equipo)
+        {
+            datEquipo.GetInstancia.EliminarequipoAccesorio(serie_equipo);
+        }
         #endregion
     }
 }

@@ -14,8 +14,8 @@ namespace CapaEntidad
 
         public char estado { get; set; }
 
-        public int IdMarca { get; set; }
+        public entMarca IdMarca { get; set; }
 
-        public int IdCategoriaEquipo { get; set; }
+        public entCategoria IdCategoriaEquipo { get; set; }
     }
 }

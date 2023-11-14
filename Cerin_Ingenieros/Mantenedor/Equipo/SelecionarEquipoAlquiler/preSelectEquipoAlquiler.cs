@@ -1,5 +1,6 @@
 ﻿using CapaEntidad;
 using CapaLogica;
+using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,15 +26,8 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
         }
         private void ConfigCabecera()
         {
-            dataGridView_equipos.Columns.AddRange(
-                new DataGridViewTextBoxColumn { HeaderText = "Serie del equipo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Modelo" },
-                new DataGridViewTextBoxColumn { HeaderText = "Estado" },
-                new DataGridViewTextBoxColumn { HeaderText = "Marca" }
-            );
-
-            //desabilitar que se pueda ordenar por columnas
-            foreach (DataGridViewColumn column in dataGridView_equipos.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvConfiguracion.ConfigurarColumnas(dataGridView_equipos,
+                        new string[] { "Categira equipo", "Marca", "Modelo", "Serie del equipo", "Estado" });
             lisEquiposelect = logEquipo.GetInstancia.listarEquipoDisponible();
         }
 
@@ -41,20 +35,22 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
         {
             dataGridView_equipos.Rows.Clear();
 
-            //insertar los datos 
-            foreach (var item in lisEquiposelect)
+            foreach (var equipo in lisEquiposelect)
             {
-                string estado2;
-                entMarca marca = logMarca.GetInstancia.BuscarMarcaPorId(item.IdMarca);
+                entCategoria categoria;
+                entMarca marca;
+                entModelo modelo;
 
-                if (item.Estado == 'D') estado2 = "Disponible";
-                else if (item.Estado == 'U') estado2 = "SELECIONADO";
-                else estado2 = "Ocupado";
+                (categoria, marca, modelo) = logEquipo.GetInstancia.datosCompledoDeEquipoPorId(equipo.SerieEquipo);
+
+                string estado = equipo.Estado == 'D' ? "Disponible" : equipo.Estado == 'U' ? "SELECIONADO" : "Ocupado";
+
                 dataGridView_equipos.Rows.Add(
-                    item.SerieEquipo,
-                    item.id_modelo,
-                    estado2,
-                    marca.Nombre
+                    categoria.Nombre,
+                    marca.Nombre,
+                    modelo.nombre,
+                    equipo.SerieEquipo,
+                    estado
                 );
             }
         }
@@ -93,7 +89,7 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             if (dataGridView_equipos.SelectedRows.Count>0)
             {
                 DataGridViewRow selectedRow = dataGridView_equipos.SelectedRows[0];
-                entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells[0].Value));
+                entEquipo equipo = BuscarEquipoPorSerie(Convert.ToString(selectedRow.Cells["Serie del equipo"].Value));
                 if (equipo.Estado=='D')
                 {
                     if (equipo.Estado != 'O')

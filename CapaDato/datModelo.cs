@@ -39,10 +39,13 @@ namespace CapaDato
                     entModelo modelo = new entModelo();
 
                     modelo.id_modelo = Convert.ToInt32(dr["id_modelo"]);
+                    Console.WriteLine(modelo.id_modelo);
                     modelo.nombre = Convert.ToString(dr["nombre"]);
                     modelo.estado = Convert.ToChar(dr["estado"]);
-                    modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
-                    modelo.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
+                    modelo.IdMarca = new entMarca();
+                    modelo.IdMarca.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    modelo.IdCategoriaEquipo = new entCategoria();
+                    modelo.IdCategoriaEquipo.id_categoria_equipo = Convert.ToInt16(dr["id_categoria_equipo"]);
 
                     lista.Add(modelo);
                 }
@@ -79,10 +82,14 @@ namespace CapaDato
                     entModelo modelo = new entModelo();
 
                     modelo.id_modelo = Convert.ToInt32(dr["id_modelo"]);
-                    modelo.nombre = Convert.ToString(dr["nombre"]);
+                    modelo.nombre = Convert.ToString(dr["nameModelo"]);
                     modelo.estado = Convert.ToChar(dr["estado"]);
-                    modelo.IdMarca = Convert.ToInt16(dr["id_Marca"]);
-                    modelo.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
+                    modelo.IdMarca = new entMarca();
+                    modelo.IdMarca.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    modelo.IdMarca.Nombre = Convert.ToString(dr["nameMarca"]);
+                    modelo.IdCategoriaEquipo = new entCategoria();
+                    modelo.IdCategoriaEquipo.id_categoria_equipo = Convert.ToInt16(dr["id_categoria_equipo"]);
+                    modelo.IdCategoriaEquipo.Nombre = Convert.ToString(dr["nameCategoria"]);
 
                     lista.Add(modelo);
                 }
@@ -112,8 +119,8 @@ namespace CapaDato
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
-                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
-                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo);
+                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo.id_categoria_equipo);
                 cn.Open();
 
                 int i = cmd.ExecuteNonQuery();
@@ -149,8 +156,8 @@ namespace CapaDato
                 cmd.Parameters.AddWithValue("@id_modelo", modelo.id_modelo);
                 cmd.Parameters.AddWithValue("@nombre", modelo.nombre);
                 cmd.Parameters.AddWithValue("@estado", modelo.estado); 
-                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca);
-                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo);
+                cmd.Parameters.AddWithValue("@id_marca", modelo.IdMarca.IdMarca);
+                cmd.Parameters.AddWithValue("@id_categoria_equipo", modelo.IdCategoriaEquipo.id_categoria_equipo);
 
                 cn.Open();
 
@@ -185,8 +192,10 @@ namespace CapaDato
                 {
                     m.id_modelo = Convert.ToInt32(dr["id_modelo"]);
                     m.nombre = Convert.ToString(dr["nombre"]);
-                    m.IdMarca = Convert.ToInt16(dr["id_Marca"]);
-                    m.IdCategoriaEquipo = Convert.ToInt16(dr["id_categoria_equipo"]);
+                    m.IdMarca = new entMarca();
+                    m.IdMarca.IdMarca = Convert.ToInt16(dr["id_Marca"]);
+                    m.IdCategoriaEquipo = new entCategoria();
+                    m.IdCategoriaEquipo.id_categoria_equipo = Convert.ToInt16(dr["id_categoria_equipo"]);
                 }
             }
             catch (Exception e)

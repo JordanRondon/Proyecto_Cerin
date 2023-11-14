@@ -165,12 +165,12 @@ namespace Cerin_Ingenieros.Servicios
 
             if (clienteSelecionado!=null)
             {
-                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
-                txb_ruc.Text = clienteSelecionado.Ruc;
-                lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
-                lb_nombres_cliente.Text = clienteSelecionado.Nombre;
-                lb_telefono_cliente.Text = clienteSelecionado.Telefono;
-                txb_razon_social.Text = clienteSelecionado.RazonSocial;
+                if(clienteSelecionado.Dni!="") lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                if (clienteSelecionado.Ruc != "") txb_ruc.Text = clienteSelecionado.Ruc;
+                if (clienteSelecionado.Apellido != "") lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
+                if (clienteSelecionado.Nombre != "") lb_nombres_cliente.Text = clienteSelecionado.Nombre;
+                if (clienteSelecionado.Telefono != "") lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+                if (clienteSelecionado.RazonSocial != "") txb_razon_social.Text = clienteSelecionado.RazonSocial;
             }
 
         }

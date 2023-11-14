@@ -22,12 +22,14 @@ namespace Cerin_Ingenieros.Servicios
         entCliente clienteSelecionado = null;
         List<entEquipo> equiposSelecionados;
         List<entEquipo_Servicio> list_det_equipo_servicio = new List<entEquipo_Servicio>();
+        private List<entAccesorio> listaaccesorios;
         private string equipoSelecionado = "";
         bool prosesoCancelado = true;
 
         public preMantenimiento()
         {
             InitializeComponent();
+            listaaccesorios = logAccesorio.GetInstancia.listarAccesorio();
             ConfiguracionInicial();
             ConfigCabecera();
             listarDatosComboBoxEmpleados();
@@ -179,12 +181,12 @@ namespace Cerin_Ingenieros.Servicios
 
             if (clienteSelecionado != null)
             {
-                lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
-                txb_ruc.Text = clienteSelecionado.Ruc;
-                lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
-                lb_nombres_cliente.Text = clienteSelecionado.Nombre;
-                lb_telefono_cliente.Text = clienteSelecionado.Telefono;
-                txb_razon_social.Text = clienteSelecionado.RazonSocial;
+                if (clienteSelecionado.Dni != "") lb_dni_ruc_cliente.Text = clienteSelecionado.Dni;
+                if (clienteSelecionado.Ruc != "") txb_ruc.Text = clienteSelecionado.Ruc;
+                if (clienteSelecionado.Apellido != "") lb_apellidos_cliente.Text = clienteSelecionado.Apellido;
+                if (clienteSelecionado.Nombre != "") lb_nombres_cliente.Text = clienteSelecionado.Nombre;
+                if (clienteSelecionado.Telefono != "") lb_telefono_cliente.Text = clienteSelecionado.Telefono;
+                if (clienteSelecionado.RazonSocial != "") txb_razon_social.Text = clienteSelecionado.RazonSocial;
             }
         }
 
@@ -355,68 +357,39 @@ namespace Cerin_Ingenieros.Servicios
                     item.otrosaccesorios = txbOtrosAccesorios.Text;
                 }
             }
-            //ACTUALIZACION DE LOS ACCESORIOS
-            List<entEquipo_Accesorio> list_det_equipo_accesorio_ = logEquipoAccesorio.GetInstancia.listar(equipoSelecionado);
+            //ELIMINAR DE LA BD EQUIPOACCESORIOS
+            logEquipo.GetInstancia.EliminarequipoAccesorio(equipoSelecionado);
+
+            //insertar los accesorios del equipo
+            entEquipo_Accesorio det_equipo_Accesorio = new entEquipo_Accesorio
+            {
+                SerieEquipo = equipoSelecionado
+            };
 
             for (int i = 0; i < dgvAcesorios.Rows.Count; i++)
             {
                 DataGridViewRow row = dgvAcesorios.Rows[i];
                 if (!row.IsNewRow)
                 {
-                    bool estadoacesorio = false; // Valor predeterminado en caso de que no sea verdadero ni falso
-                    int cantidad = 0; //cantidad predeterminada 
+                    bool estadoacesorio = false;
+                    int cantidad = 0;
                     string name = "";
 
                     DataGridViewCheckBoxCell checkBoxCell = (DataGridViewCheckBoxCell)row.Cells[0];
-                    estadoacesorio = (bool)checkBoxCell.Value;
 
-
-                    //nombre del accesorio
-                    DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
-                    name = Convert.ToString(textBoxCellName.Value);
-
-                    //buscar el id del accesorio
-                    int id_accesorio = logAccesorio.GetInstancia.BuscarAccesorioNombre(name).IdAccesorio;
-
-                    //verificar si el accesorio es del equipo
-                    if (estadoacesorio)
+                    if (!row.IsNewRow)
                     {
-
-                        //cantidad del accesorio
-                        DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
-                        cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
-
-                        //bucar un equipoaccesorio
-                        entEquipo_Accesorio det_equipo_Accesorio = logEquipoAccesorio.GetInstancia.BuscarEquipoAccesorio(equipoSelecionado, id_accesorio);
-
-                        //verificar que si el equiop_accesorio esxiste en la base de datos
-                        if (det_equipo_Accesorio != null)
+                        estadoacesorio = (bool)checkBoxCell.Value;
+                        if (estadoacesorio)
                         {
-                            // el equipo_accesorio ya existe en la bd por lo tanto hay que editar la cantidad
-                            det_equipo_Accesorio.cantidad = cantidad;
-                            logEquipoAccesorio.GetInstancia.EditarEquipoAccesorio(det_equipo_Accesorio);
-                        }
-                        else
-                        {
-                            //registrar un euipo accesorio nuevo que no se encuentra en la bd
-                            det_equipo_Accesorio = new entEquipo_Accesorio();
+                            DataGridViewTextBoxCell textBoxCell = (DataGridViewTextBoxCell)row.Cells[2];
+                            DataGridViewTextBoxCell textBoxCellName = (DataGridViewTextBoxCell)row.Cells[1];
 
-                            det_equipo_Accesorio.SerieEquipo = equipoSelecionado;
-                            det_equipo_Accesorio.id_accesorio = id_accesorio;
+                            cantidad = Convert.ToInt16(textBoxCell.Value.ToString());
+                            name = Convert.ToString(textBoxCellName.Value);
+                            det_equipo_Accesorio.id_accesorio = BuscarAccesorio(name).IdAccesorio;
                             det_equipo_Accesorio.cantidad = cantidad;
                             logEquipoAccesorio.GetInstancia.insertarEquipoAccesorio(det_equipo_Accesorio);
-
-                        }
-                    }
-                    else
-                    {
-                        foreach (var item in list_det_equipo_accesorio_)
-                        {
-                            if (item.SerieEquipo == equipoSelecionado && item.id_accesorio == id_accesorio)
-                            {
-                                bool estadofel = logEquipoAccesorio.GetInstancia.EliminarDetalle(equipoSelecionado, id_accesorio);
-                                break;
-                            }
                         }
                     }
                 }
@@ -424,6 +397,15 @@ namespace Cerin_Ingenieros.Servicios
 
             //limpiamos 
             LimpiarObservaciones();
+        }
+        private entAccesorio BuscarAccesorio(string nombre)
+        {
+            foreach (entAccesorio accesorio in listaaccesorios)
+            {
+                if (accesorio.Nombre == nombre)
+                    return accesorio;
+            }
+            return null;
         }
 
         private void btn_cancelarObservacion_Click(object sender, EventArgs e)
@@ -453,9 +435,8 @@ namespace Cerin_Ingenieros.Servicios
 
                     //EDITAR ACCESORIOS
                     //obtenemos todos los accesorios
-                    List<entAccesorio> accesorios = logAccesorio.GetInstancia.listarAccesorio();
                     dgvAcesorios.Rows.Clear();
-                    foreach (var item in accesorios)
+                    foreach (var item in listaaccesorios)
                     {
                         string cantidad = "";
                         bool estado = false;

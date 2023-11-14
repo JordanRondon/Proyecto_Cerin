@@ -243,6 +243,16 @@ namespace Cerin_Ingenieros.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pasword {
+            get {
+                object obj = ResourceManager.GetObject("pasword", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Rojo {
             get {
                 object obj = ResourceManager.GetObject("Rojo", resourceCulture);
@@ -256,6 +266,16 @@ namespace Cerin_Ingenieros.Properties {
         internal static System.Drawing.Bitmap Rojo_sin_inicial {
             get {
                 object obj = ResourceManager.GetObject("Rojo_sin_inicial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap usuario {
+            get {
+                object obj = ResourceManager.GetObject("usuario", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -283,41 +283,7 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex>=0)
-            {
-                grb_observacionesFinales.Enabled = true;
-
-                //indice de la fila seleccionada con doble click para
-                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-                string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
-                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
-
-                dataGridView_Accesorios.Rows.Clear();
-
-                foreach (var item in listaAccesorios)
-                {
-                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
-
-                    dataGridView_Accesorios.Rows.Add(
-                        accesorio.Nombre,
-                        item.cantidad
-                    );
-                }
-
-                equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
-                txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
-                txb_RecomendacionesPreliminares.Text = equipoServicio.Observaciones_preliminares;
-                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(serieEquipo).otrosaccesorios;
-                if (txb_Recomendaciones.Text != null)
-                {
-                    txb_Recomendaciones.Enabled = false;
-                    btn_agregarRecomendacion.Enabled = false;
-                    btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
-                    btn_editarRecomendacion.Enabled = true;
-                    btn_editarRecomendacion.BackColor = configColores.btnActivo;
-                }
-
-            }
+            
         }
 
         private void btn_Cancelar_Click(object sender, EventArgs e)
@@ -413,28 +379,40 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
 
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4 && e.RowIndex >= 0)
+            if (e.RowIndex >= 0)
             {
-                string ruta = null;
-                using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
-                {
-                    if (folderDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        string carpetaSeleccionada = folderDialog.SelectedPath;
-                        ruta = carpetaSeleccionada;
-                    }
-                }
-                if (!string.IsNullOrEmpty(ruta))
-                {
-                    DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
-                    string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
-                    entEquipo equipo = logEquipo.GetInstancia.buscarEquipo(serieEquipo);
+                grb_observacionesFinales.Enabled = true;
 
-                    string nombreDocumento = serieEquipo + ".docx";
-                    string rutaCompleta = Path.Combine(ruta, nombreDocumento);
+                //indice de la fila seleccionada con doble click para
+                DataGridViewRow filaActual = dataGridView_equipos.Rows[e.RowIndex];
+                string serieEquipo = Convert.ToString(filaActual.Cells[0].Value.ToString());
+                List<entEquipo_Accesorio> listaAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
 
-                    //logCertificado.GetInstancia.GenerarCerificado(equipo, DateTime.Now, rutaCompleta);
+                dataGridView_Accesorios.Rows.Clear();
+
+                foreach (var item in listaAccesorios)
+                {
+                    entAccesorio accesorio = logAccesorio.GetInstancia.BuscarAccesorioId(item.id_accesorio);
+
+                    dataGridView_Accesorios.Rows.Add(
+                        accesorio.Nombre,
+                        item.cantidad
+                    );
                 }
+
+                equipoServicio = logEquipo_Servicio.GetInstancia.BuscarEquipoServicioId(serieEquipo, Convert.ToInt32(txb_id_Servicio.Text.ToString()));
+                txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
+                txb_RecomendacionesPreliminares.Text = equipoServicio.Observaciones_preliminares;
+                txbOtrosAccesorios.Text = logEquipo.GetInstancia.buscarEquipo(serieEquipo).otrosaccesorios;
+                if (txb_Recomendaciones.Text != null)
+                {
+                    txb_Recomendaciones.Enabled = false;
+                    btn_agregarRecomendacion.Enabled = false;
+                    btn_agregarRecomendacion.BackColor = configColores.btDesactivado;
+                    btn_editarRecomendacion.Enabled = true;
+                    btn_editarRecomendacion.BackColor = configColores.btnActivo;
+                }
+
             }
         }
 
@@ -625,5 +603,45 @@ namespace Cerin_Ingenieros.Servicios.ActualizarServicios
             btn_LaboratorioTerminado.BackColor = Color.FromArgb(0, 192, 0);//verde claro
         }
         #endregion EstadosLaboratorio
+
+        private void btn_LaboratorioTerminado_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("LABORATORIO TERMINADO", btn_LaboratorioTerminado);
+        }
+
+        private void btn_LaboratorioPendiente_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("LABORATORIO TERMINADO", btn_LaboratorioPendiente);
+        }
+
+        private void btn_LaboratorioSinSolucion_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("LABORATORIO TERMINADO", btn_LaboratorioSinSolucion);
+        }
+
+        private void btn_PagosParcial_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("PAGO PARCIAL", btn_PagosParcial);
+        }
+
+        private void btn_PagosTodo_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("PAGO COMPLETO", btn_PagosTodo);
+        }
+
+        private void btn_PagosNada_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("SIN PAGO INICIAL", btn_PagosTodo);
+        }
+
+        private void btn_StikerTerminado_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("STIKERS COMPLETOS", btn_StikerTerminado);
+        }
+
+        private void btn_StikerNada_MouseHover(object sender, EventArgs e)
+        {
+            toolTip1.Show("SIN STIKERS", btn_StikerNada);
+        }
     }
 }
