@@ -276,7 +276,8 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                         SerieEquipo = txb_serie_equipo.Text.Trim(),
                         id_modelo = modeloSelec.id_modelo,
                         IdMarca = marcaselect.IdMarca,
-                        id_categoria = categoria.id_categoria_equipo
+                        id_categoria = categoria.id_categoria_equipo,
+                        otrosaccesorios = ""
                     };
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
