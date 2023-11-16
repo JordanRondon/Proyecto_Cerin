@@ -64,9 +64,9 @@ namespace CapaDato
                             (categoria, marca, modelo) = datEquipo.GetInstancia.datosCompledoDeEquipoPorId(equipo.SerieEquipo);
 
                             string datosEquipo = categoria.Nombre + "\n" +
-                                                 marca.Nombre + "\n" +
-                                                 modelo.nombre + "\n" +
-                                                equipo.SerieEquipo;
+                                                "Marca:\n" + marca.Nombre + "\n" +
+                                                "Modelo:\n" + modelo.nombre + "\n" +
+                                                "Serie:\n" + equipo.SerieEquipo;
 
                             string accesorios = "";
                             List<entEquipo_Accesorio> listAccesorios = datEquipo_Accesorio.GetInstancia.ListAccsDeEquipo(equipo.SerieEquipo);
