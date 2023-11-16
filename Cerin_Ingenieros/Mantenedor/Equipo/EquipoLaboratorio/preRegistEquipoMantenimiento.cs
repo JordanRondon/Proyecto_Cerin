@@ -548,7 +548,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             btnCancelarRegist.Enabled = true;
             btnCancelarRegist.BackColor = configColores.btnActivo;
 
-            txb_serie.Enabled = true;
+            txb_serie.Enabled = false;
             comboBoxCategoria.Enabled = true;
             comboBox_marca.Enabled = true;
             comboBox_modelo.Enabled = true;
@@ -605,7 +605,13 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
                 if (marcas.Count > 0)
                     comboBox_marca.SelectedIndex = 0;
                 else
+                {
                     comboBox_modelo.DataSource = null;
+                    comboBox_modelo.ValueMember = "id_modelo";
+                    comboBox_modelo.DisplayMember = "nombre";
+                }
+                    
+                    
             }
         }
 
@@ -617,6 +623,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             {
                 List<entModelo> modelos = logModelo.GetInstancia.listarModelos(marca.IdMarca, categoria.id_categoria_equipo);
                 comboBox_modelo.DataSource = modelos;
+                comboBox_modelo.Refresh();
             }
         }
     }
