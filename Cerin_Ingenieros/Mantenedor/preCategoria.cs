@@ -104,6 +104,7 @@ namespace Cerin_Ingenieros.Mantenedor
             txbTiempo.Enabled = true;
             txbFile.Enabled = true;
             btnUbicacion.Enabled = true;
+            txbNombreDocumento .Enabled = true;
             btnUbicacion.BackColor = configColores.btnActivo;
             btn_nuevo.Enabled = false;
             btn_nuevo.BackColor = configColores.btDesactivado;
