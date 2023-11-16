@@ -21,7 +21,7 @@ namespace CapaDato
         public string GenerarCertificado(entEquipo equipo, DateTime fecha,string src,int id_servicio)
         {
             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
-            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId(categoria.id_documento);
+            entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId2(categoria.id_documento);
             DateTime fin = fecha.AddMonths(categoria.tiempo_certificado);
             //string folder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Certificados\\";
             //string fullFilePah = folder + equipo.SerieEquipo+".docx";

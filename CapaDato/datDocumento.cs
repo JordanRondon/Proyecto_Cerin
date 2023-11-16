@@ -96,6 +96,45 @@ namespace CapaDato
             return ac;
         }
 
+        public entDocumento BuscarDocumentoPorId2(int id)
+        {
+            SqlCommand cmd = null;
+            entDocumento ac = null; // Debes crear una instancia de la entidad entDocumento.
+            try
+            {
+                SqlConnection cn = Conexion.GetInstancia.Conectar;
+                cmd = new SqlCommand("LeerDocumentoPorId2", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@id", id); // Corregir el nombre del parámetro.
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    // Asigna los valores del resultado al objeto entDocumento.
+                    ac = new entDocumento
+                    {
+                        Id = Convert.ToInt16(dr["id"]),
+                        Nombre = dr["nombre"].ToString(),
+                        Doc = (byte[])dr["doc"]
+                    };
+                }
+                dr.Close();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                if (cmd != null && cmd.Connection != null)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return ac;
+        }
+
         public string GuardarDocumentoTemporal(entDocumento doc)
         {
             string path  = AppDomain.CurrentDomain.BaseDirectory;
