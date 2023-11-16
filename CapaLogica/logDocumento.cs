@@ -21,7 +21,10 @@ namespace CapaLogica
             return datDocumento.GetInstancia.BuscarDocumentoPorNombre(nombre);
         }
 
-        public entDocumento BuscarDocumentoPorCodigo(int id) => datDocumento.GetInstancia.BuscarDocumentoPorId(id);
+        public entDocumento BuscarDocumentoPorCodigo(int id)
+        {
+            return datDocumento.GetInstancia.BuscarDocumentoPorId(id);
+        }
 
         public bool insertarDocumento(string nombre, string archivo, byte[] file)
         {

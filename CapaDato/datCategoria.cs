@@ -172,7 +172,7 @@ namespace CapaDato
 
                 cmd.Parameters.AddWithValue("@id_categoria_equipo", categoria.id_categoria_equipo);
                 cmd.Parameters.AddWithValue("@nombre", categoria.Nombre);
-                cmd.Parameters.AddWithValue("@id_documentoe", categoria.id_documento);
+                cmd.Parameters.AddWithValue("@id_documento", categoria.id_documento);
                 cmd.Parameters.AddWithValue("@tiempo_certificado", categoria.tiempo_certificado);
 
                 cn.Open();

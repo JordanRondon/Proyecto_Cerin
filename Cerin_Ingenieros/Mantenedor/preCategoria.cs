@@ -18,13 +18,34 @@ namespace Cerin_Ingenieros.Mantenedor
     public partial class preCategoria : Form
     {
         entDocumento DocSelec = new entDocumento();
+        private Dictionary<string, entDocumento> certificados;
+        private Dictionary<int, entDocumento> certificadosId;
+        private List<entCategoria> categorias;
+
         public preCategoria()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            CargarCategorias();
             deshablitar_entradas();
             deshablitar_btn();
             ConfigCabecera();
             listarCategoria();
+        }
+
+        private void CargarCategorias()
+        {
+            certificados = new Dictionary<string, entDocumento>();
+            certificadosId = new Dictionary<int, entDocumento>();
+            categorias = logCategoria.GetInstancia.listarCategoriasEquipos();
+            foreach (var categoria in categorias)
+            {
+                entDocumento doc = logDocumento.GetInstancia.BuscarDocumentoPorCodigo(categoria.id_documento);
+                if (BuscarDocPorId(doc.Id)==null)
+                {
+                    certificados.Add(doc.Nombre, doc);
+                    certificadosId.Add(doc.Id, doc);
+                }
+            }
         }
 
         private void limpiar_entradas()
@@ -118,19 +139,39 @@ namespace Cerin_Ingenieros.Mantenedor
 
         private void listarCategoria()
         {
-            List<entCategoria> listaCategoria = logCategoria.GetInstancia.listarCategoriasEquipos();
-
             dataGridView_categoria.Rows.Clear();
-
             //insertar los datos 
-            foreach (var item in listaCategoria)
+            foreach (var item in categorias)
             {
                 dataGridView_categoria.Rows.Add(
                     item.id_categoria_equipo,
                     item.Nombre,
-                    logDocumento.GetInstancia.BuscarDocumentoPorCodigo(item.id_documento).Nombre,
+                    BuscarDocPorId(item.id_documento).Nombre,
                     item.tiempo_certificado
                 );
+            }
+        }
+        private entDocumento BuscarDocPorNombre(string nombre)
+        {
+            if (certificados.TryGetValue(nombre, out entDocumento doc))
+            {
+                return doc;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public entDocumento BuscarDocPorId(int id)
+        {
+            if (certificadosId.TryGetValue(id, out entDocumento doc))
+            {
+                return doc;
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -179,7 +220,8 @@ namespace Cerin_Ingenieros.Mantenedor
                     subirArchivo();
 
                     entDocumento documento = logDocumento.GetInstancia.buscarDocumentoId(txbNombreDocumento.Text.Trim());
-
+                    certificados.Add(documento.Nombre,documento);
+                    certificadosId.Add(documento.Id, documento);
                     entCategoria categoria = new entCategoria
                     {
                         Nombre = txb_nombre.Text.Trim(),
@@ -188,7 +230,7 @@ namespace Cerin_Ingenieros.Mantenedor
                     };
 
                     logCategoria.GetInstancia.insertarCategoria(categoria);
-
+                    categorias.Add(categoria);
                     deshablitar_btn();
                     deshablitar_entradas();
                     limpiar_entradas();
@@ -207,20 +249,41 @@ namespace Cerin_Ingenieros.Mantenedor
         {
             try
             {
-                if (txb_nombre.Text != "" && txbFile.Text != "" && txbTiempo.Text != "")
+                if (txb_nombre.Text != "" && txbFile.Text != "" && txbTiempo.Text != "" && txbNombreDocumento.Text!="")
                 {
+                    byte[] file = null;
+                    Stream mystream = openFileDialog1.OpenFile();
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        mystream.CopyTo(ms);
+                        file = ms.ToArray();
+                    }
+
+                    entDocumento doc = BuscarDocPorNombre(txbNombreDocumento.Text);
+                    doc.RealName = txbNombreDocumento.Text + ".docx";
+                    doc.Doc = file;
+
+                    bool valor = logDocumento.GetInstancia.editarDocumento(doc);
+                    if (valor)
+                    {
+                        MessageBox.Show("Exito");
+                    }
+                    else MessageBox.Show("Error");
+
                     entCategoria categoria = new entCategoria
                     {
+                        id_categoria_equipo = Convert.ToInt16(txb_codigo.Text),
                         Nombre = txb_nombre.Text.Trim(),
-                        tiempo_certificado = Convert.ToInt32(txbTiempo.Text.Trim())
+                        tiempo_certificado = Convert.ToInt32(txbTiempo.Text.Trim()),
+                        id_documento = doc.Id
                     };
 
-                    //falta agregar la modificacion del documentos 
-                    //logCategoria.GetInstancia.editarCategoria(categoria);
+                    logCategoria.GetInstancia.editarCategoria(categoria);
 
                     deshablitar_btn();
                     deshablitar_entradas();
                     limpiar_entradas();
+                    CargarCategorias();
                     listarCategoria();
                 }
                 else
