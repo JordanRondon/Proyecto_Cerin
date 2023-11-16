@@ -65,6 +65,7 @@ namespace Cerin_Ingenieros
         private void habilitar_btn_modificacion()
         {
             hablitar_entradas();
+            txb_serie_equipo.Enabled = false;
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
             configColores.EstsblecerPropiedadesBoton(btn_guardar, false, configColores.btDesactivado);
             configColores.EstsblecerPropiedadesBoton(btn_editar, true, configColores.btnActivo);
@@ -310,6 +311,7 @@ namespace Cerin_Ingenieros
                     equipo.id_modelo = modeloSelec.id_modelo;
                     equipo.IdMarca = marcaSelec.IdMarca ;
                     equipo.id_categoria = categoria.id_categoria_equipo;
+                    equipo.otrosaccesorios = "";
 
                     logEquipo.GetInstancia.editarEquipo(equipo);
 
