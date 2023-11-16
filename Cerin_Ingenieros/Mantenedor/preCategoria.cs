@@ -36,6 +36,7 @@ namespace Cerin_Ingenieros.Mantenedor
         {
             certificados = new Dictionary<string, entDocumento>();
             certificadosId = new Dictionary<int, entDocumento>();
+            categorias = new List<entCategoria>();
             categorias = logCategoria.GetInstancia.listarCategoriasEquipos();
             foreach (var categoria in categorias)
             {
@@ -234,6 +235,7 @@ namespace Cerin_Ingenieros.Mantenedor
                     deshablitar_btn();
                     deshablitar_entradas();
                     limpiar_entradas();
+                    CargarCategorias();
                     listarCategoria();
                 }
                 else
