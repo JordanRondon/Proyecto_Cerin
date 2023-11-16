@@ -77,9 +77,7 @@ namespace CapaDato
                     ac = new entDocumento
                     {
                         Id = Convert.ToInt16(dr["id"]),
-                        Nombre = dr["nombre"].ToString(),
-                        RealName = dr["realName"].ToString(),
-                        Doc = (byte[])dr["doc"]
+                        Nombre = dr["nombre"].ToString()
                     };
                 }
                 dr.Close();
@@ -160,9 +158,9 @@ namespace CapaDato
                 cmd = new SqlCommand("sp_editarArchivo", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@id", documento.Id);
+                cmd.Parameters.AddWithValue("@codigo", documento.Id);
                 cmd.Parameters.AddWithValue("@nombre", documento.Nombre);
-                cmd.Parameters.AddWithValue("@archivo", documento.RealName);
+                cmd.Parameters.AddWithValue("@realName", documento.RealName);
                 cmd.Parameters.AddWithValue("@file", documento.Doc);
 
                 cn.Open();
