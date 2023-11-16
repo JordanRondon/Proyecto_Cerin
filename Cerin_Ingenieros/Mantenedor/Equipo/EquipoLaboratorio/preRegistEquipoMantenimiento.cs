@@ -44,7 +44,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
         private void ConfigInitial()
         {
             
-            txb_serie_equipo.Enabled = false;
+            txb_serie_equipo.Enabled = true;
             comboBox_modelo.Enabled = false;
             comboBox_marca.Enabled = false;
             comboBoxCategoria.Enabled = false;
@@ -548,7 +548,7 @@ namespace Cerin_Ingenieros.Servicios.Mantenimiento
             btnCancelarRegist.Enabled = true;
             btnCancelarRegist.BackColor = configColores.btnActivo;
 
-            txb_serie.Enabled = false;
+            txb_serie_equipo.Enabled = false;
             comboBoxCategoria.Enabled = true;
             comboBox_marca.Enabled = true;
             comboBox_modelo.Enabled = true;
