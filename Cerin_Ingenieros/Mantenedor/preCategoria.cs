@@ -86,7 +86,7 @@ namespace Cerin_Ingenieros.Mantenedor
             txb_nombre.Enabled = true;
             txbFile.Enabled = true;
             txbTiempo.Enabled = true;
-            txbNombreDocumento.Enabled = true;
+            txbNombreDocumento.Enabled = false;
             btn_nuevo.Enabled = false;
             btn_nuevo.BackColor = configColores.btDesactivado;
             btn_guardar.Enabled = false;
