@@ -23,13 +23,6 @@ namespace CapaDato
             {
                 if (dniRuc.Length == 11)
                 {
-                    //"https://dniruc.apisperu.com/api/v1/dni/"12345678"?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0"
-                    //"https://dniruc.apisperu.com/api/v1/ruc/"20131312955"?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0"
-
-                    //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvcmRhbmFuZ2Vscm9uZG9ucG96b0BnbWFpbC5jb20ifQ._sY7Mt0qrxCqH2uZH745-57025MYCXrnIZeg-whqgFs");
-                    //---cuenta empresa---
-                    //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
-                    //---cuenta prueba---
                     dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/ruc/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
 
                     if (respuesta.success != false)
@@ -43,10 +36,6 @@ namespace CapaDato
 
                 if (dniRuc.Length == 8)
                 {
-                    //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImpvcmRhbmFuZ2Vscm9uZG9ucG96b0BnbWFpbC5jb20ifQ._sY7Mt0qrxCqH2uZH745-57025MYCXrnIZeg-whqgFs");
-                    //---cuenta empresa---
-                    //dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
-                    //---cuenta prueba---
                     dynamic respuesta = ApiDniRuc.GetInstancia.Get("https://dniruc.apisperu.com/api/v1/dni/" + dniRuc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNvcnBvcmFjaW9uY2VyaW5Ab3V0bG9vay5jb20ifQ.-8FHB4icMZTipZJq6GjEBdw-uXfuLbBMnbii3HZr2P0");
 
                     if (respuesta.success == true)
