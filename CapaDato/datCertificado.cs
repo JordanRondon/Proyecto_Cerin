@@ -23,8 +23,6 @@ namespace CapaDato
             entCategoria categoria = datCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria);
             entDocumento doc = datDocumento.GetInstancia.BuscarDocumentoPorId2(categoria.id_documento);
             DateTime fin = fecha.AddMonths(categoria.tiempo_certificado);
-            //string folder = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Certificados\\";
-            //string fullFilePah = folder + equipo.SerieEquipo+".docx";
 
             if (doc != null)
             {
