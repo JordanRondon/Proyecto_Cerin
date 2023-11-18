@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preSeleccionarCliente.cs
+// Descripción: Clase que gestiona la interfaz de selección de
+//              clientes para el sistema.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
@@ -9,11 +16,20 @@ namespace Cerin_Ingenieros.Servicios
 {
     public partial class preSeleccionarCliente : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private List<entCliente> listaTodosClientes;
         private entCliente clienteSelecionado = null;
 
-
+        /// <summary>
+        /// Evento que se dispara cuando se cierra el formulario.
+        /// </summary>
         public event EventHandler FormCerrado;
+
+        /// <summary>
+        /// Evento que se dispara cuando se selecciona un cliente.
+        /// </summary>
         public event EventHandler<ClienteSeleccionadoEventArgs> ClienteSeleccionado;
 
         public preSeleccionarCliente()
@@ -24,6 +40,9 @@ namespace Cerin_Ingenieros.Servicios
             ListarClientes();
         }
 
+        /// <summary>
+        /// Configura la cabecera de la tabla de clientes en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dgvClientes,
@@ -34,6 +53,9 @@ namespace Cerin_Ingenieros.Servicios
             dgvClientes.Columns["Telefono"].Width = 90;
         }
 
+        /// <summary>
+        /// Lista todos los clientes en la interfaz.
+        /// </summary>
         private void ListarClientes()
         {
             List<entCliente> ls = listaTodosClientes;
@@ -52,6 +74,9 @@ namespace Cerin_Ingenieros.Servicios
             }
         }
 
+        /// <summary>
+        /// Selecciona el cliente actualmente resaltado en la interfaz. 
+        /// </summary>
         private void SlecionarCliente()
         {
             if (dgvClientes.SelectedRows.Count > 0)
@@ -72,8 +97,15 @@ namespace Cerin_Ingenieros.Servicios
             }
         }
 
+        /// <summary>
+        /// Obtiene el cliente seleccionado en la interfaz.
+        /// </summary>
+        /// <returns>El cliente seleccionado.</returns>
         public entCliente getCliente() { return clienteSelecionado; }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón de seleccionar cliente.
+        /// </summary>
         private void btnSelecionarCliente_Click_1(object sender, EventArgs e)
         {
             SlecionarCliente();
@@ -81,6 +113,9 @@ namespace Cerin_Ingenieros.Servicios
             this.Close();
         }
 
+        /// <summary>
+        /// Clase que define los argumentos para el evento ClienteSeleccionado.
+        /// </summary>
         public class ClienteSeleccionadoEventArgs : EventArgs
         {
             public entCliente ClienteSeleccionado { get; }
@@ -91,11 +126,17 @@ namespace Cerin_Ingenieros.Servicios
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón de cancelar.
+        /// </summary>
         private void btn_cancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Maneja el evento KeyUp en el cuadro de texto de búsqueda.
+        /// </summary>
         private void txb_buscar_cliente_KeyUp_1(object sender, KeyEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txb_buscar_cliente.Text))
@@ -121,12 +162,19 @@ namespace Cerin_Ingenieros.Servicios
 
         }
 
+        /// <summary>
+        /// Sobrecarga del método OnFormClosed que maneja el evento de cierre
+        /// del formulario.
+        /// </summary>
         protected override void OnFormClosed(FormClosedEventArgs e)
         {
             base.OnFormClosed(e);
             FormCerrado?.Invoke(this, EventArgs.Empty);
         }
 
+        /// <summary>
+        /// Maneja el evento de doble clic en una celda de la tabla de clientes.
+        /// </summary>
         private void dgvClientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             SlecionarCliente();

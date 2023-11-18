@@ -1,20 +1,25 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preSelectEquipoAlquiler.cs
+// Descripción: Clase que gestiona la interfaz de usuario para la
+//              selección de equipos de alquiler.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Servicios.Alquiler
 {
     public partial class preSelectEquipoAlquiler : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private List<entEquipo> lisEquiposelect;
         private List<entEquipo> selecionado = new List<entEquipo>();
 
@@ -24,6 +29,10 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             ConfigCabecera();
             listarEquipos();
         }
+
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dataGridView_equipos,
@@ -31,6 +40,9 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             lisEquiposelect = logEquipo.GetInstancia.listarEquipoDisponible();
         }
 
+        /// <summary>
+        /// Lista los equipos disponibles en la interfaz.
+        /// </summary>
         private void listarEquipos()
         {
             dataGridView_equipos.Rows.Clear();
@@ -55,6 +67,10 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             }
         }
 
+        /// <summary>
+        /// Maneja el evento KeyUp del cuadro de búsqueda para filtrar
+        /// equipos según el criterio seleccionado.
+        /// </summary>
         private void txb_buscar_KeyUp(object sender, KeyEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txb_buscar.Text))
@@ -78,12 +94,24 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             }
             listarEquipos();
         }
+
+        /// <summary>
+        /// Obtiene la lista de equipos seleccionados.
+        /// </summary>
         public List<entEquipo> getEquipos() { return selecionado; }
 
+        /// <summary>
+        /// Busca un equipo por su número de serie.
+        /// </summary>
         public entEquipo BuscarEquipoPorSerie(string serie)
         {
             return lisEquiposelect.FirstOrDefault(equipo => equipo.SerieEquipo.Equals(serie, StringComparison.OrdinalIgnoreCase));
         }
+
+        /// <summary>
+        /// Selecciona un equipo y lo agrega a la lista de equipos
+        /// seleccionados si está disponible.
+        /// </summary>
         public void selectEquipo()
         {
             if (dataGridView_equipos.SelectedRows.Count>0)
@@ -116,11 +144,17 @@ namespace Cerin_Ingenieros.Servicios.Alquiler
             }
         }
 
+        /// <summary>
+        /// Maneja el evento Click del botón para agregar equipos.
+        /// </summary>
         private void btn_agregar_equipo_Click(object sender, EventArgs e)
         {
             selectEquipo();
         }
 
+        /// <summary>
+        /// Maneja el evento Click del botón para cancelar la operación.
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

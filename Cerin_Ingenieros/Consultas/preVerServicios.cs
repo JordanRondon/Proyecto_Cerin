@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preVerServicios.cs
+// Descripción: Clase que gestiona la interfaz de usuario para la
+//              visualización de servicios y su estado.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.Properties;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
@@ -12,6 +19,9 @@ namespace Cerin_Ingenieros.Consultas
 {
     public partial class preVerServicios : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private readonly List<entServicio> listaServiciosGeneral = logServicio.GetInstancia.listarServicios();
         private readonly List<entTipoServicio> listaTipoServicios = logTipoServicio.GetInstancia.listarTipoServicios();
         public delegate void pasar(string id_servicio);
@@ -27,6 +37,10 @@ namespace Cerin_Ingenieros.Consultas
 
             btnTodosTipos_Click(this, EventArgs.Empty);
         }
+
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         public void ConfigurarCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dgvServicios,new string[] { "ID", "Fecha de registro", "Fecha de entrega", "Tipo servicio", "Cliente" });
@@ -43,6 +57,12 @@ namespace Cerin_Ingenieros.Consultas
 
         }
 
+        /// <summary>
+        /// Obtiene la imagen correspondiente al estado del servicio.
+        /// </summary>
+        /// <param name="estado">Estado del servicio.</param>
+        /// <param name="columnName">Nombre de la columna.</param>
+        /// <returns>Imagen correspondiente al estado.</returns>
         private Image ObtenerEstadoEnImage(char estado, string columnName)
         {
             Dictionary<char, Image> estadoImagen = new Dictionary<char, Image>();
@@ -72,6 +92,10 @@ namespace Cerin_Ingenieros.Consultas
             return estadoImagen.TryGetValue(estado, out Image result) ? result : null;
         }
 
+        /// <summary>
+        /// Lista los servicios en la interfaz.
+        /// </summary>
+        /// <param name="lista">Lista de servicios a mostrar.</param>
         private void ListarServicios(List<entServicio> lista)
         {
             dgvServicios.Rows.Clear();
@@ -113,7 +137,10 @@ namespace Cerin_Ingenieros.Consultas
             }
 
         }
-
+        #region Eventos
+        // --------------------------------------------------------------
+        // Eventos de Interfaz
+        // --------------------------------------------------------------
         private void btnTodosTipos_Click(object sender, EventArgs e)
         {
             btnTodosTipos.BackColor = Color.DodgerBlue;
@@ -162,5 +189,6 @@ namespace Cerin_Ingenieros.Consultas
                 }
             }
         }
+        #endregion Eventos
     }
 }

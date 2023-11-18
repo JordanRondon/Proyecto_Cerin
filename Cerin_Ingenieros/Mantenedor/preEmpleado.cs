@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preEmpleado.cs
+// Descripción: Clase que gestiona la interfaz de usuario para la
+//              administración de empleados.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using System;
 using System.Collections.Generic;
@@ -9,6 +16,9 @@ namespace Cerin_Ingenieros
 {
     public partial class preEmpleado : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private int registroSeleccionado = -1;
 
         public preEmpleado()
@@ -16,6 +26,10 @@ namespace Cerin_Ingenieros
             InitializeComponent();
             InicializarFormulario();
         }
+
+        /// <summary>
+        /// Inicializa el formulario al cargar.
+        /// </summary>
         private void InicializarFormulario()
         {
             ListarDatosComboBoxRol();
@@ -26,6 +40,9 @@ namespace Cerin_Ingenieros
             cmb_rol.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Limpia todas las entradas en la interfaz.
+        /// </summary>
         private void Limpiar_entradas()
         {
             txb_nombres_empleado.Text = "";
@@ -40,6 +57,9 @@ namespace Cerin_Ingenieros
             registroSeleccionado = -1;
         }
 
+        /// <summary>
+        /// Habilita las entradas en la interfaz.
+        /// </summary>
         private void Hablitar_entradas()
         {
             txb_nombres_empleado.Enabled = true;
@@ -54,6 +74,9 @@ namespace Cerin_Ingenieros
             cmb_rol.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Deshabilita las entradas en la interfaz.
+        /// </summary>
         private void Deshablitar_entradas()
         {
             txb_nombres_empleado.Enabled = false;
@@ -68,6 +91,9 @@ namespace Cerin_Ingenieros
             cmb_rol.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Configura los botones a su estado inicial.
+        /// </summary>
         private void ConfigInicialBtn()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -79,6 +105,9 @@ namespace Cerin_Ingenieros
 
         }
 
+        /// <summary>
+        /// Configura los botones para la modificación de registros.
+        /// </summary>
         private void ConfigModificacionBtn()
         {
             Hablitar_entradas();
@@ -90,6 +119,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Nuevo".
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             Hablitar_entradas();
@@ -101,6 +133,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_buscar, true, configColores.btnActivo);
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Cancelar".
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             Limpiar_entradas();
@@ -108,6 +143,9 @@ namespace Cerin_Ingenieros
             ConfigInicialBtn();
         }
 
+        /// <summary>
+        /// Lista los datos del ComboBox de roles en la interfaz.
+        /// </summary>
         private void ListarDatosComboBoxRol()
         {
             cmb_rol.ValueMember = "id_rol";
@@ -115,12 +153,18 @@ namespace Cerin_Ingenieros
             cmb_rol.DataSource = logRol.GetInstancia.listarRol();
         }
 
+        /// <summary>
+        /// Configura la cabecera de la tabla en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dataGridView_empleados,new string[] { "Código", "Nombre", "Apellido", "DNI", "Dirreccion", "Correo", "Teléfono", "UserName", "Rol"});
             dataGridView_empleados.Columns[0].Width = 60;
         }
 
+        /// <summary>
+        /// Lista los empleados en la interfaz.
+        /// </summary>
         private void ListarEmpleado()
         {
             List<entEmpleado> listaEmpleado= logEmpleado.GetInstancia.listarEmpleado();
@@ -148,6 +192,9 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de doble clic en una celda de la tabla de empleados.
+        /// </summary>
         private void dataGridView_empleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>=0)
@@ -173,6 +220,9 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Guardar".
+        /// </summary>
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
@@ -231,6 +281,9 @@ namespace Cerin_Ingenieros
             Deshablitar_entradas();
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Editar".
+        /// </summary>
         private void btn_editar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
@@ -283,6 +336,9 @@ namespace Cerin_Ingenieros
             Deshablitar_entradas();
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Eliminar".
+        /// </summary>
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = !string.IsNullOrWhiteSpace(txb_nombres_empleado.Text) &&
@@ -321,11 +377,17 @@ namespace Cerin_Ingenieros
             Deshablitar_entradas();
         }
 
+        /// <summary>
+        /// Valida la entrada de teclado para permitir solo números.
+        /// </summary>
         private void ValidarNumero_KeyPress(object sender, KeyPressEventArgs e)
         {
             ClassValidaciones.ValidarNumero(sender, e);
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Buscar".
+        /// </summary>
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             if (txb_dniEmpleado.Text!="")

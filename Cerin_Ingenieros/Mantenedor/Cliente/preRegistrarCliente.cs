@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preRegistrarCliente.cs
+// Descripción: Clase que gestiona la interfaz de registro, edición,
+//              búsqueda y eliminación de clientes.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
@@ -9,7 +16,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 {
     public partial class preRegistrarCliente : Form
     {
-        //Variables registrar cliente
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private int id_Temporal = -1;
 
         public preRegistrarCliente()
@@ -21,6 +30,10 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         }
 
         #region CONFIGURACION DEL FORMULARIO
+
+        /// <summary>
+        /// Configura las columnas del DataGridView que muestra la lista de clientes.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dgvClientes,
@@ -31,6 +44,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             dgvClientes.Columns["Telefono"].Width = 90;
         }
 
+        /// <summary>
+        /// Configura la apariencia inicial de los controles del formulario.
+        /// </summary>
         private void ConfiguracionInicial()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -50,6 +66,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             txb_telefono_cliente.Enabled = false;
         }
 
+        /// <summary>
+        /// Configura la apariencia al editar de los controles del formulario.
+        /// </summary>
         private void configEditar()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
@@ -68,6 +87,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             txb_telefono_cliente.Enabled = true;
         }
 
+        /// <summary>
+        /// Limpia los cuadros de texto del formulario.
+        /// </summary>
         private void LimpiarVariables()
         {
             txb_dni_cliente.Text = "";
@@ -78,6 +100,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             txb_razonSocial_cliente.Text = "";
         }
 
+        /// <summary>
+        /// Configura los controles del formulario cuando se haga click en nuevo.
+        /// </summary>
         private void ConfigNuevo()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
@@ -98,6 +123,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             LimpiarVariables();
         }
 
+        /// <summary>
+        /// Carga los clientes en el data grid view
+        /// </summary>
         private void ListarClientes()
         {
             dgvClientes.Rows.Clear();
@@ -158,11 +186,18 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
         #endregion API_DNI_RUC
 
         #region eventos botones
+
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Nuevo".
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             ConfigNuevo();
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Buscar".
+        /// </summary>
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             if (txb_dni_cliente.Text.Length == 8)
@@ -171,6 +206,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Guardar".
+        /// </summary>
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool hayDatosMinimos = (txb_apellidos_cliente.Text !="" && txb_nombre_cliente.Text !="" && txb_dni_cliente.Text!="") || (txb_razonSocial_cliente.Text != "" && txb_razonSocial_cliente.Text!="");
@@ -212,6 +250,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             }            
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Editar".
+        /// </summary>
         private void btn_editar_Click(object sender, EventArgs e)
         {
             try
@@ -245,6 +286,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Eliminar".
+        /// </summary>
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             try
@@ -272,12 +316,18 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
 
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Cancelar Registro".
+        /// </summary>
         private void btn_cancelar_registro_Click(object sender, EventArgs e)
         {
             ConfiguracionInicial();
             LimpiarVariables();
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en alguna cela del dataGridView dgvClientes.
+        /// </summary>
         private void dgvClientes2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -296,6 +346,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Buscar RUC".
+        /// </summary>
         private void btnBuscarRuc_Click(object sender, EventArgs e)
         {
             if (txb_ruc_cliente.Text.Length == 11)
@@ -303,7 +356,9 @@ namespace Cerin_Ingenieros.Servicios.ClienteOpciones
                 DatosRuc(txb_ruc_cliente.Text.Trim());
             }
         }
-
+        /// <summary>
+        /// Maneja el evento de hacer clic en el botón "Cancelar".
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();

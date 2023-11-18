@@ -1,23 +1,26 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preCategoria.cs
+// Descripción: Clase que gestiona la interfaz de usuario para el
+//              mantenimiento de categorías de equipos.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
-using Cerin_Ingenieros.Servicios.ActualizarServicios;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Mantenedor
 {
     public partial class preCategoria : Form
     {
-        entDocumento DocSelec = new entDocumento();
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
+        private entDocumento DocSelec = new entDocumento();
         private Dictionary<string, entDocumento> certificados;
         private Dictionary<int, entDocumento> certificadosId;
         private List<entCategoria> categorias;
@@ -32,6 +35,9 @@ namespace Cerin_Ingenieros.Mantenedor
             listarCategoria();
         }
 
+        /// <summary>
+        /// Carga las categorías, documentos y configura la interfaz.
+        /// </summary>
         private void CargarCategorias()
         {
             certificados = new Dictionary<string, entDocumento>();
@@ -49,6 +55,9 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Limpia las entradas en la interfaz.
+        /// </summary>
         private void limpiar_entradas()
         {
             txb_codigo.Text = "";
@@ -58,6 +67,9 @@ namespace Cerin_Ingenieros.Mantenedor
             txbNombreDocumento.Text = "";
         }
 
+        /// <summary>
+        /// Deshabilita las entradas en la interfaz.
+        /// </summary>
         private void deshablitar_entradas()
         {
             txb_codigo.Enabled = false;
@@ -67,6 +79,9 @@ namespace Cerin_Ingenieros.Mantenedor
             txbNombreDocumento.Enabled = false;
         }
 
+        /// <summary>
+        /// Deshabilita los botones en la interfaz.
+        /// </summary>
         private void deshablitar_btn()
         {
             btn_nuevo.Enabled = true;
@@ -81,6 +96,9 @@ namespace Cerin_Ingenieros.Mantenedor
             btnUbicacion.BackColor = configColores.btDesactivado;
         }
 
+        /// <summary>
+        /// Habilita los botones para la modificación en la interfaz.
+        /// </summary>
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
@@ -99,6 +117,10 @@ namespace Cerin_Ingenieros.Mantenedor
             btnUbicacion.BackColor = configColores.btnActivo;
         }
 
+        /// <summary>
+        /// Evento al hacer clic en el botón "Nuevo".
+        /// Habilita las entradas para la creación de una nueva categoría.
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             txb_nombre.Enabled = true;
@@ -117,6 +139,10 @@ namespace Cerin_Ingenieros.Mantenedor
             btn_cancelar.BackColor = configColores.btnActivo;
         }
 
+        /// <summary>
+        /// Evento al hacer clic en el botón "Cancelar".
+        /// Cancela la operación y deshabilita entradas y botones.
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             limpiar_entradas();
@@ -124,8 +150,9 @@ namespace Cerin_Ingenieros.Mantenedor
             deshablitar_btn();
         }
 
-        
-
+        /// <summary>
+        /// Configura la cabecera de la tabla en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dataGridView_categoria.Columns.AddRange(
@@ -139,6 +166,9 @@ namespace Cerin_Ingenieros.Mantenedor
             foreach (DataGridViewColumn column in dataGridView_categoria.Columns) column.SortMode = DataGridViewColumnSortMode.NotSortable;
         }
 
+        /// <summary>
+        /// Lista las categorías en la tabla de la interfaz.
+        /// </summary>
         private void listarCategoria()
         {
             dataGridView_categoria.Rows.Clear();
@@ -153,6 +183,10 @@ namespace Cerin_Ingenieros.Mantenedor
                 );
             }
         }
+
+        /// <summary>
+        /// Busca un documento por su nombre en el diccionario de certificados.
+        /// </summary>
         private entDocumento BuscarDocPorNombre(string nombre)
         {
             if (certificados.TryGetValue(nombre, out entDocumento doc))
@@ -165,6 +199,9 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Busca un documento por su ID en el diccionario de certificados.
+        /// </summary>
         public entDocumento BuscarDocPorId(int id)
         {
             if (certificadosId.TryGetValue(id, out entDocumento doc))
@@ -177,6 +214,10 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Evento al hacer clic en el botón "Ubicación".
+        /// Permite seleccionar la ubicación de un archivo.
+        /// </summary>
         private void btnUbicacion_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "c:\\";
@@ -190,6 +231,9 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Sube un archivo al sistema, insertando un nuevo documento.
+        /// </summary>
         private void subirArchivo()
         {
             if (txbNombreDocumento.Text != "" || txbFile.Text != "")
@@ -213,6 +257,10 @@ namespace Cerin_Ingenieros.Mantenedor
             else MessageBox.Show("Ingrese el nombre");
         }
 
+        /// <summary>
+        /// Evento al hacer clic en el botón "Guardar".
+        /// Guarda una nueva categoría y su documento asociado.
+        /// </summary>
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             try
@@ -248,6 +296,10 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Evento al hacer clic en el botón "Editar".
+        /// Edita una categoría existente y su documento asociado.
+        /// </summary>
         private void btn_editar_Click(object sender, EventArgs e)
         {
             try
@@ -298,6 +350,10 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Evento al hacer doble clic en una celda de la tabla.
+        /// Carga los datos de la categoría seleccionada para edición.
+        /// </summary>
         private void dataGridView_categoria_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)

@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preModelo.cs
+// Descripción: Clase que gestiona la interfaz de usuario para el
+//              mantenimiento de modelos de equipos.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
@@ -19,6 +26,9 @@ namespace Cerin_Ingenieros.Mantenedor
             ComboBoxs();
         }
 
+        /// <summary>
+        /// Configura los ComboBox en la interfaz.
+        /// </summary>
         private void ComboBoxs()
         {
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
@@ -31,6 +41,9 @@ namespace Cerin_Ingenieros.Mantenedor
             comboBox_marca.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Limpia las entradas en la interfaz.
+        /// </summary>
         private void limpiar_entradas()
         {
             txb_codigo.Text = "";
@@ -42,12 +55,18 @@ namespace Cerin_Ingenieros.Mantenedor
             comboBoxCategoria.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Deshabilita las entradas en la interfaz.
+        /// </summary>
         private void deshablitar_entradas()
         {
             txb_codigo.Enabled = false;
             txb_nombre.Enabled = false;
         }
 
+        /// <summary>
+        /// Deshabilita los botones en la interfaz.
+        /// </summary>
         private void deshablitar_btn()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -58,6 +77,9 @@ namespace Cerin_Ingenieros.Mantenedor
 
         }
 
+        /// <summary>
+        /// Habilita los botones para la modificación en la interfaz.
+        /// </summary>
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
@@ -70,6 +92,9 @@ namespace Cerin_Ingenieros.Mantenedor
             comboBoxCategoria .Enabled = true;
         }
 
+        /// <summary>
+        /// Configura el botón Nuevo en la interfaz.
+        /// </summary>
         private void configBtnNuevo()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, false, configColores.btDesactivado);
@@ -82,6 +107,9 @@ namespace Cerin_Ingenieros.Mantenedor
             txb_nombre.Enabled = true;
         }
 
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             if (comboBoxCategoria.Items.Count == 0)
@@ -98,12 +126,16 @@ namespace Cerin_Ingenieros.Mantenedor
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón Cancelar.
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             limpiar_entradas();
             deshablitar_entradas();
             deshablitar_btn();
         }
+
 
         private void ConfigCabecera()
         {

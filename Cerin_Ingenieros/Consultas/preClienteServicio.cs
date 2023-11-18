@@ -1,4 +1,11 @@
-﻿using CapaDato;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preClienteServicio.cs
+// Descripción: Clase que gestiona la el historial de servicios 
+//              de un cliente.
+// --------------------------------------------------------------
+
+using CapaDato;
 using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
@@ -12,11 +19,17 @@ namespace Cerin_Ingenieros.Consultas
 {
     public partial class preClienteServicio : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private entCliente clienteSeleccionado = null;
         private entServicio servicioSelecccionado = null;
         private readonly List<entTipoServicio> listaTipoServicios;
         private readonly List<entAccesorio> listaAccesorios;
 
+        // --------------------------------------------------------------
+        // Constructor
+        // --------------------------------------------------------------
         public preClienteServicio()
         {
             InitializeComponent();
@@ -25,12 +38,18 @@ namespace Cerin_Ingenieros.Consultas
             listaAccesorios = logAccesorio.GetInstancia.listarAccesorio();
         }
 
+        /// <summary>
+        /// Limpia las tablas de equipos y accesorios en la interfaz.
+        /// </summary>
         private void LimpiarTablas()
         {
             dataGridView_equipos.Rows.Clear();
             dataGridView_Accesorios.Rows.Clear();
         }
 
+        /// <summary>
+        /// Limpia los cuadros de texto en la interfaz.
+        /// </summary>
         private void LimpiarTextBox()
         {
             txb_Observaciones.Text = "";
@@ -38,6 +57,9 @@ namespace Cerin_Ingenieros.Consultas
             txbOtrosAccesorios.Text = "";
         }
 
+        /// <summary>
+        /// Limpia todas las entradas en la interfaz.
+        /// </summary>
         private void limpiarEntradas()
         {
             lb_nombreCliente.Text = "Nombres:";
@@ -49,6 +71,9 @@ namespace Cerin_Ingenieros.Consultas
             LimpiarTablas();
         }
 
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dataGridView_servicios,
@@ -59,6 +84,9 @@ namespace Cerin_Ingenieros.Consultas
                 new string[] { "Nombre", "Cantidad" });
         }
 
+        /// <summary>
+        /// Lista los servicios asociados al cliente en la interfaz.
+        /// </summary>
         public void ListarServicios()
         {
             List<entServicio> listaServicios = logServicio.GetInstancia.listarServicioCliente(clienteSeleccionado.IdCliente);
@@ -80,6 +108,10 @@ namespace Cerin_Ingenieros.Consultas
             }
         }
 
+        /// <summary>
+        /// Lista los equipos asociados a un servicio en la interfaz.
+        /// </summary>
+        /// <param name="servicioId">codigo del servicio.</param>
         public void ListarEquipos(int servicioId)
         {
             List<entEquipo> listaEquipos = logEquipo_Servicio.GetInstancia.listarEquiposDeUnServicio(servicioId);
@@ -106,6 +138,10 @@ namespace Cerin_Ingenieros.Consultas
             }
         }
 
+        /// <summary>
+        /// Lista los accesorios asociados a un equipo en la interfaz.
+        /// </summary>
+        /// <param name="serieEquipo">Serie del equipo.</param>
         public void ListarAccesorios(string serieEquipo)
         {
             List<entEquipo_Accesorio> listaEquipoAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(serieEquipo);
@@ -122,6 +158,11 @@ namespace Cerin_Ingenieros.Consultas
             }            
         }
 
+        /// <summary>
+        /// Lista los detalles del equipo y sus accesorios en la interfaz.
+        /// </summary>
+        /// <param name="serieEquipo">Serie del equipo.</param>
+        /// <param name="otrosAccesorios">Otros accesorios del equipo.</param>
         private void ListarDatosDelEquipo(string serieEquipo, string otrosAccesorios)
         {
             
@@ -131,6 +172,10 @@ namespace Cerin_Ingenieros.Consultas
             txbOtrosAccesorios.Text = otrosAccesorios;
         }
 
+        #region Eventos
+        /// <summary>
+        /// Maneja el evento de clic en el botón para seleccionar un cliente.
+        /// </summary>
         private void btn_slect_cliente_Click(object sender, EventArgs e)
         {
             limpiarEntradas();
@@ -153,13 +198,18 @@ namespace Cerin_Ingenieros.Consultas
                 ListarServicios();
             }
         }
-
+        /// <summary>
+        /// Maneja el evento de clic en el botón para limpiar la interfaz.
+        /// </summary>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             dataGridView_servicios.Rows.Clear();
             limpiarEntradas();
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en una celda de la tabla de equipos.
+        /// </summary>
         private void dataGridView_equipos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -212,6 +262,9 @@ namespace Cerin_Ingenieros.Consultas
             }            
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en una celda de la tabla de servicios.
+        /// </summary>
         private void dataGridView_servicios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -241,5 +294,6 @@ namespace Cerin_Ingenieros.Consultas
             }
             
         }
+        #endregion Eventos
     }
 }

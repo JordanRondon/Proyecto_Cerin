@@ -1,21 +1,25 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preHistorialEquipo.cs
+// Descripción: Clase que gestiona la interfaz de historial de 
+//              servicios y accesorios asociados a un equipo.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Cerin_Ingenieros.Consultas
 {
     public partial class preHistorialEquipo : Form
     {
-
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private readonly List<entAccesorio> listaaccesorios;
         public preHistorialEquipo()
         {
@@ -26,18 +30,27 @@ namespace Cerin_Ingenieros.Consultas
             dataGridView_Accesorios.ReadOnly = true;
         }
 
+        /// <summary>
+        /// Limpia las tablas de servicios y accesorios en la interfaz.
+        /// </summary>
         private void limpiarTablas()
         {
             dataGridView_servicios.Rows.Clear();
             dataGridView_Accesorios.Rows.Clear();
         }
 
+        /// <summary>
+        /// Limpia los cuadros de texto en la interfaz.
+        /// </summary>
         private void limpiarTextBox()
         {
             txb_Observaciones.Text = "";
             txb_Recomendaciones.Text = "";
         }
 
+        /// <summary>
+        /// Limpia los datos del cliente en la interfaz.
+        /// </summary>
         private void limpiarDatosCliente()
         {
             lb_nombre_razonSocial.Text = "Cliente o Razón Social";
@@ -45,6 +58,9 @@ namespace Cerin_Ingenieros.Consultas
             lb_telefono.Text = "Número";
         }
 
+        /// <summary>
+        /// Limpia todas las entradas en la interfaz.
+        /// </summary>
         private void limpiarEntradas()
         {
             limpiarDatosCliente();
@@ -58,14 +74,15 @@ namespace Cerin_Ingenieros.Consultas
             lb_modelo.Text = "Modelo";
             lb_estadoEquipo.Text = "Estado";
 
-            //lb_nombreEmpleado.Text = "Nombre";
-
             txb_serie_equipo.Text = "";
 
             limpiarTextBox();
             limpiarTablas();
         }
 
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvConfiguracion.ConfigurarColumnas(dataGridView_servicios,
@@ -76,6 +93,9 @@ namespace Cerin_Ingenieros.Consultas
             dataGridView_Accesorios.Columns["Cantidad"].Width = 80;
         }
 
+        /// <summary>
+        /// Lista los servicios asociados al equipo en la interfaz.
+        /// </summary>
         private void listarServicio()
         {
             List<entServicio> listaServicios = logServicio.GetInstancia.listarServicioEquipo(txb_serie_equipo.Text);
@@ -99,6 +119,9 @@ namespace Cerin_Ingenieros.Consultas
             }
         }
 
+        /// <summary>
+        /// Lista los accesorios asociados al equipo en la interfaz.
+        /// </summary>
         public void listarAccesorios()
         {
             List<entEquipo_Accesorio> listaDetalleAccesorios = logEquipoAccesorio.GetInstancia.ListAccsDeEquipo(txb_serie_equipo.Text);
@@ -116,6 +139,10 @@ namespace Cerin_Ingenieros.Consultas
             }
         }
 
+        /// <summary>
+        /// Muestra los datos del cliente en la interfaz.
+        /// </summary>
+        /// <param name="cliente">Objeto de tipo entCliente con los datos del cliente.</param>
         private void mostrarDatosCliente(entCliente cliente)
         {
             if (cliente.Dni != null)
@@ -135,6 +162,10 @@ namespace Cerin_Ingenieros.Consultas
             lb_telefono.Text = cliente.Telefono.ToString();
         }
 
+        /// <summary>
+        /// Muestra los datos del equipo en la interfaz.
+        /// </summary>
+        /// <param name="equipo">Objeto de tipo entEquipo con los datos del equipo.</param>
         private void mostrarDatosEquipo(entEquipo equipo)
         {
             lb_categoria_equipo.Text = logCategoria.GetInstancia.buscarCategoriaId(equipo.id_categoria).Nombre;
@@ -154,11 +185,22 @@ namespace Cerin_Ingenieros.Consultas
             lb_estadoEquipo.Text = estado;
         }
 
+        #region Eventos
+
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Limpiar".
+        /// Limpia todas las entradas en la interfaz.
+        /// </summary>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             limpiarEntradas();
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic en el botón "Buscar".
+        /// Realiza la búsqueda de servicios y accesorios asociados al
+        /// equipo especificado en la interfaz.
+        /// </summary>
         private void btn_buscar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txb_serie_equipo.Text))
@@ -174,6 +216,11 @@ namespace Cerin_Ingenieros.Consultas
             }
         }
 
+        /// <summary>
+        /// Evento que se ejecuta al hacer doble clic en una celda de la
+        /// tabla de servicios. Muestra los datos del cliente y del equipo
+        /// asociados al servicio seleccionado.
+        /// </summary>
         private void dataGridView_servicios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -192,5 +239,6 @@ namespace Cerin_Ingenieros.Consultas
                 txb_Recomendaciones.Text = equipoServicio.observaciones_finales;
             }
         }
+        #endregion Eventos
     }
 }

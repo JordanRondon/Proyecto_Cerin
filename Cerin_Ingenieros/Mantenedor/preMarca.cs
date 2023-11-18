@@ -1,10 +1,15 @@
-﻿using CapaDato;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preMarca.cs
+// Descripción: Clase que gestiona la interfaz de usuario para la
+//              administración de marcas de equipos.
+// --------------------------------------------------------------
+
 using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
 using System.Collections.Generic;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using CheckBox = System.Windows.Forms.CheckBox;
 
@@ -12,6 +17,9 @@ namespace Cerin_Ingenieros
 {
     public partial class preMarca : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private List<entCategoria> opciones;
         public preMarca()
         {
@@ -24,6 +32,10 @@ namespace Cerin_Ingenieros
             MostrarChecks();
         }
 
+        /// <summary>
+        /// Muestra los controles CheckBox en el panelContenedor según
+        /// las opciones de categorías disponibles.
+        /// </summary>
         private void MostrarChecks()
         {
             panelContenedor.Controls.Clear();
@@ -39,12 +51,18 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Limpia las entradas en la interfaz.
+        /// </summary>
         private void limpiar_entradas()
         {
             txb_codigo.Text = "";
             txb_nombre.Text = "";
         }
 
+        /// <summary>
+        /// Deshabilita las entradas en la interfaz.
+        /// </summary>
         private void deshablitar_entradas()
         {
             txb_codigo.Enabled = false;
@@ -52,6 +70,9 @@ namespace Cerin_Ingenieros
             panelContenedor.Enabled = false;
         }
 
+        /// <summary>
+        /// Deshabilita los botones en la interfaz.
+        /// </summary>
         private void deshablitar_btn()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -60,6 +81,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
         }
 
+        /// <summary>
+        /// Habilita los botones de edición en la interfaz.
+        /// </summary>
         private void habilitar_btn_modificacion()
         {
             txb_nombre.Enabled = true;
@@ -70,6 +94,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
+        /// <summary>
+        /// Evento click para el botón Nuevo.
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             panelContenedor.Enabled = true;
@@ -81,6 +108,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
 
+        /// <summary>
+        /// Evento click para el botón Cancelar.
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             limpiar_entradas();
@@ -89,11 +119,17 @@ namespace Cerin_Ingenieros
             MostrarChecks();
         }
 
+        /// <summary>
+        /// Lista las marcas en el DataGridView.
+        /// </summary>
         private void listarMarcas()
         {
             dataGridView_marcas.DataSource = logMarca.GetInstancia.listarMarcas();
         }
 
+        /// <summary>
+        /// Evento CellDoubleClick para el DataGridView_marcas.
+        /// </summary>
         private void dataGridView_marcas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>=0)
@@ -120,6 +156,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Verifica las categorías marcadas en los CheckBox.
+        /// </summary>
+        /// <returns>Lista de identificadores de categorías marcadas.</returns>
         public List<int> Verificar()
         {
             List<int> idsCategoriasMarcadas = new List<int>();
@@ -134,6 +174,9 @@ namespace Cerin_Ingenieros
             return idsCategoriasMarcadas;
         }
 
+        /// <summary>
+        /// Evento click para el botón Guardar.
+        /// </summary>
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             try
@@ -170,6 +213,9 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Evento click para el botón Editar.
+        /// </summary>
         private void btn_editar_Click(object sender, EventArgs e)
         {
             try
@@ -209,6 +255,9 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Evento click para el botón Eliminar.
+        /// </summary>
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             try

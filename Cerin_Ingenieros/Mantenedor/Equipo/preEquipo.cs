@@ -1,4 +1,11 @@
-﻿using CapaEntidad;
+﻿
+// --------------------------------------------------------------
+// Nombre del archivo: preEquipo.cs
+// Descripción: Clase que gestiona la interfaz de usuario para la
+//              administración de equipos y accesorios.
+// --------------------------------------------------------------
+
+using CapaEntidad;
 using CapaLogica;
 using Cerin_Ingenieros.RecursosAdicionales.Clases;
 using System;
@@ -11,6 +18,9 @@ namespace Cerin_Ingenieros
 {
     public partial class preEquipo : Form
     {
+        // --------------------------------------------------------------
+        // Atributos de la Clase
+        // --------------------------------------------------------------
         private string registroSeleccionado = "";
         private readonly List<entAccesorio> listaaccesorios;
 
@@ -26,6 +36,9 @@ namespace Cerin_Ingenieros
             limpiar_entradas();
         }
 
+        /// <summary>
+        /// Limpia las entradas en la interfaz.
+        /// </summary>
         private void limpiar_entradas()
         {
             txb_serie_equipo.Text = "";
@@ -36,6 +49,9 @@ namespace Cerin_Ingenieros
             dgvAcesorios.Rows.Clear();
         }
 
+        /// <summary>
+        /// Habilita las entradas en la interfaz.
+        /// </summary>
         private void hablitar_entradas()
         {
             txb_serie_equipo.Enabled = true;
@@ -44,6 +60,9 @@ namespace Cerin_Ingenieros
             comboBoxCategoria.Enabled = true;
         }
 
+        /// <summary>
+        /// Deshabilita las entradas en la interfaz.
+        /// </summary>
         private void deshablitar_entradas()
         {
             txb_serie_equipo.Enabled = false;
@@ -53,6 +72,9 @@ namespace Cerin_Ingenieros
             dgvAcesorios.Enabled = false;
         }
 
+        /// <summary>
+        /// Deshabilita los botones de la interfaz según la configuración de colores y activa el botón "Nuevo".
+        /// </summary>
         private void deshablitar_btn()
         {
             configColores.EstsblecerPropiedadesBoton(btn_nuevo, true, configColores.btnActivo);
@@ -62,6 +84,9 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, false, configColores.btDesactivado);
         }
 
+        /// <summary>
+        /// Habilita los controles de entrada y configura los botones para la modificación de datos.
+        /// </summary>
         private void habilitar_btn_modificacion()
         {
             hablitar_entradas();
@@ -72,6 +97,10 @@ namespace Cerin_Ingenieros
             configColores.EstsblecerPropiedadesBoton(btn_eliminar, true, configColores.btnActivo);
             configColores.EstsblecerPropiedadesBoton(btn_cancelar, true, configColores.btnActivo);
         }
+
+        /// <summary>
+        /// Configura los controles y botones para un nuevo registro.
+        /// </summary>
         private void configNuevo()
         {
             hablitar_entradas();
@@ -84,12 +113,19 @@ namespace Cerin_Ingenieros
             CargarAccesorios(); 
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Cancelar" limpiando las entradas y deshabilitando los controles y botones.
+        /// </summary>
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             limpiar_entradas();
             deshablitar_entradas();
             deshablitar_btn();
         }
+
+        /// <summary>
+        /// Carga los accesorios en el DataGridView de la interfaz.
+        /// </summary>
         private void CargarAccesorios()
         {
             dgvAcesorios.Enabled=true;
@@ -105,6 +141,10 @@ namespace Cerin_Ingenieros
             }
 
         }
+
+        /// <summary>
+        /// Configura la cabecera de las tablas en la interfaz.
+        /// </summary>
         private void ConfigCabecera()
         {
             dgvAcesorios.Columns.AddRange(
@@ -119,6 +159,9 @@ namespace Cerin_Ingenieros
                         new string[] { "Categira equipo", "Marca", "Modelo", "Serie del equipo", "Estado" });
         }
 
+        /// <summary>
+        /// Lista los equipos en la interfaz.
+        /// </summary>
         private void listarEquipo()
         {
             List<entEquipo> listaEquipos = logEquipo.GetInstancia.listarEquipoAlquiler();
@@ -152,6 +195,9 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Lista los datos en los ComboBox de la interfaz.
+        /// </summary>
         private void listarDatosComboBox()
         {
             comboBoxCategoria.ValueMember = "id_categoria_equipo";
@@ -166,6 +212,10 @@ namespace Cerin_Ingenieros
 
         }
 
+        /// <summary>
+        /// Maneja el evento de doble clic en una celda del DataGridView de equipos.
+        /// Carga los accesorios del equipo seleccionado y habilita los controles de modificación.
+        /// </summary>
         private void dataGridView_equipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex>=0)
@@ -205,6 +255,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Guardar".
+        /// Guarda o edita un equipo y sus accesorios en la base de datos.
+        /// </summary>
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex !=-1);
@@ -284,6 +338,9 @@ namespace Cerin_Ingenieros
             }            
         }
 
+        /// <summary>
+        /// Busca un accesorio en la lista por su nombre.
+        /// </summary>
         private entAccesorio BuscarAccesorio(string nombre)
         {
             foreach(entAccesorio accesorio in listaaccesorios)
@@ -293,7 +350,10 @@ namespace Cerin_Ingenieros
             }
             return null;
         }
-
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Editar".
+        /// Edita un equipo y sus accesorios en la base de datos.
+        /// </summary>
         private void btn_editar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_serie_equipo.Text != "" && comboBox_modelo.SelectedIndex != -1 && comboBox_marca.SelectedIndex != -1 && comboBoxCategoria.SelectedIndex != -1);
@@ -371,6 +431,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Eliminar".
+        /// Deshabilita un equipo en la base de datos.
+        /// </summary>
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
             bool datosIngresados = (txb_serie_equipo.Text != "" && 
@@ -404,6 +468,10 @@ namespace Cerin_Ingenieros
             
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en una celda del DataGridView de accesorios.
+        /// Habilita o deshabilita la edición de la cantidad de accesorios según el estado del checkbox.
+        /// </summary>
         private void dgvAcesorios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == 0) 
@@ -425,6 +493,11 @@ namespace Cerin_Ingenieros
             }
         }
 
+
+        /// <summary>
+        /// Maneja el evento de finalización de edición de una celda en el DataGridView de accesorios.
+        /// Valida y ajusta la cantidad ingresada de accesorios.
+        /// </summary>
         private void dgvAcesorios_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex >=0  && e.ColumnIndex == 2)
@@ -446,6 +519,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de ítem seleccionado en el ComboBox de categoría.
+        /// Actualiza el ComboBox de marca con las marcas correspondientes a la categoría seleccionada.
+        /// </summary>
         private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             entCategoria categoria = (entCategoria)comboBoxCategoria.SelectedItem;
@@ -465,6 +542,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de cambio de ítem seleccionado en el ComboBox de marca.
+        /// Actualiza el ComboBox de modelo con los modelos correspondientes a la marca y categoría seleccionadas.
+        /// </summary>
         private void comboBox_marca_SelectedIndexChanged(object sender, EventArgs e)
         {
             entMarca marca = (entMarca)comboBox_marca.SelectedItem;
@@ -477,6 +558,10 @@ namespace Cerin_Ingenieros
             }
         }
 
+        /// <summary>
+        /// Maneja el evento de clic en el botón "Nuevo".
+        /// Verifica la existencia de categorías, marcas y modelos antes de configurar un nuevo equipo.
+        /// </summary>
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
             if (comboBoxCategoria.Items.Count == 0)
