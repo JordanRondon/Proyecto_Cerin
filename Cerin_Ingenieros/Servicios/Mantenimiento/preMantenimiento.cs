@@ -249,7 +249,7 @@ namespace Cerin_Ingenieros.Servicios
                     estadoPago = 'R',
                     estadoStikers = 'A'
                 };
-                //entEmpleado temp = (entEmpleado)comboBox_empleado.SelectedItem;
+                
                 servicio.IdEmpleado = Convert.ToInt16(comboBox_empleado.SelectedValue); //temp.IdEmpleado;
                 
 
@@ -274,9 +274,6 @@ namespace Cerin_Ingenieros.Servicios
 
                 if (file != null)
                 {
-                    //preViewCertificado preView = new preViewCertificado(file);
-                    //preView.Show();
-
                     Process.Start(file);
                 }
 
